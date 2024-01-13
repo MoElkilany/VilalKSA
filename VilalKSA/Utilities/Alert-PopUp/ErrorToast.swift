@@ -1,0 +1,54 @@
+//
+//  ErrorToast.swift
+//  VilalKSA
+//
+//  Created by Elkilany on 11/12/2023.
+//
+
+import SwiftUI
+
+struct ErrorToast: View {
+    
+    let title: String?
+
+    var body: some View {
+        
+        HStack(spacing: 8) {
+            Image(R.image.xCircle.name)
+                .foregroundColor(.white)
+                .frame(width: 24, height: 24)
+            
+            Text(title ?? "" )
+                .foregroundColor(.white)
+                .font(.system(size: 16,weight: .regular))
+        }
+        .padding(16)
+        .background(.red)
+        .cornerRadius(12)
+        .padding(.horizontal, 16)
+    }
+}
+
+
+struct ToastBottomSecond: View {
+    let title: String?
+    let subTitle: String?
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 16) {
+            Image(R.image.checkmark_Success.name)
+                .frame(width: 48, height: 48)
+            
+            VStack(alignment: .leading, spacing: 4) {
+                TextBold16(text: title ?? "", textColor:R.color.colorPrimary.name.getColor())
+                TextRegular14(text: title ?? "", textColor: Color.gray)
+            }
+            Spacer()
+        }
+        .foregroundColor(.black)
+        .padding(EdgeInsets(top: 24, leading: 16, bottom: 42, trailing: 16))
+        .frame(maxWidth: .infinity)
+        .background(Color.white)
+        .shadow(color: .black.opacity(0.1), radius: 40, x: 0, y: -4)
+    }
+}
