@@ -39,6 +39,7 @@ class BaseViewModel:ViewModelProtocol,ObservableObject {
         }
     }
     
+    
     func handleSuccess<T>(_ value: T) {
     
     }
