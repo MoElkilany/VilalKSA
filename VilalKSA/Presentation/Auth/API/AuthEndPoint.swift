@@ -76,25 +76,18 @@ extension AuthEndPoint: TargetType, AccessTokenAuthorizable {
     }
     
     var headers: [String : String]? {
-        
-        var header : [String : String] = ["Accept": "application/json",
-                                                      "Accept-Language": "ar" ]
-        switch self {
-            
-        case .login,.registerPhone,.verificationCode,.forgetPassword,.codeForgetPassword,.resendCode:
-            return header
-        case .compeletProfile,.changePassword:
-            header["Authorization"] = "Bearer \(UserDefaults.standard.string(forKey: Constants.beraerToken.rawValue) ?? "") "
-        }
+        var header : [String : String] = ["Accept": "application/json","Accept-Language": "ar" ]
         return header
     }
 
     var authorizationType: AuthorizationType? {
         switch self {
-        case .login , .registerPhone,.verificationCode,.compeletProfile,.forgetPassword,.codeForgetPassword,.changePassword,.resendCode:
+        case .login , .registerPhone,.verificationCode,.forgetPassword,.codeForgetPassword,.resendCode:
                 return .none
-            default:
-                return .none
+
+        case .compeletProfile,.changePassword:
+            return .bearer
+            
             }
         }
 }

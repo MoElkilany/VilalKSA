@@ -9,6 +9,7 @@ import SwiftUI
 import UIPilot
 import PopupView
 import CountryPicker
+import LanguageManagerSwiftUI
 
 
 struct LoginPage: View {
@@ -31,12 +32,12 @@ struct LoginPage: View {
                     .padding(.bottom ,32)
                 
                 ScrollView{
-                    
+
                     HStack {
                         VStack(alignment: .leading) {
-                            TextExtraBold16(text: "Login", textColor: R.color.color172B4D.name.getColor())
+                            TextExtraBold16(text: R.string.localizable.login.localized, textColor: R.color.color172B4D.name.getColor())
                                 .padding(.bottom,1)
-                            TextRegular12(text: "Enter your mobile number", textColor: R.color.color7A869A.name.getColor())
+                            TextRegular12(text: R.string.localizable.enter_Your_Phone.localized, textColor: R.color.color7A869A.name.getColor())
                         }
                         Spacer()
                     }
@@ -45,7 +46,7 @@ struct LoginPage: View {
                     HStack {
                         GeneralTextField(
                             text: $phoneNumber,
-                            placeholder: "Enter the phone number",
+                            placeholder:  R.string.localizable.enter_Phone_Number.localized,
                             imageName: R.image.phoneIcon.name ,
                             keyboardType:.numberPad,
                             validationClosure: { input in
@@ -70,35 +71,35 @@ struct LoginPage: View {
                         }
                     }
                     
-                    PasswordTextField(text: $password, keyboardType: .default, placeholder: "Password", validationClosure: { input in
+                    PasswordTextField(text: $password, keyboardType: .default, placeholder: R.string.localizable.password.localized, validationClosure: { input in
                         let letterCount = input.filter { $0.isLetter }.count
                         let digitCount = input.filter { $0.isNumber }.count
                         return  letterCount >= 8 || digitCount >= 8
                     }).padding(.top,12)
                     
                     HStack {
-                        Button("Did you forget your password?") {
+                        Button(R.string.localizable.forget_Password.localized) {
                             pilot.push(.forgetPassword)
                         }
                         .foregroundColor(R.color.color42526E.name.getColor())
-                        .font(.system(size: 12))
+                        .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                         Spacer()
                     }
                     .padding([.vertical ,.horizontal],22)
                     
-                    DefaultButton(title: "Login", backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                    DefaultButton(title:  R.string.localizable.login.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         loginAction()
                     }, fontWeight: .bold)
                     Spacer()
                 }
                 
                 HStack {
-                    TextRegular12(text: "Don't have an account?", textColor: R.color.color42526E.name.getColor())
-                    Button("Create New Account") {
+                    TextRegular12(text:  R.string.localizable.dont_Have_Account.localized, textColor: R.color.color42526E.name.getColor())
+                    Button( R.string.localizable.create_New_Account.localized) {
                         pilot.push(.createAccountPage)
                     }
                     .foregroundColor(R.color.colorPrimary.name.getColor())
-                    .font(.system(size: 12))
+                    .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                 }
                 .padding(22)
                 .padding(.bottom,12)
@@ -122,6 +123,8 @@ struct LoginPage: View {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
         .onReceive(self.viewModel.$isNotVerified, perform: navigateToVerificationPage(isNotVerified:))
+        .onReceive(self.viewModel.$loggedin, perform: navigateToHomePage(isLoggedin:))
+
         .disabled(self.viewModel.state == .loading )
         
         .background(.white)
@@ -144,6 +147,12 @@ struct LoginPage: View {
     func navigateToVerificationPage(isNotVerified: Bool ) {
         if isNotVerified {
             pilot.push(.verificationCode(phoneNumber:  self.phoneWithCodeCounty, navigationChecker: .isForgetPassword))
+        }
+    }
+    
+    func navigateToHomePage(isLoggedin: Bool ) {
+        if isLoggedin {
+            pilot.push(.home)
         }
     }
 }

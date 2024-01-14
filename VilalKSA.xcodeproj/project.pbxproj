@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		DC5462184D61FA57860B470A /* Pods_VilalKSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564BE915888CBD238B7C6ADE /* Pods_VilalKSA.framework */; };
 		E70872652B27014600341841 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E70872642B27014600341841 /* PopupView */; };
+		E7096D702B52ACD900FDA20E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7096D722B52ACD900FDA20E /* Localizable.strings */; };
+		E7096D772B53063800FDA20E /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7096D762B53063800FDA20E /* HomePage.swift */; };
+		E7096D7B2B53079800FDA20E /* PopupPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7096D7A2B53079800FDA20E /* PopupPresent.swift */; };
+		E7096D832B53088700FDA20E /* ServicesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7096D822B53088700FDA20E /* ServicesPage.swift */; };
+		E7096D872B53089F00FDA20E /* AddRequestPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7096D862B53089F00FDA20E /* AddRequestPage.swift */; };
+		E7096D8A2B5308BF00FDA20E /* MessagesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7096D892B5308BF00FDA20E /* MessagesPage.swift */; };
+		E7096D8D2B5308D400FDA20E /* MyAccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7096D8C2B5308D400FDA20E /* MyAccountPage.swift */; };
+		E7096D912B530A8700FDA20E /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7096D902B530A8700FDA20E /* MainPage.swift */; };
+		E7096D9C2B53322A00FDA20E /* Cairo-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D932B53322900FDA20E /* Cairo-SemiBold.ttf */; };
+		E7096D9E2B53322A00FDA20E /* Cairo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D952B53322900FDA20E /* Cairo-Light.ttf */; };
+		E7096DA02B53322A00FDA20E /* Cairo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D972B53322900FDA20E /* Cairo-Medium.ttf */; };
+		E7096DA12B53322A00FDA20E /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D982B53322A00FDA20E /* Cairo-Regular.ttf */; };
+		E7096DA32B53322A00FDA20E /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D9A2B53322A00FDA20E /* Cairo-Bold.ttf */; };
 		E71A633B2B26102000B8687C /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A633A2B26102000B8687C /* TextStyles.swift */; };
 		E71B097C2B2A5A5900046242 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */; };
 		E72050672B2C753E00EB76AB /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72050662B2C753E00EB76AB /* NewPasswordPage.swift */; };
@@ -19,6 +32,12 @@
 		E72711022B20B9FA00C86406 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72711012B20B9FA00C86406 /* R.generated.swift */; };
 		E72DB1462B43844C00644252 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1452B43844C00644252 /* CountryPicker */; };
 		E72DB1482B43846300644252 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1472B43846300644252 /* PopupView */; };
+		E7361F7B2B5339EB00E97D15 /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */; };
+		E7361F7D2B53462A00E97D15 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F7C2B53462A00E97D15 /* GridView.swift */; };
+		E7361F802B534E4600E97D15 /* ServicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */; };
+		E7361F852B534F3D00E97D15 /* ServicesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F842B534F3D00E97D15 /* ServicesEndPoint.swift */; };
+		E7361F872B534F5800E97D15 /* ServicesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F862B534F5800E97D15 /* ServicesAPIClient.swift */; };
+		E7361F892B534F8B00E97D15 /* ServicesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F882B534F8B00E97D15 /* ServicesModel.swift */; };
 		E744D1942B483FB800CB5DC1 /* AuthAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E744D1932B483FB800CB5DC1 /* AuthAPIClient.swift */; };
 		E744D1962B48403300CB5DC1 /* AuthEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E744D1952B48403300CB5DC1 /* AuthEndPoint.swift */; };
 		E744D1992B48412E00CB5DC1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E744D1982B48412E00CB5DC1 /* LoginModel.swift */; };
@@ -74,7 +93,6 @@
 		E7CAC5FB2B4701F30070C9D1 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FA2B4701F30070C9D1 /* AppUtility.swift */; };
 		E7CAC5FD2B4702210070C9D1 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FC2B4702210070C9D1 /* BaseModel.swift */; };
 		E7CAC5FF2B4703140070C9D1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FE2B4703140070C9D1 /* ErrorMessage.swift */; };
-		E7D7CD3C2B0F77CC00C70010 /* FSAlbertArabic-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7D7CD3B2B0F77CC00C70010 /* FSAlbertArabic-Bold.otf */; };
 		E7DD75652B4FAD4E00207409 /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD75642B4FAD4E00207409 /* ForgetPasswordModel.swift */; };
 		E7DD75672B4FAD8800207409 /* CodeForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD75662B4FAD8800207409 /* CodeForgetPasswordModel.swift */; };
 		E7DD75692B4FAE1F00207409 /* ChangePasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD75682B4FAE1F00207409 /* ChangePasswordModel.swift */; };
@@ -87,6 +105,21 @@
 		5515F0BC513186F8473434B7 /* Pods-VilalKSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VilalKSA.debug.xcconfig"; path = "Target Support Files/Pods-VilalKSA/Pods-VilalKSA.debug.xcconfig"; sourceTree = "<group>"; };
 		564BE915888CBD238B7C6ADE /* Pods_VilalKSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VilalKSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9E0E8B49A0B03C386D649D /* Pods-VilalKSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VilalKSA.release.xcconfig"; path = "Target Support Files/Pods-VilalKSA/Pods-VilalKSA.release.xcconfig"; sourceTree = "<group>"; };
+		E7096D712B52ACD900FDA20E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E7096D732B52ACF200FDA20E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E7096D762B53063800FDA20E /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		E7096D7A2B53079800FDA20E /* PopupPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPresent.swift; sourceTree = "<group>"; };
+		E7096D822B53088700FDA20E /* ServicesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPage.swift; sourceTree = "<group>"; };
+		E7096D862B53089F00FDA20E /* AddRequestPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestPage.swift; sourceTree = "<group>"; };
+		E7096D892B5308BF00FDA20E /* MessagesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPage.swift; sourceTree = "<group>"; };
+		E7096D8C2B5308D400FDA20E /* MyAccountPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountPage.swift; sourceTree = "<group>"; };
+		E7096D902B530A8700FDA20E /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		E7096D932B53322900FDA20E /* Cairo-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-SemiBold.ttf"; sourceTree = "<group>"; };
+		E7096D952B53322900FDA20E /* Cairo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Light.ttf"; sourceTree = "<group>"; };
+		E7096D972B53322900FDA20E /* Cairo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Medium.ttf"; sourceTree = "<group>"; };
+		E7096D982B53322A00FDA20E /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
+		E7096D9A2B53322A00FDA20E /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
+		E7096DA42B53342300FDA20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E71A633A2B26102000B8687C /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPage.swift; sourceTree = "<group>"; };
 		E72050662B2C753E00EB76AB /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
@@ -95,6 +128,12 @@
 		E72050772B2CB65600EB76AB /* CompeletProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompeletProfilePage.swift; sourceTree = "<group>"; };
 		E72710FF2B20853900C86406 /* ButtonsStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsStyles.swift; sourceTree = "<group>"; };
 		E72711012B20B9FA00C86406 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E7361F7C2B53462A00E97D15 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewModel.swift; sourceTree = "<group>"; };
+		E7361F842B534F3D00E97D15 /* ServicesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesEndPoint.swift; sourceTree = "<group>"; };
+		E7361F862B534F5800E97D15 /* ServicesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAPIClient.swift; sourceTree = "<group>"; };
+		E7361F882B534F8B00E97D15 /* ServicesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesModel.swift; sourceTree = "<group>"; };
 		E744D1932B483FB800CB5DC1 /* AuthAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPIClient.swift; sourceTree = "<group>"; };
 		E744D1952B48403300CB5DC1 /* AuthEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndPoint.swift; sourceTree = "<group>"; };
 		E744D1982B48412E00CB5DC1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -149,7 +188,6 @@
 		E7CAC5FA2B4701F30070C9D1 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		E7CAC5FC2B4702210070C9D1 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		E7CAC5FE2B4703140070C9D1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
-		E7D7CD3B2B0F77CC00C70010 /* FSAlbertArabic-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FSAlbertArabic-Bold.otf"; sourceTree = "<group>"; };
 		E7DD75642B4FAD4E00207409 /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
 		E7DD75662B4FAD8800207409 /* CodeForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForgetPasswordModel.swift; sourceTree = "<group>"; };
 		E7DD75682B4FAE1F00207409 /* ChangePasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModel.swift; sourceTree = "<group>"; };
@@ -190,6 +228,104 @@
 				564BE915888CBD238B7C6ADE /* Pods_VilalKSA.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7096D742B53060800FDA20E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D752B53062600FDA20E /* Page */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E7096D752B53062600FDA20E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D762B53063800FDA20E /* HomePage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		E7096D7C2B53080E00FDA20E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7361F832B534EA000E97D15 /* API */,
+				E7361F822B534E9900E97D15 /* Model */,
+				E7361F812B534E9000E97D15 /* ServicesPage */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E7096D7D2B53083800FDA20E /* AddRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D852B53089100FDA20E /* Page */,
+			);
+			path = AddRequest;
+			sourceTree = "<group>";
+		};
+		E7096D7E2B53084400FDA20E /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D882B5308B200FDA20E /* Page */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		E7096D7F2B53085000FDA20E /* MyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D8B2B5308C400FDA20E /* Page */,
+			);
+			path = MyAccount;
+			sourceTree = "<group>";
+		};
+		E7096D802B53086000FDA20E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D822B53088700FDA20E /* ServicesPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		E7096D852B53089100FDA20E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D862B53089F00FDA20E /* AddRequestPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		E7096D882B5308B200FDA20E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D892B5308BF00FDA20E /* MessagesPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		E7096D8B2B5308C400FDA20E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D8C2B5308D400FDA20E /* MyAccountPage.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		E7096D8E2B530A7300FDA20E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D8F2B530A7700FDA20E /* Page */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E7096D8F2B530A7700FDA20E /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				E7096D902B530A8700FDA20E /* MainPage.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 		E71B09772B2A59E100046242 /* Auth */ = {
@@ -342,6 +478,40 @@
 			path = CustomStyles;
 			sourceTree = "<group>";
 		};
+		E7361F7E2B534E3400E97D15 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E7361F812B534E9000E97D15 /* ServicesPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7361F7E2B534E3400E97D15 /* ViewModel */,
+				E7096D802B53086000FDA20E /* Page */,
+			);
+			path = ServicesPage;
+			sourceTree = "<group>";
+		};
+		E7361F822B534E9900E97D15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7361F882B534F8B00E97D15 /* ServicesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7361F832B534EA000E97D15 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E7361F842B534F3D00E97D15 /* ServicesEndPoint.swift */,
+				E7361F862B534F5800E97D15 /* ServicesAPIClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		E744D1922B483F9900CB5DC1 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +558,7 @@
 				E74EDE292B0EBF3100E0B150 /* PageIndicator.swift */,
 				E74EDE2A2B0EBF3100E0B150 /* ImageView.swift */,
 				E7BD49AA2B48EDF6000A30EF /* OnScreenLoading.swift */,
+				E7361F7C2B53462A00E97D15 /* GridView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -460,6 +631,12 @@
 		E7BBD9582B0D527D0086758B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E7096D7F2B53085000FDA20E /* MyAccount */,
+				E7096D7E2B53084400FDA20E /* Messages */,
+				E7096D7D2B53083800FDA20E /* AddRequest */,
+				E7096D7C2B53080E00FDA20E /* Services */,
+				E7096D8E2B530A7300FDA20E /* Main */,
+				E7096D742B53060800FDA20E /* Home */,
 				E71B09772B2A59E100046242 /* Auth */,
 				E7BBD96A2B0D598E0086758B /* Splash */,
 			);
@@ -565,6 +742,7 @@
 		E7C925882B0B78AF007DF84B /* VilalKSA */ = {
 			isa = PBXGroup;
 			children = (
+				E7096DA42B53342300FDA20E /* Info.plist */,
 				E7CAC5EC2B46FDD40070C9D1 /* Network */,
 				E72710FE2B20850800C86406 /* CustomStyles */,
 				E7C925972B0B7F83007DF84B /* Resources */,
@@ -573,6 +751,7 @@
 				E7BBD9582B0D527D0086758B /* Presentation */,
 				E7C925892B0B78AF007DF84B /* VilalKSAApp.swift */,
 				E7C9258B2B0B78AF007DF84B /* ContentView.swift */,
+				E7096D722B52ACD900FDA20E /* Localizable.strings */,
 				E7C9258F2B0B78B1007DF84B /* Preview Content */,
 			);
 			path = VilalKSA;
@@ -599,7 +778,12 @@
 		E7C925982B0B7F90007DF84B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E7D7CD3B2B0F77CC00C70010 /* FSAlbertArabic-Bold.otf */,
+				E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */,
+				E7096D9A2B53322A00FDA20E /* Cairo-Bold.ttf */,
+				E7096D952B53322900FDA20E /* Cairo-Light.ttf */,
+				E7096D972B53322900FDA20E /* Cairo-Medium.ttf */,
+				E7096D982B53322A00FDA20E /* Cairo-Regular.ttf */,
+				E7096D932B53322900FDA20E /* Cairo-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -620,6 +804,7 @@
 				E7CAC5FA2B4701F30070C9D1 /* AppUtility.swift */,
 				E7CAC5FC2B4702210070C9D1 /* BaseModel.swift */,
 				E7CAC5FE2B4703140070C9D1 /* ErrorMessage.swift */,
+				E7096D7A2B53079800FDA20E /* PopupPresent.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -745,6 +930,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = E7C9257D2B0B78AF007DF84B;
 			packageReferences = (
@@ -766,11 +952,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7096D9E2B53322A00FDA20E /* Cairo-Light.ttf in Resources */,
+				E7096DA12B53322A00FDA20E /* Cairo-Regular.ttf in Resources */,
+				E7096DA02B53322A00FDA20E /* Cairo-Medium.ttf in Resources */,
 				E74EDE502B0EC02D00E0B150 /* LoadingView.xib in Resources */,
-				E7D7CD3C2B0F77CC00C70010 /* FSAlbertArabic-Bold.otf in Resources */,
 				E75591A82B27BC4F00693FD5 /* ReadMee.md in Resources */,
+				E7096D702B52ACD900FDA20E /* Localizable.strings in Resources */,
+				E7096D9C2B53322A00FDA20E /* Cairo-SemiBold.ttf in Resources */,
 				E7C925912B0B78B1007DF84B /* Preview Assets.xcassets in Resources */,
+				E7361F7B2B5339EB00E97D15 /* Cairo-ExtraBold.ttf in Resources */,
 				E7601EAC2B1F43000070C853 /* Colors.xcassets in Resources */,
+				E7096DA32B53322A00FDA20E /* Cairo-Bold.ttf in Resources */,
 				E7C9258E2B0B78B1007DF84B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -863,13 +1055,18 @@
 				E7A5F6132B50974B00882220 /* NewPasswordViewModel.swift in Sources */,
 				E7DD75692B4FAE1F00207409 /* ChangePasswordModel.swift in Sources */,
 				E74EDE542B0EC11500E0B150 /* LoadingView.swift in Sources */,
+				E7096D772B53063800FDA20E /* HomePage.swift in Sources */,
 				E7A8BD382B4DE9A800A6AA5B /* CompeletProfileViewModel.swift in Sources */,
 				E71B097C2B2A5A5900046242 /* ForgetPasswordPage.swift in Sources */,
+				E7361F852B534F3D00E97D15 /* ServicesEndPoint.swift in Sources */,
 				E7BBD9652B0D54120086758B /* Color+Extension.swift in Sources */,
 				E7CAC5FB2B4701F30070C9D1 /* AppUtility.swift in Sources */,
+				E7096D832B53088700FDA20E /* ServicesPage.swift in Sources */,
 				E74EDE482B0EBF3100E0B150 /* ActivityView.swift in Sources */,
+				E7096D8A2B5308BF00FDA20E /* MessagesPage.swift in Sources */,
 				E74EDE362B0EBF3100E0B150 /* BaseStateView.swift in Sources */,
 				E7C9258C2B0B78AF007DF84B /* ContentView.swift in Sources */,
+				E7096D8D2B5308D400FDA20E /* MyAccountPage.swift in Sources */,
 				E750498E2B2893F6008DD89C /* CountryPickerHandler.swift in Sources */,
 				E744D19C2B4843F900CB5DC1 /* LoginViewModel.swift in Sources */,
 				E72711022B20B9FA00C86406 /* R.generated.swift in Sources */,
@@ -877,10 +1074,14 @@
 				E7E6FF672B2B4ADC00D94036 /* OtpModifer.swift in Sources */,
 				E7BD49AB2B48EDF6000A30EF /* OnScreenLoading.swift in Sources */,
 				E7E6FF642B2B4A8300D94036 /* VerificationCodePage.swift in Sources */,
+				E7096D7B2B53079800FDA20E /* PopupPresent.swift in Sources */,
+				E7361F7D2B53462A00E97D15 /* GridView.swift in Sources */,
+				E7096D872B53089F00FDA20E /* AddRequestPage.swift in Sources */,
 				E7C9C3962B1F6AAC00633434 /* String+Extension.swift in Sources */,
 				E7BD49A72B48E77A000A30EF /* CreateAcountViewModel.swift in Sources */,
 				E7CAC5FF2B4703140070C9D1 /* ErrorMessage.swift in Sources */,
 				E7C9259C2B0B800D007DF84B /* Enums.swift in Sources */,
+				E7361F872B534F5800E97D15 /* ServicesAPIClient.swift in Sources */,
 				E7A5F6102B5072C500882220 /* ForgetPasswordViewModel.swift in Sources */,
 				E7BD49A92B48E865000A30EF /* RegisterPhoneModel.swift in Sources */,
 				E7CAC5F92B4700870070C9D1 /* Constants.swift in Sources */,
@@ -890,12 +1091,14 @@
 				E74EDE372B0EBF3100E0B150 /* MHProgress.swift in Sources */,
 				E74EDE3C2B0EBF3100E0B150 /* StateView.swift in Sources */,
 				E7DD75672B4FAD8800207409 /* CodeForgetPasswordModel.swift in Sources */,
+				E7361F892B534F8B00E97D15 /* ServicesModel.swift in Sources */,
 				E7BBD9692B0D544E0086758B /* View+Extension.swift in Sources */,
 				E7CAC5F42B46FDD40070C9D1 /* APIResult.swift in Sources */,
 				E7C9259F2B0B80BC007DF84B /* Popup.swift in Sources */,
 				E7CAC5FD2B4702210070C9D1 /* BaseModel.swift in Sources */,
 				E744D1992B48412E00CB5DC1 /* LoginModel.swift in Sources */,
 				E71A633B2B26102000B8687C /* TextStyles.swift in Sources */,
+				E7361F802B534E4600E97D15 /* ServicesViewModel.swift in Sources */,
 				E744D1962B48403300CB5DC1 /* AuthEndPoint.swift in Sources */,
 				E7A8BD2E2B4DD84200A6AA5B /* VerificationCodeViewModel.swift in Sources */,
 				E7BBD95D2B0D52C70086758B /* LoginPage.swift in Sources */,
@@ -906,16 +1109,30 @@
 				E7C9258A2B0B78AF007DF84B /* VilalKSAApp.swift in Sources */,
 				E75591A32B27065900693FD5 /* PopupMiddle.swift in Sources */,
 				E7DD75652B4FAD4E00207409 /* ForgetPasswordModel.swift in Sources */,
+				E7096D912B530A8700FDA20E /* MainPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E7096D722B52ACD900FDA20E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7096D712B52ACD900FDA20E /* en */,
+				E7096D732B52ACF200FDA20E /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E7C925922B0B78B1007DF84B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -976,6 +1193,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1038,6 +1256,8 @@
 				DEVELOPMENT_TEAM = LRDS6PV5N3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VilalKSA/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1073,6 +1293,8 @@
 				DEVELOPMENT_TEAM = LRDS6PV5N3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VilalKSA/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

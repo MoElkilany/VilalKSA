@@ -6,9 +6,6 @@
 //
 
 import Moya
-
-
-
 struct AuthAPIClient: APIClient {
     
     typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void

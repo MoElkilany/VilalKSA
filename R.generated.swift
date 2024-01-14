@@ -12,12 +12,22 @@ let R = _R(bundle: Bundle(for: BundleFinder.self))
 
 struct _R {
   let bundle: Foundation.Bundle
+  var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
   var color: color { .init(bundle: bundle) }
   var image: image { .init(bundle: bundle) }
   var font: font { .init(bundle: bundle) }
   var file: file { .init(bundle: bundle) }
   var nib: nib { .init(bundle: bundle) }
 
+  func string(bundle: Foundation.Bundle) -> string {
+    .init(bundle: bundle, preferredLanguages: nil, locale: nil)
+  }
+  func string(locale: Foundation.Locale) -> string {
+    .init(bundle: bundle, preferredLanguages: nil, locale: locale)
+  }
+  func string(preferredLanguages: [String], locale: Locale? = nil) -> string {
+    .init(bundle: bundle, preferredLanguages: preferredLanguages, locale: locale)
+  }
   func color(bundle: Foundation.Bundle) -> color {
     .init(bundle: bundle)
   }
@@ -40,6 +50,122 @@ struct _R {
 
   struct project {
     let developmentRegion = "en"
+  }
+
+  /// This `_R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    let bundle: Foundation.Bundle
+    let preferredLanguages: [String]?
+    let locale: Locale?
+    var localizable: localizable { .init(source: .init(bundle: bundle, tableName: "Localizable", preferredLanguages: preferredLanguages, locale: locale)) }
+
+    func localizable(preferredLanguages: [String]) -> localizable {
+      .init(source: .init(bundle: bundle, tableName: "Localizable", preferredLanguages: preferredLanguages, locale: locale))
+    }
+
+
+    /// This `_R.string.localizable` struct is generated, and contains static references to 14 localization keys.
+    struct localizable {
+      let source: RswiftResources.StringResource.Source
+
+      /// en translation: Add
+      ///
+      /// Key: Add
+      ///
+      /// Locales: en, ar
+      var add: RswiftResources.StringResource { .init(key: "Add", tableName: "Localizable", source: source, developmentValue: "Add", comment: nil) }
+
+      /// en translation: Create New Account
+      ///
+      /// Key: Create_New_Account
+      ///
+      /// Locales: en, ar
+      var create_New_Account: RswiftResources.StringResource { .init(key: "Create_New_Account", tableName: "Localizable", source: source, developmentValue: "Create New Account", comment: nil) }
+
+      /// en translation: Don't have an account?
+      ///
+      /// Key: Dont_Have_Account
+      ///
+      /// Locales: en, ar
+      var dont_Have_Account: RswiftResources.StringResource { .init(key: "Dont_Have_Account", tableName: "Localizable", source: source, developmentValue: "Don't have an account?", comment: nil) }
+
+      /// en translation: Enter the phone number
+      ///
+      /// Key: Enter_Phone_Number
+      ///
+      /// Locales: en, ar
+      var enter_Phone_Number: RswiftResources.StringResource { .init(key: "Enter_Phone_Number", tableName: "Localizable", source: source, developmentValue: "Enter the phone number", comment: nil) }
+
+      /// en translation: Enter your mobile number
+      ///
+      /// Key: Enter_Your_Phone
+      ///
+      /// Locales: en, ar
+      var enter_Your_Phone: RswiftResources.StringResource { .init(key: "Enter_Your_Phone", tableName: "Localizable", source: source, developmentValue: "Enter your mobile number", comment: nil) }
+
+      /// en translation: Please enter password
+      ///
+      /// Key: Error_Password_Required
+      ///
+      /// Locales: en, ar
+      var error_Password_Required: RswiftResources.StringResource { .init(key: "Error_Password_Required", tableName: "Localizable", source: source, developmentValue: "Please enter password", comment: nil) }
+
+      /// en translation: Please enter phone number
+      ///
+      /// Key: Error_Phone_Required
+      ///
+      /// Locales: en, ar
+      var error_Phone_Required: RswiftResources.StringResource { .init(key: "Error_Phone_Required", tableName: "Localizable", source: source, developmentValue: "Please enter phone number", comment: nil) }
+
+      /// en translation: Did you forget your password?
+      ///
+      /// Key: Forget_Password
+      ///
+      /// Locales: en, ar
+      var forget_Password: RswiftResources.StringResource { .init(key: "Forget_Password", tableName: "Localizable", source: source, developmentValue: "Did you forget your password?", comment: nil) }
+
+      /// en translation: Login
+      ///
+      /// Key: Login
+      ///
+      /// Locales: en, ar
+      var login: RswiftResources.StringResource { .init(key: "Login", tableName: "Localizable", source: source, developmentValue: "Login", comment: nil) }
+
+      /// en translation: Main
+      ///
+      /// Key: Main
+      ///
+      /// Locales: en, ar
+      var main: RswiftResources.StringResource { .init(key: "Main", tableName: "Localizable", source: source, developmentValue: "Main", comment: nil) }
+
+      /// en translation: Messages
+      ///
+      /// Key: Messages
+      ///
+      /// Locales: en, ar
+      var messages: RswiftResources.StringResource { .init(key: "Messages", tableName: "Localizable", source: source, developmentValue: "Messages", comment: nil) }
+
+      /// en translation: Account
+      ///
+      /// Key: MyAccount
+      ///
+      /// Locales: en, ar
+      var myAccount: RswiftResources.StringResource { .init(key: "MyAccount", tableName: "Localizable", source: source, developmentValue: "Account", comment: nil) }
+
+      /// en translation: Entert the password
+      ///
+      /// Key: Password
+      ///
+      /// Locales: en, ar
+      var password: RswiftResources.StringResource { .init(key: "Password", tableName: "Localizable", source: source, developmentValue: "Entert the password", comment: nil) }
+
+      /// en translation: Services
+      ///
+      /// Key: Services
+      ///
+      /// Locales: en, ar
+      var services: RswiftResources.StringResource { .init(key: "Services", tableName: "Localizable", source: source, developmentValue: "Services", comment: nil) }
+    }
   }
 
   /// This `_R.color` struct is generated, and contains static references to 10 colors.
@@ -77,9 +203,12 @@ struct _R {
     var colorPrimary: RswiftResources.ColorResource { .init(name: "ColorPrimary", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 20 images.
+  /// This `_R.image` struct is generated, and contains static references to 25 images.
   struct image {
     let bundle: Foundation.Bundle
+
+    /// Image `Add`.
+    var add: RswiftResources.ImageResource { .init(name: "Add", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Apple-icon`.
     var appleIcon: RswiftResources.ImageResource { .init(name: "Apple-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -132,6 +261,18 @@ struct _R {
     /// Image `logo-icon`.
     var logoIcon: RswiftResources.ImageResource { .init(name: "logo-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `main`.
+    var main: RswiftResources.ImageResource { .init(name: "main", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `message`.
+    var message: RswiftResources.ImageResource { .init(name: "message", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `profile`.
+    var profile: RswiftResources.ImageResource { .init(name: "profile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `services`.
+    var services: RswiftResources.ImageResource { .init(name: "services", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `show-password`.
     var showPassword: RswiftResources.ImageResource { .init(name: "show-password", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -142,15 +283,30 @@ struct _R {
     var xCircle: RswiftResources.ImageResource { .init(name: "x-circle", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
-  /// This `_R.font` struct is generated, and contains static references to 1 fonts.
+  /// This `_R.font` struct is generated, and contains static references to 6 fonts.
   struct font: Sequence {
     let bundle: Foundation.Bundle
 
-    /// Font `FSAlbertArabic-Bold`.
-    var fsAlbertArabicBold: RswiftResources.FontResource { .init(name: "FSAlbertArabic-Bold", bundle: bundle, filename: "FSAlbertArabic-Bold.otf") }
+    /// Font `Cairo-Bold`.
+    var cairoBold: RswiftResources.FontResource { .init(name: "Cairo-Bold", bundle: bundle, filename: "Cairo-Bold.ttf") }
+
+    /// Font `Cairo-ExtraBold`.
+    var cairoExtraBold: RswiftResources.FontResource { .init(name: "Cairo-ExtraBold", bundle: bundle, filename: "Cairo-ExtraBold.ttf") }
+
+    /// Font `Cairo-Light`.
+    var cairoLight: RswiftResources.FontResource { .init(name: "Cairo-Light", bundle: bundle, filename: "Cairo-Light.ttf") }
+
+    /// Font `Cairo-Medium`.
+    var cairoMedium: RswiftResources.FontResource { .init(name: "Cairo-Medium", bundle: bundle, filename: "Cairo-Medium.ttf") }
+
+    /// Font `Cairo-Regular`.
+    var cairoRegular: RswiftResources.FontResource { .init(name: "Cairo-Regular", bundle: bundle, filename: "Cairo-Regular.ttf") }
+
+    /// Font `Cairo-SemiBold`.
+    var cairoSemiBold: RswiftResources.FontResource { .init(name: "Cairo-SemiBold", bundle: bundle, filename: "Cairo-SemiBold.ttf") }
 
     func makeIterator() -> IndexingIterator<[RswiftResources.FontResource]> {
-      [fsAlbertArabicBold].makeIterator()
+      [cairoBold, cairoExtraBold, cairoLight, cairoMedium, cairoRegular, cairoSemiBold].makeIterator()
     }
     func validate() throws {
       for font in self {
@@ -159,12 +315,27 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 2 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 7 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
-    /// Resource file `FSAlbertArabic-Bold.otf`.
-    var fsAlbertArabicBoldOtf: RswiftResources.FileResource { .init(name: "FSAlbertArabic-Bold", pathExtension: "otf", bundle: bundle, locale: LocaleReference.none) }
+    /// Resource file `Cairo-Bold.ttf`.
+    var cairoBoldTtf: RswiftResources.FileResource { .init(name: "Cairo-Bold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Cairo-ExtraBold.ttf`.
+    var cairoExtraBoldTtf: RswiftResources.FileResource { .init(name: "Cairo-ExtraBold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Cairo-Light.ttf`.
+    var cairoLightTtf: RswiftResources.FileResource { .init(name: "Cairo-Light", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Cairo-Medium.ttf`.
+    var cairoMediumTtf: RswiftResources.FileResource { .init(name: "Cairo-Medium", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Cairo-Regular.ttf`.
+    var cairoRegularTtf: RswiftResources.FileResource { .init(name: "Cairo-Regular", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Cairo-SemiBold.ttf`.
+    var cairoSemiBoldTtf: RswiftResources.FileResource { .init(name: "Cairo-SemiBold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `ReadMee.md`.
     var readMeeMd: RswiftResources.FileResource { .init(name: "ReadMee", pathExtension: "md", bundle: bundle, locale: LocaleReference.none) }

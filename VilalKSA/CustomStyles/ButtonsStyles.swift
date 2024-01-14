@@ -27,7 +27,7 @@ struct BoarderCornerButton: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(textStyle))
+            .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 18))
             .padding()
             .frame(width: width, height: height, alignment: .center)
         
@@ -50,12 +50,12 @@ struct DefaultButton: View {
     private static let buttonHorizontalMargins: CGFloat = 20
     var backgroundColor: Color
     var foregroundColor: Color
-    private let title: String
+    private let title: LocalizedStringKey
     private let action: () -> Void
     private let disabled: Bool
     private let fontWeight: Font.Weight
 
-    init(title: String,
+    init(title: LocalizedStringKey,
          disabled: Bool = false,
          backgroundColor: Color = Color.green,
          foregroundColor: Color = Color.white,
@@ -86,11 +86,11 @@ struct DefaultButton: View {
 
 struct DefaultButtonWithIcon: View {
     
-    var title: String
+    var title: LocalizedStringKey
     var icon: String
     var actionButton: (()->())
     
-    init(title: String, icon: String, actionButton: @escaping () -> Void) {
+    init(title: LocalizedStringKey, icon: String, actionButton: @escaping () -> Void) {
         self.title = title
         self.icon = icon
         self.actionButton = actionButton
@@ -102,7 +102,7 @@ struct DefaultButtonWithIcon: View {
             HStack(alignment: .center){
                 Text(title)
                     .foregroundColor(.white)
-                    .font(.system(size: 20,weight: .semibold))
+                    .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 20))
                                 
                 Image(icon)
                     .frame(width: 50, height: 50, alignment : .center)
@@ -117,13 +117,13 @@ struct DefaultButtonWithIcon: View {
 
 struct DefaultBoarderButtonWithIcon: View {
     
-    var title: String
+    var title: LocalizedStringKey
     var borderColor: Color
     var backgroundColor: Color
     var titleColor: Color
     var actionButton: (()->())
     
-    init(title: String, borderColor: Color, backgroundColor: Color, titleColor: Color, actionButton: @escaping () -> Void) {
+    init(title: LocalizedStringKey, borderColor: Color, backgroundColor: Color, titleColor: Color, actionButton: @escaping () -> Void) {
         self.title = title
         self.borderColor = borderColor
 
@@ -138,7 +138,7 @@ struct DefaultBoarderButtonWithIcon: View {
         } label: {
                 Text(title)
                     .foregroundColor(titleColor)
-                    .font(.system(size: 20,weight: .semibold))
+                    .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 20))
         }
         .frame(maxWidth: Double.infinity, maxHeight: 50, alignment: .center)
         .background(backgroundColor)
@@ -168,7 +168,7 @@ struct DefaultCornerButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: width, height: 50, alignment: .center)
-            .font(Font.system(size: 14, weight: fontWeight))
+            .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 14))
             .background(backgroundColor)
             .foregroundStyle(textColor)
             .clipShape(Capsule())

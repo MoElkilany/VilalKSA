@@ -80,7 +80,7 @@ struct NewPasswordPage: View {
             }
         }
         .popup(isPresented: $viewModel.errorPopUp) {
-            ErrorToast(title: viewModel.errorMessage)
+            ErrorToast(title: LocalizedStringKey(viewModel.errorMessage))
         } customize: {
             $0
                 .type(.floater())

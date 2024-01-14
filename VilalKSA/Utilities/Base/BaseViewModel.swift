@@ -6,11 +6,12 @@
 //
 
 import Combine
+import SwiftUI
 
 protocol ViewModelProtocol: ObservableObject {
     var state: AppState { get set }
     var errorPopUp: Bool { get set }
-    var errorMessage: String { get set }
+    var errorMessage: LocalizedStringKey { get set }
     func handle(error: APIError)
     func handleSuccess<T>(_ value: T)
 }
@@ -20,8 +21,7 @@ class BaseViewModel:ViewModelProtocol,ObservableObject {
     
        @Published var state: AppState = .success
        @Published var errorPopUp: Bool = false
-       @Published var errorMessage: String = ""
-    
+       @Published var errorMessage: LocalizedStringKey = ""
     
     
     func handle(error: APIError) {
@@ -31,7 +31,7 @@ class BaseViewModel:ViewModelProtocol,ObservableObject {
         case .errorMessage(let message, _):
             print("Error Message: \(message)")
             self.errorPopUp = true
-            self.errorMessage = message
+            self.errorMessage = LocalizedStringKey(message)
         default:
             print("An unknown error occurred.")
             self.errorPopUp = true

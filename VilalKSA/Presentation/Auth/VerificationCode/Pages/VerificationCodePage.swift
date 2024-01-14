@@ -61,7 +61,7 @@ struct VerificationCodePage: View {
                         .padding(.bottom,2)
                         .padding(.horizontal,4)
                     
-                    TextRegular14(text: self.phoneNumber ,textColor: R.color.color172B4D.name.getColor())
+                    TextRegular14(text: self.phoneNumber.localizedKey ,textColor: R.color.color172B4D.name.getColor())
                         .padding(.bottom,2)
                     
                         .padding(.horizontal,4)
@@ -227,7 +227,7 @@ struct VerificationCodePage: View {
         }
         
         .popup(isPresented: $viewModel.errorPopUp) {
-            ErrorToast(title: viewModel.errorMessage)
+            ErrorToast(title:  LocalizedStringKey(viewModel.errorMessage))
         } customize: {
             $0
                 .type(.floater())

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ErrorToast: View {
     
-    let title: String?
+    let title: LocalizedStringKey?
 
     var body: some View {
         
@@ -20,7 +20,7 @@ struct ErrorToast: View {
             
             Text(title ?? "" )
                 .foregroundColor(.white)
-                .font(.system(size: 16,weight: .regular))
+                .font(Font.custom(FontName.cairoRegular.rawValue, size: 16))
         }
         .padding(16)
         .background(.red)
@@ -29,16 +29,14 @@ struct ErrorToast: View {
     }
 }
 
-
 struct ToastBottomSecond: View {
-    let title: String?
+    let title: LocalizedStringKey?
     let subTitle: String?
 
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             Image(R.image.checkmark_Success.name)
                 .frame(width: 48, height: 48)
-            
             VStack(alignment: .leading, spacing: 4) {
                 TextBold16(text: title ?? "", textColor:R.color.colorPrimary.name.getColor())
                 TextRegular14(text: title ?? "", textColor: Color.gray)

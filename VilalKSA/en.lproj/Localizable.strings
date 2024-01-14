@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  VilalKSA
+
+  Created by Elkilany on 13/01/2024.
+  
+*/
+
+// MARK: - Error Messages
+"Error_Phone_Required" = "Please enter phone number";
+"Error_Password_Required" = "Please enter password";
+
+
+// MARK: - Authenticatoin
+"Login" = "Login";
+"Enter_Your_Phone" = "Enter your mobile number";
+"Enter_Phone_Number"= "Enter the phone number";
+"Password" = "Entert the password";
+"Forget_Password" = "Did you forget your password?";
+"Dont_Have_Account" = "Don't have an account?";
+"Create_New_Account" = "Create New Account";
+
+// MARK: - TabBar
+"Main" = "Main";
+"Services" = "Services";
+"Messages" = "Messages";
+"MyAccount" = "Account";
+"Add"  = "Add";

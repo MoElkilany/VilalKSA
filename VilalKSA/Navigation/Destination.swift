@@ -17,6 +17,7 @@ protocol Destination: Hashable, Equatable {
 
 
 enum RootDestination: Destination {
+    case home
     case splash
     case login
     case forgetPassword
@@ -45,6 +46,8 @@ enum RootDestination: Destination {
             ChangePasswordSuccessPage()
         case .compeletProfilePage:
             CompeletProfilePage()
+        case .home:
+            HomeScreen()
         }
     }
     var name: String {
@@ -53,6 +56,103 @@ enum RootDestination: Destination {
 }
 
 
+enum HomeDestination: Destination {
+    case home
+    
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .home:
+            HomeScreen()
+        }
+    }
+    
+    var name: String {
+        return String(reflecting: view.self)
+    }
+}
+
+
+enum MainDestination: Destination {
+    case main
+    
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .main:
+            MainPage()
+        }
+    }
+    
+    var name: String {
+        return String(reflecting: view.self)
+    }
+}
+
+enum ServicesDestination: Destination {
+    case services
+    
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .services:
+            ServicesPage()
+        }
+    }
+    
+    var name: String {
+        return String(reflecting: view.self)
+    }
+}
+
+enum AddRequestDestination: Destination {
+    case addRequest
+    
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .addRequest:
+            AddRequestPage()
+        }
+    }
+    
+    var name: String {
+        return String(reflecting: view.self)
+    }
+}
+
+enum MessageDestination: Destination {
+    case message
+    
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .message:
+            MessagesPage()
+        }
+    }
+    
+    var name: String {
+        return String(reflecting: view.self)
+    }
+}
+
+
+enum MyAcoountDestination: Destination {
+    case myAccount
+    
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .myAccount:
+            MyAccountPage()
+        }
+    }
+    
+    var name: String {
+        return String(reflecting: view.self)
+    }
+}
 
 
 

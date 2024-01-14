@@ -14,7 +14,7 @@ enum Constants: String {
     case beraerToken            = "beraerToken"
     case userModel
     
-    //MARK:-
+    // MARK: - API Paths
     case login = "Auth/login"
     case registerPhone = "Auth/register/phone"
     case checkCode = "Auth/check/code"
@@ -23,5 +23,6 @@ enum Constants: String {
     case codeForgetPassword = "Auth/code/forget/password"
     case changePassword = "Auth/change/password"
     case resendCode     = "Auth/resend/code"
+    case services     = "services"
 
 }

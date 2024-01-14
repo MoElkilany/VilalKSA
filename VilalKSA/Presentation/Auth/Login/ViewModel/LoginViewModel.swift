@@ -44,6 +44,7 @@ class LoginViewModel: BaseViewModel {
                 UserDefaults.standard.synchronize()
                 
             }
+            loggedin = true
         } else {
             print("Error: Couldn't cast value to LoginResponse")
         }
@@ -54,14 +55,14 @@ class LoginViewModel: BaseViewModel {
          
         if phoneNumber.isEmpty {
             
-            self.errorMessage = "Phone Number Required"
+            self.errorMessage = R.string.localizable.error_Phone_Required.localized
             self.errorPopUp = true
             print("Validation failed: Phone number is empty") // Debug print
             return false
         }
         
         if password.isEmpty {
-            self.errorMessage = "Password Required"
+            self.errorMessage = R.string.localizable.error_Password_Required.localized
             self.errorPopUp = true
             print("Validation failed: phoneNumber number is empty") // Debug print
             return false

@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  VilalKSA
+
+  Created by Elkilany on 13/01/2024.
+  
+*/
+
+// MARK: - Error Messages
+"Error_Phone_Required" = "الرجاء إدخال رقم الجوال";
+"Error_Password_Required" = "الرجاء إدخال كلمة المرور";
+
+// MARK: - Authenticatoin
+"Login" = "تسجيل الدخول";
+"Enter_Your_Phone" = "قم بإدخال رقم الجوال الخاص  بحسابك";
+"Enter_Phone_Number"= "ادخل رقم الجوال";
+"Password" = "ادخل كلمة المرور ";
+"Forget_Password" = "هل نسيت كلمة المرور؟";
+"Dont_Have_Account" = "ليس لديك حساب ؟";
+"Create_New_Account" = "انشاء حساب";
+
+// MARK: - TabBar
+"Main" = "الرئيسية";
+"Services" = "الخدمات";
+"Messages" = "محادثات";
+"MyAccount" = "حسابي";
+"Add"  = "إضافة";

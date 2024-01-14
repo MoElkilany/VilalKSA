@@ -12,7 +12,7 @@ struct GeneralTextField: View {
     
     @Binding var text: String
     @State private var isInputValid: Bool = true
-    let placeholder: String
+    let placeholder: LocalizedStringKey
     let imageName:String
     let keyboardType:UIKeyboardType?
     let validationClosure: (String) -> Bool
@@ -27,15 +27,15 @@ struct GeneralTextField: View {
                 
                 if text.isEmpty {
                     Text(placeholder)
+                        .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                         .foregroundColor(Color.gray.opacity(0.5))
-                        .font(.system(size: 12))
                 }
                 TextField("", text: $text)
                     .foregroundColor(.black)
                     .padding(.vertical, 10)
                     .padding(.leading, 5)
-                    .font(.system(size: 16))
                     .keyboardType(keyboardType ?? .default)
+                    .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                     .onChange(of: text) { newValue in
                         self.isInputValid = self.validationClosure(newValue)
                     }
@@ -57,7 +57,7 @@ struct PasswordTextField: View {
     @State private var isInputValid: Bool = true
     @State private var isShowPassword: Bool = true
     let keyboardType:UIKeyboardType?
-    let placeholder: String
+    let placeholder: LocalizedStringKey
     let validationClosure: (String) -> Bool
     
 
@@ -71,8 +71,8 @@ struct PasswordTextField: View {
                     
                     if text.isEmpty {
                         Text(placeholder)
+                            .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                             .foregroundColor(Color.gray.opacity(0.5)) // Change the color here
-                            .font(.system(size: 12))
                     }
                     
                     TextField("", text: $text)
@@ -80,7 +80,7 @@ struct PasswordTextField: View {
                         .foregroundColor(.black)
                         .padding(.vertical, 10)
                         .padding(.leading, 5)
-                        .font(.system(size: 16))
+                        .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                         .onChange(of: text) { newValue in
                             self.isInputValid = self.validationClosure(newValue)
                         }
@@ -92,8 +92,9 @@ struct PasswordTextField: View {
                     
                     if text.isEmpty {
                         Text(placeholder)
+                            .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                             .foregroundColor(Color.gray.opacity(0.5))
-                            .font(.system(size: 12))
+                       
                     }
                     
                         SecureField("", text: $text)
@@ -101,7 +102,7 @@ struct PasswordTextField: View {
                         .foregroundColor(.black)
                         .padding(.vertical, 10)
                         .padding(.leading, 5)
-                        .font(.system(size: 16))
+                        .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                         .onChange(of: text) { newValue in
                             self.isInputValid = self.validationClosure(newValue)
                         }

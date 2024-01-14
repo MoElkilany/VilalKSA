@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct TextExtraBold16: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 18, weight: .heavy))
+            .font(Font.custom(FontName.cairoExtraBold.rawValue, size: 16))
+//            .font(.system(size: 18, weight: .heavy))
             .foregroundColor(textColor)
     }
 }
@@ -26,17 +27,18 @@ struct TextExtraBold16: View {
 
 
 struct TextExtraBold20: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 22, weight: .heavy))
+            .font(Font.custom(FontName.cairoExtraBold.rawValue, size: 20))
+//            .font(.system(size: 22, weight: .heavy))
             .foregroundColor(textColor)
     }
 }
@@ -44,34 +46,49 @@ struct TextExtraBold20: View {
 
 
 struct TextRegular12: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 12, weight: .regular))
+            .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
+//            .font(.system(size: 12, weight: .regular))
             .foregroundColor(textColor)
     }
 }
 
 
+struct TabBarText: View {
+    
+    var text: LocalizedStringKey
+    init(text: LocalizedStringKey) {
+        self.text = text
+    }
+    var body: some View {
+        Text(text)
+            .font(Font.custom(FontName.cairoMedium.rawValue, size: 12))
+    }
+}
+
+
 struct TextRegular14: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 14, weight: .regular))
+//            .font(.system(size: 14, weight: .regular))
+            .font(Font.custom(FontName.cairoRegular.rawValue, size: 14))
             .foregroundColor(textColor)
     }
 }
@@ -79,118 +96,125 @@ struct TextRegular14: View {
 
 
 struct TextSemiBold12: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 12, weight: .semibold))
+//            .font(.system(size: 12, weight: .semibold))
+            .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 12))
             .foregroundColor(textColor)
     }
 }
 
 
 struct TextSemiBold11: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 11, weight: .semibold))
+            .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 11))
+//            .font(.system(size: 11, weight: .semibold))
             .foregroundColor(textColor)
     }
 }
 
 
 struct TextSemiBold14: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 14, weight: .semibold))
+//            .font(.system(size: 14, weight: .semibold))
+            .font(Font.custom(FontName.cairoRegular.rawValue, size: 14))
             .foregroundColor(textColor)
     }
 }
 
 
 struct TextBold12: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 12, weight: .bold))
+            .font(Font.custom(FontName.cairoBold.rawValue, size: 12))
+//            .font(.system(size: 12, weight: .bold))
             .foregroundColor(textColor)
     }
 }
 
 
 struct TextBold14: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 14, weight: .bold))
+            .font(Font.custom(FontName.cairoBold.rawValue, size: 14))
+//            .font(.system(size: 14, weight: .bold))
             .foregroundColor(textColor)
     }
 }
 
 
 struct TextBold20: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 20, weight: .bold))
+            .font(Font.custom(FontName.cairoBold.rawValue, size: 20))
+//            .font(.system(size: 20, weight: .bold))
             .foregroundColor(textColor)
     }
 }
 
 struct TextBold16: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 16, weight: .bold))
+            .font(Font.custom(FontName.cairoBold.rawValue, size: 16))
+//            .font(.system(size: 16, weight: .bold))
             .foregroundColor(textColor)
     }
 }
@@ -198,34 +222,37 @@ struct TextBold16: View {
 
 
 struct TextBold10: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 10, weight: .bold))
+            .font(Font.custom(FontName.cairoBold.rawValue, size: 10))
+
+//            .font(.system(size: 10, weight: .bold))
             .foregroundColor(textColor)
     }
 }
 
 
 struct TextBold8: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 8, weight: .bold))
+            .font(Font.custom(FontName.cairoBold.rawValue, size: 8))
+//            .font(.system(size: 8, weight: .bold))
             .foregroundColor(textColor)
     }
 }
@@ -233,17 +260,18 @@ struct TextBold8: View {
 
 
 struct TextMeduim: View {
-    var text: String
+    var text: LocalizedStringKey
     var textColor: Color
     
-    init(text: String, textColor: Color) {
+    init(text: LocalizedStringKey, textColor: Color) {
         self.text = text
         self.textColor = textColor
     }
     
     var body: some View {
         Text(text)
-            .font(.system(size: 10, weight: .medium))
+            .font(Font.custom(FontName.cairoMedium.rawValue, size: 10))
+//            .font(.system(size: 10, weight: .medium))
             .foregroundColor(textColor)
     }
 }
