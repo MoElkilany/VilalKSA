@@ -16,7 +16,7 @@ struct SplashPage: View {
     
     var body: some View {
 
-        StateView(state:$state , action: tryAgainAction, clearSearchAction: tryAgainAction) {
+        StateView(state:$state , action: tryAgainAction) {
             VStack{
                 Spacer()
                 

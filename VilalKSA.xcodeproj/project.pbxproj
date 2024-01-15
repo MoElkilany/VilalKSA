@@ -33,7 +33,7 @@
 		E72DB1462B43844C00644252 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1452B43844C00644252 /* CountryPicker */; };
 		E72DB1482B43846300644252 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1472B43846300644252 /* PopupView */; };
 		E7361F7B2B5339EB00E97D15 /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */; };
-		E7361F7D2B53462A00E97D15 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F7C2B53462A00E97D15 /* GridView.swift */; };
+		E7361F7D2B53462A00E97D15 /* GridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F7C2B53462A00E97D15 /* GridItem.swift */; };
 		E7361F802B534E4600E97D15 /* ServicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */; };
 		E7361F852B534F3D00E97D15 /* ServicesEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F842B534F3D00E97D15 /* ServicesEndPoint.swift */; };
 		E7361F872B534F5800E97D15 /* ServicesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F862B534F5800E97D15 /* ServicesAPIClient.swift */; };
@@ -59,6 +59,7 @@
 		E75591A82B27BC4F00693FD5 /* ReadMee.md in Resources */ = {isa = PBXBuildFile; fileRef = E75591A72B27BC4F00693FD5 /* ReadMee.md */; };
 		E7601EAC2B1F43000070C853 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7601EAB2B1F43000070C853 /* Colors.xcassets */; };
 		E77F066E2B2207E600C674BD /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F066D2B2207E600C674BD /* TextFieldStyles.swift */; };
+		E78A6DBF2B5533780062DEEC /* LanguageManagerSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E78A6DBE2B5533780062DEEC /* LanguageManagerSwiftUI */; };
 		E7A5F6102B5072C500882220 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A5F60F2B5072C500882220 /* ForgetPasswordViewModel.swift */; };
 		E7A5F6132B50974B00882220 /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A5F6122B50974B00882220 /* NewPasswordViewModel.swift */; };
 		E7A5F6152B50BC1800882220 /* ResendCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A5F6142B50BC1800882220 /* ResendCodeModel.swift */; };
@@ -129,7 +130,7 @@
 		E72710FF2B20853900C86406 /* ButtonsStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsStyles.swift; sourceTree = "<group>"; };
 		E72711012B20B9FA00C86406 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraBold.ttf"; sourceTree = "<group>"; };
-		E7361F7C2B53462A00E97D15 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		E7361F7C2B53462A00E97D15 /* GridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItem.swift; sourceTree = "<group>"; };
 		E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewModel.swift; sourceTree = "<group>"; };
 		E7361F842B534F3D00E97D15 /* ServicesEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesEndPoint.swift; sourceTree = "<group>"; };
 		E7361F862B534F5800E97D15 /* ServicesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAPIClient.swift; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78A6DBF2B5533780062DEEC /* LanguageManagerSwiftUI in Frameworks */,
 				E70872652B27014600341841 /* PopupView in Frameworks */,
 				E750498B2B288104008DD89C /* CountryPicker in Frameworks */,
 				E7CAC5F72B46FFCC0070C9D1 /* LanguageManagerSwiftUI in Frameworks */,
@@ -558,7 +560,7 @@
 				E74EDE292B0EBF3100E0B150 /* PageIndicator.swift */,
 				E74EDE2A2B0EBF3100E0B150 /* ImageView.swift */,
 				E7BD49AA2B48EDF6000A30EF /* OnScreenLoading.swift */,
-				E7361F7C2B53462A00E97D15 /* GridView.swift */,
+				E7361F7C2B53462A00E97D15 /* GridItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -903,6 +905,7 @@
 				E72DB1452B43844C00644252 /* CountryPicker */,
 				E72DB1472B43846300644252 /* PopupView */,
 				E7CAC5F62B46FFCC0070C9D1 /* LanguageManagerSwiftUI */,
+				E78A6DBE2B5533780062DEEC /* LanguageManagerSwiftUI */,
 			);
 			productName = VilalKSA;
 			productReference = E7C925862B0B78AF007DF84B /* VilalKSA.app */;
@@ -1075,7 +1078,7 @@
 				E7BD49AB2B48EDF6000A30EF /* OnScreenLoading.swift in Sources */,
 				E7E6FF642B2B4A8300D94036 /* VerificationCodePage.swift in Sources */,
 				E7096D7B2B53079800FDA20E /* PopupPresent.swift in Sources */,
-				E7361F7D2B53462A00E97D15 /* GridView.swift in Sources */,
+				E7361F7D2B53462A00E97D15 /* GridItem.swift in Sources */,
 				E7096D872B53089F00FDA20E /* AddRequestPage.swift in Sources */,
 				E7C9C3962B1F6AAC00633434 /* String+Extension.swift in Sources */,
 				E7BD49A72B48E77A000A30EF /* CreateAcountViewModel.swift in Sources */,
@@ -1387,6 +1390,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E75049892B288104008DD89C /* XCRemoteSwiftPackageReference "countrypicker" */;
 			productName = CountryPicker;
+		};
+		E78A6DBE2B5533780062DEEC /* LanguageManagerSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7CAC5F52B46FFCC0070C9D1 /* XCRemoteSwiftPackageReference "LanguageManager-SwiftUI" */;
+			productName = LanguageManagerSwiftUI;
 		};
 		E7CAC5F62B46FFCC0070C9D1 /* LanguageManagerSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;

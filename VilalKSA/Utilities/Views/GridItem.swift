@@ -102,9 +102,7 @@ struct GridView: View {
                 .padding()
             }
             .background(Color.white)
-       
         }
-    
 }
 
 struct GridItemModel: Identifiable {
@@ -114,6 +112,35 @@ struct GridItemModel: Identifiable {
     var action: (()->Void)?
 }
 
+//#Preview {
+//    GridView()
+//}
+
+
+struct GridViewItem: View {
+    var icon: String?
+    var title: String?
+    var action: (()->Void)?
+    
+    var body: some View {
+
+        VStack {
+                Image(systemName: icon ?? "")
+                    .font(.largeTitle)
+                    .foregroundColor(.blue)
+            TextBold12(text: LocalizedStringKey(title ?? "") , textColor: R.color.color42526E.name.getColor())
+                                            .frame(maxWidth: .infinity)
+                                            .padding([.top,.bottom], 10)
+                                            .multilineTextAlignment(.center)
+            }
+            .frame(width: 161, height: 128)
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
+            .shadow(color: Color.gray.opacity(0.3), radius: 5)
+    }
+}
+
 #Preview {
-    GridView()
+    GridViewItem(icon: "folder", title: "Test") {
+        print("GridViewItem")
+    }
 }

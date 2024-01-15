@@ -23,21 +23,22 @@ struct StateView<Content: View>: View {
     
     @Binding var state: AppState
     var action: (() -> Void)?
-    var clearSearchAction: (() -> ())?
+//    var clearSearchAction: (() -> ())?
     var title: String? = nil
     var localizeTitle: LocalizedStringKey? = nil
     var description: String? = nil
     var content: Content
     var padding: Double
 
-    init(state: Binding<AppState> , title: String? = nil, localizeTitle: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,action: ActionClosure?, clearSearchAction: EmptyActionClosure? = nil, @ViewBuilder content: () -> Content) {
+    init(state: Binding<AppState> , title: String? = nil, localizeTitle: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,action: ActionClosure?,  @ViewBuilder content: () -> Content) {
+//    clearSearchAction: EmptyActionClosure? = nil,
         self.content = content()
         self._state =  state
         self.title = title
         self.localizeTitle = localizeTitle
         self.description = description
         self.action = action
-        self.clearSearchAction = clearSearchAction
+//        self.clearSearchAction = clearSearchAction
         self.padding = padding
     }
     
@@ -115,7 +116,7 @@ struct StateView<Content: View>: View {
     
     func searchAction() {
         self.state = .loading
-        self.clearSearchAction? ()
+//        self.clearSearchAction? ()
     }
 }
 
@@ -160,10 +161,15 @@ struct StateTryAgainView: View {
     }
 }
 
+//#Preview{
+//    StateTryAgainView(action: {
+//        print("tets")
+//    })
+//}
 
 struct NoDataView: View {
     var action: EmptyActionClosure
-    
+
     var body: some View {
         VStack {
 //                TextSubTitleFont(textKey:  LocalizationKeys.NoResultsFound.localizedKey)
@@ -175,5 +181,11 @@ struct NoDataView: View {
                 .frame(width: 15, height: 15)
         }
     }
+}
+
+#Preview{
+    NoDataView(action: {
+        print("tets")
+    })
 }
 

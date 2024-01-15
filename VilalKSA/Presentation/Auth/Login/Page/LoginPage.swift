@@ -126,7 +126,6 @@ struct LoginPage: View {
         .onReceive(self.viewModel.$loggedin, perform: navigateToHomePage(isLoggedin:))
 
         .disabled(self.viewModel.state == .loading )
-        
         .background(.white)
         .padding(.top, 40)
         .edgesIgnoringSafeArea(.all)

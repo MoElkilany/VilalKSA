@@ -10,18 +10,30 @@ import SwiftUI
 struct ServicesPage: View {
     
     @StateObject var viewModel = ServicesViewModel()
-
+    
+    let columns: [GridItem] = [
+          GridItem(.flexible()),
+          GridItem(.flexible())
+      ]
+    
     var body: some View {
-        
-        VStack{
-            TextBold16(text: R.string.localizable.services.localized, textColor: R.color.colorPrimary.name.getColor())
+        StateView(state: self.$viewModel.state, title: "ss",localizeTitle: "ss",padding: 10, action: {
             
-            TextBold16(text: LocalizedStringKey(viewModel.servicesList.first?.name ?? ""), textColor: R.color.colorPrimary.name.getColor())
-            GridView()
+        }) {
+
+            VStack{
+                TextBold16(text: R.string.localizable.services.localized, textColor: R.color.colorPrimary.name.getColor())
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(viewModel.servicesList,id: \.id) { item in
+                        GridViewItem(icon: item.icon ?? "", title: item.name ?? "") {
+
+                        }
+                    }
+                }
+            }
         }
-        .padding(.top,50)
-        .padding(.bottom,30)
         .edgesIgnoringSafeArea(.all)
+        .padding(.top)
         .onAppear(perform: {
             viewModel.getServices()
             print("the services array is \(viewModel.servicesList)")
