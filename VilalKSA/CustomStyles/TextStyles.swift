@@ -94,6 +94,24 @@ struct TextRegular14: View {
 }
 
 
+struct TextRegular16: View {
+    var text: LocalizedStringKey
+    var textColor: Color
+    
+    init(text: LocalizedStringKey, textColor: Color) {
+        self.text = text
+        self.textColor = textColor
+    }
+    
+    var body: some View {
+        Text(text)
+//            .font(.system(size: 14, weight: .regular))
+            .font(Font.custom(FontName.cairoRegular.rawValue, size: 16))
+            .foregroundColor(textColor)
+    }
+}
+
+
 
 struct TextSemiBold12: View {
     var text: LocalizedStringKey

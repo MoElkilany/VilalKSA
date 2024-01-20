@@ -8,22 +8,23 @@
 import SwiftUI
 
 enum AppState {
-    case searchEmptyResults
     case empty
     case loading
     case error
     case noData
     case success
     case errorWithTitle
+    case serverError
 }
 
 typealias ActionClosure = (() -> ())
 
-struct StateView<Content: View>: View {
+struct VilalKSAContainer<Content: View>: View {
+    
+    @EnvironmentObject var networkMonitor: NetworkMonitor
     
     @Binding var state: AppState
     var action: (() -> Void)?
-//    var clearSearchAction: (() -> ())?
     var title: String? = nil
     var localizeTitle: LocalizedStringKey? = nil
     var description: String? = nil
@@ -31,24 +32,31 @@ struct StateView<Content: View>: View {
     var padding: Double
 
     init(state: Binding<AppState> , title: String? = nil, localizeTitle: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,action: ActionClosure?,  @ViewBuilder content: () -> Content) {
-//    clearSearchAction: EmptyActionClosure? = nil,
         self.content = content()
         self._state =  state
         self.title = title
         self.localizeTitle = localizeTitle
         self.description = description
         self.action = action
-//        self.clearSearchAction = clearSearchAction
         self.padding = padding
     }
     
     
     var body: some View {
         ZStack {
+
             content
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .ignoresSafeArea()
+                    .environmentObject(networkMonitor)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .ignoresSafeArea()
+
             VStack {
+                
+                if !networkMonitor.isConnected {
+                    NetworkUnavailableView()
+                }
+                
+                
                 if self.state == .loading {
                     VStack {
                         Loader()
@@ -60,25 +68,14 @@ struct StateView<Content: View>: View {
                 if tryAgian {
                     StateTryAgainView(title: title, description: description,localizeTitle: localizeTitle, action: makeAction)
                 }
+                
                 if noData {
-                    Text("NoResultsFound")
+                    NoDataView()
                 }
-                
-                if emptySearchResults {
-                    NoDataView(action: searchAction)
-                }
-                
             }
-//            .frame(maxWidth: .infinity, maxHeight: .infinity)
-//            .background(self.state == .success ? Color.clear : Color.white)
-//            .cornerRadius(20)
-//            .opacity(stateViewSwiftUIOpacity)
             
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(self.state == .success ? SwiftUI.Color.red : SwiftUI.Color.white)
-//            .background(Color : self.state == .success ? ColorName.color342643.color : ColorName.color342643.color)
-
-            
             .cornerRadius(20)
             .opacity(stateViewSwiftUIOpacity)
             
@@ -98,19 +95,19 @@ struct StateView<Content: View>: View {
     }
     
     var tryAgian: Bool {
-        state == .error
+        state == .serverError
     }
     
     var noData: Bool {
         state == .noData
     }
     
-    var emptySearchResults: Bool {
-        state == .searchEmptyResults
+    var serverError: Bool {
+        state == .serverError
     }
     
     func makeAction() {
-        self.state = .loading
+
         self.action?()
     }
     
@@ -131,61 +128,64 @@ struct StateTryAgainView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "square.and.arrow.up")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 15, height: 15)
-            if title != nil {
-                Text("description")
-//                TextSubTitleFont(textKey: title?.localizedKey)
-                    .padding(.top, 20)
-            } else {
-                Text("description")
-//                TextSubTitleFont(textKey: localizeTitle)
-                    .padding(.top, 20)
-            }
-            Text("description")
-//            TextSubTitleFont(text:  description ?? "")
+            Image(R.image.noInternet.name)
+                    .frame(width: 30, height: 30)
+                    .padding(.bottom,30)
             
-            Button(action: action) {
-                Text("TryAgain")
-//                TextTitleFont(textKey:  LocalizationKeys.TryAgain.localizedKey , color: Color.white)
-                    .padding(.horizontal, 50)
-                    .padding(.vertical, 12)
-                    .background(SwiftUI.Color.red)
-                    .padding(.top, -4)
-                    .clipShape(Capsule())
-            }
+            TextBold20(text: R.string.localizable.something_Wrong.localized, textColor: R.color.colorPrimary.name.getColor())
+            TextRegular16(text: R.string.localizable.please_Try_Again.localized, textColor: R.color.color7A869A.name.getColor())
+                .multilineTextAlignment(.center)
+            
+            DefaultButton(title:  R.string.localizable.try_Again.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                action()
+            }, fontWeight: .bold)
             .padding(.horizontal, 15)
         }
     }
 }
 
-//#Preview{
-//    StateTryAgainView(action: {
-//        print("tets")
-//    })
-//}
-
-struct NoDataView: View {
-    var action: EmptyActionClosure
-
-    var body: some View {
-        VStack {
-//                TextSubTitleFont(textKey:  LocalizationKeys.NoResultsFound.localizedKey)
-            Text("NoResultsFound")
-
-            Image(systemName: "square.and.arrow.up")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 15, height: 15)
-        }
-    }
-}
-
 #Preview{
-    NoDataView(action: {
+    StateTryAgainView(action: {
         print("tets")
     })
 }
 
+struct NoDataView: View {
+
+    
+    var body: some View {
+        VStack() {
+
+          
+        Image(R.image.noResult.name)
+                .frame(width: 30, height: 30)
+                .padding(.bottom,30)
+            
+            TextBold20(text: R.string.localizable.empty_No_Result_Found.localized, textColor: R.color.colorPrimary.name.getColor())
+            
+            TextRegular16(text: R.string.localizable.empty_No_Result_Found_Description.localized, textColor: R.color.color7A869A.name.getColor())
+                .multilineTextAlignment(.center)
+                
+        }
+    }
+}
+
+//#Preview{
+//    NoDataView()
+//}
+
+
+
+
+struct NetworkUnavailableView: View {
+    var body: some View {
+        ContentUnavailableView(
+            "No Internet Connection",
+            systemImage: "wifi.exclamationmark",
+            description: Text("Please check your connection and try again.")
+        )
+    }
+}
+    #Preview{
+        NetworkUnavailableView()
+    }

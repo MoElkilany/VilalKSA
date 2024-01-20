@@ -22,6 +22,7 @@
 		E7096DA02B53322A00FDA20E /* Cairo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D972B53322900FDA20E /* Cairo-Medium.ttf */; };
 		E7096DA12B53322A00FDA20E /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D982B53322A00FDA20E /* Cairo-Regular.ttf */; };
 		E7096DA32B53322A00FDA20E /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D9A2B53322A00FDA20E /* Cairo-Bold.ttf */; };
+		E70BD7952B5C4835008DAB1C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BD7942B5C4835008DAB1C /* NetworkMonitor.swift */; };
 		E71A633B2B26102000B8687C /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A633A2B26102000B8687C /* TextStyles.swift */; };
 		E71B097C2B2A5A5900046242 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */; };
 		E72050672B2C753E00EB76AB /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72050662B2C753E00EB76AB /* NewPasswordPage.swift */; };
@@ -45,7 +46,7 @@
 		E74EDE362B0EBF3100E0B150 /* BaseStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE1A2B0EBF3100E0B150 /* BaseStateView.swift */; };
 		E74EDE372B0EBF3100E0B150 /* MHProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE1B2B0EBF3100E0B150 /* MHProgress.swift */; };
 		E74EDE382B0EBF3100E0B150 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE1C2B0EBF3100E0B150 /* PageControl.swift */; };
-		E74EDE3C2B0EBF3100E0B150 /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE202B0EBF3100E0B150 /* StateView.swift */; };
+		E74EDE3C2B0EBF3100E0B150 /* VilalKSAContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE202B0EBF3100E0B150 /* VilalKSAContainer.swift */; };
 		E74EDE3D2B0EBF3100E0B150 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE212B0EBF3100E0B150 /* Loader.swift */; };
 		E74EDE452B0EBF3100E0B150 /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE292B0EBF3100E0B150 /* PageIndicator.swift */; };
 		E74EDE462B0EBF3100E0B150 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE2A2B0EBF3100E0B150 /* ImageView.swift */; };
@@ -121,6 +122,7 @@
 		E7096D982B53322A00FDA20E /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		E7096D9A2B53322A00FDA20E /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
 		E7096DA42B53342300FDA20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E70BD7942B5C4835008DAB1C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		E71A633A2B26102000B8687C /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPage.swift; sourceTree = "<group>"; };
 		E72050662B2C753E00EB76AB /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
@@ -142,7 +144,7 @@
 		E74EDE1A2B0EBF3100E0B150 /* BaseStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseStateView.swift; sourceTree = "<group>"; };
 		E74EDE1B2B0EBF3100E0B150 /* MHProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHProgress.swift; sourceTree = "<group>"; };
 		E74EDE1C2B0EBF3100E0B150 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
-		E74EDE202B0EBF3100E0B150 /* StateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
+		E74EDE202B0EBF3100E0B150 /* VilalKSAContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VilalKSAContainer.swift; sourceTree = "<group>"; };
 		E74EDE212B0EBF3100E0B150 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		E74EDE292B0EBF3100E0B150 /* PageIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
 		E74EDE2A2B0EBF3100E0B150 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -328,6 +330,14 @@
 				E7096D902B530A8700FDA20E /* MainPage.swift */,
 			);
 			path = Page;
+			sourceTree = "<group>";
+		};
+		E70BD7932B5C4812008DAB1C /* NetworkConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				E70BD7942B5C4835008DAB1C /* NetworkMonitor.swift */,
+			);
+			path = NetworkConnectivity;
 			sourceTree = "<group>";
 		};
 		E71B09772B2A59E100046242 /* Auth */ = {
@@ -552,7 +562,7 @@
 				E74EDE1A2B0EBF3100E0B150 /* BaseStateView.swift */,
 				E74EDE1B2B0EBF3100E0B150 /* MHProgress.swift */,
 				E74EDE1C2B0EBF3100E0B150 /* PageControl.swift */,
-				E74EDE202B0EBF3100E0B150 /* StateView.swift */,
+				E74EDE202B0EBF3100E0B150 /* VilalKSAContainer.swift */,
 				E74EDE212B0EBF3100E0B150 /* Loader.swift */,
 				E74EDE532B0EC11500E0B150 /* LoadingView.swift */,
 				E74EDE2C2B0EBF3100E0B150 /* ActivityView.swift */,
@@ -793,6 +803,7 @@
 		E7C925992B0B7FC9007DF84B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E70BD7932B5C4812008DAB1C /* NetworkConnectivity */,
 				E7A5F6162B519BEF00882220 /* Base */,
 				E7E6FF652B2B4ACF00D94036 /* ViewModeifiers */,
 				E7E6FF5D2B2B3A2C00D94036 /* ReusableViews */,
@@ -1076,6 +1087,7 @@
 				E7BBD96E2B0D598E0086758B /* SplashPage.swift in Sources */,
 				E7E6FF672B2B4ADC00D94036 /* OtpModifer.swift in Sources */,
 				E7BD49AB2B48EDF6000A30EF /* OnScreenLoading.swift in Sources */,
+				E70BD7952B5C4835008DAB1C /* NetworkMonitor.swift in Sources */,
 				E7E6FF642B2B4A8300D94036 /* VerificationCodePage.swift in Sources */,
 				E7096D7B2B53079800FDA20E /* PopupPresent.swift in Sources */,
 				E7361F7D2B53462A00E97D15 /* GridItem.swift in Sources */,
@@ -1092,7 +1104,7 @@
 				E7BBD9572B0D52150086758B /* Destination.swift in Sources */,
 				E7BBD9622B0D53AC0086758B /* Formats.swift in Sources */,
 				E74EDE372B0EBF3100E0B150 /* MHProgress.swift in Sources */,
-				E74EDE3C2B0EBF3100E0B150 /* StateView.swift in Sources */,
+				E74EDE3C2B0EBF3100E0B150 /* VilalKSAContainer.swift in Sources */,
 				E7DD75672B4FAD8800207409 /* CodeForgetPasswordModel.swift in Sources */,
 				E7361F892B534F8B00E97D15 /* ServicesModel.swift in Sources */,
 				E7BBD9692B0D544E0086758B /* View+Extension.swift in Sources */,
@@ -1267,7 +1279,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1280,7 +1292,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1304,7 +1316,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1317,7 +1329,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

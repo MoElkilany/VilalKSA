@@ -72,6 +72,7 @@ struct LoginPage: View {
                     }
                     
                     PasswordTextField(text: $password, keyboardType: .default, placeholder: R.string.localizable.password.localized, validationClosure: { input in
+                        
                         let letterCount = input.filter { $0.isLetter }.count
                         let digitCount = input.filter { $0.isNumber }.count
                         return  letterCount >= 8 || digitCount >= 8

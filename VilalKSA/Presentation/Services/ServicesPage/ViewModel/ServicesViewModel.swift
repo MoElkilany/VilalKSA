@@ -20,10 +20,9 @@ class ServicesViewModel: BaseViewModel {
         self.state = .loading
         apiService.getServiceList() { [weak self] result in
             guard let self = self else { return }
-            
             switch result {
             case .success(let value):
-                self.state = .success
+                self.state = .serverError
                 self.handleSuccess(value)
             case .failure(let error):
                 self.state = .error

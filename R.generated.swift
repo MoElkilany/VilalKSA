@@ -64,7 +64,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 14 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 20 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -88,6 +88,20 @@ struct _R {
       ///
       /// Locales: en, ar
       var dont_Have_Account: RswiftResources.StringResource { .init(key: "Dont_Have_Account", tableName: "Localizable", source: source, developmentValue: "Don't have an account?", comment: nil) }
+
+      /// en translation: No Data Found
+      ///
+      /// Key: Empty_No_Result_Found
+      ///
+      /// Locales: en, ar
+      var empty_No_Result_Found: RswiftResources.StringResource { .init(key: "Empty_No_Result_Found", tableName: "Localizable", source: source, developmentValue: "No Data Found", comment: nil) }
+
+      /// en translation: There are no results at the moment, the results will appear here
+      ///
+      /// Key: Empty_No_Result_Found_Description
+      ///
+      /// Locales: en, ar
+      var empty_No_Result_Found_Description: RswiftResources.StringResource { .init(key: "Empty_No_Result_Found_Description", tableName: "Localizable", source: source, developmentValue: "There are no results at the moment, the results will appear here", comment: nil) }
 
       /// en translation: Enter the phone number
       ///
@@ -124,6 +138,13 @@ struct _R {
       /// Locales: en, ar
       var forget_Password: RswiftResources.StringResource { .init(key: "Forget_Password", tableName: "Localizable", source: source, developmentValue: "Did you forget your password?", comment: nil) }
 
+      /// en translation: Loading...
+      ///
+      /// Key: Loading
+      ///
+      /// Locales: en, ar
+      var loading: RswiftResources.StringResource { .init(key: "Loading", tableName: "Localizable", source: source, developmentValue: "Loading...", comment: nil) }
+
       /// en translation: Login
       ///
       /// Key: Login
@@ -159,12 +180,33 @@ struct _R {
       /// Locales: en, ar
       var password: RswiftResources.StringResource { .init(key: "Password", tableName: "Localizable", source: source, developmentValue: "Entert the password", comment: nil) }
 
+      /// en translation: An error occurred while accessing the data, please try again
+      ///
+      /// Key: Please_Try_Again
+      ///
+      /// Locales: en, ar
+      var please_Try_Again: RswiftResources.StringResource { .init(key: "Please_Try_Again", tableName: "Localizable", source: source, developmentValue: "An error occurred while accessing the data, please try again", comment: nil) }
+
       /// en translation: Services
       ///
       /// Key: Services
       ///
       /// Locales: en, ar
       var services: RswiftResources.StringResource { .init(key: "Services", tableName: "Localizable", source: source, developmentValue: "Services", comment: nil) }
+
+      /// en translation: Something went wrong
+      ///
+      /// Key: Something_Wrong
+      ///
+      /// Locales: en, ar
+      var something_Wrong: RswiftResources.StringResource { .init(key: "Something_Wrong", tableName: "Localizable", source: source, developmentValue: "Something went wrong", comment: nil) }
+
+      /// en translation: Try again
+      ///
+      /// Key: Try_Again
+      ///
+      /// Locales: en, ar
+      var try_Again: RswiftResources.StringResource { .init(key: "Try_Again", tableName: "Localizable", source: source, developmentValue: "Try again", comment: nil) }
     }
   }
 
@@ -203,7 +245,7 @@ struct _R {
     var colorPrimary: RswiftResources.ColorResource { .init(name: "ColorPrimary", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 25 images.
+  /// This `_R.image` struct is generated, and contains static references to 29 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -225,6 +267,15 @@ struct _R {
     /// Image `Google-icon`.
     var googleIcon: RswiftResources.ImageResource { .init(name: "Google-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `No-wifi`.
+    var noWifi: RswiftResources.ImageResource { .init(name: "No-wifi", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `NoInternet`.
+    var noInternet: RswiftResources.ImageResource { .init(name: "NoInternet", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `NoResult`.
+    var noResult: RswiftResources.ImageResource { .init(name: "NoResult", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `Password-icon`.
     var passwordIcon: RswiftResources.ImageResource { .init(name: "Password-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -234,8 +285,11 @@ struct _R {
     /// Image `Profile-icon`.
     var profileIcon: RswiftResources.ImageResource { .init(name: "Profile-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
-    /// Image `QRCode`.
-    var qrCode: RswiftResources.ImageResource { .init(name: "QRCode", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `Success_Ads`.
+    var success_Ads: RswiftResources.ImageResource { .init(name: "Success_Ads", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Sucess`.
+    var sucess: RswiftResources.ImageResource { .init(name: "Sucess", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `back_button_left_icon`.
     var back_button_left_icon: RswiftResources.ImageResource { .init(name: "back_button_left_icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

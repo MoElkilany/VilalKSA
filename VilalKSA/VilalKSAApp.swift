@@ -22,13 +22,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct VilalKSAApp: App {
     
+    @StateObject var networkMonitor = NetworkMonitor()
+
     // inject into SwiftUI life-cycle via adaptor !!!
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
             LanguageManagerView(.ar) {
-                
                 UIPilotHost(checkToken()) { route in
                     route.view
                         .transition(.slide)
@@ -39,7 +40,9 @@ struct VilalKSAApp: App {
                 }
             }
             .ignoresSafeArea()
+            .environmentObject(networkMonitor)
         }
+        
     }
     
     func checkToken() -> UIPilot<RootDestination> {

@@ -17,10 +17,10 @@ struct ServicesPage: View {
       ]
     
     var body: some View {
-        StateView(state: self.$viewModel.state, title: "ss",localizeTitle: "ss",padding: 10, action: {
-            
+        VilalKSAContainer(state: self.$viewModel.state, title: "ss",localizeTitle: "ss",padding: 10, action: {
+            viewModel.getServices()
         }) {
-
+ 
             VStack{
                 TextBold16(text: R.string.localizable.services.localized, textColor: R.color.colorPrimary.name.getColor())
                 LazyVGrid(columns: columns, spacing: 10) {

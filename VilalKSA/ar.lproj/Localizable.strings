@@ -9,6 +9,12 @@
 // MARK: - Error Messages
 "Error_Phone_Required" = "الرجاء إدخال رقم الجوال";
 "Error_Password_Required" = "الرجاء إدخال كلمة المرور";
+"Empty_No_Result_Found" = "لا يوجد نتائج";
+"Empty_No_Result_Found_Description" = "لا يوجد نتائج في الوقت الحالي، سوف تظهر النتائج هنا";
+"Loading" = "جاري التحميل...";
+"Something_Wrong" = "هناك خطأ ما";
+"Please_Try_Again" = "حدث خطأ عند الوصول الي البيانات الرجاء المحاولة مرة آخري";
+"Try_Again" = "المحاولة مرة آخري";
 
 // MARK: - Authenticatoin
 "Login" = "تسجيل الدخول";

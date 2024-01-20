@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   VilalKSA
 
@@ -9,7 +9,12 @@
 // MARK: - Error Messages
 "Error_Phone_Required" = "Please enter phone number";
 "Error_Password_Required" = "Please enter password";
-
+"Empty_No_Result_Found" = "No Data Found";
+"Empty_No_Result_Found_Description" = "There are no results at the moment, the results will appear here";
+"Loading" = "Loading...";
+"Something_Wrong" = "Something went wrong";
+"Please_Try_Again" = "An error occurred while accessing the data, please try again";
+"Try_Again" = "Try again";
 
 // MARK: - Authenticatoin
 "Login" = "Login";

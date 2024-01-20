@@ -47,6 +47,7 @@ extension APIClient {
             switch result {
             case .success(let response):
                 do {
+                    
                     if response.statusCode >= 300 {
                         let errorMessage = try response.map(ErrorMessage.self)
                         throw APIError.errorMessage(message: errorMessage.message, status: errorMessage.status)

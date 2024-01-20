@@ -37,7 +37,7 @@ struct CompeletProfilePage: View {
                                 return letterCount >= 3
                             }
                         )
-                        
+
                         GeneralTextField(
                             text: $secondName,
                             placeholder: "Enter Second name",
