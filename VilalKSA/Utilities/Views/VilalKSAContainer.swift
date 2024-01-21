@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LanguageManagerSwiftUI
 
 enum AppState {
     case empty
@@ -22,40 +23,60 @@ typealias ActionClosure = (() -> ())
 struct VilalKSAContainer<Content: View>: View {
     
     @EnvironmentObject var networkMonitor: NetworkMonitor
+    @EnvironmentObject var languageSettings: LanguageSettings
     
     @Binding var state: AppState
-    var action: (() -> Void)?
-    var title: String? = nil
-    var localizeTitle: LocalizedStringKey? = nil
+    var tryAgainAction: (() -> Void)?
+    var backAction: (() -> Void)? = nil
+    var titlePage: LocalizedStringKey? = nil
     var description: String? = nil
     var content: Content
     var padding: Double
-
-    init(state: Binding<AppState> , title: String? = nil, localizeTitle: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,action: ActionClosure?,  @ViewBuilder content: () -> Content) {
+    
+    init(state: Binding<AppState> , titlePage: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,tryAgainAction: ActionClosure? = nil, backAction:ActionClosure?, @ViewBuilder content: () -> Content) {
         self.content = content()
         self._state =  state
-        self.title = title
-        self.localizeTitle = localizeTitle
+        self.titlePage = titlePage
+        
         self.description = description
-        self.action = action
+        self.tryAgainAction = tryAgainAction
         self.padding = padding
+        self.backAction = backAction
     }
     
     
     var body: some View {
         ZStack {
 
-            content
+            VStack{
+                ZStack(alignment: .center){
+                    TextBold16(text: titlePage ?? "", textColor: R.color.colorPrimary.name.getColor())
+
+                    if backAction != nil {
+                        HStack {
+                            Button(action: backAction!) {
+                                Image(languageSettings.selectedLanguage == .ar ? R.image.back_button_right_icon.name : R.image.back_button_left_icon.name )
+                                    .resizable()
+                                    .frame(width: 30, height: 20)
+                            }
+                            Spacer()
+                            
+                        }
+                        .padding(.horizontal,25)
+                    }
+                }
+                .padding(.top,60)
+                content
                     .environmentObject(networkMonitor)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .ignoresSafeArea()
-
+            }
+            
             VStack {
                 
                 if !networkMonitor.isConnected {
                     NetworkUnavailableView()
                 }
-                
                 
                 if self.state == .loading {
                     VStack {
@@ -65,8 +86,9 @@ struct VilalKSAContainer<Content: View>: View {
                     .background(SwiftUI.Color.white)
                     .ignoresSafeArea()
                 }
+
                 if tryAgian {
-                    StateTryAgainView(title: title, description: description,localizeTitle: localizeTitle, action: makeAction)
+                    StateTryAgainView(action: makeAction)
                 }
                 
                 if noData {
@@ -107,13 +129,13 @@ struct VilalKSAContainer<Content: View>: View {
     }
     
     func makeAction() {
-
-        self.action?()
+        
+        self.tryAgainAction?()
     }
     
     func searchAction() {
         self.state = .loading
-//        self.clearSearchAction? ()
+        //        self.clearSearchAction? ()
     }
 }
 
@@ -121,16 +143,13 @@ struct VilalKSAContainer<Content: View>: View {
 
 
 struct StateTryAgainView: View {
-    var title: String?
-    var description: String?
-    var localizeTitle: LocalizedStringKey? = nil
     var action: EmptyActionClosure
     
     var body: some View {
         VStack {
             Image(R.image.noInternet.name)
-                    .frame(width: 30, height: 30)
-                    .padding(.bottom,30)
+                .frame(width: 30, height: 30)
+                .padding(.bottom,30)
             
             TextBold20(text: R.string.localizable.something_Wrong.localized, textColor: R.color.colorPrimary.name.getColor())
             TextRegular16(text: R.string.localizable.please_Try_Again.localized, textColor: R.color.color7A869A.name.getColor())
@@ -151,13 +170,13 @@ struct StateTryAgainView: View {
 }
 
 struct NoDataView: View {
-
+    
     
     var body: some View {
         VStack() {
-
-          
-        Image(R.image.noResult.name)
+            
+            
+            Image(R.image.noResult.name)
                 .frame(width: 30, height: 30)
                 .padding(.bottom,30)
             
@@ -165,7 +184,7 @@ struct NoDataView: View {
             
             TextRegular16(text: R.string.localizable.empty_No_Result_Found_Description.localized, textColor: R.color.color7A869A.name.getColor())
                 .multilineTextAlignment(.center)
-                
+            
         }
     }
 }
@@ -186,6 +205,6 @@ struct NetworkUnavailableView: View {
         )
     }
 }
-    #Preview{
-        NetworkUnavailableView()
-    }
+#Preview{
+    NetworkUnavailableView()
+}

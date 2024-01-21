@@ -10,14 +10,18 @@ import SwiftUI
 
 class SomeItem: Equatable {
     
-    let value: String
-    
-    init(value: String) {
-        self.value = value
+    let image : String?
+    let mainTitle: LocalizedStringKey
+    let subTitle: LocalizedStringKey?
+
+    init(mainTitle: LocalizedStringKey,subTitle: LocalizedStringKey?,image:String?) {
+        self.mainTitle = mainTitle
+        self.subTitle = subTitle
+        self.image = image
     }
     
     static func == (lhs: SomeItem, rhs: SomeItem) -> Bool {
-        lhs.value == rhs.value
+        return lhs.mainTitle == rhs.mainTitle && lhs.subTitle == rhs.subTitle && lhs.image == rhs.image
     }
 }
 
@@ -25,41 +29,28 @@ class SomeItem: Equatable {
 
 struct PopupMiddle: View {
 
-    let item: SomeItem
+    let item: SomeItem?
     var onClose: () -> Void
 
     var body: some View {
         
         VStack(spacing: 12) {
-            Image("Apple-icon")
+            Image(item?.image ??  R.image.noInternet.name)
                 .resizable()
                 .scaledToFit()
-                .frame(maxWidth: 226, maxHeight: 226)
+                .frame(maxWidth: 100, maxHeight: 100)
             
-            Text("Congratulations!")
-                .foregroundColor(.black)
-                .font(.system(size: 24))
+            TextBold18(text: item?.mainTitle ?? "" , textColor: R.color.color42526E.name.getColor())
                 .padding(.top, 12)
-            
-            Text(item.value)
-                .foregroundColor(.black)
-                .font(.system(size: 16))
-                .opacity(0.6)
+            TextRegular14(text: item?.subTitle ?? R.string.localizable.service_Not_Available.localized , textColor: R.color.color7A869A.name.getColor())
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 20)
-            
-            Button("Thanks") {
-                onClose()
-            }
-            .buttonStyle(.plain)
-            .font(.system(size: 18, weight: .bold))
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 18)
-            .padding(.horizontal, 24)
-            .foregroundColor(.white)
-            .background(R.color.colorPrimary.name.getColor())
-            .cornerRadius(12)
         }
+        
+        .onTapGesture {
+            onClose()
+        }
+        
+        .frame(width: 300, height: 300, alignment: .center)
         .padding(EdgeInsets(top: 37, leading: 24, bottom: 40, trailing: 24))
         .background(Color.white.cornerRadius(20))
         .shadow(radius: 0.5)

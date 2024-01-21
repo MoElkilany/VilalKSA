@@ -8,6 +8,7 @@ struct ContentView: View {
         
         VStack {
             Button("change") {
+                
                 if languageSettings.selectedLanguage == .ar {
                     languageSettings.selectedLanguage = .en
                 }else{

@@ -238,6 +238,23 @@ struct TextBold16: View {
 }
 
 
+struct TextBold18: View {
+    var text: LocalizedStringKey
+    var textColor: Color
+    
+    init(text: LocalizedStringKey, textColor: Color) {
+        self.text = text
+        self.textColor = textColor
+    }
+    
+    var body: some View {
+        Text(text)
+            .font(Font.custom(FontName.cairoBold.rawValue, size: 18))
+//            .font(.system(size: 16, weight: .bold))
+            .foregroundColor(textColor)
+    }
+}
+
 
 struct TextBold10: View {
     var text: LocalizedStringKey
@@ -289,6 +306,24 @@ struct TextMeduim: View {
     var body: some View {
         Text(text)
             .font(Font.custom(FontName.cairoMedium.rawValue, size: 10))
+//            .font(.system(size: 10, weight: .medium))
+            .foregroundColor(textColor)
+    }
+}
+
+
+struct TextMeduim12: View {
+    var text: LocalizedStringKey
+    var textColor: Color
+    
+    init(text: LocalizedStringKey, textColor: Color) {
+        self.text = text
+        self.textColor = textColor
+    }
+    
+    var body: some View {
+        Text(text)
+            .font(Font.custom(FontName.cairoMedium.rawValue, size: 12))
 //            .font(.system(size: 10, weight: .medium))
             .foregroundColor(textColor)
     }

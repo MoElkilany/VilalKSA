@@ -15,6 +15,8 @@
 "Something_Wrong" = "هناك خطأ ما";
 "Please_Try_Again" = "حدث خطأ عند الوصول الي البيانات الرجاء المحاولة مرة آخري";
 "Try_Again" = "المحاولة مرة آخري";
+"Service_Not_Available" = "هذه الخدمة غير متوفرة الأن نحن نسعي الي توفرها قريباً";
+
 
 // MARK: - Authenticatoin
 "Login" = "تسجيل الدخول";
@@ -31,3 +33,7 @@
 "Messages" = "محادثات";
 "MyAccount" = "حسابي";
 "Add"  = "إضافة";
+
+// MARK: - Customer Orders
+"Customer_Orders" = "طلبــــات العملاء";
+

@@ -64,7 +64,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 20 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 22 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -81,6 +81,13 @@ struct _R {
       ///
       /// Locales: en, ar
       var create_New_Account: RswiftResources.StringResource { .init(key: "Create_New_Account", tableName: "Localizable", source: source, developmentValue: "Create New Account", comment: nil) }
+
+      /// en translation: Customer Orders
+      ///
+      /// Key: Customer_Orders
+      ///
+      /// Locales: en, ar
+      var customer_Orders: RswiftResources.StringResource { .init(key: "Customer_Orders", tableName: "Localizable", source: source, developmentValue: "Customer Orders", comment: nil) }
 
       /// en translation: Don't have an account?
       ///
@@ -187,6 +194,13 @@ struct _R {
       /// Locales: en, ar
       var please_Try_Again: RswiftResources.StringResource { .init(key: "Please_Try_Again", tableName: "Localizable", source: source, developmentValue: "An error occurred while accessing the data, please try again", comment: nil) }
 
+      /// en translation: This service is not available now. We are striving to make it available soon.
+      ///
+      /// Key: Service_Not_Available
+      ///
+      /// Locales: en, ar
+      var service_Not_Available: RswiftResources.StringResource { .init(key: "Service_Not_Available", tableName: "Localizable", source: source, developmentValue: "This service is not available now. We are striving to make it available soon.", comment: nil) }
+
       /// en translation: Services
       ///
       /// Key: Services
@@ -245,7 +259,7 @@ struct _R {
     var colorPrimary: RswiftResources.ColorResource { .init(name: "ColorPrimary", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 29 images.
+  /// This `_R.image` struct is generated, and contains static references to 33 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -291,6 +305,9 @@ struct _R {
     /// Image `Sucess`.
     var sucess: RswiftResources.ImageResource { .init(name: "Sucess", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `apartment_icon`.
+    var apartment_icon: RswiftResources.ImageResource { .init(name: "apartment_icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `back_button_left_icon`.
     var back_button_left_icon: RswiftResources.ImageResource { .init(name: "back_button_left_icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -312,6 +329,12 @@ struct _R {
     /// Image `house-searchin-icon`.
     var houseSearchinIcon: RswiftResources.ImageResource { .init(name: "house-searchin-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `left-button`.
+    var leftButton: RswiftResources.ImageResource { .init(name: "left-button", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `location_icon`.
+    var location_icon: RswiftResources.ImageResource { .init(name: "location_icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `logo-icon`.
     var logoIcon: RswiftResources.ImageResource { .init(name: "logo-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -323,6 +346,9 @@ struct _R {
 
     /// Image `profile`.
     var profile: RswiftResources.ImageResource { .init(name: "profile", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `right-button`.
+    var rightButton: RswiftResources.ImageResource { .init(name: "right-button", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `services`.
     var services: RswiftResources.ImageResource { .init(name: "services", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

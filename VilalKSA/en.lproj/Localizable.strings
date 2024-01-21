@@ -15,7 +15,7 @@
 "Something_Wrong" = "Something went wrong";
 "Please_Try_Again" = "An error occurred while accessing the data, please try again";
 "Try_Again" = "Try again";
-
+"Service_Not_Available" = "This service is not available now. We are striving to make it available soon.";
 // MARK: - Authenticatoin
 "Login" = "Login";
 "Enter_Your_Phone" = "Enter your mobile number";
@@ -31,3 +31,6 @@
 "Messages" = "Messages";
 "MyAccount" = "Account";
 "Add"  = "Add";
+
+// MARK: - Customer Orders
+"Customer_Orders" = "Customer Orders";

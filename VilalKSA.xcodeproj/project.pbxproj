@@ -31,6 +31,13 @@
 		E72050782B2CB65600EB76AB /* CompeletProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72050772B2CB65600EB76AB /* CompeletProfilePage.swift */; };
 		E72711002B20853900C86406 /* ButtonsStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72710FF2B20853900C86406 /* ButtonsStyles.swift */; };
 		E72711022B20B9FA00C86406 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72711012B20B9FA00C86406 /* R.generated.swift */; };
+		E727D5412B5C7ACF00F2CF0C /* CustomerOrdersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727D5402B5C7ACF00F2CF0C /* CustomerOrdersPage.swift */; };
+		E727D5432B5C7BEF00F2CF0C /* CustomerOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727D5422B5C7BEF00F2CF0C /* CustomerOrdersViewModel.swift */; };
+		E727D5482B5C811900F2CF0C /* CustomerOrdersCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727D5472B5C811900F2CF0C /* CustomerOrdersCard.swift */; };
+		E727D54B2B5C908700F2CF0C /* RentalInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727D54A2B5C908700F2CF0C /* RentalInfoHeaderView.swift */; };
+		E727D54D2B5C90A400F2CF0C /* RealStateTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727D54C2B5C90A400F2CF0C /* RealStateTypeView.swift */; };
+		E727D54F2B5C90D700F2CF0C /* LocationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727D54E2B5C90D700F2CF0C /* LocationInfoView.swift */; };
+		E727D5512B5C90FB00F2CF0C /* PriceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E727D5502B5C90FB00F2CF0C /* PriceInfoView.swift */; };
 		E72DB1462B43844C00644252 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1452B43844C00644252 /* CountryPicker */; };
 		E72DB1482B43846300644252 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1472B43846300644252 /* PopupView */; };
 		E7361F7B2B5339EB00E97D15 /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */; };
@@ -131,6 +138,13 @@
 		E72050772B2CB65600EB76AB /* CompeletProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompeletProfilePage.swift; sourceTree = "<group>"; };
 		E72710FF2B20853900C86406 /* ButtonsStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsStyles.swift; sourceTree = "<group>"; };
 		E72711012B20B9FA00C86406 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		E727D5402B5C7ACF00F2CF0C /* CustomerOrdersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersPage.swift; sourceTree = "<group>"; };
+		E727D5422B5C7BEF00F2CF0C /* CustomerOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersViewModel.swift; sourceTree = "<group>"; };
+		E727D5472B5C811900F2CF0C /* CustomerOrdersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersCard.swift; sourceTree = "<group>"; };
+		E727D54A2B5C908700F2CF0C /* RentalInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalInfoHeaderView.swift; sourceTree = "<group>"; };
+		E727D54C2B5C90A400F2CF0C /* RealStateTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealStateTypeView.swift; sourceTree = "<group>"; };
+		E727D54E2B5C90D700F2CF0C /* LocationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoView.swift; sourceTree = "<group>"; };
+		E727D5502B5C90FB00F2CF0C /* PriceInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceInfoView.swift; sourceTree = "<group>"; };
 		E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraBold.ttf"; sourceTree = "<group>"; };
 		E7361F7C2B53462A00E97D15 /* GridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItem.swift; sourceTree = "<group>"; };
 		E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewModel.swift; sourceTree = "<group>"; };
@@ -288,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				E7096D822B53088700FDA20E /* ServicesPage.swift */,
+				E727D5402B5C7ACF00F2CF0C /* CustomerOrdersPage.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -490,10 +505,23 @@
 			path = CustomStyles;
 			sourceTree = "<group>";
 		};
+		E727D5442B5C80F600F2CF0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E727D5472B5C811900F2CF0C /* CustomerOrdersCard.swift */,
+				E727D54A2B5C908700F2CF0C /* RentalInfoHeaderView.swift */,
+				E727D54C2B5C90A400F2CF0C /* RealStateTypeView.swift */,
+				E727D54E2B5C90D700F2CF0C /* LocationInfoView.swift */,
+				E727D5502B5C90FB00F2CF0C /* PriceInfoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E7361F7E2B534E3400E97D15 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */,
+				E727D5422B5C7BEF00F2CF0C /* CustomerOrdersViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -501,6 +529,7 @@
 		E7361F812B534E9000E97D15 /* ServicesPage */ = {
 			isa = PBXGroup;
 			children = (
+				E727D5442B5C80F600F2CF0C /* Views */,
 				E7361F7E2B534E3400E97D15 /* ViewModel */,
 				E7096D802B53086000FDA20E /* Page */,
 			);
@@ -1054,6 +1083,7 @@
 				E7CAC5F12B46FDD40070C9D1 /* VerbosePlugin.swift in Sources */,
 				E720506C2B2C8EB700EB76AB /* ChangePasswordSuccessPage.swift in Sources */,
 				E74EDE462B0EBF3100E0B150 /* ImageView.swift in Sources */,
+				E727D54D2B5C90A400F2CF0C /* RealStateTypeView.swift in Sources */,
 				E77F066E2B2207E600C674BD /* TextFieldStyles.swift in Sources */,
 				E72711002B20853900C86406 /* ButtonsStyles.swift in Sources */,
 				E7A8BD322B4DE7CF00A6AA5B /* CompleteProfileModel.swift in Sources */,
@@ -1076,6 +1106,7 @@
 				E7BBD9652B0D54120086758B /* Color+Extension.swift in Sources */,
 				E7CAC5FB2B4701F30070C9D1 /* AppUtility.swift in Sources */,
 				E7096D832B53088700FDA20E /* ServicesPage.swift in Sources */,
+				E727D54B2B5C908700F2CF0C /* RentalInfoHeaderView.swift in Sources */,
 				E74EDE482B0EBF3100E0B150 /* ActivityView.swift in Sources */,
 				E7096D8A2B5308BF00FDA20E /* MessagesPage.swift in Sources */,
 				E74EDE362B0EBF3100E0B150 /* BaseStateView.swift in Sources */,
@@ -1088,6 +1119,7 @@
 				E7E6FF672B2B4ADC00D94036 /* OtpModifer.swift in Sources */,
 				E7BD49AB2B48EDF6000A30EF /* OnScreenLoading.swift in Sources */,
 				E70BD7952B5C4835008DAB1C /* NetworkMonitor.swift in Sources */,
+				E727D5482B5C811900F2CF0C /* CustomerOrdersCard.swift in Sources */,
 				E7E6FF642B2B4A8300D94036 /* VerificationCodePage.swift in Sources */,
 				E7096D7B2B53079800FDA20E /* PopupPresent.swift in Sources */,
 				E7361F7D2B53462A00E97D15 /* GridItem.swift in Sources */,
@@ -1097,8 +1129,10 @@
 				E7CAC5FF2B4703140070C9D1 /* ErrorMessage.swift in Sources */,
 				E7C9259C2B0B800D007DF84B /* Enums.swift in Sources */,
 				E7361F872B534F5800E97D15 /* ServicesAPIClient.swift in Sources */,
+				E727D5432B5C7BEF00F2CF0C /* CustomerOrdersViewModel.swift in Sources */,
 				E7A5F6102B5072C500882220 /* ForgetPasswordViewModel.swift in Sources */,
 				E7BD49A92B48E865000A30EF /* RegisterPhoneModel.swift in Sources */,
+				E727D5412B5C7ACF00F2CF0C /* CustomerOrdersPage.swift in Sources */,
 				E7CAC5F92B4700870070C9D1 /* Constants.swift in Sources */,
 				E75591A62B27A27000693FD5 /* ErrorToast.swift in Sources */,
 				E7BBD9572B0D52150086758B /* Destination.swift in Sources */,
@@ -1109,6 +1143,7 @@
 				E7361F892B534F8B00E97D15 /* ServicesModel.swift in Sources */,
 				E7BBD9692B0D544E0086758B /* View+Extension.swift in Sources */,
 				E7CAC5F42B46FDD40070C9D1 /* APIResult.swift in Sources */,
+				E727D5512B5C90FB00F2CF0C /* PriceInfoView.swift in Sources */,
 				E7C9259F2B0B80BC007DF84B /* Popup.swift in Sources */,
 				E7CAC5FD2B4702210070C9D1 /* BaseModel.swift in Sources */,
 				E744D1992B48412E00CB5DC1 /* LoginModel.swift in Sources */,
@@ -1123,6 +1158,7 @@
 				E7E6FF5F2B2B3A3A00D94036 /* CodeCountryView.swift in Sources */,
 				E7C9258A2B0B78AF007DF84B /* VilalKSAApp.swift in Sources */,
 				E75591A32B27065900693FD5 /* PopupMiddle.swift in Sources */,
+				E727D54F2B5C90D700F2CF0C /* LocationInfoView.swift in Sources */,
 				E7DD75652B4FAD4E00207409 /* ForgetPasswordModel.swift in Sources */,
 				E7096D912B530A8700FDA20E /* MainPage.swift in Sources */,
 			);

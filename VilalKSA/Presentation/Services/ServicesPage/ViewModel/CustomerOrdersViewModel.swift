@@ -1,16 +1,17 @@
 //
-//  ServicesViewModel.swift
+//  CustomerOrdersViewModel.swift
 //  VilalKSA
 //
-//  Created by Elkilany on 14/01/2024.
+//  Created by Elkilany on 21/01/2024.
 //
 
 import Moya
 import SwiftUI
-class ServicesViewModel: BaseViewModel {
+
+class CustomerOrdersViewModel: BaseViewModel {
 
     private let apiService: ServicesAPIClient
-    @Published var servicesList: [ServicesResponse] = []
+//    @Published var servicesList: [ServicesResponse] = []
     
     init(apiService: ServicesAPIClient = ServicesAPIClient()) {
         self.apiService = apiService
@@ -31,7 +32,6 @@ class ServicesViewModel: BaseViewModel {
     }
     
     override func handleSuccess<T>(_ value: T) {
-
         if let response = value as? ServicesModel {
             guard let status = response.status else { return }
 
@@ -40,7 +40,7 @@ class ServicesViewModel: BaseViewModel {
                     self.state = .noData
                 }else{
                     self.state = .success
-                    self.servicesList = response.data ?? []
+//                    self.servicesList = response.data ?? []
                 }
             } else {
                 self.errorMessage = LocalizedStringKey(response.message ?? "")

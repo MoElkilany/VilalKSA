@@ -15,19 +15,18 @@ struct SplashPage: View {
     @State var state: AppState = .success
     
     var body: some View {
-
-        VilalKSAContainer(state:$state , action: tryAgainAction) {
+        
+        VilalKSAContainer(state: $state, tryAgainAction: tryAgain,  backAction: nil, content: {
             VStack{
                 Spacer()
-                
                 Image(R.image.logoIcon)
                     .resizable()
                     .frame(width: 150,height: 150)
                 
                 Spacer()
-                    
             }
-        }
+        })
+        
         .background(R.color.colorPrimary.name.getColor())
         .onAppear{
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
@@ -38,9 +37,11 @@ struct SplashPage: View {
 }
 
 
+
+
 extension SplashPage{
     
-    func tryAgainAction() {
+    func tryAgain() {
         
     }
 }

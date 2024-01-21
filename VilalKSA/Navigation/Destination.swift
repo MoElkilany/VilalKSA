@@ -91,12 +91,15 @@ enum MainDestination: Destination {
 
 enum ServicesDestination: Destination {
     case services
+    case customerOrder
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .services:
             ServicesPage()
+        case .customerOrder:
+            CustomerOrdersPage()
         }
     }
     
