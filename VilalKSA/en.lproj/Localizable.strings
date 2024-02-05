@@ -33,4 +33,10 @@
 "Add"  = "Add";
 
 // MARK: - Customer Orders
-"Customer_Orders" = "Customer Orders";
+"Customer_Orders" = "Customer Requests";
+"Customer_Orders_Details" = "Request Details";
+"Customer_Details_Skip" = "Skip";
+"Customer_Details_Submit_Offer" = "Submit an offer";
+"Customer_Details_Location" = "Location";
+"SAR" = "SAR";
+"Todays_Ads"="Todays Ads";

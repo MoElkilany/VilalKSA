@@ -128,17 +128,18 @@ struct GridViewItem: View {
             action?()
         } label: {
             VStack {
-                AsyncImage(url: URL(string: icon ?? "")){ phase in
-                    if let image =
-                        phase.image{
-                        image
-                            .frame(width: 50, height: 50, alignment: .center)
-                    }else if phase.error != nil{
-                        Text("Couldn't load image")
-                    }else{
-                        ProgressView()
-                    }
-                }
+                URLImage(imageUrl:  icon ?? "",imageWidth: 50,imageHeight: 50)
+//                AsyncImage(url: URL(string: icon ?? "")){ phase in
+//                    if let image =
+//                        phase.image{
+//                        image
+//                            .frame(width: 50, height: 50, alignment: .center)
+//                    }else if phase.error != nil{
+//                        Text("Couldn't load image")
+//                    }else{
+//                        ProgressView()
+//                    }
+//                }
                 
                 TextBold12(text: LocalizedStringKey(title ?? "") , textColor: R.color.color42526E.name.getColor())
                     .frame(maxWidth: .infinity)

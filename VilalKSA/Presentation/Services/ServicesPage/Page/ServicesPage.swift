@@ -17,12 +17,12 @@ struct ServicesPage: View {
     @EnvironmentObject var pilot: UIPilot<ServicesDestination>
     @StateObject var viewModel = ServicesViewModel()
     @State var popups = PopupsState()
-
-
+    
+    
     let columns: [GridItem] = [
-          GridItem(.flexible()),
-          GridItem(.flexible())
-      ]
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     var body: some View {
         
@@ -30,21 +30,21 @@ struct ServicesPage: View {
             viewModel.getServices()
         },backAction:nil ,content: {
             VStack{
-                 LazyVGrid(columns: columns, spacing: 10) {
-                     ForEach(viewModel.servicesList,id: \.id) { item in
-                         GridViewItem(icon: item.icon ?? "", title: item.name ?? "") {
-                             if item.id == 2 {
-                                 pilot.push(.customerOrder)
-                             }else if item.id == 4 {
-                                  
-                             }else{
-                                 popups.middleItem = SomeItem(mainTitle: LocalizedStringKey( item.name ?? ""), subTitle: nil, image: nil)
-
-                             }
-                         }
-                     }
-                 }
-             }
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(viewModel.servicesList,id: \.id) { item in
+                        GridViewItem(icon: item.icon ?? "", title: item.name ?? "") {
+                            if item.id == 2 {
+                                pilot.push(.customeRequest)
+                            }else if item.id == 4 {
+                                pilot.push(.todayAdsPage)
+                            }else{
+                                popups.middleItem = SomeItem(mainTitle: LocalizedStringKey( item.name ?? ""), subTitle: nil, image: nil)
+                                
+                            }
+                        }
+                    }
+                }
+            }
         })
         .edgesIgnoringSafeArea(.all)
         .padding(.top)
@@ -52,6 +52,7 @@ struct ServicesPage: View {
             viewModel.getServices()
             print("the services array is \(viewModel.servicesList)")
         })
+        
         .popup(item: $popups.middleItem) { item in
             PopupMiddle(item: item) {
                 popups.middleItem = nil

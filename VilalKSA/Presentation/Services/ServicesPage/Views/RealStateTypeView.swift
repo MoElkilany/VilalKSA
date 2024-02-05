@@ -15,7 +15,6 @@ struct RealStateTypeView: View {
             Image(R.image.apartment_icon.name)
                 .resizable()
                 .frame(width: 20, height: 20, alignment: .center)
-
             TextMeduim(text: realStateTypeName ?? "شقة", textColor: R.color.color7A869A.name.getColor())
         }
         .padding(6)

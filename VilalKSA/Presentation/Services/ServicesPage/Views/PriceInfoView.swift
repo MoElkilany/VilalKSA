@@ -11,7 +11,11 @@ struct PriceInfoView: View {
     
     var price:  LocalizedStringKey?
     var body: some View {
-        TextSemiBold14(text:price ?? "$340 - $500", textColor: R.color.colorPrimary.name.getColor())
+        HStack{
+            TextBold12(text:price ?? "$340 - $500", textColor: R.color.colorPrimary.name.getColor())
+                .padding(.horizontal,-4)
+            TextBold12(text:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
+        }
     }
 }
 

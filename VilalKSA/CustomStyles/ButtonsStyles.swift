@@ -138,7 +138,7 @@ struct DefaultBoarderButtonWithIcon: View {
         } label: {
                 Text(title)
                     .foregroundColor(titleColor)
-                    .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 20))
+                    .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 14))
         }
         .frame(maxWidth: Double.infinity, maxHeight: 50, alignment: .center)
         .background(backgroundColor)

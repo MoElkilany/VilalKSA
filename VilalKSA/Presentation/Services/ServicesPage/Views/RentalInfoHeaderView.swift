@@ -9,11 +9,13 @@ import SwiftUI
 
 struct RentalInfoHeaderView: View {
     var name: LocalizedStringKey?
+    var realStateCategory: LocalizedStringKey?
+    
     var body: some View {
         HStack {
             TextBold14(text: name ?? "شقة للايجار", textColor: R.color.color172B4D.name.getColor())
             Spacer()
-            RealStateTypeView()
+            RealStateTypeView(realStateTypeName: realStateCategory)
         }
     }
 }

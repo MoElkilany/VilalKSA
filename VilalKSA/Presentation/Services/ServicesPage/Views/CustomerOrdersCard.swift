@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct CustomerOrdersCard: View {
+    
+    var customerOrderModel: CustomerRequestsValueModel
     var body: some View {
-
-        CardContent()
+        CardContent(customerOrderModel: customerOrderModel)
             .background(RoundedRectangle(cornerRadius: 15.0)
                 .fill(Color.white)
-                .shadow(radius: 4))
+                .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
             .padding(.horizontal, 20)
             .padding(.top, 15)
     }
 }
 
 struct CardContent: View {
-    
+    var customerOrderModel: CustomerRequestsValueModel
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                RentalInfoHeaderView()
+                RentalInfoHeaderView(name: LocalizedStringKey(customerOrderModel.name ?? ""), realStateCategory: LocalizedStringKey(customerOrderModel.category ?? ""))
                 LocationInfoView()
-                PriceInfoView(price: nil)
+                PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price?.from ?? "", toPrice:  customerOrderModel.price?.to ?? ""))
             }
             .padding([.leading, .top, .bottom])
         }
@@ -35,12 +36,3 @@ struct CardContent: View {
 }
 
 
-
-
-
-
-struct CustomerOrdersCard_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomerOrdersCard()
-    }
-}

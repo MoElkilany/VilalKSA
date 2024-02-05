@@ -10,7 +10,9 @@ import Moya
 enum ServicesEndPoint {
     case login(request: LoginRequest)
     case getServices
-
+    case getCustomerRequests
+    case getCustomerRequestDetails(id:String)
+    case getTodayAds
 }
 
 extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
@@ -25,6 +27,13 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
             return Constants.login.rawValue
         case .getServices:
             return Constants.services.rawValue
+        case .getCustomerRequests:
+            return Constants.servicesCustomerRequests.rawValue
+        case .getCustomerRequestDetails(let id ):
+            return Constants.servicesCustomerRequestDetails.rawValue + id
+        case .getTodayAds:
+            return Constants.servicesTodayAds.rawValue
+            
         }
     }
     
@@ -32,7 +41,7 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login:
             return .post
-        case .getServices:
+        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
             return .get
         }
     }
@@ -41,7 +50,7 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login(let requestObject):
             return .requestJSONEncodable(requestObject)
-        case .getServices:
+        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
             return .requestPlain
         }
     }
@@ -54,7 +63,7 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
 
     var authorizationType: AuthorizationType? {
         switch self {
-        case .login,.getServices:
+        case .login,.getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
                 return .none
             }
         }

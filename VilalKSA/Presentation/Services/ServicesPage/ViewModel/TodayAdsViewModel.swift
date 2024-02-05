@@ -1,24 +1,27 @@
 //
-//  CustomerRequestsViewModel.swift
+//  TodayAdsViewModel.swift
 //  VilalKSA
 //
-//  Created by Elkilany on 21/01/2024.
+//  Created by Elkilany on 05/02/2024.
 //
 
 import Moya
 import SwiftUI
+class TodayAdsViewModel: BaseViewModel {
 
-class CustomerRequestsViewModel: BaseViewModel {
     private let apiService: ServicesAPIClient
-    @Published var customerRequestsList: [CustomerRequestsValueModel] = []
-    
+    @Published var todayAdsList: [todayAdsValue] = []
+
+
+
     init(apiService: ServicesAPIClient = ServicesAPIClient()) {
         self.apiService = apiService
     }
     
-    func getCustomerRequests() {
+    
+    func getTodayAds() {
         self.state = .loading
-        apiService.getCustomerRequests() { [weak self] result in
+        apiService.getTodayAds() { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let value):
@@ -31,7 +34,8 @@ class CustomerRequestsViewModel: BaseViewModel {
     }
     
     override func handleSuccess<T>(_ value: T) {
-        if let response = value as? CustomerRequestsModel {
+
+        if let response = value as? TodayAdsModel {
             guard let status = response.status else { return }
 
             if status == 200 {
@@ -39,7 +43,7 @@ class CustomerRequestsViewModel: BaseViewModel {
                     self.state = .noData
                 }else{
                     self.state = .success
-                    self.customerRequestsList = response.data ?? []
+                    self.todayAdsList = response.data ?? []
                 }
             } else {
                 self.errorMessage = LocalizedStringKey(response.message ?? "")

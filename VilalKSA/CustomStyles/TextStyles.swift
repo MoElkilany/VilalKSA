@@ -328,3 +328,20 @@ struct TextMeduim12: View {
             .foregroundColor(textColor)
     }
 }
+
+struct TextMeduim10: View {
+    var text: LocalizedStringKey
+    var textColor: Color
+    
+    init(text: LocalizedStringKey, textColor: Color) {
+        self.text = text
+        self.textColor = textColor
+    }
+    
+    var body: some View {
+        Text(text)
+            .font(Font.custom(FontName.cairoMedium.rawValue, size: 10))
+//            .font(.system(size: 10, weight: .medium))
+            .foregroundColor(textColor)
+    }
+}

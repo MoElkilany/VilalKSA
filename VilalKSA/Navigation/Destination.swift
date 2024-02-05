@@ -26,6 +26,7 @@ enum RootDestination: Destination {
     case createAccountPage
     case changePasswordSuccessPage
     case compeletProfilePage
+    case forTest
     
     @ViewBuilder
     var view: some View {
@@ -48,6 +49,8 @@ enum RootDestination: Destination {
             CompeletProfilePage()
         case .home:
             HomeScreen()
+        case .forTest:
+            CustomerRequestsDetailsPage(requestID: "1")
         }
     }
     var name: String {
@@ -91,15 +94,22 @@ enum MainDestination: Destination {
 
 enum ServicesDestination: Destination {
     case services
-    case customerOrder
+    case customeRequest
+    case customeRequestDetails(id:String)
+    case todayAdsPage
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .services:
             ServicesPage()
-        case .customerOrder:
-            CustomerOrdersPage()
+        case .customeRequest:
+            CustomerRequestsPage()
+        case .customeRequestDetails(let id ):
+            CustomerRequestsDetailsPage(requestID: id)
+            
+        case .todayAdsPage:
+            TodayAdsPage()
         }
     }
     

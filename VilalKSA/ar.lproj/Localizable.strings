@@ -36,4 +36,10 @@
 
 // MARK: - Customer Orders
 "Customer_Orders" = "طلبــــات العملاء";
+"Customer_Orders_Details" = "تفـــاصيل الطلب";
+"Customer_Details_Location" = "الموقع";
+"Customer_Details_Submit_Offer" = "تقديم عرض";
+"Customer_Details_Skip" = "تجاهل";
+"SAR" = "ريال";
+"Todays_Ads"="إعلانات اليوم";
 

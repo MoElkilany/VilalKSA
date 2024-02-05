@@ -9,12 +9,11 @@ import SwiftUI
 import RswiftResources
 
 extension String {
-    
+
     func getColor() -> Color {
         Color(self)
     }
 }
-
 
 extension StringResource {
     var localized: LocalizedStringKey {

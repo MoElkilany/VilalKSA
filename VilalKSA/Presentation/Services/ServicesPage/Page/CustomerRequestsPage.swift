@@ -1,5 +1,5 @@
 //
-//  CustomerOrdersPage.swift
+//  CustomerRequestsPage.swift
 //  VilalKSA
 //
 //  Created by Elkilany on 21/01/2024.
@@ -8,26 +8,26 @@
 import SwiftUI
 import UIPilot
 
-struct CustomerOrdersPage: View {
+struct CustomerRequestsPage: View {
     
-    @StateObject var viewModel = CustomerOrdersViewModel()
+    @StateObject var viewModel = CustomerRequestsViewModel()
     @EnvironmentObject var pilot: UIPilot<ServicesDestination>
 
-    let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
     var body: some View {
         
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.customer_Orders.localized, tryAgainAction: {
-            //            viewModel.getServices()
+           viewModel.getCustomerRequests()
         },backAction:{
             pilot.pop()
         } ,content: {
             ScrollView{
-                ForEach(0..<10, id: \.self) { _ in
-                    CustomerOrdersCard()
+                ForEach(self.viewModel.customerRequestsList, id: \.id) { modelValue in
+                    Button(action: {
+                        pilot.push(.customeRequestDetails(id: String(modelValue.id ?? 1)))
+                    }, label: {
+                        CustomerOrdersCard(customerOrderModel: modelValue)
+                    })
+                   
                 }
             }
             .padding(.bottom,50)
@@ -35,14 +35,14 @@ struct CustomerOrdersPage: View {
         .edgesIgnoringSafeArea(.all)
         .padding(.top)
         .onAppear(perform: {
-            //            viewModel.getServices()
+            viewModel.getCustomerRequests()
         })
         
     }
 }
 
 #Preview {
-    CustomerOrdersPage()
+    CustomerRequestsPage()
 }
 
 

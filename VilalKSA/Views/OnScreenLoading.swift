@@ -18,7 +18,7 @@ var OnScreenLoading: some View {
         
         VStack(spacing: 20) {
             Loader(size: 80)
-            TextBold16(text: "Loading...", textColor: R.color.colorPrimary.name.getColor())
+            TextMeduim(text: R.string.localizable.loading.localized, textColor: R.color.colorPrimary.name.getColor())
         }
     }
     .frame(width: 140, height: 140)

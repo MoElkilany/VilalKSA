@@ -22,4 +22,16 @@ struct ServicesAPIClient: APIClient {
     func getServiceList(completion: @escaping (APIResult<ServicesModel?, APIError>) -> Void) {
         fetch(with: ServicesEndPoint.getServices, completion: completion)
     }
+    
+    func getCustomerRequests(completion: @escaping (APIResult<CustomerRequestsModel?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.getCustomerRequests, completion: completion)
+    }
+
+    func getCustomerRequestDetails(id: String ,completion: @escaping (APIResult<CustomerRequestsDetailsModel?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.getCustomerRequestDetails(id: id), completion: completion)
+    }
+    
+    func getTodayAds(completion: @escaping (APIResult<TodayAdsModel?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.getTodayAds, completion: completion)
+    }
 }
