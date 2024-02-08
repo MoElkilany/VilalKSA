@@ -21,7 +21,7 @@ struct CompeletProfilePage: View {
     var body: some View {
         ZStack{
             VStack{
-                ScrollView{
+                ScrollView(showsIndicators:false){
                     TextBold16(text: "Completing Personal Profile Information", textColor: R.color.color172B4D.name.getColor())
                         .padding(.vertical,12)
                         .padding(.top,42)

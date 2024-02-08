@@ -32,39 +32,31 @@ struct VilalKSAContainer<Content: View>: View {
     var description: String? = nil
     var content: Content
     var padding: Double
-    
-    init(state: Binding<AppState> , titlePage: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,tryAgainAction: ActionClosure? = nil, backAction:ActionClosure?, @ViewBuilder content: () -> Content) {
+    var haveAnotherButton: Bool? = nil
+    var iconButton: String? = nil
+    var buttonAction: (() -> Void)? = nil
+
+
+    init(state: Binding<AppState> , titlePage: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,tryAgainAction: ActionClosure? = nil, backAction:ActionClosure?, haveAnotherButton:Bool? = nil ,buttonAction:ActionClosure? = nil,iconButton: String? = nil, @ViewBuilder content: () -> Content) {
         self.content = content()
         self._state =  state
         self.titlePage = titlePage
-        
         self.description = description
         self.tryAgainAction = tryAgainAction
         self.padding = padding
         self.backAction = backAction
+        self.buttonAction = buttonAction
+        self.iconButton = iconButton
+        self.haveAnotherButton = haveAnotherButton
     }
     
     
     var body: some View {
         ZStack {
-
             VStack{
-                ZStack(alignment: .center){
-                    TextBold16(text: titlePage ?? "", textColor: R.color.colorPrimary.name.getColor())
-
-                    if backAction != nil {
-                        HStack {
-                            Button(action: backAction!) {
-                                Image(languageSettings.selectedLanguage == .ar ? R.image.back_button_right_icon.name : R.image.back_button_left_icon.name )
-                                    .resizable()
-                                    .frame(width: 30, height: 20)
-                            }
-                            Spacer()
-                            
-                        }
-                        .padding(.horizontal,25)
-                    }
-                }
+        
+                VilalNavigationView(languageSettings: _languageSettings, titlePage: self.titlePage, backAction: self.backAction, haveAnotherButton: self.haveAnotherButton ?? false, icon:  self.iconButton, buttonAction:  self.buttonAction)
+                
                 .padding(.top,60)
                 content
                     .environmentObject(networkMonitor)
@@ -163,11 +155,11 @@ struct StateTryAgainView: View {
     }
 }
 
-#Preview{
-    StateTryAgainView(action: {
-        print("tets")
-    })
-}
+//#Preview{
+//    StateTryAgainView(action: {
+//        print("tets")
+//    })
+//}
 
 struct NoDataView: View {
     
@@ -205,6 +197,50 @@ struct NetworkUnavailableView: View {
         )
     }
 }
+
+
+struct VilalNavigationView: View {
+    @EnvironmentObject var languageSettings: LanguageSettings
+    var titlePage:LocalizedStringKey?
+    var backAction: (() -> Void)?
+    var haveAnotherButton: Bool = false
+    var icon:String?
+    var buttonAction: (() -> Void)?
+
+    var body: some View {
+        ZStack(alignment: .center){
+            TextBold16(text: titlePage ?? "", textColor: R.color.colorPrimary.name.getColor())
+            if backAction != nil {
+                HStack {
+                    Button(action: backAction!) {
+                        Image(languageSettings.selectedLanguage == .ar ? R.image.back_button_right_icon.name : R.image.back_button_left_icon.name )
+                            .resizable()
+                            .frame(width: 25, height: 15)
+                    }
+                    Spacer()
+                    
+                    if haveAnotherButton == true  {
+                        Button(action:buttonAction! ) {
+                            Image(icon ?? "" )
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                        }
+                    }
+                                            
+                }
+                .padding(.horizontal,25)
+            }
+        }
+
+        
+    }
+}
+
+
 #Preview{
-    NetworkUnavailableView()
+    VilalNavigationView(titlePage: "test 1", backAction: {
+        
+    }, haveAnotherButton: false , icon:  R.image.back_button_left_icon.name) {
+        
+    }
 }

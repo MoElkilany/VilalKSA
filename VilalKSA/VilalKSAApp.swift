@@ -49,7 +49,7 @@ struct VilalKSAApp: App {
         if let _ = UserDefaults.standard.string(forKey: Constants.beraerToken.rawValue) {
             return UIPilot<RootDestination>(initial: .home)
         } else {
-            return UIPilot<RootDestination>(initial: .home)
+            return UIPilot<RootDestination>(initial: .splash)
         }
     }
     

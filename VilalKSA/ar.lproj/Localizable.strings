@@ -6,7 +6,7 @@
   
 */
 
-// MARK: - Error Messages
+// MARK= - Error Messages
 "Error_Phone_Required" = "الرجاء إدخال رقم الجوال";
 "Error_Password_Required" = "الرجاء إدخال كلمة المرور";
 "Empty_No_Result_Found" = "لا يوجد نتائج";
@@ -18,7 +18,7 @@
 "Service_Not_Available" = "هذه الخدمة غير متوفرة الأن نحن نسعي الي توفرها قريباً";
 
 
-// MARK: - Authenticatoin
+// MARK= - Authenticatoin
 "Login" = "تسجيل الدخول";
 "Enter_Your_Phone" = "قم بإدخال رقم الجوال الخاص  بحسابك";
 "Enter_Phone_Number"= "ادخل رقم الجوال";
@@ -27,14 +27,14 @@
 "Dont_Have_Account" = "ليس لديك حساب ؟";
 "Create_New_Account" = "انشاء حساب";
 
-// MARK: - TabBar
+// MARK= - TabBar
 "Main" = "الرئيسية";
 "Services" = "الخدمات";
 "Messages" = "محادثات";
 "MyAccount" = "حسابي";
 "Add"  = "إضافة";
 
-// MARK: - Customer Orders
+// MARK= - Customer Orders
 "Customer_Orders" = "طلبــــات العملاء";
 "Customer_Orders_Details" = "تفـــاصيل الطلب";
 "Customer_Details_Location" = "الموقع";
@@ -42,4 +42,29 @@
 "Customer_Details_Skip" = "تجاهل";
 "SAR" = "ريال";
 "Todays_Ads"="إعلانات اليوم";
+"Request_Owner" = "صاحب الطلب";
+"Profile" = "الملف الشخصي";
+"Details" = "التفاصيل";
+"Properties" = "الخصائص";
+"Building"  = "المبني";
+"Contact_Advertiser" = "تواصل مع صاحب الاعلان";
 
+// MARK= - Profile
+"User_Profile"= "المــلف الشـــخصي";
+"Favorites"= "المفضلة";
+"My_Ads"= "اعلاناتي";
+"My_Requests"= "طلباتي";
+"My_Reservations"= "حجوزاتي";
+"About_the_App"= "عن التطبيق";
+"Language"= "اللغة";
+"Customer_Service"= "خدمة العملاء";
+"Cancellation_Terms"= "شروط الالغاء";
+"Terms_and_Conditions"= "الشروط والاحكام";
+"Privacy_Policy"= "سياسة الخصوصية";
+"Delete_Account"= "حذف الحساب";
+"Log_Out"= "تسجيل الخروج";
+
+// MARK= - Favorites
+"ADS" = "إعلانات";
+"Search" = "بحث";
+"Cancel" = "إلغاء";

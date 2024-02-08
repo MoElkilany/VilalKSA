@@ -16,7 +16,7 @@ struct HomeScreen: View {
     @StateObject var servicesPilot = UIPilot<ServicesDestination>(initial: .services)
     @StateObject var addRequestPilot = UIPilot<AddRequestDestination>(initial: .addRequest)
     @StateObject var messagePilot = UIPilot<MessageDestination>(initial: .message)
-    @StateObject var morePilot = UIPilot<MyAcoountDestination>(initial: .myAccount)
+    @StateObject var morePilot = UIPilot<MyAccountDestination>(initial: .myAccount)
     
     @StateObject var popupPresent = PopupPresent()
     
@@ -167,7 +167,7 @@ struct TabBarItemView: View {
     @EnvironmentObject var servicesPilot : UIPilot<ServicesDestination>
     @EnvironmentObject var addRequestPilot : UIPilot<AddRequestDestination>
     @EnvironmentObject var messagePilot : UIPilot<MessageDestination>
-    @EnvironmentObject var myAccountPilot : UIPilot<MyAcoountDestination>
+    @EnvironmentObject var myAccountPilot : UIPilot<MyAccountDestination>
     @EnvironmentObject var popupPresent: PopupPresent
     @Binding var selectedTab: TabBarItemType
 

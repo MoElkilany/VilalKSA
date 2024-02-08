@@ -47,7 +47,7 @@ struct ServicesPage: View {
             }
         })
         .edgesIgnoringSafeArea(.all)
-        .padding(.top)
+        .padding(.top,20)
         .onAppear(perform: {
             viewModel.getServices()
             print("the services array is \(viewModel.servicesList)")
@@ -59,8 +59,9 @@ struct ServicesPage: View {
             }
         } customize: {
             $0
+                .closeOnTapOutside(true)
                 .closeOnTap(true)
-                .backgroundColor(.black.opacity(0.5))
+                .backgroundColor(.black.opacity(0.3))
         }
     }
 }

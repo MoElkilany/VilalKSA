@@ -6,17 +6,17 @@
   
 */
 
-// MARK: - Error Messages
+// MARK= - Error Messages
 "Error_Phone_Required" = "Please enter phone number";
 "Error_Password_Required" = "Please enter password";
 "Empty_No_Result_Found" = "No Data Found";
-"Empty_No_Result_Found_Description" = "There are no results at the moment, the results will appear here";
+"Empty_No_Result_Found_Description" = "There are no results at the moment; the results will appear here";
 "Loading" = "Loading...";
 "Something_Wrong" = "Something went wrong";
-"Please_Try_Again" = "An error occurred while accessing the data, please try again";
+"Please_Try_Again" = "An error occurred while accessing the data; please try again";
 "Try_Again" = "Try again";
 "Service_Not_Available" = "This service is not available now. We are striving to make it available soon.";
-// MARK: - Authenticatoin
+// MARK= - Authenticatoin
 "Login" = "Login";
 "Enter_Your_Phone" = "Enter your mobile number";
 "Enter_Phone_Number"= "Enter the phone number";
@@ -25,14 +25,14 @@
 "Dont_Have_Account" = "Don't have an account?";
 "Create_New_Account" = "Create New Account";
 
-// MARK: - TabBar
+// MARK= - TabBar
 "Main" = "Main";
 "Services" = "Services";
 "Messages" = "Messages";
 "MyAccount" = "Account";
 "Add"  = "Add";
 
-// MARK: - Customer Orders
+// MARK= - Customer Orders
 "Customer_Orders" = "Customer Requests";
 "Customer_Orders_Details" = "Request Details";
 "Customer_Details_Skip" = "Skip";
@@ -40,3 +40,31 @@
 "Customer_Details_Location" = "Location";
 "SAR" = "SAR";
 "Todays_Ads"="Todays Ads";
+"Request_Owner" = "Reuest Owner";
+"Profile" = "Profile";
+"Details" = "Details";
+"Properties" = "Properties";
+"Building"  = "Building";
+"Contact_Advertiser" = "Contact the advertiser";
+
+
+// MARK= - Profile
+"User_Profile"= "User Profile";
+"Favorites"= "Favorites";
+"My_Ads"= "My Ads";
+"My_Requests"= "My Requests";
+"My_Reservations"= "My Reservations";
+"About_the_App"= "About the App";
+"Language"= "Language";
+"Customer_Service"= "Customer Service";
+"Cancellation_Terms"= "Cancellation Terms";
+"Terms_and_Conditions"= "Terms and Conditions";
+"Privacy_Policy"= "Privacy Policy";
+"Delete_Account"= "Delete Account";
+"Log_Out"= "Log Out";
+
+// MARK= - Favorites
+"ADS" = "Ads";
+"Search" = "Search";
+"Cancel" = "Cancel";
+

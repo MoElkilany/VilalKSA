@@ -16,6 +16,7 @@ struct RentalInfoHeaderView: View {
             TextBold14(text: name ?? "شقة للايجار", textColor: R.color.color172B4D.name.getColor())
             Spacer()
             RealStateTypeView(realStateTypeName: realStateCategory)
+                .padding(.horizontal,10)
         }
     }
 }

@@ -151,14 +151,17 @@ enum MessageDestination: Destination {
 }
 
 
-enum MyAcoountDestination: Destination {
+enum MyAccountDestination: Destination {
     case myAccount
+    case favorites
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .myAccount:
             MyAccountPage()
+        case .favorites:
+            FavoritesPage()
         }
     }
     

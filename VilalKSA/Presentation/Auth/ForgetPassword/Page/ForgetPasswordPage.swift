@@ -38,7 +38,7 @@ struct ForgetPasswordPage: View {
                 .padding(.horizontal, width / 20)
                 .padding(.bottom, 20)
                 
-                ScrollView{
+                ScrollView(showsIndicators:false){
                     
                     HStack {
                         VStack(alignment: .leading) {

@@ -11,8 +11,8 @@ import SwiftUI
 class CustomerRequestsDetailsViewModel: BaseViewModel {
     
     private let apiService: ServicesAPIClient
-    @Published var customerRequestDetailsModel: CustomerRequestsValueModel = CustomerRequestsValueModel()
-    
+    @Published var customerRequestDetailsModel: CustomerRequestsDetailsValue = CustomerRequestsDetailsValue()
+
     init(apiService: ServicesAPIClient = ServicesAPIClient()) {
         self.apiService = apiService
     }
@@ -39,7 +39,7 @@ class CustomerRequestsDetailsViewModel: BaseViewModel {
                 
                 if let responseData = response.data {
                     self.state = .success
-                    guard let responseData = response.data else {return}
+//                    guard let responseData = response.data else {return}
                     self.customerRequestDetailsModel = responseData
                 }else{
                     self.state = .noData

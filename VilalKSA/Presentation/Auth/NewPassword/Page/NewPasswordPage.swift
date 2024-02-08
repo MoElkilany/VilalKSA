@@ -36,7 +36,7 @@ struct NewPasswordPage: View {
                     .padding(.top, 50)
                     .padding(.horizontal, width / 20)
                     
-                    ScrollView{
+                    ScrollView(showsIndicators:false){
                         HStack {
                             VStack(alignment: .leading) {
                                 TextExtraBold16(text: "Create New Password", textColor: R.color.color172B4D.name.getColor())

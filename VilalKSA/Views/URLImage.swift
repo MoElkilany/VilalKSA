@@ -12,23 +12,48 @@ struct URLImage: View {
     let imageUrl:String?
     var imageWidth: CGFloat = 100
     var imageHeight: CGFloat = 100
+    var isCliped = false
     
     var body: some View {
         AsyncImage(url: URL(string: imageUrl ?? "")) { phase in
             switch phase {
             case .success(let image):
-                image
-                    .frame(width: imageWidth, height: imageHeight, alignment: .center)
+                
+                if isCliped == true {
+                    image
+                        .resizable()
+                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+                        .cornerRadius(imageWidth / 2 )
+                }else{
+                    image
+                        .resizable()
+                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+                }
+              
+                    
             case .failure(_):
-                Image(R.image.logo.name)
-                    .frame(width: imageWidth, height: imageHeight, alignment: .center)
-                    .cornerRadius(12)
+                if isCliped == true {
+                    Image(R.image.logo.name)
+                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+                        .cornerRadius(imageWidth / 2 )
+                }else{
+                    Image(R.image.logo.name)
+                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+                        .cornerRadius(12)
+                    
+                }
             case .empty:
                 ProgressView()
             @unknown default:
-                Image(R.image.logo.name)
-                    .frame(width: imageWidth, height: imageHeight, alignment: .center)
-                    .cornerRadius(12)
+                if isCliped == true {
+                    Image(R.image.logo.name)
+                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+                        .cornerRadius(imageWidth / 2 )
+                }else{
+                    Image(R.image.logo.name)
+                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+                        .cornerRadius(12)
+                }
             }
         }
     }

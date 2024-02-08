@@ -75,7 +75,7 @@ struct GridView: View {
     ]
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators:false){
             LazyVGrid(columns: columns, spacing: 10) {
                 
                 ForEach(gridItems) { item in
@@ -128,7 +128,7 @@ struct GridViewItem: View {
             action?()
         } label: {
             VStack {
-                URLImage(imageUrl:  icon ?? "",imageWidth: 50,imageHeight: 50)
+                URLImage(imageUrl:  icon ?? "",imageWidth: 20,imageHeight: 20)
 //                AsyncImage(url: URL(string: icon ?? "")){ phase in
 //                    if let image =
 //                        phase.image{

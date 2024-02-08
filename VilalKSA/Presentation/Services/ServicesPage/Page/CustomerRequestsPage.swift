@@ -12,11 +12,11 @@ struct CustomerRequestsPage: View {
     
     @StateObject var viewModel = CustomerRequestsViewModel()
     @EnvironmentObject var pilot: UIPilot<ServicesDestination>
-
+    
     var body: some View {
         
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.customer_Orders.localized, tryAgainAction: {
-           viewModel.getCustomerRequests()
+            viewModel.getCustomerRequests()
         },backAction:{
             pilot.pop()
         } ,content: {
@@ -27,13 +27,12 @@ struct CustomerRequestsPage: View {
                     }, label: {
                         CustomerOrdersCard(customerOrderModel: modelValue)
                     })
-                   
                 }
             }
             .padding(.bottom,50)
         })
         .edgesIgnoringSafeArea(.all)
-        .padding(.top)
+        .padding(.top,20)
         .onAppear(perform: {
             viewModel.getCustomerRequests()
         })

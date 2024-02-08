@@ -16,7 +16,7 @@ struct CustomerOrdersCard: View {
                 .fill(Color.white)
                 .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
             .padding(.horizontal, 20)
-            .padding(.top, 15)
+            .padding(.top, 5)
     }
 }
 
@@ -26,7 +26,7 @@ struct CardContent: View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
                 RentalInfoHeaderView(name: LocalizedStringKey(customerOrderModel.name ?? ""), realStateCategory: LocalizedStringKey(customerOrderModel.category ?? ""))
-                LocationInfoView()
+                LocationInfoView(locationName: "")
                 PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price?.from ?? "", toPrice:  customerOrderModel.price?.to ?? ""))
             }
             .padding([.leading, .top, .bottom])

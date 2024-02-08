@@ -26,7 +26,7 @@ struct CreateAccountPage: View {
                     .frame(maxWidth: .infinity, maxHeight: 144, alignment: .center)
                     .padding(.bottom ,32)
                 
-                ScrollView{
+                ScrollView(showsIndicators:false){
                     HStack {
                         VStack(alignment: .leading) {
                             TextExtraBold16(text: "Create Account", textColor: R.color.color172B4D.name.getColor())

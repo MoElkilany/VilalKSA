@@ -31,7 +31,7 @@ struct LoginPage: View {
                     .frame(maxWidth: .infinity, maxHeight: 144, alignment: .center)
                     .padding(.bottom ,32)
                 
-                ScrollView{
+                ScrollView(showsIndicators:false){
 
                     HStack {
                         VStack(alignment: .leading) {

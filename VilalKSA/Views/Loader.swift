@@ -20,7 +20,7 @@ struct Loader: View {
                 Spacer()
                 ActivityIndicatorView(isVisible: .constant(true), type: .arcs())
                     .frame(width: size, height: size)
-                    .foregroundColor(.gray.opacity(0.6))
+                    .foregroundColor(R.color.colorPrimary.name.getColor().opacity(0.5))
                 Spacer()
             }
         }
