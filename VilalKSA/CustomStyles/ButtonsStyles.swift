@@ -136,17 +136,18 @@ struct DefaultBoarderButtonWithIcon: View {
         Button{
             actionButton()
         } label: {
-                Text(title)
-                    .foregroundColor(titleColor)
-                    .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 14))
+            Text(title)
+                .foregroundColor(titleColor)
+                .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 14))
+            
+                .frame(maxWidth: Double.infinity, maxHeight: 50, alignment: .center)
+                .background(backgroundColor)
+                .clipShape(Capsule())
+                .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(borderColor, lineWidth: 1)
+                )
         }
-        .frame(maxWidth: Double.infinity, maxHeight: 50, alignment: .center)
-        .background(backgroundColor)
-        .clipShape(Capsule())
-        .overlay(
-            RoundedRectangle(cornerRadius: 30)
-                .stroke(borderColor, lineWidth: 1)
-        )
     }
 }
 

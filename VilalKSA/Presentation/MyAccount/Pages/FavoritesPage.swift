@@ -76,9 +76,7 @@ struct FavoritesPage: View {
                         PropertyContainerView(imageUrl: "https://verasign.se/ammr/public/assets/images/faces/1.jpg", rate: "4.5", category: "فيلا للبيع", name: "فيلا ميت غراب", room: "4", space: "120", price: "2400", favourite: true, location: "المنصورة ", rental: "شهري")
                     }
                 }
-                
                 //                ForEach(viewModel.todayAdsList,id: \.id) { item in
-                
                 
             }
         })

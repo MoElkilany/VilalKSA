@@ -17,7 +17,7 @@ enum AuthEndPoint {
     case codeForgetPassword(request:CodeForgetPasswordRequest)
     case changePassword(request:ChangePasswordRequest)
     case resendCode(request:ResendCodeRequest)
-
+    
 }
 
 extension AuthEndPoint: TargetType, AccessTokenAuthorizable {
@@ -76,18 +76,19 @@ extension AuthEndPoint: TargetType, AccessTokenAuthorizable {
     }
     
     var headers: [String : String]? {
-        var header : [String : String] = ["Accept": "application/json","Accept-Language": "ar" ]
+        let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
+        let header : [String : String] = ["Accept": "application/json","locale": local]
         return header
     }
-
+    
     var authorizationType: AuthorizationType? {
         switch self {
         case .login , .registerPhone,.verificationCode,.forgetPassword,.codeForgetPassword,.resendCode:
-                return .none
-
+            return .none
+            
         case .compeletProfile,.changePassword:
             return .bearer
             
-            }
         }
+    }
 }

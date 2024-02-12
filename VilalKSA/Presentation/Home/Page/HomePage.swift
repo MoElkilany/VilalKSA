@@ -119,8 +119,8 @@ struct HomeScreen: View {
                     .frame(height: 100,
                            alignment: .bottom)
                     .frame(maxWidth: .infinity)
-                    //.cornerRadius(30, corners: [.topLeft, .topRight])
-                    .shadow(radius: 10)
+                    .cornerRadius(30)
+                    .shadow(radius: 5)
                     .padding(.top, -30)
                     .overlay {
                         HStack {

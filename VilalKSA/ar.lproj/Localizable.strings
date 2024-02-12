@@ -1,12 +1,12 @@
-/* 
-  Localizable.strings
-  VilalKSA
+/*
+ Localizable.strings
+ VilalKSA
+ 
+ Created by Elkilany on 13/01/2024.
+ 
+ */
 
-  Created by Elkilany on 13/01/2024.
-  
-*/
-
-// MARK= - Error Messages
+// MARK= Error Messages
 "Error_Phone_Required" = "الرجاء إدخال رقم الجوال";
 "Error_Password_Required" = "الرجاء إدخال كلمة المرور";
 "Empty_No_Result_Found" = "لا يوجد نتائج";
@@ -18,7 +18,7 @@
 "Service_Not_Available" = "هذه الخدمة غير متوفرة الأن نحن نسعي الي توفرها قريباً";
 
 
-// MARK= - Authenticatoin
+// MARK= Authenticatoin
 "Login" = "تسجيل الدخول";
 "Enter_Your_Phone" = "قم بإدخال رقم الجوال الخاص  بحسابك";
 "Enter_Phone_Number"= "ادخل رقم الجوال";
@@ -27,14 +27,14 @@
 "Dont_Have_Account" = "ليس لديك حساب ؟";
 "Create_New_Account" = "انشاء حساب";
 
-// MARK= - TabBar
+// MARK= TabBar
 "Main" = "الرئيسية";
 "Services" = "الخدمات";
 "Messages" = "محادثات";
 "MyAccount" = "حسابي";
 "Add"  = "إضافة";
 
-// MARK= - Customer Orders
+// MARK= Customer Orders
 "Customer_Orders" = "طلبــــات العملاء";
 "Customer_Orders_Details" = "تفـــاصيل الطلب";
 "Customer_Details_Location" = "الموقع";
@@ -49,7 +49,7 @@
 "Building"  = "المبني";
 "Contact_Advertiser" = "تواصل مع صاحب الاعلان";
 
-// MARK= - Profile
+// MARK= Profile
 "User_Profile"= "المــلف الشـــخصي";
 "Favorites"= "المفضلة";
 "My_Ads"= "اعلاناتي";
@@ -57,14 +57,72 @@
 "My_Reservations"= "حجوزاتي";
 "About_the_App"= "عن التطبيق";
 "Language"= "اللغة";
-"Customer_Service"= "خدمة العملاء";
+"Customer_Service"= "تواصل معانا";
 "Cancellation_Terms"= "شروط الالغاء";
 "Terms_and_Conditions"= "الشروط والاحكام";
 "Privacy_Policy"= "سياسة الخصوصية";
 "Delete_Account"= "حذف الحساب";
 "Log_Out"= "تسجيل الخروج";
+"About_App_Des" = "تطبيق فلل هو التطبيق العقاري الاول المتخصص فقط بالفلل والقصور. حمل التطبيق الان مجانا و استمتع بجميع الخدمات التي نوفرها.";
 
-// MARK= - Favorites
+// MARK= Favorites
 "ADS" = "إعلانات";
 "Search" = "بحث";
 "Cancel" = "إلغاء";
+"Edit"  = "تعديل";
+"Delete"  = "حذف";
+"Cancel_Request" = "الغاء الطلب";
+
+// MARK= Reservations
+"On_Going" = "القادمة";
+"Completed" = "مكتمل";
+"Canceled" = "ملغية";
+"Receipt" = "الإيصال";
+"Rebooking" = "إعادة الحجز";
+"Cancel_Reservation" = "الغاء الحجز";
+"Vilal_App" = "تطبيق فلل";
+"Arabic" = "العربية";
+"English" = "English";
+"Save" = "حفظ";
+
+"You_Want_logOut" = "هل تريد تسجيل الخروج؟";
+"You_Want_Delete_Account" = "هل تريد حذف الحساب؟";
+"OK" = "نعم";
+
+
+// MARK= Add New Ads
+"Add_New_Ad" = "اضــافة اعـــلان جديد";
+"Display_Your_Property" = "اعرض عقارك من هنا للبيع او التأجير مع المزيد من التفاصيل";
+"Add_Request" = "اضافة طلب";
+"Register_Your_Request" = "سجل طلبك هنا اذا لم تجده في العقارات المعروضة لدينا";
+"Step"= "الخطوة";
+"Property_Location"= "موقع العقار";
+"Looking_for_Specific_Location"= "هل تبحث عن موقع معين";
+"Next"= "التالي";
+"Property_Images"= "صور العقار";
+"Attach_Image"= "ارفاق صورة";
+"Add_Video"= "اضافة فيديو";
+"Adding_a_video_to_your_ad_will_increase_its_visibility"= "اضافة فيديو لاعلانك سيرفع من أولوية ظهور اعلانك في التطبيق";
+"Property_Details"= "تفاصيل العقار";
+"Facade"= "الواجهة";
+"Rooms"= "الغرف";
+"Living_Rooms"= "الصالات";
+"Bathrooms"= "دورات المياة";
+"Street_View"= "عرض الشارع";
+"Floor_Number"= "رقم الدور";
+"Property_Age"= "عمر العقار";
+"Foundation"= "مؤسسة";
+"Kitchen"= "مطبخ";
+"Annex"= "ملحق";
+"Car_Entrance"= "مدخل سيارة";
+"Elevator"= "مصعد";
+"Water_Availability"= "توفر المياه";
+"Ad_Added_Successfully"= "تم اضافة الاعلان بنجاح";
+"Your_Property_Data_Has_Been_Successfully_Added"= "لقد تم اضافة بيانات العقار الخاصه بك بنجاح";
+"View_Ad"= "مشاهدة الاعلان";
+"Back_to_Home"= "الرجوع للصفحة الرئيسية";
+
+//MARK: - Attachment
+"Choose_Gallery" = "اختر من المعرض";
+"Open_Camera" = "افتح الكاميرا";
+"Choose_Option" = "اختر";

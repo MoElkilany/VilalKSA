@@ -120,12 +120,27 @@ enum ServicesDestination: Destination {
 
 enum AddRequestDestination: Destination {
     case addRequest
+    case services
+    case addNewAdCategoryPage
+    case addNewAdLocationPage(model:AddNewAdRequestModel)
+    case propertyGalleryPage(model:AddNewAdRequestModel)
+    case addNewAdsPage(model:AddNewAdRequestModel)
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .addRequest:
             AddRequestPage()
+        case .services:
+            ServicesPage()
+        case .addNewAdCategoryPage:
+            AddNewAdCategoryPage()
+        case .addNewAdLocationPage(let model):
+            AddNewAdLocationPage(addNewAdRequestModel: model)
+        case .propertyGalleryPage(let model):
+            PropertyGalleryPage(addNewAdRequestModel: model)
+        case .addNewAdsPage(let model):
+            AddNewAdsPage(addNewAdRequestModel: model)
         }
     }
     
@@ -150,10 +165,18 @@ enum MessageDestination: Destination {
     }
 }
 
-
 enum MyAccountDestination: Destination {
     case myAccount
     case favorites
+    case myAdsPage
+    case myRequestsPage
+    case myReservationsPage
+    case aboutAppPage
+    case languagePage
+    case contactUsPage
+    case cancellationTerms
+    case termsAndConditions
+    case privacyPolicy
     
     @ViewBuilder
     var view: some View {
@@ -162,6 +185,24 @@ enum MyAccountDestination: Destination {
             MyAccountPage()
         case .favorites:
             FavoritesPage()
+        case .myAdsPage:
+            MyAdsPage()
+        case .myRequestsPage:
+            MyRequestsPage()
+        case .myReservationsPage:
+            MyReservationsPage()
+        case .aboutAppPage:
+            AboutAppPage()
+        case .languagePage:
+            LanguagePage()
+        case .contactUsPage:
+            ContactUsPage()
+        case .cancellationTerms:
+            CancellationTermsPage()
+        case .termsAndConditions:
+            TermsAndConditionsPage()
+        case .privacyPolicy:
+            PrivacyPolicyPage()
         }
     }
     

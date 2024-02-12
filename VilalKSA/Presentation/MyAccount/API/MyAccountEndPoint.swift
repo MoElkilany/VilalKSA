@@ -9,10 +9,7 @@ import Moya
 
 enum MyAccountEndPoint {
     case login(request: LoginRequest)
-    case getServices
-    case getCustomerRequests
-    case getCustomerRequestDetails(id:String)
-    case getTodayAds
+
 }
 
 extension MyAccountEndPoint: TargetType, AccessTokenAuthorizable {
@@ -25,14 +22,7 @@ extension MyAccountEndPoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login:
             return Constants.login.rawValue
-        case .getServices:
-            return Constants.services.rawValue
-        case .getCustomerRequests:
-            return Constants.servicesCustomerRequests.rawValue
-        case .getCustomerRequestDetails(let id ):
-            return Constants.servicesCustomerRequestDetails.rawValue + id
-        case .getTodayAds:
-            return Constants.servicesTodayAds.rawValue
+   
             
         }
     }
@@ -41,8 +31,7 @@ extension MyAccountEndPoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login:
             return .post
-        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
-            return .get
+      
         }
     }
     
@@ -50,20 +39,19 @@ extension MyAccountEndPoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .login(let requestObject):
             return .requestJSONEncodable(requestObject)
-        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
-            return .requestPlain
+       
         }
     }
     
     var headers: [String : String]? {
-        var header : [String : String] = ["Accept": "application/json",
-                                                      "Accept-Language": "ar" ]
+        let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
+          let header : [String : String] = ["Accept": "application/json","locale": local]
         return header
     }
 
     var authorizationType: AuthorizationType? {
         switch self {
-        case .login,.getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
+        case .login: 
                 return .none
             }
         }

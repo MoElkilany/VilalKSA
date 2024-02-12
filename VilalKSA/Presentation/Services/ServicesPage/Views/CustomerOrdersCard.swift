@@ -29,7 +29,7 @@ struct CardContent: View {
                 LocationInfoView(locationName: "")
                 PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price?.from ?? "", toPrice:  customerOrderModel.price?.to ?? ""))
             }
-            .padding([.leading, .top, .bottom])
+            .padding()
         }
     }
     

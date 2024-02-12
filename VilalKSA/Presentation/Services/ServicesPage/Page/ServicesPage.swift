@@ -52,7 +52,7 @@ struct ServicesPage: View {
             viewModel.getServices()
             print("the services array is \(viewModel.servicesList)")
         })
-        
+
         .popup(item: $popups.middleItem) { item in
             PopupMiddle(item: item) {
                 popups.middleItem = nil

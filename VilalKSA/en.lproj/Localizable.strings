@@ -1,12 +1,12 @@
 /*
-  Localizable.strings
-  VilalKSA
+ Localizable.strings
+ VilalKSA
+ 
+ Created by Elkilany on 13/01/2024.
+ 
+ */
 
-  Created by Elkilany on 13/01/2024.
-  
-*/
-
-// MARK= - Error Messages
+// MARK: Error Messages
 "Error_Phone_Required" = "Please enter phone number";
 "Error_Password_Required" = "Please enter password";
 "Empty_No_Result_Found" = "No Data Found";
@@ -16,7 +16,7 @@
 "Please_Try_Again" = "An error occurred while accessing the data; please try again";
 "Try_Again" = "Try again";
 "Service_Not_Available" = "This service is not available now. We are striving to make it available soon.";
-// MARK= - Authenticatoin
+// MARK: Authenticatoin
 "Login" = "Login";
 "Enter_Your_Phone" = "Enter your mobile number";
 "Enter_Phone_Number"= "Enter the phone number";
@@ -25,14 +25,14 @@
 "Dont_Have_Account" = "Don't have an account?";
 "Create_New_Account" = "Create New Account";
 
-// MARK= - TabBar
+// MARK: TabBar
 "Main" = "Main";
 "Services" = "Services";
 "Messages" = "Messages";
 "MyAccount" = "Account";
 "Add"  = "Add";
 
-// MARK= - Customer Orders
+// MARK: Customer Orders
 "Customer_Orders" = "Customer Requests";
 "Customer_Orders_Details" = "Request Details";
 "Customer_Details_Skip" = "Skip";
@@ -48,7 +48,7 @@
 "Contact_Advertiser" = "Contact the advertiser";
 
 
-// MARK= - Profile
+// MARK: Profile
 "User_Profile"= "User Profile";
 "Favorites"= "Favorites";
 "My_Ads"= "My Ads";
@@ -56,15 +56,72 @@
 "My_Reservations"= "My Reservations";
 "About_the_App"= "About the App";
 "Language"= "Language";
-"Customer_Service"= "Customer Service";
+"Customer_Service"= "Contact us";
 "Cancellation_Terms"= "Cancellation Terms";
 "Terms_and_Conditions"= "Terms and Conditions";
 "Privacy_Policy"= "Privacy Policy";
 "Delete_Account"= "Delete Account";
 "Log_Out"= "Log Out";
+"About_App_Des" = "Vilal App is the first real estate application specialized exclusively in villas and palaces. Download the app now for free and enjoy all the services we provide";
 
-// MARK= - Favorites
+// MARK: Favorites
 "ADS" = "Ads";
 "Search" = "Search";
 "Cancel" = "Cancel";
+"Edit"  = "Edit";
+"Delete"  = "Delete";
+"Cancel_Request" = "Cancel Request";
 
+
+// MARK: Reservations
+"On_Going" = "On Going";
+"Completed" = "Completed";
+"Canceled" = "Canceled";
+"Receipt" = "Receipt";
+"Rebooking" = "Rebooking";
+"Cancel_Reservation" = "Cancel Reservation";
+"Vilal_App" = "Vilal App";
+"Arabic" = "العربية";
+"English" = "English";
+"Save" = "Save";
+"You_Want_logOut" = "Do you want to Logout?";
+"You_Want_Delete_Account" = "Do you want to Delete Account?";
+"OK" = "OK";
+"Add_New_Ad"="Add New Ad";
+"Display_Your_Property" = "Display your property for sale or rent with more details";
+"Add_Request" = "Add Request";
+"Register_Your_Request"= "Register your request here if you didn't find it in our listed properties";
+"Step"= "Step";
+
+// MARK: Add New Ads
+"Add_New_Ad"= "Add New Ad";
+"Property_Location"= "Property Location";
+"Looking_for_Specific_Location"= "Looking for Specific Location";
+"Next"= "Next";
+"Property_Images"= "Property Images";
+"Attach_Image"= "Attach Image";
+"Add_Video"= "Add Video";
+"Adding_a_video_to_your_ad_will_increase_its_visibility"= "Adding a video to your ad will increase its visibility";
+"Property_Details"= "Property Details";
+"Facade"= "Facade";
+"Rooms"= "Rooms";
+"Living_Rooms"= "Living Rooms";
+"Bathrooms"= "Bathrooms";
+"Street_View"= "Street View";
+"Floor_Number"= "Floor Number";
+"Property_Age"= "Property Age";
+"Foundation"= "Foundation";
+"Kitchen"= "Kitchen";
+"Annex"= "Annex";
+"Car_Entrance"= "Car Entrance";
+"Elevator"= "Elevator";
+"Water_Availability"= "Water Availability";
+"Ad_Added_Successfully"= "Ad Added Successfully";
+"Your_Property_Data_Has_Been_Successfully_Added"= "Your Property Data Has Been Successfully Added";
+"View_Ad"= "View Ad";
+"Back_to_Home"= "Back to Home";
+
+//MARK: - Attachment
+"Choose_Gallery" = "Choose from Gallery";
+"Open_Camera"    = "Open Camera";
+"Choose_Option"  = "Choose";

@@ -32,5 +32,10 @@ enum FontName: String {
     case cairoMedium    = "Cairo-Medium"
     case cairoSemiBold  = "Cairo-SemiBold"
     case cairoExtraBold = "Cairo-ExtraBold"
+}
 
+enum MyReservationTypes: Int, Hashable {
+    case onGoing = 0
+    case completed = 1
+    case canceled = 2
 }

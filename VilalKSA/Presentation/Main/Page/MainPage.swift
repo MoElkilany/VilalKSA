@@ -9,9 +9,13 @@ import SwiftUI
 
 struct MainPage: View {
     var body: some View {
-        Text("Main")
+        VStack{
+            Image(R.image.home_Placeholder.name)
+                .resizable()
+        }
+        .ignoresSafeArea(.all)
     }
-
+    
 }
 
 #Preview {

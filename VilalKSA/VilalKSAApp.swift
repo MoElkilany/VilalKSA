@@ -23,6 +23,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct VilalKSAApp: App {
     
     @StateObject var networkMonitor = NetworkMonitor()
+    @EnvironmentObject var languageSettings: LanguageSettings
 
     // inject into SwiftUI life-cycle via adaptor !!!
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -46,6 +47,7 @@ struct VilalKSAApp: App {
     }
     
     func checkToken() -> UIPilot<RootDestination> {
+
         if let _ = UserDefaults.standard.string(forKey: Constants.beraerToken.rawValue) {
             return UIPilot<RootDestination>(initial: .home)
         } else {

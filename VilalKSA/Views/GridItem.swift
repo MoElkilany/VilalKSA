@@ -112,9 +112,6 @@ struct GridItemModel: Identifiable {
     var action: (()->Void)?
 }
 
-//#Preview {
-//    GridView()
-//}
 
 
 struct GridViewItem: View {
@@ -129,24 +126,15 @@ struct GridViewItem: View {
         } label: {
             VStack {
                 URLImage(imageUrl:  icon ?? "",imageWidth: 20,imageHeight: 20)
-//                AsyncImage(url: URL(string: icon ?? "")){ phase in
-//                    if let image =
-//                        phase.image{
-//                        image
-//                            .frame(width: 50, height: 50, alignment: .center)
-//                    }else if phase.error != nil{
-//                        Text("Couldn't load image")
-//                    }else{
-//                        ProgressView()
-//                    }
-//                }
-                
+
                 TextBold12(text: LocalizedStringKey(title ?? "") , textColor: R.color.color42526E.name.getColor())
                     .frame(maxWidth: .infinity)
                     .padding([.top,.bottom], 10)
                     .multilineTextAlignment(.center)
             }
+            .padding(.horizontal,12)
             .frame(width: 161, height: 128)
+         
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
             .shadow(color: Color.gray.opacity(0.3), radius: 5)
         }
