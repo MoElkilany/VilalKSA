@@ -25,17 +25,19 @@ class BaseViewModel:ViewModelProtocol,ObservableObject {
     
     
     func handle(error: APIError) {
-        self.state = .error
 
         switch error {
         case .errorMessage(let message, _):
             print("Error Message: \(message)")
             self.errorPopUp = true
             self.errorMessage = LocalizedStringKey(message)
+            self.state = .error
         default:
             print("An unknown error occurred.")
             self.errorPopUp = true
             self.errorMessage = "An unknown error occurred."
+            self.state = .serverError
+
         }
     }
     

@@ -8,11 +8,16 @@
 import Moya
 
 enum ServicesEndPoint {
-    case login(request: LoginRequest)
     case getServices
     case getCustomerRequests
     case getCustomerRequestDetails(id:String)
     case getTodayAds
+    case createNewRequest(request:CreateCutomerRequestModel)
+    case getAdsCategory
+    case getRentalperiod
+    case getResident
+    case getInterface
+
 }
 
 extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
@@ -23,8 +28,6 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
     
     var path: String {
         switch self {
-        case .login:
-            return Constants.login.rawValue
         case .getServices:
             return Constants.services.rawValue
         case .getCustomerRequests:
@@ -33,24 +36,36 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
             return Constants.servicesCustomerRequestDetails.rawValue + id
         case .getTodayAds:
             return Constants.servicesTodayAds.rawValue
+        case .createNewRequest:
+            return Constants.createNewAds.rawValue
+        case .getAdsCategory:
+            return Constants.adsCategory.rawValue
+            
+        case .getRentalperiod:
+            return Constants.rentalperiod.rawValue
+        case .getResident:
+            return Constants.resident.rawValue
+        case .getInterface:
+            return Constants.adsInterface.rawValue
             
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .login:
+        case .createNewRequest:
             return .post
-        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
+        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds,.getAdsCategory,.getRentalperiod,.getResident,.getInterface:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .login(let requestObject):
+ 
+        case .createNewRequest(let requestObject):
             return .requestJSONEncodable(requestObject)
-        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
+        case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds,.getAdsCategory,.getRentalperiod,.getResident,.getInterface:
             return .requestPlain
         }
     }
@@ -63,8 +78,8 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
 
     var authorizationType: AuthorizationType? {
         switch self {
-        case .login,.getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds:
-                return .none
+        case .getServices,.getCustomerRequests,.getAdsCategory,.getCustomerRequestDetails,.getTodayAds,.createNewRequest,.getRentalperiod,.getResident,.getInterface:
+                return .bearer
             }
         }
 }

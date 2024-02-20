@@ -24,7 +24,7 @@ struct LanguageSelectionButton: View {
                     .resizable()
                     .frame(width: 35,height: 35)
                     .cornerRadius(22.5)
-                TextBold12(text: title, textColor: R.color.colorPrimary.name.getColor())
+                TextBold12(textKey: title, textColor: R.color.colorPrimary.name.getColor())
                 Spacer()
                 Image(systemName: isSelected ?  LARGE_CIRCLE: CIRCLE)
                     .foregroundColor(Color(R.color.colorPrimary.name.getColor()))

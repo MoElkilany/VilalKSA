@@ -21,7 +21,7 @@ struct MyReservationHeaderTabsView: View {
                         }
                         
                     }) {
-                        TextBold14(text: buttonTitles[index].localized, textColor: index != selection ? R.color.color7A869A.name.getColor(): R.color.colorPrimary.name.getColor())
+                        TextBold14(textKey: buttonTitles[index].localized, textColor: index != selection ? R.color.color7A869A.name.getColor(): R.color.colorPrimary.name.getColor())
                             .frame(maxWidth: .infinity)
                             .padding(.top, 20)
                     }

@@ -63,13 +63,13 @@ struct StepsBarView: View {
 
     var body: some View {
         HStack(spacing:10){
-            TextMeduim12(text: R.string.localizable.step.localized, textColor: R.color.color172B4D.name.getColor())
+            TextMeduim12(textKey: R.string.localizable.step.localized, textColor: R.color.color172B4D.name.getColor())
             HStack(spacing:0){
                 if  languageSettings.selectedLanguage == .ar {
                     TextBold14(text: "/3"  , textColor: R.color.color172B4D.name.getColor())
-                    TextBold14(text: LocalizedStringKey(stepNumber) , textColor: R.color.color172B4D.name.getColor())
+                    TextBold14(text: (stepNumber) , textColor: R.color.color172B4D.name.getColor())
                 }else{
-                    TextBold14(text: LocalizedStringKey(stepNumber) , textColor: R.color.color172B4D.name.getColor())
+                    TextBold14(text: (stepNumber) , textColor: R.color.color172B4D.name.getColor())
                     TextBold14(text:  "/3" , textColor: R.color.color172B4D.name.getColor())
                 }
                
@@ -82,7 +82,7 @@ struct StepsBarView: View {
         .background(RoundedRectangle(cornerRadius: 10)
             .fill(Color.white)
             .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
-        .padding(.horizontal, 15)
+        .padding(.horizontal, 10)
         
     }
 }

@@ -53,7 +53,7 @@ private struct QuickAccessItem: View {
             Image(item?.icon ?? "" )
                 .resizable()
                 .frame(width: 40, height: 40, alignment: .center)
-            TextRegular12(text: item?.text ?? "" , textColor: R.color.color42526E.name.getColor())
+            TextRegular12(textKey: item?.text ?? "" , textColor: R.color.color42526E.name.getColor())
         }
         .cornerRadius(8)
     }

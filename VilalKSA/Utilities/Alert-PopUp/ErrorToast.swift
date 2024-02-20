@@ -38,8 +38,8 @@ struct ToastBottomSecond: View {
             Image(R.image.checkmark_Success.name)
                 .frame(width: 48, height: 48)
             VStack(alignment: .leading, spacing: 4) {
-                TextBold16(text: title ?? "", textColor:R.color.colorPrimary.name.getColor())
-                TextRegular14(text: title ?? "", textColor: Color.gray)
+                TextBold16(textKey: title ?? "", textColor:R.color.colorPrimary.name.getColor())
+                TextRegular14(textKey: title ?? "", textColor: Color.gray)
             }
             Spacer()
         }

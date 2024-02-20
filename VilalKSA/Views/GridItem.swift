@@ -85,7 +85,7 @@ struct GridView: View {
                             .font(.largeTitle)
                             .foregroundColor(.blue)
                         
-                        TextBold12(text: item.title ?? "" , textColor: R.color.color42526E.name.getColor())
+                        TextBold12(textKey: item.title ?? "" , textColor: R.color.color42526E.name.getColor())
                             .frame(maxWidth: .infinity)
                             .padding([.top,.bottom], 10)
                             .multilineTextAlignment(.center)
@@ -127,7 +127,7 @@ struct GridViewItem: View {
             VStack {
                 URLImage(imageUrl:  icon ?? "",imageWidth: 20,imageHeight: 20)
 
-                TextBold12(text: LocalizedStringKey(title ?? "") , textColor: R.color.color42526E.name.getColor())
+                TextBold12(text: (title ?? "") , textColor: R.color.color42526E.name.getColor())
                     .frame(maxWidth: .infinity)
                     .padding([.top,.bottom], 10)
                     .multilineTextAlignment(.center)

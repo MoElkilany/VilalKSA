@@ -34,7 +34,10 @@ struct CustomerRequestsPage: View {
         .edgesIgnoringSafeArea(.all)
         .padding(.top,20)
         .onAppear(perform: {
-            viewModel.getCustomerRequests()
+            if self.viewModel.customerRequestsList.isEmpty == true{
+                viewModel.getCustomerRequests()
+            }
+         
         })
         
     }

@@ -23,7 +23,7 @@ struct PropertyPropertiesView: View {
     var body: some View {
         VStack{
             HStack{
-                TextMeduim12(text: R.string.localizable.properties.localized, textColor: R.color.color42526E.name.getColor())
+                TextMeduim12(textKey: R.string.localizable.properties.localized, textColor: R.color.color42526E.name.getColor())
                 Spacer()
             }
             VStack{
@@ -59,9 +59,9 @@ private struct PropertyPropertiesItem: View {
     
     var body: some View {
         HStack(alignment:.center) {
-            URLImage(imageUrl: item?.icon ?? "http://verasign.se//ammr/public/storage/App/services/Vector2.png"
+            URLImage(imageUrl: item?.icon
                      ,imageWidth: 15,imageHeight: 15)
-            TextBold12(text: LocalizedStringKey(item?.name ?? "" ), textColor: R.color.color42526E.name.getColor())
+            TextBold12(text: item?.name ?? "" , textColor: R.color.color42526E.name.getColor())
         }
         .cornerRadius(8)
     }

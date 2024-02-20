@@ -25,7 +25,6 @@ class CustomerRequestsDetailsViewModel: BaseViewModel {
             case .success(let value):
                 self.handleSuccess(value)
             case .failure(let error):
-                self.state = .error
                 self.handle(error: error)
             }
         }
@@ -39,7 +38,6 @@ class CustomerRequestsDetailsViewModel: BaseViewModel {
                 
                 if let responseData = response.data {
                     self.state = .success
-//                    guard let responseData = response.data else {return}
                     self.customerRequestDetailsModel = responseData
                 }else{
                     self.state = .noData

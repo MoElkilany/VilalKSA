@@ -38,13 +38,13 @@ struct MyRequestsCardContent: View {
         VStack {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    RentalInfoHeaderView(name: LocalizedStringKey(propertyName ?? ""), realStateCategory: LocalizedStringKey(propertyCategory ?? ""))
-                    LocationInfoView(locationName: LocalizedStringKey(propertyAddress ?? "الرياض"))
+                    RentalInfoHeaderView(name: (propertyName ?? ""), realStateCategory: (propertyCategory ?? ""))
+                    LocationInfoView(locationName: (propertyAddress ?? "الرياض"))
                     HStack{
-                        TextBold12(text:LocalizedStringKey(propertyPrice ?? ""), textColor: R.color.colorPrimary.name.getColor())
-                        TextBold12(text:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
+                        TextBold12(text:(propertyPrice ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                        TextBold12(textKey:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
                         TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
-                        TextBold12(text:LocalizedStringKey(propertyRental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                        TextBold12(text:(propertyRental ?? ""), textColor: R.color.colorPrimary.name.getColor())
                     }
                 }
             }

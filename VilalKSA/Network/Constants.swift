@@ -34,14 +34,19 @@ enum Constants: String {
     
     // MARK: - Services API
 
-    case services     = "services"
+    case services = "services"
     case servicesCustomerRequests = "real/estate/request"
     case servicesCustomerRequestDetails = "real/estate/request/"
     case servicesTodayAds = "real/estate/today"
     
     
     // MARK: - Add New Ads API
-    case adsCategory     = "category/main"
+    case adsCategory   = "category/main"
+    case adsInterface  = "real/estate/property/interface"
+    case createNewAds  = "real/estate/store"
+    case rentalperiod = "real/estate/property/rentalperiod"
+    case resident = "real/estate/property/resident"
 
+    
 
 }

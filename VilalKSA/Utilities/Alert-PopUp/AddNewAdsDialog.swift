@@ -23,7 +23,7 @@ struct AddNewAdsDialog: View {
                 })
 
                 Button(action: {
-                    pilot.push(.services)
+                    pilot.push(.addCustomerRequestsPage)
                 }, label: {
                     AddNewAdsCellView(title: R.string.localizable.add_Request.localized, subTitle: R.string.localizable.register_Your_Request.localized, image: R.image.add_Request_home.name)
                         .padding(.horizontal,20)
@@ -54,9 +54,9 @@ struct AddNewAdsCellView: View {
                 .resizable()
                 .frame(width: 35, height: 35, alignment: .center)
             VStack(alignment:.leading,spacing: 0){
-                TextBold14(text: title, textColor: R.color.color172B4D.name.getColor())
+                TextBold14(textKey: title, textColor: R.color.color172B4D.name.getColor())
                     .multilineTextAlignment(.leading)
-                TextRegular14(text: subTitle, textColor: R.color.color7A869A.name.getColor())
+                TextRegular14(textKey: subTitle, textColor: R.color.color7A869A.name.getColor())
                     .multilineTextAlignment(.leading)
             }
         }

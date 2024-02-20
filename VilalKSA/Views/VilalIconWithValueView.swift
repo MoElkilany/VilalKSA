@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VilalIconWithValueView: View {
     var icon:String?
-    var value:LocalizedStringKey?
+    var value:String?
     
     var body: some View {
         

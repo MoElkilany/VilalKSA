@@ -10,11 +10,11 @@ import UIKit
 import LanguageManagerSwiftUI
 import UIPilot
 
-
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("Vilal KSA")
+        
         return true
     }
 }

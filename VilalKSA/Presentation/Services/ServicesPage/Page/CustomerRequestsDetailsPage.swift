@@ -17,6 +17,7 @@ struct CustomerRequestsDetailsPage: View {
     var body: some View {
         
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.customer_Orders_Details.localized, tryAgainAction: {
+            self.viewModel.getCustomerRequestDetails(requestID: self.requestID)
         },backAction:{
             pilot.pop()
         } ,content: {
@@ -30,7 +31,7 @@ struct CustomerRequestsDetailsPage: View {
                     
                     VStack{
                         HStack{
-                            TextBold14(text: R.string.localizable.customer_Details_Location.localized, textColor: R.color.colorPrimary.name.getColor())
+                            TextBold14(textKey: R.string.localizable.customer_Details_Location.localized, textColor: R.color.colorPrimary.name.getColor())
                             Spacer()
                         }
                         

@@ -63,20 +63,20 @@ struct CanceledMyReservationView: View {
                         }
                         Spacer()
                         Spacer()
-                        RealStateTypeView(realStateTypeName: LocalizedStringKey(model.category ?? "") )
+                        RealStateTypeView(realStateTypeName: (model.category ?? "") )
                     }
                     
-                    TextBold14(text:LocalizedStringKey(model.name ?? "") , textColor: R.color.color172B4D.name.getColor())
-                    LocationInfoView(locationName: LocalizedStringKey(model.location ?? "Vilal KSA" ) )
+                    TextBold14(text:(model.name ?? "") , textColor: R.color.color172B4D.name.getColor())
+                    LocationInfoView(locationName: (model.location ?? "Vilal KSA" ) )
                     HStack{
-                        VilalIconWithValueView(icon: R.image.bed_icon.name, value: LocalizedStringKey(model.room ?? ""))
-                        VilalIconWithValueView(icon: R.image.view_icon.name, value: LocalizedStringKey(model.space ?? ""))
+                        VilalIconWithValueView(icon: R.image.bed_icon.name, value: (model.room ?? ""))
+                        VilalIconWithValueView(icon: R.image.view_icon.name, value: (model.space ?? ""))
                         HStack{
-                            TextBold12(text:LocalizedStringKey(model.price ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                            TextBold12(text:(model.price ?? ""), textColor: R.color.colorPrimary.name.getColor())
                                 .padding(.horizontal,-4)
-                            TextBold12(text:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
+                            TextBold12(textKey:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
                             TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
-                            TextBold12(text:LocalizedStringKey(model.rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                            TextBold12(text:(model.rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
                         }
                     }
                 }

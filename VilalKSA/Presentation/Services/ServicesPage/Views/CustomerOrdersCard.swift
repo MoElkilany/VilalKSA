@@ -25,7 +25,7 @@ struct CardContent: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                RentalInfoHeaderView(name: LocalizedStringKey(customerOrderModel.name ?? ""), realStateCategory: LocalizedStringKey(customerOrderModel.category ?? ""))
+                RentalInfoHeaderView(name: (customerOrderModel.name ?? ""), realStateCategory: (customerOrderModel.category ?? ""))
                 LocationInfoView(locationName: "")
                 PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price?.from ?? "", toPrice:  customerOrderModel.price?.to ?? ""))
             }

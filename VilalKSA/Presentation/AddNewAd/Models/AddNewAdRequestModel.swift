@@ -13,4 +13,6 @@ struct AddNewAdRequestModel: BaseModel {
     var addLng: String?
     var addAddress: String?
     var images: [Data]?
+    var videosData: Data?
+
 }

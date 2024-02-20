@@ -40,9 +40,9 @@ struct PopupMiddle: View {
                 .scaledToFit()
                 .frame(maxWidth: 100, maxHeight: 100)
             
-            TextBold18(text: item?.mainTitle ?? "" , textColor: R.color.color42526E.name.getColor())
+            TextBold18(textKey: item?.mainTitle ?? "" , textColor: R.color.color42526E.name.getColor())
                 .padding(.top, 12)
-            TextRegular14(text: item?.subTitle ?? R.string.localizable.service_Not_Available.localized , textColor: R.color.color7A869A.name.getColor())
+            TextRegular14(textKey: item?.subTitle ?? R.string.localizable.service_Not_Available.localized , textColor: R.color.color7A869A.name.getColor())
                 .multilineTextAlignment(.center)
         }
         

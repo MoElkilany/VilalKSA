@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RealStateTypeView: View {
 
-    var realStateTypeName: LocalizedStringKey?
+    var realStateTypeName: String?
     var body: some View {
         HStack {
             Image(R.image.apartment_icon.name)

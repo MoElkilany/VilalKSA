@@ -9,12 +9,12 @@ import SwiftUI
 
 struct PriceInfoView: View {
     
-    var price:  LocalizedStringKey?
+    var price:  String?
     var body: some View {
         HStack{
             TextBold12(text:price ?? "$340 - $500", textColor: R.color.colorPrimary.name.getColor())
           
-            TextBold12(text:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
+            TextBold12(textKey:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
         }
     }
 }

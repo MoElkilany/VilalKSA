@@ -50,7 +50,7 @@ enum RootDestination: Destination {
         case .home:
             HomeScreen()
         case .forTest:
-            CustomerRequestsDetailsPage(requestID: "1")
+            AddNewAdsPage(addNewAdRequestModel: nil)
         }
     }
     var name: String {
@@ -97,6 +97,8 @@ enum ServicesDestination: Destination {
     case customeRequest
     case customeRequestDetails(id:String)
     case todayAdsPage
+    case createAdsSuccessPage
+
     
     @ViewBuilder
     var view: some View {
@@ -107,9 +109,10 @@ enum ServicesDestination: Destination {
             CustomerRequestsPage()
         case .customeRequestDetails(let id ):
             CustomerRequestsDetailsPage(requestID: id)
-            
         case .todayAdsPage:
             TodayAdsPage()
+        case .createAdsSuccessPage:
+            CreateAdsSuccessPage()
         }
     }
     
@@ -120,19 +123,20 @@ enum ServicesDestination: Destination {
 
 enum AddRequestDestination: Destination {
     case addRequest
-    case services
+    case addCustomerRequestsPage
     case addNewAdCategoryPage
     case addNewAdLocationPage(model:AddNewAdRequestModel)
     case propertyGalleryPage(model:AddNewAdRequestModel)
     case addNewAdsPage(model:AddNewAdRequestModel)
+    case createAdsSuccessPage
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .addRequest:
             AddRequestPage()
-        case .services:
-            ServicesPage()
+        case .addCustomerRequestsPage:
+            AddCustomerRequestsPage()
         case .addNewAdCategoryPage:
             AddNewAdCategoryPage()
         case .addNewAdLocationPage(let model):
@@ -141,9 +145,11 @@ enum AddRequestDestination: Destination {
             PropertyGalleryPage(addNewAdRequestModel: model)
         case .addNewAdsPage(let model):
             AddNewAdsPage(addNewAdRequestModel: model)
+        case .createAdsSuccessPage:
+            CreateAdsSuccessPage()
         }
     }
-    
+
     var name: String {
         return String(reflecting: view.self)
     }

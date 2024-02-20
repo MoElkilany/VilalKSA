@@ -17,17 +17,17 @@ struct PropertyKeyValueDetailsView: View {
     var body: some View {
         VStack{
             HStack{
-                TextBold14(text: R.string.localizable.details.localized, textColor: R.color.color172B4D.name.getColor())
+                TextBold14(textKey: R.string.localizable.details.localized, textColor: R.color.color172B4D.name.getColor())
                 Spacer()
             }
 
             HStack{
-                TextMeduim12(text: R.string.localizable.building.localized, textColor: R.color.color42526E.name.getColor())
+                TextMeduim12(textKey: R.string.localizable.building.localized, textColor: R.color.color42526E.name.getColor())
                 Spacer()
             }
             VStack{
                 ForEach(propertiesDetailsArray ?? [],id:\.value ){ item  in
-                    KeyValueBarView(key: LocalizedStringKey(item.name ?? ""), value: LocalizedStringKey(item.value ?? ""))
+                    KeyValueBarView(key: LocalizedStringKey(item.name ?? ""), value: (item.value ?? ""))
                 }
             }
             .padding(.vertical, 20)
@@ -49,12 +49,12 @@ struct PropertyKeyValueDetailsView: View {
 
 struct KeyValueBarView: View {
     let key: LocalizedStringKey?
-    let value: LocalizedStringKey?
+    let value: String?
     
     var body: some View{
         VStack(spacing:5){
             HStack{
-                TextBold12(text:key ?? "", textColor: R.color.color172B4D.name.getColor())
+                TextBold12(textKey:key ?? "", textColor: R.color.color172B4D.name.getColor())
                 Spacer()
                 TextRegular14(text: value ?? "", textColor: R.color.color42526E.name.getColor())
             }

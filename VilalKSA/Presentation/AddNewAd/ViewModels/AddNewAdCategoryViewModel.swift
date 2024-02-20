@@ -7,6 +7,7 @@
 
 import Moya
 import SwiftUI
+
 class AddNewAdCategoryViewModel: BaseViewModel {
 
     private let apiService: AddNewAdAPIClient
@@ -17,17 +18,7 @@ class AddNewAdCategoryViewModel: BaseViewModel {
     }
     
     
-    
-    func convertImageToData(images:[UIImage])-> [Data]{
-        var arrayOfData: [Data] = []
-        for image in images {
-            if let imageData = image.pngData() {
-                arrayOfData.append(imageData)
-            }
-        }
-        return arrayOfData
-    }
-    
+        
     func getAdsCategoryList() {
         self.state = .loading
         apiService.getAdsCategoryList() { [weak self] result in

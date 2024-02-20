@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LocationInfoView: View {
-    let locationName: LocalizedStringKey?
+    let locationName: String?
     var body: some View {
         HStack {
             Image(R.image.location_icon.name)

@@ -19,6 +19,8 @@ enum AuthEndPoint {
     case resendCode(request:ResendCodeRequest)
     
 }
+//+966123456
+//eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZlcmFzaWduLnNlL2FtbXIvcHVibGljL2FwaS9BdXRoL2xvZ2luIiwiaWF0IjoxNzA4MTc3OTQ5LCJleHAiOjE3MDg3ODI3NDksIm5iZiI6MTcwODE3Nzk0OSwianRpIjoiUUNpNG1qMEt4N0N5T055cCIsInN1YiI6IjUwIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.bexxxG2_UUasJvyA-_aojrCx8VH8DSwHFwFLKafV_YI
 
 extension AuthEndPoint: TargetType, AccessTokenAuthorizable {
     var baseURL: URL {

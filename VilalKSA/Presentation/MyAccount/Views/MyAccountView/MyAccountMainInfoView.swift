@@ -14,7 +14,7 @@ struct MyAccountMainInfoView: View {
             
             VStack(alignment: .leading, spacing:0){
                 TextBold14(text:"Mohamed Elkilany", textColor: R.color.color172B4D.name.getColor())
-                TextRegular12(text: LocalizedStringKey("sedikahmed@gmail.com"), textColor: R.color.color42526E.name.getColor())
+                TextRegular12(text: ("sedikahmed@gmail.com"), textColor: R.color.color42526E.name.getColor())
             }
             Spacer()
             

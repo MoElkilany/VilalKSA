@@ -8,7 +8,6 @@
 import Moya
 struct AuthAPIClient: APIClient {
     
-    typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
     
     let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose)),
                                                        AccessTokenPlugin(tokenClosure: { _ in

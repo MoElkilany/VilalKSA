@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PropertyCategoryView: View {
 
-    let propertyCategory: LocalizedStringKey?
+    let propertyCategory: String?
     var body: some View {
         HStack {
             Image(R.image.propertyCategory.name)

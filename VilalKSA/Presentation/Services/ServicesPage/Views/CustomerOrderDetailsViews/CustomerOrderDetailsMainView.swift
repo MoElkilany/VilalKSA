@@ -21,13 +21,13 @@ struct CustomerOrderDetailsMainView: View {
         HStack{
             
             VStack(alignment:.leading){
-                PropertyCategoryView(propertyCategory: LocalizedStringKey(mainInfo?.category ?? "") )
-                TextBold16(text: LocalizedStringKey(mainInfo?.name ?? "" ), textColor: R.color.colorPrimary.name.getColor())
+                PropertyCategoryView(propertyCategory: (mainInfo?.category ?? "") )
+                TextBold16(text: (mainInfo?.name ?? "" ), textColor: R.color.colorPrimary.name.getColor())
                 PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: mainInfo?.price?.from ?? "", toPrice:  mainInfo?.price?.to ?? ""))
                 HStack{
-                    LocationInfoView(locationName: LocalizedStringKey(mapInfo?.address ?? "الرياض"))
+                    LocationInfoView(locationName: (mapInfo?.address ?? "الرياض"))
                     Spacer()
-                    TextRegular12(text:LocalizedStringKey(mainInfo?.rental ?? ""), textColor: R.color.color42526E.name.getColor())
+                    TextRegular12(text:(mainInfo?.rental ?? ""), textColor: R.color.color42526E.name.getColor())
                 }
                 .padding(.top,-4)
             }

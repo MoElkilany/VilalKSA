@@ -15,6 +15,10 @@ class LoginViewModel: BaseViewModel {
     @Published var loggedin: Bool = false
     @Published var isNotVerified: Bool = false
     
+    @Published var isPhoneNumberValid = false
+    @Published var isPasswordValid = false
+    
+    
     private let apiService: AuthAPIClient
     
     init(apiService: AuthAPIClient = AuthAPIClient()) {
@@ -50,6 +54,10 @@ class LoginViewModel: BaseViewModel {
         }
     }
     
+    
+    func isValidForm() -> Bool {
+        isPhoneNumberValid && isPasswordValid
+    }
     
      func validateInputs(_ phoneNumber: String,_ password: String) -> Bool {
          

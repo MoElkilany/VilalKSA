@@ -47,8 +47,8 @@ struct AlertDialog: View {
                 .resizable()
                 .frame(width: 25, height: 25)
             
-            TextBold18(text: item?.mainTitle ?? "" , textColor: R.color.colorPrimary.name.getColor())
-            TextRegular16(text: item?.subTitle ?? "", textColor: R.color.color172B4D.name.getColor())
+            TextBold18(textKey: item?.mainTitle ?? "" , textColor: R.color.colorPrimary.name.getColor())
+            TextRegular16(textKey: item?.subTitle ?? "", textColor: R.color.color172B4D.name.getColor())
             
             HStack{
                 DefaultBoarderButtonWithIcon(title: R.string.localizable.oK.localized,borderColor: R.color.colorE2E8F0.name.getColor() ,backgroundColor:.clear, titleColor:R.color.colorPrimary.name.getColor() ,actionButton: {

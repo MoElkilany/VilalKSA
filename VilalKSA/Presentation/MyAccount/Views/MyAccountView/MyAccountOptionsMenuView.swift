@@ -30,7 +30,7 @@ struct OptionsItemView: View {
             Image(item?.icon ?? "" )
                 .frame(width: 20, height: 20, alignment: .center)
             
-            TextRegular14(text: item?.text ?? "" , textColor: R.color.color172B4D.name.getColor())
+            TextRegular14(textKey: item?.text ?? "" , textColor: R.color.color172B4D.name.getColor())
             Spacer()
         }
         .frame(maxWidth: .infinity)

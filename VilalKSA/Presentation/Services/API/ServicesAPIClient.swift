@@ -34,4 +34,26 @@ struct ServicesAPIClient: APIClient {
     func getTodayAds(completion: @escaping (APIResult<TodayAdsModel?, APIError>) -> Void) {
         fetch(with: ServicesEndPoint.getTodayAds, completion: completion)
     }
+    
+    func createCutomerRequest(request:CreateCutomerRequestModel,completion: @escaping (APIResult<CreateNewAdsResponseModel?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.createNewRequest(request: request), completion: completion)
+    }
+    
+    func getAdsCategoryList(completion: @escaping (APIResult<AdsCategoryModel?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.getAdsCategory, completion: completion)
+    }
+    
+    
+    func getRentalperiodList(completion: @escaping (APIResult<LookUpResponse?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.getRentalperiod, completion: completion)
+    }
+    
+    func getResidentList(completion: @escaping (APIResult<LookUpResponse?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.getResident, completion: completion)
+    }
+    
+    func getAdsInterfaceList(completion: @escaping (APIResult<LookUpResponse?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.getInterface, completion: completion)
+    }
 }
+

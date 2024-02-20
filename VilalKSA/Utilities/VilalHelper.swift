@@ -13,9 +13,9 @@ class VilalHelper {
     let shared = VilalHelper()
     private init() {}
     
-    static func getFromToPrice(fromPrice: String, toPrice: String) -> LocalizedStringKey {
+    static func getFromToPrice(fromPrice: String, toPrice: String) -> String {
         let fullPrice = (fromPrice + " - " +  toPrice )
-        return LocalizedStringKey(fullPrice)
+        return (fullPrice)
     }
     
     static func makePhoneCall(phoneNumber: String) {

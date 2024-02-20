@@ -22,6 +22,7 @@ typealias ActionClosure = (() -> ())
 
 struct VilalKSAContainer<Content: View>: View {
     
+    @ObservedObject private var keyboard = KeyboardResponder()
     @EnvironmentObject var networkMonitor: NetworkMonitor
     @EnvironmentObject var languageSettings: LanguageSettings
     
@@ -35,9 +36,10 @@ struct VilalKSAContainer<Content: View>: View {
     var haveAnotherButton: Bool? = nil
     var iconButton: String? = nil
     var buttonAction: (() -> Void)? = nil
+    var stateError: String
 
 
-    init(state: Binding<AppState> , titlePage: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,tryAgainAction: ActionClosure? = nil, backAction:ActionClosure?, haveAnotherButton:Bool? = nil ,buttonAction:ActionClosure? = nil,iconButton: String? = nil, @ViewBuilder content: () -> Content) {
+    init(state: Binding<AppState> , titlePage: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,stateError:String = "-",tryAgainAction: ActionClosure? = nil, backAction:ActionClosure?, haveAnotherButton:Bool? = nil ,buttonAction:ActionClosure? = nil,iconButton: String? = nil, @ViewBuilder content: () -> Content) {
         self.content = content()
         self._state =  state
         self.titlePage = titlePage
@@ -48,53 +50,63 @@ struct VilalKSAContainer<Content: View>: View {
         self.buttonAction = buttonAction
         self.iconButton = iconButton
         self.haveAnotherButton = haveAnotherButton
+        self.stateError = stateError
     }
     
     
     var body: some View {
-        ZStack {
-            VStack{
-        
-                VilalNavigationView(languageSettings: _languageSettings, titlePage: self.titlePage, backAction: self.backAction, haveAnotherButton: self.haveAnotherButton ?? false, icon:  self.iconButton, buttonAction:  self.buttonAction)
+     
+        VStack{
+            VilalNavigationView(languageSettings: _languageSettings, titlePage: self.titlePage, backAction: self.backAction, haveAnotherButton: self.haveAnotherButton ?? false, icon:  self.iconButton, buttonAction:  self.buttonAction)
                 
+            
                 .padding(.top,60)
+            ZStack {
                 content
+                    .padding(.bottom, keyboard.currentHeight + 20 )
                     .environmentObject(networkMonitor)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .ignoresSafeArea()
-            }
-            
-            VStack {
-                
-                if !networkMonitor.isConnected {
-                    NetworkUnavailableView()
-                }
-                
-                if self.state == .loading {
-                    VStack {
-                        Loader()
-                        TextMeduim12(text: R.string.localizable.loading.localized, textColor: R.color.colorPrimary.name.getColor())
+                    .onTapGesture {
+                        hideKeyboard()
                     }
-                    .background(SwiftUI.Color.white)
-                    .ignoresSafeArea()
-                }
-
-                if tryAgian {
-                    StateTryAgainView(action: makeAction)
+                
+                VStack {
+                    
+                    if !networkMonitor.isConnected {
+                        NetworkUnavailableView()
+                    }
+                    
+                    if self.state == .loading {
+                        VStack {
+                            Loader()
+                            TextMeduim12(textKey: R.string.localizable.loading.localized, textColor: R.color.colorPrimary.name.getColor())
+                        }
+                        .background(SwiftUI.Color.white)
+                        .ignoresSafeArea()
+                    }
+                    
+                    if tryAgian {
+                        StateTryAgainView(action: makeAction)
+                    }
+                    
+                    if noData {
+                        NoDataView()
+                    }
+                    
+                    if errorWithTitle{
+                        ErrorWithTitle(error: stateError)
+                    }
                 }
                 
-                if noData {
-                    NoDataView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(self.state == .success ? SwiftUI.Color.red : SwiftUI.Color.white)
+                .cornerRadius(20)
+                .opacity(stateViewSwiftUIOpacity)
+                
+                HStack {
+                    Spacer()
                 }
-            }
-            
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(self.state == .success ? SwiftUI.Color.red : SwiftUI.Color.white)
-            .cornerRadius(20)
-            .opacity(stateViewSwiftUIOpacity)
-            
-            HStack {
-                Spacer()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -129,6 +141,11 @@ struct VilalKSAContainer<Content: View>: View {
         self.state = .loading
         //        self.clearSearchAction? ()
     }
+    
+    var errorWithTitle: Bool {
+        state == .errorWithTitle
+    }
+    
 }
 
 
@@ -143,8 +160,8 @@ struct StateTryAgainView: View {
                 .frame(width: 30, height: 30)
                 .padding(.bottom,30)
             
-            TextBold20(text: R.string.localizable.something_Wrong.localized, textColor: R.color.colorPrimary.name.getColor())
-            TextRegular16(text: R.string.localizable.please_Try_Again.localized, textColor: R.color.color7A869A.name.getColor())
+            TextBold20(textKey: R.string.localizable.something_Wrong.localized, textColor: R.color.colorPrimary.name.getColor())
+            TextRegular16(textKey: R.string.localizable.please_Try_Again.localized, textColor: R.color.color7A869A.name.getColor())
                 .multilineTextAlignment(.center)
             
             DefaultButton(title:  R.string.localizable.try_Again.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
@@ -172,19 +189,14 @@ struct NoDataView: View {
                 .frame(width: 30, height: 30)
                 .padding(.bottom,30)
             
-            TextBold20(text: R.string.localizable.empty_No_Result_Found.localized, textColor: R.color.colorPrimary.name.getColor())
+            TextBold20(textKey: R.string.localizable.empty_No_Result_Found.localized, textColor: R.color.colorPrimary.name.getColor())
             
-            TextRegular16(text: R.string.localizable.empty_No_Result_Found_Description.localized, textColor: R.color.color7A869A.name.getColor())
+            TextRegular16(textKey: R.string.localizable.empty_No_Result_Found_Description.localized, textColor: R.color.color7A869A.name.getColor())
                 .multilineTextAlignment(.center)
             
         }
     }
 }
-
-//#Preview{
-//    NoDataView()
-//}
-
 
 
 
@@ -209,7 +221,7 @@ struct VilalNavigationView: View {
 
     var body: some View {
         ZStack(alignment: .center){
-            TextBold16(text: titlePage ?? "", textColor: R.color.colorPrimary.name.getColor())
+            TextBold16(textKey: titlePage ?? "", textColor: R.color.colorPrimary.name.getColor())
             if backAction != nil {
                 HStack {
                     Button(action: backAction!) {
@@ -226,7 +238,6 @@ struct VilalNavigationView: View {
                                 .frame(width: 25, height: 25)
                         }
                     }
-                                            
                 }
                 .padding(.horizontal,25)
             }
@@ -237,6 +248,28 @@ struct VilalNavigationView: View {
 }
 
 
+
+struct ErrorWithTitle: View {
+    let error: String?
+    var body: some View {
+        VStack {
+            Image(R.image.noInternet.name)
+                .frame(width: 30, height: 30)
+                .padding(.bottom,30)
+                .padding(.vertical,12)
+            
+            TextBold20(textKey: R.string.localizable.something_Wrong.localized, textColor: R.color.colorPrimary.name.getColor())
+                .padding(.vertical,12)
+
+            TextRegular16(textKey: R.string.localizable.empty_No_Result_Found_Description.localized, textColor: R.color.color7A869A.name.getColor())
+
+                .multilineTextAlignment(.center)
+                            
+            .padding(.horizontal, 15)
+        }
+    }
+}
+
 #Preview{
     VilalNavigationView(titlePage: "test 1", backAction: {
         
@@ -244,3 +277,5 @@ struct VilalNavigationView: View {
         
     }
 }
+
+

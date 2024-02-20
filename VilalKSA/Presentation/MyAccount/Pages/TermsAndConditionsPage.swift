@@ -24,7 +24,7 @@ struct TermsAndConditionsPage: View {
                     .resizable()
                     .frame(height: 200)
         
-                TextBold16(text: R.string.localizable.about_App_Des.localized, textColor: R.color.color7A869A.name.getColor())
+                TextBold16(textKey: R.string.localizable.about_App_Des.localized, textColor: R.color.color7A869A.name.getColor())
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 15.0)
                         .fill(Color.white)

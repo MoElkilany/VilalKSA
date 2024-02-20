@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RentalInfoHeaderView: View {
-    var name: LocalizedStringKey?
-    var realStateCategory: LocalizedStringKey?
+    var name: String?
+    var realStateCategory: String?
     
     var body: some View {
         HStack {

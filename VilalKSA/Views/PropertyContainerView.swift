@@ -79,20 +79,20 @@ struct PropertyBarView: View {
                     }
                     Spacer()
                     Spacer()
-                    RealStateTypeView(realStateTypeName: LocalizedStringKey(category ?? "") )
+                    RealStateTypeView(realStateTypeName: (category ?? "") )
                 }
                 
-                TextBold14(text:LocalizedStringKey(name ?? "") , textColor: R.color.color172B4D.name.getColor())
-                LocationInfoView(locationName: LocalizedStringKey(location ?? "Vilal KSA" ) )
+                TextBold14(text:(name ?? "") , textColor: R.color.color172B4D.name.getColor())
+                LocationInfoView(locationName: (location ?? "Vilal KSA" ) )
                 HStack{
-                    VilalIconWithValueView(icon: R.image.bed_icon.name, value: LocalizedStringKey(room ?? ""))
-                    VilalIconWithValueView(icon: R.image.view_icon.name, value: LocalizedStringKey(space ?? ""))
+                    VilalIconWithValueView(icon: R.image.bed_icon.name, value: (room ?? ""))
+                    VilalIconWithValueView(icon: R.image.view_icon.name, value: (space ?? ""))
                     HStack{
-                        TextBold12(text:LocalizedStringKey(price ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                        TextBold12(text:(price ?? ""), textColor: R.color.colorPrimary.name.getColor())
                             .padding(.horizontal,-4)
-                        TextBold12(text:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
+                        TextBold12(textKey:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
                         TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
-                        TextBold12(text:LocalizedStringKey(rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                        TextBold12(text:(rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
                     }
                 }
             }

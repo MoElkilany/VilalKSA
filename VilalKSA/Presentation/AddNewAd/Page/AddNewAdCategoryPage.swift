@@ -22,7 +22,9 @@ struct AddNewAdCategoryPage: View {
         
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.add_New_Ad.localized, tryAgainAction: {
             viewModel.getAdsCategoryList()
-        },backAction:nil ,content: {
+        },backAction:{
+            pilot.pop()
+        } ,content: {
             VStack{
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(viewModel.adsCategoryList,id: \.id) { item in
@@ -36,7 +38,9 @@ struct AddNewAdCategoryPage: View {
         .edgesIgnoringSafeArea(.all)
         .padding(.top,20)
         .onAppear(perform: {
-            viewModel.getAdsCategoryList()
+            if self.viewModel.adsCategoryList.isEmpty == true {
+                viewModel.getAdsCategoryList()
+            }
         })
         
     }

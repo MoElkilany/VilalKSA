@@ -49,7 +49,10 @@ struct ServicesPage: View {
         .edgesIgnoringSafeArea(.all)
         .padding(.top,20)
         .onAppear(perform: {
-            viewModel.getServices()
+            if self.viewModel.servicesList.isEmpty == true {
+                viewModel.getServices()
+            }
+           
             print("the services array is \(viewModel.servicesList)")
         })
 

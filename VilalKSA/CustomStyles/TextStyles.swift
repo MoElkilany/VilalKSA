@@ -8,16 +8,31 @@
 import SwiftUI
 
 struct TextExtraBold16: View {
-    var text: LocalizedStringKey
+    var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+
     var body: some View {
-        Text(text)
+        newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoExtraBold.rawValue, size: 16))
 //            .font(.system(size: 18, weight: .heavy))
             .foregroundColor(textColor)
@@ -27,16 +42,31 @@ struct TextExtraBold16: View {
 
 
 struct TextExtraBold20: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoExtraBold.rawValue, size: 20))
 //            .font(.system(size: 22, weight: .heavy))
             .foregroundColor(textColor)
@@ -46,16 +76,31 @@ struct TextExtraBold20: View {
 
 
 struct TextRegular12: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
 //            .font(.system(size: 12, weight: .regular))
             .foregroundColor(textColor)
@@ -77,16 +122,31 @@ struct TabBarText: View {
 
 
 struct TextRegular14: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
 //            .font(.system(size: 14, weight: .regular))
             .font(Font.custom(FontName.cairoRegular.rawValue, size: 14))
             .foregroundColor(textColor)
@@ -95,16 +155,31 @@ struct TextRegular14: View {
 
 
 struct TextRegular16: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
 //            .font(.system(size: 14, weight: .regular))
             .font(Font.custom(FontName.cairoRegular.rawValue, size: 16))
             .foregroundColor(textColor)
@@ -114,16 +189,31 @@ struct TextRegular16: View {
 
 
 struct TextSemiBold12: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
 //            .font(.system(size: 12, weight: .semibold))
             .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 12))
             .foregroundColor(textColor)
@@ -132,16 +222,31 @@ struct TextSemiBold12: View {
 
 
 struct TextSemiBold11: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 11))
 //            .font(.system(size: 11, weight: .semibold))
             .foregroundColor(textColor)
@@ -150,16 +255,31 @@ struct TextSemiBold11: View {
 
 
 struct TextSemiBold14: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
 //            .font(.system(size: 14, weight: .semibold))
             .font(Font.custom(FontName.cairoRegular.rawValue, size: 14))
             .foregroundColor(textColor)
@@ -168,16 +288,31 @@ struct TextSemiBold14: View {
 
 
 struct TextBold12: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoBold.rawValue, size: 12))
 //            .font(.system(size: 12, weight: .bold))
             .foregroundColor(textColor)
@@ -186,16 +321,31 @@ struct TextBold12: View {
 
 
 struct TextBold14: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoBold.rawValue, size: 14))
 //            .font(.system(size: 14, weight: .bold))
             .foregroundColor(textColor)
@@ -204,16 +354,31 @@ struct TextBold14: View {
 
 
 struct TextBold20: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoBold.rawValue, size: 20))
 //            .font(.system(size: 20, weight: .bold))
             .foregroundColor(textColor)
@@ -221,16 +386,31 @@ struct TextBold20: View {
 }
 
 struct TextBold16: View {
-    var text: LocalizedStringKey
+    var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoBold.rawValue, size: 16))
 //            .font(.system(size: 16, weight: .bold))
             .foregroundColor(textColor)
@@ -239,16 +419,31 @@ struct TextBold16: View {
 
 
 struct TextBold18: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoBold.rawValue, size: 18))
 //            .font(.system(size: 16, weight: .bold))
             .foregroundColor(textColor)
@@ -257,16 +452,31 @@ struct TextBold18: View {
 
 
 struct TextBold10: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoBold.rawValue, size: 10))
 
 //            .font(.system(size: 10, weight: .bold))
@@ -276,16 +486,31 @@ struct TextBold10: View {
 
 
 struct TextBold8: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoBold.rawValue, size: 8))
 //            .font(.system(size: 8, weight: .bold))
             .foregroundColor(textColor)
@@ -295,16 +520,31 @@ struct TextBold8: View {
 
 
 struct TextMeduim: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoMedium.rawValue, size: 10))
 //            .font(.system(size: 10, weight: .medium))
             .foregroundColor(textColor)
@@ -313,16 +553,31 @@ struct TextMeduim: View {
 
 
 struct TextMeduim12: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoMedium.rawValue, size: 12))
 //            .font(.system(size: 10, weight: .medium))
             .foregroundColor(textColor)
@@ -330,16 +585,31 @@ struct TextMeduim12: View {
 }
 
 struct TextMeduim10: View {
-    var text: LocalizedStringKey
+ var text: String?
+    var textKey: LocalizedStringKey? = nil
     var textColor: Color
     
-    init(text: LocalizedStringKey, textColor: Color) {
+    init(text: String? = nil, textKey: LocalizedStringKey? = nil, textColor: Color) {
         self.text = text
+        self.textKey = textKey
         self.textColor = textColor
     }
     
+    private func newText(text: String?, textKey: LocalizedStringKey?) -> some View {
+        if text != nil {
+            if text == "" {
+                return Text("-")
+            }else{
+                return Text(text ?? "-")
+            }
+          
+        } else {
+            return Text(textKey ?? LocalizedStringKey(""))
+        }
+    }
+    
     var body: some View {
-        Text(text)
+         newText(text: text, textKey: textKey)
             .font(Font.custom(FontName.cairoMedium.rawValue, size: 10))
 //            .font(.system(size: 10, weight: .medium))
             .foregroundColor(textColor)

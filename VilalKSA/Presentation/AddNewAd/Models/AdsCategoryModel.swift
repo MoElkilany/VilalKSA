@@ -12,7 +12,7 @@ struct AdsCategoryModel: BaseModel {
     var data: [AdsCategoryResponse]?
 }
 
-struct AdsCategoryResponse: BaseModel {
+struct AdsCategoryResponse: BaseModel,Identifiable {
     var id: Int?
     var name: String?
     var icon: String?

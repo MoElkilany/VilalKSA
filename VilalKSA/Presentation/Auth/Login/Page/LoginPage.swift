@@ -21,7 +21,8 @@ struct LoginPage: View {
     @State var phoneWithCodeCounty = ""
     @State private var country: Country = Country.init(countryCode: GeneralKeys.sa.rawValue)
     @State private var isShowingCountryPicker = false
-    
+    @State private var submitButton = false
+
     var body: some View {
         ZStack{
             
@@ -35,15 +36,16 @@ struct LoginPage: View {
 
                     HStack {
                         VStack(alignment: .leading) {
-                            TextExtraBold16(text: R.string.localizable.login.localized, textColor: R.color.color172B4D.name.getColor())
+                            TextExtraBold16(textKey: R.string.localizable.login.localized, textColor: R.color.color172B4D.name.getColor())
                                 .padding(.bottom,1)
-                            TextRegular12(text: R.string.localizable.enter_Your_Phone.localized, textColor: R.color.color7A869A.name.getColor())
+                            TextRegular12(textKey: R.string.localizable.enter_Your_Phone.localized, textColor: R.color.color7A869A.name.getColor())
                         }
                         Spacer()
                     }
                     .padding([.vertical ,.horizontal],22)
                     
                     HStack {
+                        
                         GeneralTextField(
                             text: $phoneNumber,
                             placeholder:  R.string.localizable.enter_Phone_Number.localized,
@@ -56,6 +58,12 @@ struct LoginPage: View {
                             }
                         )
                         
+                        
+//                        VilalTextField(text: $phoneNumber, placeholder:  R.string.localizable.enter_Phone_Number.localized, imageName:  R.image.phoneIcon.name , keyboardType: .numberPad, validationInput: .phone, submitButton: submitButton, onSubmit: { isValid in
+//                            self.viewModel.isPhoneNumberValid = isValid
+//                        })
+//                        
+
                         Button {
                             isShowingCountryPicker = true
                         } label: {
@@ -71,6 +79,11 @@ struct LoginPage: View {
                         }
                     }
                     
+                    
+//                    VilalPasswordTextField(text: $password, placeholder: R.string.localizable.password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
+//                        self.viewModel.isPasswordValid = isValid
+//                    })
+//                    
                     PasswordTextField(text: $password, keyboardType: .default, placeholder: R.string.localizable.password.localized, validationClosure: { input in
                         
                         let letterCount = input.filter { $0.isLetter }.count
@@ -89,13 +102,19 @@ struct LoginPage: View {
                     .padding([.vertical ,.horizontal],22)
                     
                     DefaultButton(title:  R.string.localizable.login.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+//                        submitButton = true
+//                        if self.viewModel.isValidForm(){
+//                            phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
+//                            let loginRequest = LoginRequest(phone: phoneWithCodeCounty, password: password)
+//                            viewModel.login(request: loginRequest)
+//                        }
                         loginAction()
                     }, fontWeight: .bold)
                     Spacer()
                 }
                 
                 HStack {
-                    TextRegular12(text:  R.string.localizable.dont_Have_Account.localized, textColor: R.color.color42526E.name.getColor())
+                    TextRegular12(textKey:  R.string.localizable.dont_Have_Account.localized, textColor: R.color.color42526E.name.getColor())
                     Button( R.string.localizable.create_New_Account.localized) {
                         pilot.push(.createAccountPage)
                     }
@@ -119,7 +138,6 @@ struct LoginPage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
-        
         .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }

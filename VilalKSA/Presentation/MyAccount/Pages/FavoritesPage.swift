@@ -51,7 +51,7 @@ struct FavoritesPage: View {
                             Button(action: {
                                 self.searchText = ""
                             }) {
-                                TextRegular12(text:R.string.localizable.cancel.localized,textColor: R.color.colorPrimary.name.getColor())
+                                TextRegular12(textKey:R.string.localizable.cancel.localized,textColor: R.color.colorPrimary.name.getColor())
                             }
                             .padding(.trailing, 10)
                         }
@@ -64,7 +64,7 @@ struct FavoritesPage: View {
                     HStack{
                         HStack(spacing:2){
                             TextBold14(text:"4", textColor: R.color.color172B4D.name.getColor())
-                            TextBold14(text: R.string.localizable.adS.localized, textColor: R.color.color172B4D.name.getColor())
+                            TextBold14(textKey: R.string.localizable.adS.localized, textColor: R.color.color172B4D.name.getColor())
                         }
                         Spacer()
                         TextRegular12(text: "الاقرب", textColor: R.color.color42526E.name.getColor())

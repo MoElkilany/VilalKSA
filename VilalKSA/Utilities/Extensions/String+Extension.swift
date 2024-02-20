@@ -13,6 +13,11 @@ extension String {
     func getColor() -> Color {
         Color(self)
     }
+    
+    func isNumeric() -> Bool {
+        return !self.isEmpty && self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
+    
 }
 
 extension StringResource {

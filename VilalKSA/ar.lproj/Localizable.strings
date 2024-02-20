@@ -122,7 +122,62 @@
 "View_Ad"= "مشاهدة الاعلان";
 "Back_to_Home"= "الرجوع للصفحة الرئيسية";
 
-//MARK: - Attachment
+//MARK =  - Attachment
 "Choose_Gallery" = "اختر من المعرض";
 "Open_Camera" = "افتح الكاميرا";
 "Choose_Option" = "اختر";
+
+
+//MARK =  - AddNewAds
+"Property_Details" =  "تفاصيل العقار";
+  "Facade" =  "الواجهة";
+  "Property_Price" =  "سعر العقار";
+  "Rooms" =  "الغرف";
+  "Living_Rooms" =  "الصالات";
+  "Bathrooms" =  "دورات المياة";
+  "Street_View" =  "عرض الشارع";
+  "Property_Area" =  "مساحة العقار";
+  "Floor_Number" =  "رقم الدور";
+  "Property_Age" =  "عمر العقار";
+  "Furnished" =  "مؤثثة";
+  "Kitchen" =  "مطبخ";
+  "Annex" =  "ملحق";
+  "Car_Entrance" =  "مدخل سيارة";
+  "Elevator" =  "مصعد";
+  "Water_Availability" =  "توفر المياه";
+  "Air_Conditioning" =  "مكيفات";
+  "Meter" = "م";
+"One_Thousand_Meters" =  "الف متر";
+
+
+//MARK: - Validation
+"notValidEmail" = "هذا البريد الإلكتروني غير صحيح";
+"notValidPhone" = "هذا الهاتف غير صحيح";
+"Field_Required" = "الحقل مطلوب";
+"price" = "سعر العقار";
+"Property_Details" = "تفاصيل العقار";
+"Private_Entry" = "مدخل خاص";
+"Villa" =  "فيلا";
+"Two_Entries" =  "مدخلين";
+"Private_Roof" =  "سطح خاص";
+"Property_Name" =  "اسم العقار";
+"PickAnAttachments" = "الرجاء التقاط المرفقات";
+"Ad_Added_Successfully" = "تم اضافة الاعلان بنجاح";
+ "Property_Data_Added_Successfully" = "لقد تم اضافة بيانات العقار الخاصة بك بنجاح" ;
+ "Back_to_Home" = "الرجوع للصفحة الرئيسية" ;
+ "Video_Added_Successfully" = "تم إضافة فيديو بنجاح";
+"Please_Select_Facade" =  "الرجاء اختيار الواجهة";
+"Price_From" = "السعر من";
+"Price_To" = "السعر إلي";
+"Desired_Property_Type" = "نوع العقار المرغوب";
+ "Rental_Duration" = "مدة الايجار";
+ "Resident" = "الساكن";
+ "Desired_Property_Location" = "موقع العقار المرغوب";
+"Property_Request" = "طلب عقار";
+
+"Please_Select_Property_Type"= "الرجاء اختيار نوع العقار";
+  "Please_Select_Rental_Duration"= "الرجاء اختيار مدة الإيجار";
+  "Please_Select_Resident_Type"= "الرجاء اختيار نوع الساكن";
+
+"Request_Added_Successfully" = "تم اضافة طلبك بنجاح";
+ "Your_Request_Data_Has_Been_Successfully_Added" = "لقد تم اضافة بيانات الطلب الخاصة بك بنجاح" ;

@@ -9,7 +9,6 @@ import SwiftUI
 import UIPilot
 import PopupView
 
-
 struct DialogState {
     var alertContent: AlertContent?
 }
@@ -22,12 +21,12 @@ struct MyAccountPage: View {
     var body: some View {
         VStack{
             ZStack{
-                
+
                 Image(R.image.profile_top_background.name)
                     .resizable()
                     .frame(maxWidth: .infinity,maxHeight: 178)
                 
-                TextBold16(text: R.string.localizable.user_Profile.localized, textColor: .white)
+                TextBold16(textKey: R.string.localizable.user_Profile.localized, textColor: .white)
             }
             
             MyAccountMainInfoView()
@@ -93,7 +92,6 @@ struct MyAccountPage: View {
                             
                             IconAndTitleWithActionModel(icon: R.image.profile_logOut.name, text: R.string.localizable.log_Out.localized,action: {
                                 print("log_Out")
-                                
                                 popups.alertContent = AlertContent(image:  R.image.profile_logOut.name, mainTitle: R.string.localizable.log_Out.localized, subTitle: R.string.localizable.you_Want_logOut.localized, trueAction: {
                                     print("log_Out_true")
                                 })

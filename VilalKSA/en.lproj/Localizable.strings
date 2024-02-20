@@ -6,7 +6,7 @@
  
  */
 
-// MARK: Error Messages
+// MARK =  Error Messages
 "Error_Phone_Required" = "Please enter phone number";
 "Error_Password_Required" = "Please enter password";
 "Empty_No_Result_Found" = "No Data Found";
@@ -16,7 +16,7 @@
 "Please_Try_Again" = "An error occurred while accessing the data; please try again";
 "Try_Again" = "Try again";
 "Service_Not_Available" = "This service is not available now. We are striving to make it available soon.";
-// MARK: Authenticatoin
+// MARK =  Authenticatoin
 "Login" = "Login";
 "Enter_Your_Phone" = "Enter your mobile number";
 "Enter_Phone_Number"= "Enter the phone number";
@@ -25,14 +25,14 @@
 "Dont_Have_Account" = "Don't have an account?";
 "Create_New_Account" = "Create New Account";
 
-// MARK: TabBar
+// MARK =  TabBar
 "Main" = "Main";
 "Services" = "Services";
 "Messages" = "Messages";
 "MyAccount" = "Account";
 "Add"  = "Add";
 
-// MARK: Customer Orders
+// MARK =  Customer Orders
 "Customer_Orders" = "Customer Requests";
 "Customer_Orders_Details" = "Request Details";
 "Customer_Details_Skip" = "Skip";
@@ -48,7 +48,7 @@
 "Contact_Advertiser" = "Contact the advertiser";
 
 
-// MARK: Profile
+// MARK =  Profile
 "User_Profile"= "User Profile";
 "Favorites"= "Favorites";
 "My_Ads"= "My Ads";
@@ -64,7 +64,7 @@
 "Log_Out"= "Log Out";
 "About_App_Des" = "Vilal App is the first real estate application specialized exclusively in villas and palaces. Download the app now for free and enjoy all the services we provide";
 
-// MARK: Favorites
+// MARK =  Favorites
 "ADS" = "Ads";
 "Search" = "Search";
 "Cancel" = "Cancel";
@@ -73,7 +73,7 @@
 "Cancel_Request" = "Cancel Request";
 
 
-// MARK: Reservations
+// MARK =  Reservations
 "On_Going" = "On Going";
 "Completed" = "Completed";
 "Canceled" = "Canceled";
@@ -93,7 +93,7 @@
 "Register_Your_Request"= "Register your request here if you didn't find it in our listed properties";
 "Step"= "Step";
 
-// MARK: Add New Ads
+// MARK =  Add New Ads
 "Add_New_Ad"= "Add New Ad";
 "Property_Location"= "Property Location";
 "Looking_for_Specific_Location"= "Looking for Specific Location";
@@ -121,7 +121,62 @@
 "View_Ad"= "View Ad";
 "Back_to_Home"= "Back to Home";
 
-//MARK: - Attachment
+//MARK =  - Attachment
 "Choose_Gallery" = "Choose from Gallery";
 "Open_Camera"    = "Open Camera";
 "Choose_Option"  = "Choose";
+
+
+//MARK =  - AddNewAds
+"Property_Details" =  "Property Details";
+  "Facade" =  "Facade";
+  "Property_Price" =  "Property Price";
+  "Rooms" =  "Rooms";
+  "Living_Rooms" =  "Living Rooms";
+  "Bathrooms" =  "Bathrooms";
+  "Street_View" =  "Street View";
+  "Property_Area" =  "Property Area";
+  "Floor_Number" =  "Floor Number";
+  "Property_Age" =  "Property Age";
+  "Furnished" =  "Furnished";
+  "Kitchen" =  "Kitchen";
+  "Annex" =  "Annex";
+  "Car_Entrance" =  "Car Entrance";
+  "Elevator" =  "Elevator";
+  "Water_Availability" =  "Water Availability";
+"Air_Conditioning" =  "Air Conditioning";
+"Meter" = "M";
+"One_Thousand_Meters" =  "Thousand Meters";
+
+//MARK: - Validation
+
+"notValidEmail" = "This is a not valid email";
+"notValidPhone" = "This is a not valid phone";
+"Field_Required" = "Field Required";
+"price" = "Property Price";
+"Property_Details" = "Property_Details";
+"Private_Entry" = "Private Entry";
+ "Villa" =  "Villa";
+ "Two_Entries" =  "Two Entries";
+ "Private_Roof" =  "Private Roof";
+"Property_Name" =  "Property Name";
+"PickAnAttachments" = "Please pick an attachments";
+
+"Ad_Added_Successfully"=  "Ad Added Successfully";
+ "Property_Data_Added_Successfully" = "Your Property Data Has Been Successfully Added";
+ "Back_to_Home" = "Back to Home";
+ "Video_Added_Successfully" = "Video Added Successfully";
+"Please_Select_Facade" =  "Please select Interface";
+"Price_From" = "Price from";
+"Price_To" = "Price to";
+"Desired_Property_Type" = "Desired property type";
+ "Rental_Duration" = "Rental duration";
+ "Resident" = "Resident";
+ "Desired_Property_Location" = "Desired property location";
+"Property_Request" = "Property Request";
+"Please_Select_Property_Type" = "Please select property type";
+ "Please_Select_Rental_Duration" = "Please select rental duration";
+ "Please_Select_Resident_Type" = "Please select resident type";
+
+"Request_Added_Successfully"= "Request Added Successfully";
+"Your_Request_Data_Has_Been_Successfully_Added"= "Your Request Data Has Been Successfully Added";
