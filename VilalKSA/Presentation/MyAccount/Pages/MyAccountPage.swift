@@ -16,6 +16,8 @@ struct DialogState {
 struct MyAccountPage: View {
     
     @EnvironmentObject var pilot: UIPilot<MyAccountDestination>
+    @EnvironmentObject var pilotRoot: UIPilot<RootDestination>
+
     @State var popups = DialogState()
     
     var body: some View {
@@ -93,6 +95,15 @@ struct MyAccountPage: View {
                             IconAndTitleWithActionModel(icon: R.image.profile_logOut.name, text: R.string.localizable.log_Out.localized,action: {
                                 print("log_Out")
                                 popups.alertContent = AlertContent(image:  R.image.profile_logOut.name, mainTitle: R.string.localizable.log_Out.localized, subTitle: R.string.localizable.you_Want_logOut.localized, trueAction: {
+                                    
+                                    if pilotRoot.routes.contains(where: {$0.name == RootDestination.login.name}) {
+                                        pilotRoot.popTo(.login)
+                                    } else {
+                                        pilotRoot.popTo(pilotRoot.routes.first!)
+                                        pilotRoot.pop()
+                                        pilotRoot.push(.login)
+                                    }
+                                        
                                     print("log_Out_true")
                                 })
                             }),

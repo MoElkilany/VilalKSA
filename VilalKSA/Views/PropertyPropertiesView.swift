@@ -26,10 +26,12 @@ struct PropertyPropertiesView: View {
                 TextMeduim12(textKey: R.string.localizable.properties.localized, textColor: R.color.color42526E.name.getColor())
                 Spacer()
             }
+            
             VStack{
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: columns, alignment: .center, spacing: 15) {
                         ForEach(items ?? [],id:\.name ){ item in
+                            
                             PropertyPropertiesItem(item: item)
                         }
                     }
@@ -56,11 +58,10 @@ struct PropertyPropertiesView: View {
 
 private struct PropertyPropertiesItem: View {
     var item: ProperitesModel?
-    
     var body: some View {
         HStack(alignment:.center) {
             URLImage(imageUrl: item?.icon
-                     ,imageWidth: 15,imageHeight: 15)
+                     ,imageWidth: 20,imageHeight: 20)
             TextBold12(text: item?.name ?? "" , textColor: R.color.color42526E.name.getColor())
         }
         .cornerRadius(8)

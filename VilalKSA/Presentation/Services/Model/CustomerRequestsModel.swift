@@ -16,7 +16,7 @@ struct CustomerRequestsModel: BaseModel {
 
 struct CustomerRequestsValueModel: BaseModel {
     var id: Int?
-    var name, category, lat, lon: String?
+    var name, category, lat,address, lon ,created_at,rental,resident: String?
     var price: CustomerRequestsPrice?
 }
 
@@ -40,8 +40,7 @@ struct CustomerRequestsDetailsValue: BaseModel {
     var properites: [ProperitesModel]?
 }
 
-struct Detail: BaseModel,Identifiable {
-    var id: Int?
+struct Detail: BaseModel {
     var name, value: String?
 }
 
@@ -49,11 +48,12 @@ struct Main: BaseModel {
     var id: Int?
     var name, category: String?
     var price: Price?
-    var rental, createdAt: String?
+    var rental, createdAt,estateSpace,resident: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, category, price, rental
+        case id, name, category, price, rental,resident
         case createdAt = "created_at"
+        case estateSpace = "estate_space"
     }
 }
 
@@ -74,7 +74,7 @@ struct Owner: BaseModel {
     var date: String?
 }
 
-struct ProperitesModel: BaseModel,Identifiable {
+struct ProperitesModel: BaseModel {
     var id: Int?
     var icon: String?
     var name: String?

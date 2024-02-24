@@ -64,7 +64,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 131 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 134 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -130,6 +130,13 @@ struct _R {
       ///
       /// Locales: en, ar
       var adding_a_video_to_your_ad_will_increase_its_visibility: RswiftResources.StringResource { .init(key: "Adding_a_video_to_your_ad_will_increase_its_visibility", tableName: "Localizable", source: source, developmentValue: "Adding a video to your ad will increase its visibility", comment: nil) }
+
+      /// en translation: Ads Details
+      ///
+      /// Key: Ads_Details
+      ///
+      /// Locales: en, ar
+      var ads_Details: RswiftResources.StringResource { .init(key: "Ads_Details", tableName: "Localizable", source: source, developmentValue: "Ads Details", comment: nil) }
 
       /// en translation: Air Conditioning
       ///
@@ -614,6 +621,13 @@ struct _R {
       /// Locales: en, ar
       var please_Select_Facade: RswiftResources.StringResource { .init(key: "Please_Select_Facade", tableName: "Localizable", source: source, developmentValue: "Please select Interface", comment: nil) }
 
+      /// en translation: Please select property location
+      ///
+      /// Key: Please_Select_Property_Location
+      ///
+      /// Locales: en, ar
+      var please_Select_Property_Location: RswiftResources.StringResource { .init(key: "Please_Select_Property_Location", tableName: "Localizable", source: source, developmentValue: "Please select property location", comment: nil) }
+
       /// en translation: Please select property type
       ///
       /// Key: Please_Select_Property_Type
@@ -845,6 +859,13 @@ struct _R {
       /// Locales: en, ar
       var services: RswiftResources.StringResource { .init(key: "Services", tableName: "Localizable", source: source, developmentValue: "Services", comment: nil) }
 
+      /// en translation: Similar Ads
+      ///
+      /// Key: Similar_Ads
+      ///
+      /// Locales: en, ar
+      var similar_Ads: RswiftResources.StringResource { .init(key: "Similar_Ads", tableName: "Localizable", source: source, developmentValue: "Similar Ads", comment: nil) }
+
       /// en translation: Something went wrong
       ///
       /// Key: Something_Wrong
@@ -1031,7 +1052,7 @@ struct _R {
     var colorPrimary: RswiftResources.ColorResource { .init(name: "ColorPrimary", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 78 images.
+  /// This `_R.image` struct is generated, and contains static references to 79 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -1184,6 +1205,9 @@ struct _R {
 
     /// Image `main`.
     var main: RswiftResources.ImageResource { .init(name: "main", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `map-logo`.
+    var mapLogo: RswiftResources.ImageResource { .init(name: "map-logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `map_Placeholder`.
     var map_Placeholder: RswiftResources.ImageResource { .init(name: "map_Placeholder", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

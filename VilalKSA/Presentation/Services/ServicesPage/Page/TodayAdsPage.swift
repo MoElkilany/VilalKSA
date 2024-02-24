@@ -22,9 +22,15 @@ struct TodayAdsPage: View {
         } ,content: {
             ScrollView(showsIndicators:false){
                 ForEach(viewModel.todayAdsList,id: \.id) { item in
-                    PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: String(item.space ?? 0), price: item.price ?? "" , favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "" )
+                    Button {
+                        pilot.push(.adsDetailsPage(id: String(item.id ?? 0) ))
+                    } label: {
+                        PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? "" , favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "" )
+                    }
                 }
+               
             }
+            .padding(.bottom,22)
         }).onAppear(perform: {
             viewModel.getTodayAds()
         })

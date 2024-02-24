@@ -24,7 +24,13 @@ struct AddNewAdAPIClient: APIClient {
         fetch(with: AddNewAdEndPoint.getInterface, completion: completion)
     }
     
-    func createNewAdd(video:Data,images: [Data], model: [String:String],completion: @escaping (APIResult<CreateNewAdsResponseModel?, APIError>) -> Void) {
+    func createNewAdd(video:Data?,images: [Data], model: [String:String],completion: @escaping (APIResult<CreateNewAdsResponseModel?, APIError>) -> Void) {
         fetch(with: AddNewAdEndPoint.createNewAdd(video: video, images: images, model: model), completion: completion)
     }
+    
+    
+    func getAdDetails(id: String ,completion: @escaping (APIResult<AdDetailsModel?, APIError>) -> Void) {
+        fetch(with: AddNewAdEndPoint.getAdDetails(id: id), completion: completion)
+    }
+    
 }

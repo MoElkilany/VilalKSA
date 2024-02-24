@@ -63,7 +63,7 @@ class AddNewAdsViewModel: BaseViewModel {
     
     
     
-    func createNewAds(video:Data,images: [Data], model: [String:String]) {
+    func createNewAds(video:Data?,images: [Data], model: [String:String]) {
         createAdsState = .loading
         apiService.createNewAdd(video: video, images: images, model: model) { [weak self] result in
             guard let self = self else { return }

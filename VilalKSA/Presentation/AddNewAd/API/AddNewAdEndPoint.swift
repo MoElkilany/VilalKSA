@@ -10,11 +10,11 @@ import Moya
 enum AddNewAdEndPoint {
     case getAdsCategory
     case getInterface
-    case createNewAdd(video:Data,images:[Data],model:[String:String])
+    case createNewAdd(video:Data?,images:[Data],model:[String:String])
+    case getAdDetails(id:String)
 }
 
 extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
-    
     
     var baseURL: URL {
         guard let url = URL(string: SharedAPIClient.shared.environment.apiUrl) else { fatalError("baseURL could not be configured.")}
@@ -29,12 +29,14 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
             return Constants.adsInterface.rawValue
         case.createNewAdd:
             return Constants.createNewAds.rawValue
+        case .getAdDetails(let id ):
+            return Constants.adsDetails.rawValue + id 
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getAdsCategory ,.getInterface:
+        case .getAdsCategory ,.getInterface ,.getAdDetails :
             return .get
         case .createNewAdd:
             return .post
@@ -43,8 +45,9 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
     
     var task: Moya.Task {
         switch self {
-        case .getAdsCategory,.getInterface:
+        case .getAdsCategory,.getInterface,.getAdDetails:
             return .requestPlain
+            
         case .createNewAdd(let video,let images, let model):
          
             var multipartFormData = [MultipartFormData]()
@@ -53,10 +56,11 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
                 let formData = MultipartFormData(provider: .data(imageData), name: "files[\(index)]", fileName: "image\(index).jpg", mimeType: "image/jpeg")
                 multipartFormData.append(formData)
             }
-
-            let formData = MultipartFormData(provider: .data(video), name: "files[1000]", fileName: "video.mp4", mimeType: "video/mp4")
-            multipartFormData.append(formData)
             
+            if video != nil {
+                let formData = MultipartFormData(provider: .data(video!), name: "files[1000]", fileName: "video.mp4", mimeType: "video/mp4")
+                multipartFormData.append(formData)
+            }
             
             return .uploadCompositeMultipart(multipartFormData, urlParameters: model)
         }
@@ -70,7 +74,7 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
     
     var authorizationType: AuthorizationType? {
         switch self {
-        case .getInterface,.getAdsCategory,.createNewAdd:
+        case .getInterface,.getAdsCategory,.createNewAdd,.getAdDetails:
             return .bearer
         }
     }

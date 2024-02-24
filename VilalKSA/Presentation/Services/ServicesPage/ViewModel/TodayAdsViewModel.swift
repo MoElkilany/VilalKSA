@@ -42,8 +42,8 @@ class TodayAdsViewModel: BaseViewModel {
                 if response.data?.isEmpty == true  {
                     self.state = .noData
                 }else{
-                    self.state = .success
                     self.todayAdsList = response.data ?? []
+                    self.state = .success
                 }
             } else {
                 self.errorMessage = LocalizedStringKey(response.message ?? "")

@@ -9,12 +9,13 @@ import SwiftUI
 import UIKit
 import LanguageManagerSwiftUI
 import UIPilot
+import GoogleMaps
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         print("Vilal KSA")
-        
+        GMSServices.provideAPIKey("AIzaSyBocCCwfAulH7Gso8pfLITItdePia30c1U")
         return true
     }
 }

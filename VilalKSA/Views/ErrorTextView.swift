@@ -13,6 +13,6 @@ struct ErrorTextView: View {
         Text(errorText)
             .padding(.leading, 15)
             .foregroundColor(.red)
-            .font(Font.custom(FontName.cairoRegular.rawValue, size: 10))
+            .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
     }
 }

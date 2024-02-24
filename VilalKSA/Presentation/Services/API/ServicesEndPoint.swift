@@ -17,7 +17,7 @@ enum ServicesEndPoint {
     case getRentalperiod
     case getResident
     case getInterface
-
+    
 }
 
 extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
@@ -62,7 +62,7 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
     
     var task: Moya.Task {
         switch self {
- 
+            
         case .createNewRequest(let requestObject):
             return .requestJSONEncodable(requestObject)
         case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds,.getAdsCategory,.getRentalperiod,.getResident,.getInterface:
@@ -72,14 +72,14 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
     
     var headers: [String : String]? {
         let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
-          let header : [String : String] = ["Accept": "application/json","locale": local]
+        let header : [String : String] = ["Accept": "application/json","locale": local]
         return header
     }
-
+    
     var authorizationType: AuthorizationType? {
         switch self {
         case .getServices,.getCustomerRequests,.getAdsCategory,.getCustomerRequestDetails,.getTodayAds,.createNewRequest,.getRentalperiod,.getResident,.getInterface:
-                return .bearer
-            }
+            return .bearer
         }
+    }
 }

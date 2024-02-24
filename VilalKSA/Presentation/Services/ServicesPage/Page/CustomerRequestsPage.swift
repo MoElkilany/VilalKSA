@@ -28,8 +28,9 @@ struct CustomerRequestsPage: View {
                         CustomerOrdersCard(customerOrderModel: modelValue)
                     })
                 }
+                .padding(.bottom,20)
             }
-            .padding(.bottom,50)
+            
         })
         .edgesIgnoringSafeArea(.all)
         .padding(.top,20)

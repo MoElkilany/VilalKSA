@@ -15,6 +15,7 @@ struct LocationInfoView: View {
                 .resizable()
                 .frame(width: 12, height: 15, alignment: .center)
             TextMeduim12(text: locationName ?? "المنصورة المشاية كوبري طلخا", textColor: R.color.color42526E.name.getColor())
+                .multilineTextAlignment(.leading)
         }
     }
 }

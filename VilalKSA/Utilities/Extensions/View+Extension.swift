@@ -44,4 +44,13 @@ extension View {
         let resign = #selector(UIResponder.resignFirstResponder)
         UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
+    
+    func customCardStyle(corner:CGFloat? = 0 ) -> some View {
+        self.frame(maxWidth: .infinity)
+            .padding(.vertical, 20)
+                .padding(.horizontal, 20)
+                .background(RoundedRectangle(cornerRadius: corner ?? 0 )
+                    .fill(Color.white)
+                    .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
+        }
 }

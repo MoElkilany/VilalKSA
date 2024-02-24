@@ -10,6 +10,7 @@ import SwiftUI
 struct PropertyKeyValueDetailsView: View {
     
     let propertiesDetailsArray: [Detail]?
+    
     init(propertiesDetailsArray: [Detail]?) {
         self.propertiesDetailsArray = propertiesDetailsArray
     }
@@ -25,8 +26,9 @@ struct PropertyKeyValueDetailsView: View {
                 TextMeduim12(textKey: R.string.localizable.building.localized, textColor: R.color.color42526E.name.getColor())
                 Spacer()
             }
+            
             VStack{
-                ForEach(propertiesDetailsArray ?? [],id:\.value ){ item  in
+                ForEach(propertiesDetailsArray ?? [],id:\.self ){ item  in
                     KeyValueBarView(key: LocalizedStringKey(item.name ?? ""), value: (item.value ?? ""))
                 }
             }
@@ -35,8 +37,7 @@ struct PropertyKeyValueDetailsView: View {
             .background(RoundedRectangle(cornerRadius: 10.0)
                 .fill(R.color.colorF1F5F9.name.getColor()))
             }
-        .frame(maxWidth: .infinity)
-        
+        .frame(maxWidth: .infinity,maxHeight: .infinity)
         .padding(.vertical, 20)
         .padding(.horizontal, 20)
         .background(RoundedRectangle(cornerRadius: 10.0)
@@ -46,11 +47,10 @@ struct PropertyKeyValueDetailsView: View {
 }
 
 
-
 struct KeyValueBarView: View {
     let key: LocalizedStringKey?
     let value: String?
-    
+
     var body: some View{
         VStack(spacing:5){
             HStack{

@@ -46,6 +46,7 @@ enum Constants: String {
     case createNewAds  = "real/estate/store"
     case rentalperiod = "real/estate/property/rentalperiod"
     case resident = "real/estate/property/resident"
+    case adsDetails  = "real/estate/"
 
     
 

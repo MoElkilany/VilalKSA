@@ -181,3 +181,6 @@
 
 "Request_Added_Successfully" = "تم اضافة طلبك بنجاح";
  "Your_Request_Data_Has_Been_Successfully_Added" = "لقد تم اضافة بيانات الطلب الخاصة بك بنجاح" ;
+"Please_Select_Property_Location" = "الرجاء اختيار موقع العقار";
+"Similar_Ads" = "الاعلانات المشابهة";
+"Ads_Details" = "تفاصيل الإعلان";

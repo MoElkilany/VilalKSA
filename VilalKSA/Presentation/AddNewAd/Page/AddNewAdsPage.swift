@@ -190,13 +190,15 @@ struct AddNewAdsPage: View {
                                 "address":self.addNewAdRequestModel?.addAddress ?? "",
                             ]
                             
-                            self.viewModel.createNewAds(video: self.addNewAdRequestModel?.videosData ?? Data(), images: addNewAdRequestModel?.images ?? [] , model: requestModel)
+                            self.viewModel.createNewAds(video: self.addNewAdRequestModel?.videosData , images: addNewAdRequestModel?.images ?? [] , model: requestModel)
                         }
                         
                     }, fontWeight: .bold)
                     .padding(.bottom,20)
                 }
                 .disabled(self.viewModel.createAdsState == .loading)
+                
+                
                 
                 if self.viewModel.createAdsState == .loading {
                     OnScreenLoading

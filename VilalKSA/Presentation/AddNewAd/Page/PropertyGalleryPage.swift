@@ -70,9 +70,16 @@ struct PropertyGalleryPage: View {
                     
                     DefaultButton(title:  R.string.localizable.next.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         
-                        if !images.isEmpty  || videoURL != nil {
+                        if !images.isEmpty {
                             nextButton = true
-                            pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData: Convert.URLToData(URLString: self.videoURL ?? URL(fileURLWithPath: "") ) ?? Data()  )))
+                            
+                            if  self.videoURL == nil {
+                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData: nil )))
+                            }else{
+                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData:   Convert.URLToData(URLString: self.videoURL ?? URL(fileURLWithPath: "") ) ?? Data()  ) ))
+                            }
+                            
+                      
                         }else{
                             nextButton = false
                         }

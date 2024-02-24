@@ -24,6 +24,8 @@
 		E7096DA12B53322A00FDA20E /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D982B53322A00FDA20E /* Cairo-Regular.ttf */; };
 		E7096DA32B53322A00FDA20E /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7096D9A2B53322A00FDA20E /* Cairo-Bold.ttf */; };
 		E70BD7952B5C4835008DAB1C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BD7942B5C4835008DAB1C /* NetworkMonitor.swift */; };
+		E70EEDF22B8753EE00F2E14E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EEDF12B8753EE00F2E14E /* LocationManager.swift */; };
+		E70EEDF42B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EEDF32B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift */; };
 		E71A633B2B26102000B8687C /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A633A2B26102000B8687C /* TextStyles.swift */; };
 		E71B097C2B2A5A5900046242 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */; };
 		E72050672B2C753E00EB76AB /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72050662B2C753E00EB76AB /* NewPasswordPage.swift */; };
@@ -93,6 +95,10 @@
 		E7601EAC2B1F43000070C853 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7601EAB2B1F43000070C853 /* Colors.xcassets */; };
 		E761C3C22B69994D00B3917F /* CustomerRequestsDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761C3C12B69994D00B3917F /* CustomerRequestsDetailsPage.swift */; };
 		E761C3C52B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761C3C42B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift */; };
+		E76565B02B8555B2000CE3F6 /* GoogleMaps in Frameworks */ = {isa = PBXBuildFile; productRef = E76565AF2B8555B2000CE3F6 /* GoogleMaps */; };
+		E76565B22B8555B2000CE3F6 /* GoogleMapsBase in Frameworks */ = {isa = PBXBuildFile; productRef = E76565B12B8555B2000CE3F6 /* GoogleMapsBase */; };
+		E76565B42B8555B2000CE3F6 /* GoogleMapsCore in Frameworks */ = {isa = PBXBuildFile; productRef = E76565B32B8555B2000CE3F6 /* GoogleMapsCore */; };
+		E76565B62B8555B2000CE3F6 /* GoogleMapsM4B in Frameworks */ = {isa = PBXBuildFile; productRef = E76565B52B8555B2000CE3F6 /* GoogleMapsM4B */; };
 		E76EB22A2B83887E00F904DC /* CreateAdsSuccessPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76EB2292B83887E00F904DC /* CreateAdsSuccessPage.swift */; };
 		E77F066E2B2207E600C674BD /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F066D2B2207E600C674BD /* TextFieldStyles.swift */; };
 		E78356852B74578200B342FE /* MyAdsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78356842B74578200B342FE /* MyAdsPage.swift */; };
@@ -156,6 +162,11 @@
 		E7CAC5FB2B4701F30070C9D1 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FA2B4701F30070C9D1 /* AppUtility.swift */; };
 		E7CAC5FD2B4702210070C9D1 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FC2B4702210070C9D1 /* BaseModel.swift */; };
 		E7CAC5FF2B4703140070C9D1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FE2B4703140070C9D1 /* ErrorMessage.swift */; };
+		E7D7CF692B88E9A70053A061 /* AdsDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF682B88E9A60053A061 /* AdsDetailsPage.swift */; };
+		E7D7CF6B2B88EC910053A061 /* AdsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF6A2B88EC910053A061 /* AdsDetailsViewModel.swift */; };
+		E7D7CF6D2B88EFFA0053A061 /* AdDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF6C2B88EFFA0053A061 /* AdDetailsModel.swift */; };
+		E7D7CF6F2B88F5710053A061 /* AdDetailsMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF6E2B88F5710053A061 /* AdDetailsMainView.swift */; };
+		E7D7CF712B89380C0053A061 /* SimilarAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF702B89380C0053A061 /* SimilarAdsView.swift */; };
 		E7DD75652B4FAD4E00207409 /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD75642B4FAD4E00207409 /* ForgetPasswordModel.swift */; };
 		E7DD75672B4FAD8800207409 /* CodeForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD75662B4FAD8800207409 /* CodeForgetPasswordModel.swift */; };
 		E7DD75692B4FAE1F00207409 /* ChangePasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD75682B4FAE1F00207409 /* ChangePasswordModel.swift */; };
@@ -178,6 +189,7 @@
 		E7E6FF5F2B2B3A3A00D94036 /* CodeCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6FF5E2B2B3A3A00D94036 /* CodeCountryView.swift */; };
 		E7E6FF642B2B4A8300D94036 /* VerificationCodePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6FF632B2B4A8300D94036 /* VerificationCodePage.swift */; };
 		E7E6FF672B2B4ADC00D94036 /* OtpModifer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6FF662B2B4ADC00D94036 /* OtpModifer.swift */; };
+		E7E878102B85528B00C4B718 /* MapViewControllerBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8780F2B85528B00C4B718 /* MapViewControllerBridge.swift */; };
 		E7E9C2A12B69C118009D1918 /* TodayAdsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E9C2A02B69C118009D1918 /* TodayAdsPage.swift */; };
 		E7E9C2A32B69C250009D1918 /* PropertyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E9C2A22B69C250009D1918 /* PropertyContainerView.swift */; };
 		E7F242472B6FF9E600D02F16 /* VilalIconWithValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F242462B6FF9E600D02F16 /* VilalIconWithValueView.swift */; };
@@ -203,6 +215,8 @@
 		E7096D9A2B53322A00FDA20E /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
 		E7096DA42B53342300FDA20E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E70BD7942B5C4835008DAB1C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		E70EEDF12B8753EE00F2E14E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E70EEDF32B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedLocationGoogleMapsView.swift; sourceTree = "<group>"; };
 		E71A633A2B26102000B8687C /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPage.swift; sourceTree = "<group>"; };
 		E72050662B2C753E00EB76AB /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
@@ -333,6 +347,11 @@
 		E7CAC5FA2B4701F30070C9D1 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		E7CAC5FC2B4702210070C9D1 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		E7CAC5FE2B4703140070C9D1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		E7D7CF682B88E9A60053A061 /* AdsDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDetailsPage.swift; sourceTree = "<group>"; };
+		E7D7CF6A2B88EC910053A061 /* AdsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDetailsViewModel.swift; sourceTree = "<group>"; };
+		E7D7CF6C2B88EFFA0053A061 /* AdDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailsModel.swift; sourceTree = "<group>"; };
+		E7D7CF6E2B88F5710053A061 /* AdDetailsMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailsMainView.swift; sourceTree = "<group>"; };
+		E7D7CF702B89380C0053A061 /* SimilarAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarAdsView.swift; sourceTree = "<group>"; };
 		E7DD75642B4FAD4E00207409 /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
 		E7DD75662B4FAD8800207409 /* CodeForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForgetPasswordModel.swift; sourceTree = "<group>"; };
 		E7DD75682B4FAE1F00207409 /* ChangePasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModel.swift; sourceTree = "<group>"; };
@@ -355,6 +374,7 @@
 		E7E6FF5E2B2B3A3A00D94036 /* CodeCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeCountryView.swift; sourceTree = "<group>"; };
 		E7E6FF632B2B4A8300D94036 /* VerificationCodePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodePage.swift; sourceTree = "<group>"; };
 		E7E6FF662B2B4ADC00D94036 /* OtpModifer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModifer.swift; sourceTree = "<group>"; };
+		E7E8780F2B85528B00C4B718 /* MapViewControllerBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerBridge.swift; sourceTree = "<group>"; };
 		E7E9C2A02B69C118009D1918 /* TodayAdsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAdsPage.swift; sourceTree = "<group>"; };
 		E7E9C2A22B69C250009D1918 /* PropertyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyContainerView.swift; sourceTree = "<group>"; };
 		E7F242462B6FF9E600D02F16 /* VilalIconWithValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilalIconWithValueView.swift; sourceTree = "<group>"; };
@@ -369,8 +389,12 @@
 				E750498B2B288104008DD89C /* CountryPicker in Frameworks */,
 				E701BF7D2B854F5300D7CFDD /* LanguageManagerSwiftUI in Frameworks */,
 				E72DB1482B43846300644252 /* PopupView in Frameworks */,
+				E76565B42B8555B2000CE3F6 /* GoogleMapsCore in Frameworks */,
 				DC5462184D61FA57860B470A /* Pods_VilalKSA.framework in Frameworks */,
+				E76565B02B8555B2000CE3F6 /* GoogleMaps in Frameworks */,
 				E72DB1462B43844C00644252 /* CountryPicker in Frameworks */,
+				E76565B62B8555B2000CE3F6 /* GoogleMapsM4B in Frameworks */,
+				E76565B22B8555B2000CE3F6 /* GoogleMapsBase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +496,7 @@
 				E7DDA8852B78460E00921181 /* PropertyGalleryPage.swift */,
 				E751E0BA2B7AC3FB0033752F /* AddNewAdsPage.swift */,
 				E76EB2292B83887E00F904DC /* CreateAdsSuccessPage.swift */,
+				E7D7CF682B88E9A60053A061 /* AdsDetailsPage.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -524,6 +549,15 @@
 				E70BD7942B5C4835008DAB1C /* NetworkMonitor.swift */,
 			);
 			path = NetworkConnectivity;
+			sourceTree = "<group>";
+		};
+		E70EEDF02B8753D800F2E14E /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				E70EEDF12B8753EE00F2E14E /* LocationManager.swift */,
+				E70EEDF32B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift */,
+			);
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
 		E71B09772B2A59E100046242 /* Auth */ = {
@@ -860,6 +894,8 @@
 			isa = PBXGroup;
 			children = (
 				E751E0BD2B7ACBC50033752F /* PropertyInterfaceView.swift */,
+				E7D7CF6E2B88F5710053A061 /* AdDetailsMainView.swift */,
+				E7D7CF702B89380C0053A061 /* SimilarAdsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1056,6 +1092,7 @@
 				E7C9258B2B0B78AF007DF84B /* ContentView.swift */,
 				E7096D722B52ACD900FDA20E /* Localizable.strings */,
 				E7C9258F2B0B78B1007DF84B /* Preview Content */,
+				E7E8780F2B85528B00C4B718 /* MapViewControllerBridge.swift */,
 			);
 			path = VilalKSA;
 			sourceTree = "<group>";
@@ -1094,6 +1131,7 @@
 		E7C925992B0B7FC9007DF84B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E70EEDF02B8753D800F2E14E /* GoogleMaps */,
 				E70BD7932B5C4812008DAB1C /* NetworkConnectivity */,
 				E7A5F6162B519BEF00882220 /* Base */,
 				E7E6FF652B2B4ACF00D94036 /* ViewModeifiers */,
@@ -1150,6 +1188,7 @@
 				E7DDA8832B783DEE00921181 /* AddNewAdRequestModel.swift */,
 				E72981C42B80E2F200B5B995 /* LookUpResponse.swift */,
 				E72981C62B81089800B5B995 /* CreateNewAdsRequestModel.swift */,
+				E7D7CF6C2B88EFFA0053A061 /* AdDetailsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1159,6 +1198,7 @@
 			children = (
 				E7DDA87F2B782C4A00921181 /* AddNewAdCategoryViewModel.swift */,
 				E7CA670A2B7ED8000046B311 /* AddNewAdsViewModel.swift */,
+				E7D7CF6A2B88EC910053A061 /* AdsDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1229,6 +1269,10 @@
 				E72DB1452B43844C00644252 /* CountryPicker */,
 				E72DB1472B43846300644252 /* PopupView */,
 				E701BF7C2B854F5300D7CFDD /* LanguageManagerSwiftUI */,
+				E76565AF2B8555B2000CE3F6 /* GoogleMaps */,
+				E76565B12B8555B2000CE3F6 /* GoogleMapsBase */,
+				E76565B32B8555B2000CE3F6 /* GoogleMapsCore */,
+				E76565B52B8555B2000CE3F6 /* GoogleMapsM4B */,
 			);
 			productName = VilalKSA;
 			productReference = E7C925862B0B78AF007DF84B /* VilalKSA.app */;
@@ -1377,6 +1421,7 @@
 				E751E0BE2B7ACBC50033752F /* PropertyInterfaceView.swift in Sources */,
 				E7A8BD302B4DD8B900A6AA5B /* VerificationCodeModel.swift in Sources */,
 				E723B0422B7C232F003021E7 /* SliderView.swift in Sources */,
+				E7E878102B85528B00C4B718 /* MapViewControllerBridge.swift in Sources */,
 				E7BBD9672B0D54220086758B /* Image+Extension .swift in Sources */,
 				E76EB22A2B83887E00F904DC /* CreateAdsSuccessPage.swift in Sources */,
 				E7E9C2A12B69C118009D1918 /* TodayAdsPage.swift in Sources */,
@@ -1411,6 +1456,7 @@
 				E723B0482B7C2CC7003021E7 /* SwitchButtonView.swift in Sources */,
 				E7096D8A2B5308BF00FDA20E /* MessagesPage.swift in Sources */,
 				E723B7B12B730FE60048441D /* MyAccountMainInfoView.swift in Sources */,
+				E7D7CF6B2B88EC910053A061 /* AdsDetailsViewModel.swift in Sources */,
 				E723B7BE2B7329090048441D /* MyAccountViewModel.swift in Sources */,
 				E783568B2B74647000B342FE /* MyRequestsPage.swift in Sources */,
 				E74EDE362B0EBF3100E0B150 /* BaseStateView.swift in Sources */,
@@ -1420,6 +1466,7 @@
 				E750498E2B2893F6008DD89C /* CountryPickerHandler.swift in Sources */,
 				E783568D2B7464B100B342FE /* MyRequestsViewModel.swift in Sources */,
 				E761C3C52B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift in Sources */,
+				E7D7CF712B89380C0053A061 /* SimilarAdsView.swift in Sources */,
 				E7E34ACA2B701D34001F7AE8 /* TodayAdsModel.swift in Sources */,
 				E744D19C2B4843F900CB5DC1 /* LoginViewModel.swift in Sources */,
 				E7DDA87D2B782BD400921181 /* AdsCategoryModel.swift in Sources */,
@@ -1436,6 +1483,7 @@
 				E723B7C32B732D950048441D /* MyAccountAPIClient.swift in Sources */,
 				E70BD7952B5C4835008DAB1C /* NetworkMonitor.swift in Sources */,
 				E727D5482B5C811900F2CF0C /* CustomerOrdersCard.swift in Sources */,
+				E7D7CF692B88E9A70053A061 /* AdsDetailsPage.swift in Sources */,
 				E7E6FF642B2B4A8300D94036 /* VerificationCodePage.swift in Sources */,
 				E7CA67092B7ED7DF0046B311 /* AddCustomerRequestsViewModel.swift in Sources */,
 				E783568F2B74659500B342FE /* MyRequestsContainerView.swift in Sources */,
@@ -1446,6 +1494,7 @@
 				E7096D872B53089F00FDA20E /* AddRequestPage.swift in Sources */,
 				E7C9C3962B1F6AAC00633434 /* String+Extension.swift in Sources */,
 				E7BD49A72B48E77A000A30EF /* CreateAcountViewModel.swift in Sources */,
+				E70EEDF22B8753EE00F2E14E /* LocationManager.swift in Sources */,
 				E7CAC5FF2B4703140070C9D1 /* ErrorMessage.swift in Sources */,
 				E751E0B72B7AB8AB0033752F /* AttachImagePicker.swift in Sources */,
 				E7C9259C2B0B800D007DF84B /* Enums.swift in Sources */,
@@ -1486,7 +1535,9 @@
 				E74D92A32B8400270020643C /* CreateCutomerRequestModel.swift in Sources */,
 				E7CAC5FD2B4702210070C9D1 /* BaseModel.swift in Sources */,
 				E78356872B7457AF00B342FE /* MyAdsViewModel.swift in Sources */,
+				E7D7CF6F2B88F5710053A061 /* AdDetailsMainView.swift in Sources */,
 				E7E34AD52B711217001F7AE8 /* CustomerOrderDetailsMainView.swift in Sources */,
+				E70EEDF42B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift in Sources */,
 				E744D1992B48412E00CB5DC1 /* LoginModel.swift in Sources */,
 				E71A633B2B26102000B8687C /* TextStyles.swift in Sources */,
 				E7361F802B534E4600E97D15 /* ServicesViewModel.swift in Sources */,
@@ -1505,6 +1556,7 @@
 				E7B759922B759837007D20A3 /* AboutAppPage.swift in Sources */,
 				E72981C72B81089800B5B995 /* CreateNewAdsRequestModel.swift in Sources */,
 				E7E6FF5F2B2B3A3A00D94036 /* CodeCountryView.swift in Sources */,
+				E7D7CF6D2B88EFFA0053A061 /* AdDetailsModel.swift in Sources */,
 				E751E0B92B7AB9E30033752F /* SelectedImagesCard.swift in Sources */,
 				E723B7BC2B7328F70048441D /* FavoritesViewModel.swift in Sources */,
 				E7DDA8752B78254800921181 /* AddNewAdCategoryPage.swift in Sources */,
@@ -1669,6 +1721,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"تطبيق فلل يريد السماح بفتح الكاميرا حتي يتم التقاط صور العقار\"";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
+				INFOPLIST_KEY_NSLocationUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"تطبيق فلل يريد السماح لإختيار صور العقار\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1681,7 +1736,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sa.VilalKSA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VilalKSA.sa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1708,6 +1763,9 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"تطبيق فلل يريد السماح بفتح الكاميرا حتي يتم التقاط صور العقار\"";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
+				INFOPLIST_KEY_NSLocationUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "\"تطبيق فلل يريد السماح لإختيار صور العقار\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1720,7 +1778,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sa.VilalKSA;
+				PRODUCT_BUNDLE_IDENTIFIER = com.VilalKSA.sa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1813,6 +1871,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E75049892B288104008DD89C /* XCRemoteSwiftPackageReference "countrypicker" */;
 			productName = CountryPicker;
+		};
+		E76565AF2B8555B2000CE3F6 /* GoogleMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7CB36FE2B854EED001986A2 /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMaps;
+		};
+		E76565B12B8555B2000CE3F6 /* GoogleMapsBase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7CB36FE2B854EED001986A2 /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMapsBase;
+		};
+		E76565B32B8555B2000CE3F6 /* GoogleMapsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7CB36FE2B854EED001986A2 /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMapsCore;
+		};
+		E76565B52B8555B2000CE3F6 /* GoogleMapsM4B */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7CB36FE2B854EED001986A2 /* XCRemoteSwiftPackageReference "ios-maps-sdk" */;
+			productName = GoogleMapsM4B;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -98,6 +98,7 @@ enum ServicesDestination: Destination {
     case customeRequestDetails(id:String)
     case todayAdsPage
     case createAdsSuccessPage
+    case adsDetailsPage(id:String)
 
     
     @ViewBuilder
@@ -113,9 +114,11 @@ enum ServicesDestination: Destination {
             TodayAdsPage()
         case .createAdsSuccessPage:
             CreateAdsSuccessPage()
+        case .adsDetailsPage(let id):
+            AdsDetailsPage(requestID: id)
         }
     }
-    
+
     var name: String {
         return String(reflecting: view.self)
     }
@@ -129,6 +132,8 @@ enum AddRequestDestination: Destination {
     case propertyGalleryPage(model:AddNewAdRequestModel)
     case addNewAdsPage(model:AddNewAdRequestModel)
     case createAdsSuccessPage
+    case adsDetailsPage(id:String)
+    
     
     @ViewBuilder
     var view: some View {
@@ -147,6 +152,8 @@ enum AddRequestDestination: Destination {
             AddNewAdsPage(addNewAdRequestModel: model)
         case .createAdsSuccessPage:
             CreateAdsSuccessPage()
+        case .adsDetailsPage(let id):
+            AdsDetailsPage(requestID: id)
         }
     }
 

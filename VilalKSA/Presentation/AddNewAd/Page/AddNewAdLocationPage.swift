@@ -8,12 +8,18 @@
 import SwiftUI
 import UIPilot
 import LanguageManagerSwiftUI
+import CoreLocation
 
 struct AddNewAdLocationPage: View {
     
     @EnvironmentObject var pilot: UIPilot<AddRequestDestination>
     @StateObject var viewModel = AddNewAdCategoryViewModel()
     var addNewAdRequestModel:AddNewAdRequestModel?
+    
+    @ObservedObject var locationManager = LocationManager()
+    @State private var selectedLocation: CLLocationCoordinate2D?
+    @State private var selectedAddress: String?
+    @State private var isPressed: Bool = false
 
     var body: some View {
         
@@ -21,15 +27,33 @@ struct AddNewAdLocationPage: View {
         },backAction:{
             pilot.pop()
         } ,content: {
-            ScrollView{
                 VStack{
                     StepsBarView(stepNumber: "1", stepImage: R.image.step1_AddNewAds.name)
-                    Image(R.image.map_Placeholder.name)
-                        .resizable()
-                        .frame(maxWidth: .infinity,maxHeight: 400)
-                        .padding()
+
+                    SelectedLocationGoogleMapsView(locationManager: locationManager, didSelectLocation: { location, address in
+                        selectedLocation = location
+                        selectedAddress = address
+                    })
+                    .frame(maxWidth: .infinity,maxHeight: 400)
+                    .padding()
+                    .cornerRadius(50)
+                    
+                    
+                    if isPressed == true {
+                        if selectedLocation == nil {
+                            HStack{
+                                ErrorTextView(errorText: R.string.localizable.please_Select_Property_Location.localized)
+                                Spacer()
+                            }
+                        }
+                    }
+                    
                     DefaultButton(title:  R.string.localizable.next.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
-                        pilot.push(.propertyGalleryPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: "31.233231111222", addLng: "31.233231111222", addAddress: "Cairo Egypt")))
+                        self.isPressed = true
+                        if selectedLocation != nil {
+                            pilot.push(.propertyGalleryPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: String(selectedLocation?.latitude ?? 21.111), addLng: String(selectedLocation?.longitude ?? 21.111), addAddress: self.selectedAddress)))
+                        }
+                        
                     }, fontWeight: .bold)
                     Spacer()
                     
@@ -39,7 +63,6 @@ struct AddNewAdLocationPage: View {
                 .onAppear(perform: {
                     print("the category id is ", addNewAdRequestModel?.categoryAdID ?? "")
                 })
-            }
             
         })
         

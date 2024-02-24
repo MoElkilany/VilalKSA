@@ -26,8 +26,19 @@ struct CardContent: View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
                 RentalInfoHeaderView(name: (customerOrderModel.name ?? ""), realStateCategory: (customerOrderModel.category ?? ""))
-                LocationInfoView(locationName: "")
-                PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price?.from ?? "", toPrice:  customerOrderModel.price?.to ?? ""))
+                LocationInfoView(locationName: customerOrderModel.address ?? "" )
+             
+                HStack{
+                    PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price?.from ?? "", toPrice:  customerOrderModel.price?.to ?? ""))
+                    TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
+                    TextBold12(text:(customerOrderModel.rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                }
+                
+                HStack{
+                    TextBold12(textKey:R.string.localizable.resident.localized, textColor: R.color.colorPrimary.name.getColor())
+                    TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
+                    TextBold12(text:(customerOrderModel.resident ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                }
             }
             .padding()
         }

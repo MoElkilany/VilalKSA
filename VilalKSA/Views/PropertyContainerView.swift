@@ -53,7 +53,7 @@ struct PropertyBarView: View {
             ZStack{
                 URLImage(imageUrl:imageUrl ?? "")
                     .cornerRadius(12)
-                
+            
                 Button(action: {
                     isFav.toggle()
                 }, label: {
@@ -71,12 +71,12 @@ struct PropertyBarView: View {
             
             VStack(alignment: .leading,spacing: 0){
                 HStack{
-                    HStack(spacing:0) {
-                        Text(rate ?? "0.0")
-                            .font(Font.custom(FontName.cairoMedium.rawValue, size: 14))
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
-                    }
+//                    HStack(spacing:0) {
+//                        Text(rate ?? "0.0")
+//                            .font(Font.custom(FontName.cairoMedium.rawValue, size: 14))
+//                        Image(systemName: "star.fill")
+//                            .foregroundColor(.yellow)
+//                    }
                     Spacer()
                     Spacer()
                     RealStateTypeView(realStateTypeName: (category ?? "") )
@@ -86,16 +86,26 @@ struct PropertyBarView: View {
                 LocationInfoView(locationName: (location ?? "Vilal KSA" ) )
                 HStack{
                     VilalIconWithValueView(icon: R.image.bed_icon.name, value: (room ?? ""))
-                    VilalIconWithValueView(icon: R.image.view_icon.name, value: (space ?? ""))
+                    
+                    HStack(spacing:0){
+                        VilalIconWithValueView(icon: R.image.view_icon.name, value: (space ?? ""))
+                        TextMeduim10(textKey:R.string.localizable.one_Thousand_Meters.localized, textColor: R.color.color172B4D.name.getColor())
+                    }
                     HStack{
                         TextBold12(text:(price ?? ""), textColor: R.color.colorPrimary.name.getColor())
                             .padding(.horizontal,-4)
                         TextBold12(textKey:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
-                        TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
-                        TextBold12(text:(rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                        
+                        if self.rental?.isEmpty == true ||  self.rental == " " ||  self.rental == "" {
+                            
+                        }else{
+                            TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
+                            TextBold12(text:(rental ?? " - "), textColor: R.color.colorPrimary.name.getColor())
+                        }
                     }
                 }
             }
+            .padding(.horizontal,4)
         }
         
         .onAppear {
