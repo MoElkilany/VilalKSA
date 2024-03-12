@@ -47,7 +47,20 @@ enum Constants: String {
     case rentalperiod = "real/estate/property/rentalperiod"
     case resident = "real/estate/property/resident"
     case adsDetails  = "real/estate/"
+    
+    // MARK: - Main or Home
+    case mainAds = "real/estate"
 
     
+    // MARK: - My Account
+    case profile = "account/Profile"
+    case favourite = "account/favourite"
+    case addOrRemoveFavourite = "account/favourite/AddOrRemove"
+    case myAds = "account/real/estate"
+    case deleteMyAds = "account/real/estate/destroy"
+    case myRequest = "account/real/estate/request"
+    case deleteMyRequest = "account/real/estate/request/destroy"
+
+
 
 }

@@ -29,7 +29,7 @@ struct AddNewAdLocationPage: View {
         } ,content: {
                 VStack{
                     StepsBarView(stepNumber: "1", stepImage: R.image.step1_AddNewAds.name)
-
+                    
                     SelectedLocationGoogleMapsView(locationManager: locationManager, didSelectLocation: { location, address in
                         selectedLocation = location
                         selectedAddress = address
@@ -50,9 +50,13 @@ struct AddNewAdLocationPage: View {
                     
                     DefaultButton(title:  R.string.localizable.next.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         self.isPressed = true
-                        if selectedLocation != nil {
-                            pilot.push(.propertyGalleryPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: String(selectedLocation?.latitude ?? 21.111), addLng: String(selectedLocation?.longitude ?? 21.111), addAddress: self.selectedAddress)))
-                        }
+//                        if selectedLocation != nil {
+//                            pilot.push(.propertyGalleryPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: String(selectedLocation?.latitude ?? 21.111), addLng: String(selectedLocation?.longitude ?? 21.111), addAddress: self.selectedAddress)))
+//                        }
+                        
+                        pilot.push(.propertyGalleryPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: String(selectedLocation?.latitude ?? 21.111), addLng: String(selectedLocation?.longitude ?? 21.111), addAddress: self.selectedAddress)))
+
+                        
                         
                     }, fontWeight: .bold)
                     Spacer()

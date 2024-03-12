@@ -20,12 +20,12 @@ struct ChangePasswordSuccessPage: View {
                 .resizable()
                 .frame(maxWidth: 300, maxHeight:300, alignment: .center)
             
-            TextExtraBold16(text: "The password has been changed", textColor: R.color.color172B4D.name.getColor())
+            TextExtraBold16(textKey: R.string.localizable.password_Has_Been_Changed.localized, textColor: R.color.color172B4D.name.getColor())
                 .padding(.bottom,1)
             
-            TextRegular14(text: "Your password has been successfully rese", textColor: R.color.color7A869A.name.getColor())
+            TextRegular14(textKey: R.string.localizable.password_Successfully_Reset.localized, textColor: R.color.color7A869A.name.getColor())
             
-            DefaultBoarderButtonWithIcon(title: "Login",borderColor: R.color.colorPrimary.name.getColor() ,backgroundColor: .white, titleColor: R.color.colorPrimary.name.getColor() ,actionButton: {
+            DefaultBoarderButtonWithIcon(title: R.string.localizable.login.localized,borderColor: R.color.colorPrimary.name.getColor() ,backgroundColor: .white, titleColor: R.color.colorPrimary.name.getColor() ,actionButton: {
                 pilot.popTo(.login)
             })
             .padding(12)

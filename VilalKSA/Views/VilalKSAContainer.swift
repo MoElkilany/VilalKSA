@@ -22,7 +22,7 @@ typealias ActionClosure = (() -> ())
 
 struct VilalKSAContainer<Content: View>: View {
     
-    @ObservedObject private var keyboard = KeyboardResponder()
+    @StateObject private var keyboard = KeyboardResponder()
     @EnvironmentObject var networkMonitor: NetworkMonitor
     @EnvironmentObject var languageSettings: LanguageSettings
     
@@ -37,8 +37,8 @@ struct VilalKSAContainer<Content: View>: View {
     var iconButton: String? = nil
     var buttonAction: (() -> Void)? = nil
     var stateError: String
-
-
+    
+    
     init(state: Binding<AppState> , titlePage: LocalizedStringKey? = nil, description: String? = nil, padding: Double = 20,stateError:String = "-",tryAgainAction: ActionClosure? = nil, backAction:ActionClosure?, haveAnotherButton:Bool? = nil ,buttonAction:ActionClosure? = nil,iconButton: String? = nil, @ViewBuilder content: () -> Content) {
         self.content = content()
         self._state =  state
@@ -55,10 +55,9 @@ struct VilalKSAContainer<Content: View>: View {
     
     
     var body: some View {
-     
+        
         VStack{
             VilalNavigationView(languageSettings: _languageSettings, titlePage: self.titlePage, backAction: self.backAction, haveAnotherButton: self.haveAnotherButton ?? false, icon:  self.iconButton, buttonAction:  self.buttonAction)
-                
             
                 .padding(.top,60)
             ZStack {
@@ -218,7 +217,7 @@ struct VilalNavigationView: View {
     var haveAnotherButton: Bool = false
     var icon:String?
     var buttonAction: (() -> Void)?
-
+    
     var body: some View {
         ZStack(alignment: .center){
             TextBold16(textKey: titlePage ?? "", textColor: R.color.colorPrimary.name.getColor())
@@ -242,8 +241,6 @@ struct VilalNavigationView: View {
                 .padding(.horizontal,25)
             }
         }
-
-        
     }
 }
 
@@ -260,12 +257,12 @@ struct ErrorWithTitle: View {
             
             TextBold20(textKey: R.string.localizable.something_Wrong.localized, textColor: R.color.colorPrimary.name.getColor())
                 .padding(.vertical,12)
-
+            
             TextRegular16(textKey: R.string.localizable.empty_No_Result_Found_Description.localized, textColor: R.color.color7A869A.name.getColor())
-
+            
                 .multilineTextAlignment(.center)
-                            
-            .padding(.horizontal, 15)
+            
+                .padding(.horizontal, 15)
         }
     }
 }

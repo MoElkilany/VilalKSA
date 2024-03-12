@@ -55,5 +55,9 @@ struct ServicesAPIClient: APIClient {
     func getAdsInterfaceList(completion: @escaping (APIResult<LookUpResponse?, APIError>) -> Void) {
         fetch(with: ServicesEndPoint.getInterface, completion: completion)
     }
+    
+    func addOrRemoveFavourite(id:String , completion: @escaping (APIResult<BaseResponseModel?, APIError>) -> Void) {
+        fetch(with: ServicesEndPoint.addOrRemoveFavourite(id: id), completion: completion)
+    }
 }
 

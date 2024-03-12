@@ -17,7 +17,8 @@ enum ServicesEndPoint {
     case getRentalperiod
     case getResident
     case getInterface
-    
+    case addOrRemoveFavourite(id:String)
+
 }
 
 extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
@@ -47,13 +48,15 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
             return Constants.resident.rawValue
         case .getInterface:
             return Constants.adsInterface.rawValue
+        case .addOrRemoveFavourite:
+            return Constants.addOrRemoveFavourite.rawValue
             
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .createNewRequest:
+        case .createNewRequest,.addOrRemoveFavourite:
             return .post
         case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds,.getAdsCategory,.getRentalperiod,.getResident,.getInterface:
             return .get
@@ -67,6 +70,8 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
             return .requestJSONEncodable(requestObject)
         case .getServices,.getCustomerRequests,.getCustomerRequestDetails,.getTodayAds,.getAdsCategory,.getRentalperiod,.getResident,.getInterface:
             return .requestPlain
+        case .addOrRemoveFavourite(let id):
+            return .requestParameters(parameters: ["id":id], encoding: URLEncoding.queryString )
         }
     }
     
@@ -78,7 +83,7 @@ extension ServicesEndPoint: TargetType, AccessTokenAuthorizable {
     
     var authorizationType: AuthorizationType? {
         switch self {
-        case .getServices,.getCustomerRequests,.getAdsCategory,.getCustomerRequestDetails,.getTodayAds,.createNewRequest,.getRentalperiod,.getResident,.getInterface:
+        case .getServices,.getCustomerRequests,.getAdsCategory,.getCustomerRequestDetails,.getTodayAds,.createNewRequest,.getRentalperiod,.getResident,.getInterface,.addOrRemoveFavourite:
             return .bearer
         }
     }

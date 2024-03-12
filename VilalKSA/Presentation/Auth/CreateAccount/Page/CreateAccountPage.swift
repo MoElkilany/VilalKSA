@@ -29,9 +29,9 @@ struct CreateAccountPage: View {
                 ScrollView(showsIndicators:false){
                     HStack {
                         VStack(alignment: .leading) {
-                            TextExtraBold16(text: "Create Account", textColor: R.color.color172B4D.name.getColor())
+                            TextExtraBold16(textKey: R.string.localizable.create_Account.localized, textColor: R.color.color172B4D.name.getColor())
                                 .padding(.bottom,1)
-                            TextRegular12(text: "Enter your mobile number", textColor: R.color.color7A869A.name.getColor())
+                            TextRegular12(textKey: R.string.localizable.enter_Your_Mobile_Number.localized, textColor: R.color.color7A869A.name.getColor())
                         }
                         Spacer()
                     }
@@ -40,7 +40,7 @@ struct CreateAccountPage: View {
                     HStack {
                         GeneralTextField(
                             text: $phoneNumber,
-                            placeholder: "Enter the phone number",
+                            placeholder: R.string.localizable.enter_Your_Mobile_Number.localized,
                             imageName: R.image.phoneIcon.name, keyboardType: .numberPad ,
                             validationClosure: { input in
                                 let digitsOnly = input.allSatisfy { $0.isNumber }
@@ -61,9 +61,9 @@ struct CreateAccountPage: View {
                         }
                     }
                     
-                    DefaultButton(title: "Create Account", backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                    DefaultButton(title: R.string.localizable.create_Account.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         if phoneNumber.isEmpty {
-                            viewModel.errorMessage = "Phone Number Required"
+                            viewModel.errorMessage = R.string.localizable.error_Phone_Required.localized
                             viewModel.errorPopUp = true
                             return
                         }
@@ -78,10 +78,12 @@ struct CreateAccountPage: View {
                 }
                 
                 HStack {
-                    TextRegular12(text: "Have an account?", textColor: R.color.color42526E.name.getColor())
-                    Button("Login") {
+                    TextRegular12(textKey: R.string.localizable.have_An_Account.localized, textColor: R.color.color42526E.name.getColor())
+                    
+                    Button(R.string.localizable.login.localized) {
                         pilot.pop()
                     }
+                    .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                     .foregroundColor(R.color.colorPrimary.name.getColor())
                     .font(.system(size: 12))
                 }
@@ -94,7 +96,7 @@ struct CreateAccountPage: View {
             }
         }
         .popup(isPresented: $viewModel.errorPopUp) {
-            ErrorToast(title: LocalizedStringKey(viewModel.errorMessage))
+            ErrorToast(title: viewModel.errorMessage)
         } customize: {
             $0
                 .type(.floater())

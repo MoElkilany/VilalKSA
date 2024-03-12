@@ -11,19 +11,35 @@ import _AVKit_SwiftUI
 
 struct AdsDetailsPage: View {
     
-    @EnvironmentObject var pilot: UIPilot<ServicesDestination>
+    @EnvironmentObject var pilot: UIPilot<AddRequestDestination>
+    @EnvironmentObject var mainPilot: UIPilot<MainDestination>
+    @EnvironmentObject var servicesPilot: UIPilot<ServicesDestination>
+    
     @StateObject var viewModel = AdsDetailsViewModel()
     @ObservedObject var locationManager = LocationManager()
     @State var mapDetails: Map?
+    @State var videoUrl: String?
+
     var requestID: String
+    var navigationType: AdDetailsTypes = .ads
     
     var body: some View {
         
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.ads_Details.localized, tryAgainAction: {
             self.viewModel.getAdDetails(requestID: self.requestID)
         },backAction:{
-            pilot.pop()
-        } ,content: {
+            switch navigationType {
+            case .ads:
+                pilot.pop()
+            case .main:
+                mainPilot.pop()
+            case .toDaysAds:
+                servicesPilot.pop()
+            case .mainList:
+                mainPilot.pop()
+            }
+            
+        }  ,content: {
             ScrollView(showsIndicators:false){
                 ScrollViewReader { scrollView in
                     
@@ -31,31 +47,48 @@ struct AdsDetailsPage: View {
                         Color.clear.frame(height: 0).id(0)
                         
                         VStack{
-                            HStack{
-                                TextBold14(textKey: R.string.localizable.property_Images.localized, textColor: R.color.color172B4D.name.getColor())
-                                Spacer()
+                            if viewModel.imageUrls != nil {
+                                HStack{
+                                    TextBold14(textKey: R.string.localizable.property_Images.localized, textColor: R.color.color172B4D.name.getColor())
+                                    Spacer()
+                                }
+                                
+                                ImageSlideshowView(imageUrls: viewModel.imageUrls ?? [])
+                                    .frame(height: 200)
+                            }else{
+                                TextBold14(textKey: R.string.localizable.no_Ads_Images.localized, textColor: R.color.color172B4D.name.getColor())
                             }
                             
-                            ScrollView(.horizontal,showsIndicators:false){
-                                HStack {
-                                    ForEach( viewModel.adDetails.images ?? [] , id: \.self) { url in
-                                        MediaView(url: url)
-                                            .frame(width: 200, height: 150, alignment: .center)
-                                    }
-                                }
-                            }
                         }
                         .customCardStyle()
                         .padding(.top, 10)
                         
+                        if  self.videoUrl != nil {
+                            
+                            VStack{
+                                HStack{
+                                    TextBold14(textKey: R.string.localizable.video_Ad.localized, textColor: R.color.color172B4D.name.getColor())
+                                    Spacer()
+                                }
+                                
+                                VideoPlayerView(videoURL: URL(string:  self.videoUrl  ?? "" )!)
+                                    .frame(width: 200, height: 200)
+                            }
+                            .customCardStyle()
+                            .padding(.top, 10)
+                            
+                        }else{
+                            
+                            
+                        }
+                        
                         
                         VStack{
-                            AdDetailsMainView(mainInfo: viewModel.adDetails.main , mapInfo: viewModel.adDetails.map)
+                            AdDetailsMainView(mainInfo: viewModel.adDetails?.main , mapInfo: viewModel.adDetails?.map)
                                 .padding(.bottom,4)
-                            RequestOwnerView(ownerInfo: viewModel.adDetails.owner)
-                            PropertyKeyValueDetailsView(propertiesDetailsArray: viewModel.adDetails.details)
-                            PropertyPropertiesView(items: viewModel.adDetails.properites)
-                            
+                            RequestOwnerView(ownerInfo: viewModel.adDetails?.owner)
+                            PropertyKeyValueDetailsView(propertiesDetailsArray: viewModel.adDetails?.details)
+                            PropertyPropertiesView(items: viewModel.adDetails?.properites)
                             
                             VStack{
                                 HStack{
@@ -64,7 +97,7 @@ struct AdsDetailsPage: View {
                                 }
                                 
                                 VStack{
-                                    TextRegular14(text: self.viewModel.adDetails.description ?? "" , textColor: R.color.color42526E.name.getColor())
+                                    TextRegular14(text: self.viewModel.adDetails?.description ?? "" , textColor: R.color.color42526E.name.getColor())
                                 }
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 20)
@@ -79,7 +112,6 @@ struct AdsDetailsPage: View {
                         
                         ZStack{
                             
-                            
                             VStack{
                                 
                             }
@@ -92,7 +124,6 @@ struct AdsDetailsPage: View {
                                             TextBold14(textKey: R.string.localizable.customer_Details_Location.localized, textColor: R.color.colorPrimary.name.getColor())
                                             Spacer()
                                         }
-                                        
                                         if self.mapDetails != nil {
                                             ShowLocationOnGoogleMapsView(locationManager: locationManager, lat:  Double(self.mapDetails?.lat ?? "") ?? 30.114892203308475 , lng: Double(self.mapDetails?.lon ?? "") ?? 31.352332457900047 )
                                                 .frame(width: geometry.size.width, height: 300)
@@ -100,42 +131,49 @@ struct AdsDetailsPage: View {
                                                 .cornerRadius(30)
                                         }
                                     }
-                                    
                                 }
                             }
                             .padding()
-                            
                         }
-                        
+
                         VStack(spacing:0){
                             HStack{
                                 TextBold14(textKey: R.string.localizable.similar_Ads.localized, textColor: R.color.colorPrimary.name.getColor())
                                 Spacer()
                             }
-                            
                             ScrollView(.horizontal,showsIndicators:false){
                                 HStack {
-                                    ForEach( viewModel.adDetails.similarAds ?? [] , id: \.self) { item in
+                                    ForEach( viewModel.adDetails?.similarAds ?? [] , id: \.self) { item in
                                         Button(action: {
                                             withAnimation {
                                                 scrollView.scrollTo(0)
                                             }
-                                            
                                             self.viewModel.getAdDetails(requestID: String(item.id ?? 0))
                                         }, label: {
-                                            SimilarAdsView(similarAdModel: item)
+                                            SimilarAdsView(isFav:item.favourite ?? false ,similarAdModel: item, favAction: {
+                                                self.viewModel.addOrRemoveFav(id: String(item.id ?? 0))
+                                            })
                                         })
                                     }
                                 }
                             }
                         }
                         .customCardStyle()
-                        
+
                         VStack{
-                            DefaultBoarderButtonWithIcon(title: R.string.localizable.contact_Advertiser.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
-                            })
-                            .frame(height: 50)
-                            
+                            HStack{
+                                VStack{
+                                    TextBold14(textKey: R.string.localizable.total_Price.localized,textColor: R.color.color172B4D.name.getColor())
+                                    HStack{
+                                        TextBold18(text: viewModel.adDetails?.main?.price ?? "" , textColor: R.color.colorPrimary.name.getColor())
+                                        TextBold18(textKey:R.string.localizable.thousand.localized, textColor: R.color.colorPrimary.name.getColor())
+                                    }
+                                }
+                                Spacer()
+                                DefaultBoarderButtonWithIcon(title: R.string.localizable.contact_Advertiser.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
+                                })
+                                .frame(width: 200, height: 50)
+                            }
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 20)
@@ -162,43 +200,18 @@ struct AdsDetailsPage: View {
         .onReceive(self.viewModel.$mapDetails) { mapDetails in
             self.mapDetails = mapDetails
         }
-    }
-}
-
-
-struct MediaView: View {
-    let url: String
-    
-    var body: some View {
-        VStack{
-            if url.hasSuffix(".mp4") {
-                VideoPlayer(player: AVPlayer(url: URL(string: url)!))
-                    .frame(height: 100)
-                    .cornerRadius(10)
-            } else {
-                
-                
-                AsyncImage(url: URL(string: url)) { phase in
-                    switch phase {
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 150)
-                            .cornerRadius(10)
-                    case .failure(_):
-                        Image(R.image.logo.name)
-                            .frame(width: 200, height: 150, alignment: .center)
-                            .cornerRadius(10)
-                    case .empty:
-                        ProgressView()
-                    @unknown default:
-                        EmptyView()
-                    }
-                }
-                
-                
-            }
+        .onReceive(self.viewModel.$videoUrl) { url in
+            self.videoUrl = url
         }
     }
 }
+
+
+
+enum AdDetailsTypes {
+    case ads
+    case main
+    case toDaysAds
+    case mainList
+}
+

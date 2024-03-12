@@ -76,7 +76,7 @@ struct TextExtraBold20: View {
 
 
 struct TextRegular12: View {
- var text: String?
+    var text: String?
     var textKey: LocalizedStringKey? = nil
     var textColor: Color
     

@@ -39,9 +39,9 @@ struct NewPasswordPage: View {
                     ScrollView(showsIndicators:false){
                         HStack {
                             VStack(alignment: .leading) {
-                                TextExtraBold16(text: "Create New Password", textColor: R.color.color172B4D.name.getColor())
+                                TextExtraBold16(textKey:R.string.localizable.create_New_Password.localized , textColor: R.color.color172B4D.name.getColor())
                                     .padding(.bottom,1)
-                                TextRegular12(text: "The new password must be different from the one previously used", textColor: R.color.color7A869A.name.getColor())
+                                TextRegular12(textKey: R.string.localizable.new_Password_Must_Be_Different.localized, textColor: R.color.color7A869A.name.getColor())
                             }
                             Spacer()
                         }
@@ -49,7 +49,7 @@ struct NewPasswordPage: View {
                         
                         
                         
-                        PasswordTextField(text: $password, keyboardType: .default, placeholder: "Password", validationClosure: { input in
+                        PasswordTextField(text: $password, keyboardType: .default, placeholder: R.string.localizable.password.localized, validationClosure: { input in
                             let letterCount = input.filter { $0.isLetter }.count
                             let digitCount = input.filter { $0.isNumber }.count
                             return  letterCount >= 8 || digitCount >= 8
@@ -57,7 +57,7 @@ struct NewPasswordPage: View {
                         ).padding(.top,12)
                         
                         
-                        PasswordTextField(text: $confirmNewPassword, keyboardType: .default, placeholder: "Re-enter the password", validationClosure: { input in
+                        PasswordTextField(text: $confirmNewPassword, keyboardType: .default, placeholder: R.string.localizable.rewrite_Password.localized, validationClosure: { input in
                             let letterCount = input.filter { $0.isLetter }.count
                             let digitCount = input.filter { $0.isNumber }.count
                             return  letterCount >= 8 || digitCount >= 8
@@ -68,7 +68,7 @@ struct NewPasswordPage: View {
                         
                         
                         
-                        DefaultButton(title: "Reset Password", backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                        DefaultButton(title: R.string.localizable.reset_Password.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                             forgetPasswordAction()
                         }, fontWeight: .bold)
                     }
@@ -80,7 +80,7 @@ struct NewPasswordPage: View {
             }
         }
         .popup(isPresented: $viewModel.errorPopUp) {
-            ErrorToast(title: LocalizedStringKey(viewModel.errorMessage))
+            ErrorToast(title: (viewModel.errorMessage))
         } customize: {
             $0
                 .type(.floater())

@@ -33,4 +33,8 @@ struct AddNewAdAPIClient: APIClient {
         fetch(with: AddNewAdEndPoint.getAdDetails(id: id), completion: completion)
     }
     
+    func addOrRemoveFavourite(id:String , completion: @escaping (APIResult<BaseResponseModel?, APIError>) -> Void) {
+        fetch(with: AddNewAdEndPoint.addOrRemoveFavourite(id: id), completion: completion)
+    }
+    
 }

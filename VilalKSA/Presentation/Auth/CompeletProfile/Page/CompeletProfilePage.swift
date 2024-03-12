@@ -22,14 +22,14 @@ struct CompeletProfilePage: View {
         ZStack{
             VStack{
                 ScrollView(showsIndicators:false){
-                    TextBold16(text: "Completing Personal Profile Information", textColor: R.color.color172B4D.name.getColor())
+                    TextBold16(textKey: R.string.localizable.completing_Personal_Profile_Information.localized, textColor: R.color.color172B4D.name.getColor())
                         .padding(.vertical,12)
                         .padding(.top,42)
                     
                     VStack(spacing:30) {
                         GeneralTextField(
                             text: $firstName,
-                            placeholder: "Enter First name",
+                            placeholder: R.string.localizable.enter_First_Name.localized,
                             imageName: R.image.profileIcon.name ,
                             keyboardType: .default ,
                             validationClosure: { input in
@@ -40,7 +40,7 @@ struct CompeletProfilePage: View {
 
                         GeneralTextField(
                             text: $secondName,
-                            placeholder: "Enter Second name",
+                            placeholder: R.string.localizable.enter_Second_Name.localized,
                             imageName: R.image.profileIcon.name ,
                             keyboardType: .default ,
                             validationClosure: { input in
@@ -51,7 +51,7 @@ struct CompeletProfilePage: View {
                         
                         GeneralTextField(
                             text: $email,
-                            placeholder: "Enter Email",
+                            placeholder: R.string.localizable.enter_Email.localized,
                             imageName: R.image.emailIcon.name ,
                             keyboardType: .emailAddress ,
                             validationClosure: { input  in
@@ -63,13 +63,13 @@ struct CompeletProfilePage: View {
                         
                         PasswordTextField(text: $password,
                                           keyboardType: .default ,
-                                          placeholder: "Password", validationClosure: { input  in
+                                          placeholder: R.string.localizable.password.localized, validationClosure: { input  in
                             let letterCount = input.filter { $0.isNumber }.count
                             return letterCount >= 6
                         })
                         
                         PasswordTextField(text: $rewritePassword,keyboardType: .default ,
-                                          placeholder: "Rewrite Password", validationClosure: { input  in
+                                          placeholder: R.string.localizable.rewrite_Password.localized, validationClosure: { input  in
                             let letterCount = input.filter { $0.isNumber }.count
                             return letterCount >= 6
                         })
@@ -80,7 +80,7 @@ struct CompeletProfilePage: View {
                     
                 }
                 
-                DefaultButton(title: "Create Account", backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                DefaultButton(title: R.string.localizable.create_Account.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                     createAccount()
                 }, fontWeight: .bold)
                 .padding(.bottom, 30)
@@ -91,7 +91,7 @@ struct CompeletProfilePage: View {
             }
         }
         .popup(isPresented: $viewModel.errorPopUp) {
-            ErrorToast(title: LocalizedStringKey(viewModel.errorMessage))
+            ErrorToast(title: (viewModel.errorMessage))
         } customize: {
             $0
                 .type(.floater())
@@ -101,7 +101,7 @@ struct CompeletProfilePage: View {
         }
 
         .popup(isPresented: $viewModel.successBottomSheet) {
-            ToastBottomSecond(title: "Successfully registered", subTitle: viewModel.successTitle)
+            ToastBottomSecond(title: R.string.localizable.successfully_Registered.localized, subTitle: viewModel.successTitle)
         } customize: {
             $0
                 .type(.floater())

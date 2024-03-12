@@ -8,21 +8,30 @@
 import SwiftUI
 
 struct MyAccountMainInfoView: View {
+    
+    let myAccountData: MyAccountModel?
+    
+    
     var body: some View {
         HStack{
-            URLImage(imageUrl:"https://verasign.se/ammr/public/assets/images/faces/1.jpg",imageWidth: 60, imageHeight: 60, isCliped: true )
+
+            Image(R.image.logo.name)
+                .frame(width: 60, height: 60, alignment: .center)
+                .cornerRadius(30)
             
             VStack(alignment: .leading, spacing:0){
-                TextBold14(text:"Mohamed Elkilany", textColor: R.color.color172B4D.name.getColor())
-                TextRegular12(text: ("sedikahmed@gmail.com"), textColor: R.color.color42526E.name.getColor())
+                let name = (myAccountData?.firstName ?? "  ") + (myAccountData?.secondName ?? "")
+                TextBold14(text:name, textColor: R.color.color172B4D.name.getColor())
+                TextRegular12(text: (myAccountData?.email ?? "  " ), textColor: R.color.color42526E.name.getColor())
+                TextRegular12(text: (myAccountData?.phone ?? "  " ), textColor: R.color.color42526E.name.getColor())
             }
             Spacer()
             
-            Button(action: {
-                
-            }, label: {
-                Image(R.image.profileEdit.name)
-            })
+//            Button(action: {
+//                
+//            }, label: {
+//                Image(R.image.profileEdit.name)
+//            })
             
         }
         
@@ -37,6 +46,4 @@ struct MyAccountMainInfoView: View {
     }
 }
 
-#Preview {
-    MyAccountMainInfoView()
-}
+

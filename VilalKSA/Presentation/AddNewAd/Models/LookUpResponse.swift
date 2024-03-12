@@ -13,9 +13,12 @@ struct LookUpResponse: BaseModel {
 }
 
 // MARK: - Datum
-struct LookUpModel: BaseModel {
+struct LookUpModel: BaseModel, Identifiable {
     let id: Int?
     let name: String?
     var isSelected: Bool? = false
   
 }
+
+
+

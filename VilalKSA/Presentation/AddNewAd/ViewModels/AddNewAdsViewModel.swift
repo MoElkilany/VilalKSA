@@ -50,6 +50,7 @@ class AddNewAdsViewModel: BaseViewModel {
                     self.state = .noData
                 }else{
                     self.state = .success
+                    
                     self.adsInterfaceList = response.data ?? []
                 }
             } else {
@@ -87,8 +88,7 @@ class AddNewAdsViewModel: BaseViewModel {
         default:
             print("An unknown error occurred.")
             self.errorPopUp = true
-            self.errorMessage = "An unknown error occurred."
-  
+            self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
         }
     }
     

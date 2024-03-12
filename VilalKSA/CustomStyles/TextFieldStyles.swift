@@ -202,7 +202,7 @@ struct VilalTextField: View {
                     if text.isEmpty {
                         Text(placeholder)
                             .padding(.leading, 5)
-                            .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
+                            .font(Font.custom(FontName.cairoRegular.rawValue, size: 16))
                             .foregroundColor(Color.gray.opacity(0.5))
                     }
                     TextField("", text: $text)

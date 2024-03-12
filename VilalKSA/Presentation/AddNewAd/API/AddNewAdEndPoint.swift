@@ -12,6 +12,8 @@ enum AddNewAdEndPoint {
     case getInterface
     case createNewAdd(video:Data?,images:[Data],model:[String:String])
     case getAdDetails(id:String)
+    case addOrRemoveFavourite(id:String)
+
 }
 
 extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
@@ -31,6 +33,8 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
             return Constants.createNewAds.rawValue
         case .getAdDetails(let id ):
             return Constants.adsDetails.rawValue + id 
+        case .addOrRemoveFavourite:
+            return Constants.addOrRemoveFavourite.rawValue
         }
     }
     
@@ -38,7 +42,7 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .getAdsCategory ,.getInterface ,.getAdDetails :
             return .get
-        case .createNewAdd:
+        case .createNewAdd,.addOrRemoveFavourite:
             return .post
         }
     }
@@ -63,6 +67,10 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
             }
             
             return .uploadCompositeMultipart(multipartFormData, urlParameters: model)
+            
+        case .addOrRemoveFavourite(let id):
+            return .requestParameters(parameters: ["id":id], encoding: URLEncoding.queryString )
+ 
         }
     }
     
@@ -74,7 +82,7 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
     
     var authorizationType: AuthorizationType? {
         switch self {
-        case .getInterface,.getAdsCategory,.createNewAdd,.getAdDetails:
+        case .getInterface,.getAdsCategory,.createNewAdd,.getAdDetails,.addOrRemoveFavourite:
             return .bearer
         }
     }

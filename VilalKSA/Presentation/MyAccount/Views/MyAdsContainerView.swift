@@ -60,7 +60,7 @@ struct MyAdsBarView: View {
                         Spacer()
                     }
                     
-                    TextBold14(text:(name ?? "") , textColor: R.color.color172B4D.name.getColor())
+//                    TextBold14(text:(name ?? "") , textColor: R.color.color172B4D.name.getColor())
                     LocationInfoView(locationName: (location ?? "Vilal KSA" ) )
                     HStack{
                         VilalIconWithValueView(icon: R.image.bed_icon.name, value: (room ?? ""))
@@ -69,8 +69,13 @@ struct MyAdsBarView: View {
                             TextBold12(text:(price ?? ""), textColor: R.color.colorPrimary.name.getColor())
                                 .padding(.horizontal,-4)
                             TextBold12(textKey:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
-                            TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
-                            TextBold12(text:(rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                            if rental == " " || rental?.isEmpty == true  {
+                                
+                            }else{
+                                TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
+                                TextBold12(text:(rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                            }
+                            
                         }
                     }
                 }
@@ -86,17 +91,9 @@ struct MyAdsBarView: View {
                 })
                 .frame(height: 40)
             }
-            
         }
         .padding()
     }
 }
 
-#Preview(body: {
-    MyAdsContainerView(imageUrl: "https://verasign.se/ammr/public/assets/images/faces/1.jpg", category: "فيلا للبيع", name: "فيلا ميت غراب", room: "4", space: "120", price: "2400", location: "المنصورة ", rental: "شهري",delete: {
-        print("delete")
-    } ,edit: {
-        print("edit")
-    } )
-})
 

@@ -118,10 +118,10 @@ struct AddCustomerRequestsPage: View {
                                 print("the rentalPeriodId is ", rentalPeriodId)
                                 self.rentalPeriodId = rentalPeriodId
                             }
+                            
                             if submitButton == true  {
                                 if  self.rentalPeriodId == "" {
                                     HStack{
-                                        
                                         ErrorTextView(errorText: R.string.localizable.please_Select_Rental_Duration.localized)
                                         Spacer()
                                     }
@@ -231,6 +231,7 @@ struct AddCustomerRequestsPage: View {
                             })
                             .frame(width: geometry.size.width, height: 300)
                             .padding(4)
+                            .cornerRadius(50)
                         }
                   }
                     .padding(.bottom,350)

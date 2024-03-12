@@ -23,9 +23,11 @@ struct TodayAdsPage: View {
             ScrollView(showsIndicators:false){
                 ForEach(viewModel.todayAdsList,id: \.id) { item in
                     Button {
-                        pilot.push(.adsDetailsPage(id: String(item.id ?? 0) ))
+                        pilot.push(.adsDetailsPage(id: String(item.id ?? 0), type: .toDaysAds ))
                     } label: {
-                        PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? "" , favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "" )
+                        PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? "" , favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "", addOrRemoveFavouriteAction: {
+                            self.viewModel.addOrRemoveFav(id: String(item.id ?? 0 ))
+                        })
                     }
                 }
                

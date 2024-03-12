@@ -54,4 +54,36 @@ class TodayAdsViewModel: BaseViewModel {
         }
     }
     
+    
+    
+    func addOrRemoveFav(id:String) {
+        apiService.addOrRemoveFavourite(id: id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let value):
+                self.handleAddOrRemoveFavSuccess(value)
+            case .failure(let error):
+                self.state = .error
+                self.handle(error: error)
+            }
+        }
+    }
+    
+    
+   func  handleAddOrRemoveFavSuccess<T>(_ value: T) {
+        
+        if let response = value as? BaseResponseModel {
+            guard let status = response.status else { return }
+            
+            if status == 200 {
+                
+            } else {
+                self.errorMessage = LocalizedStringKey(response.message ?? "")
+                self.errorPopUp = true
+            }
+        } else {
+            print("Error: Couldn't cast value to LoginResponse")
+        }
+    }
+    
 }

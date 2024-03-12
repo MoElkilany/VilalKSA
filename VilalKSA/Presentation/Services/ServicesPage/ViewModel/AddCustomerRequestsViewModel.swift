@@ -197,7 +197,7 @@ class AddCustomerRequestsViewModel: BaseViewModel {
                     default:
                         print("An unknown error occurred.")
                         self.errorPopUp = true
-                        self.errorMessage = "An unknown error occurred."
+                        self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
             
                     }
                 }

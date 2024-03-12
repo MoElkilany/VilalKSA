@@ -16,8 +16,31 @@ struct MyAccountAPIClient: APIClient {
         return UserDefaults.standard.string(forKey: Constants.beraerToken.rawValue) ?? ""
     })])
     
-    func login(request: LoginRequest, completion: @escaping (APIResult<LoginResponse?, APIError>) -> Void) {
-        fetch(with: AuthEndPoint.login(request: request), completion: completion)
+    func getProfileData(completion: @escaping (APIResult<MyAccountResponseModel?, APIError>) -> Void) {
+        fetch(with: MyAccountEndPoint.getProfile, completion: completion)
     }
     
+    func getFav(completion: @escaping (APIResult<FavoriteResponseModel?, APIError>) -> Void) {
+        fetch(with: MyAccountEndPoint.getFavourite, completion: completion)
+    }
+    
+    func addOrRemoveFavourite(id:String , completion: @escaping (APIResult<BaseResponseModel?, APIError>) -> Void) {
+        fetch(with: MyAccountEndPoint.addOrRemoveFavourite(id: id), completion: completion)
+    }
+        
+    func getMyAds(completion: @escaping (APIResult<MyAdsResponseModel?, APIError>) -> Void) {
+        fetch(with: MyAccountEndPoint.myAds, completion: completion)
+    }
+    
+    func deleteMyAds(request:deleteMyAdsRequest, completion: @escaping (APIResult<BaseResponseModel?, APIError>) -> Void) {
+        fetch(with: MyAccountEndPoint.deleteMyAds(request: request), completion: completion)
+    }
+    
+    func getMyRequest(completion: @escaping (APIResult<MyRequestResponseModel?, APIError>) -> Void) {
+        fetch(with: MyAccountEndPoint.myRequest, completion: completion)
+    }
+    
+    func deleteMyRequest(request:deleteMyAdsRequest, completion: @escaping (APIResult<BaseResponseModel?, APIError>) -> Void) {
+        fetch(with: MyAccountEndPoint.deleteMyRequest(request: request), completion: completion)
+    }
 }

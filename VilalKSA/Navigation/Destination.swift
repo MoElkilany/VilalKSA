@@ -78,12 +78,19 @@ enum HomeDestination: Destination {
 
 enum MainDestination: Destination {
     case main
+    case adsDetailsPage(id:String,type:AdDetailsTypes)
+    case mainListPage(mainAdsList: [MainAdsResponse])
+    
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .main:
             MainPage()
+        case .adsDetailsPage(let id,let type):
+            AdsDetailsPage(requestID: id,navigationType: type)
+        case .mainListPage(let adsArray):
+            MainListPage(mainAdsList: adsArray)
         }
     }
     
@@ -98,7 +105,8 @@ enum ServicesDestination: Destination {
     case customeRequestDetails(id:String)
     case todayAdsPage
     case createAdsSuccessPage
-    case adsDetailsPage(id:String)
+    case adsDetailsPage(id:String,type:AdDetailsTypes)
+
 
     
     @ViewBuilder
@@ -114,8 +122,8 @@ enum ServicesDestination: Destination {
             TodayAdsPage()
         case .createAdsSuccessPage:
             CreateAdsSuccessPage()
-        case .adsDetailsPage(let id):
-            AdsDetailsPage(requestID: id)
+        case .adsDetailsPage(let id,let type):
+            AdsDetailsPage(requestID: id,navigationType: type)
         }
     }
 
@@ -132,7 +140,8 @@ enum AddRequestDestination: Destination {
     case propertyGalleryPage(model:AddNewAdRequestModel)
     case addNewAdsPage(model:AddNewAdRequestModel)
     case createAdsSuccessPage
-    case adsDetailsPage(id:String)
+    case adsDetailsPage(id:String,type:AdDetailsTypes)
+    
     
     
     @ViewBuilder
@@ -152,8 +161,8 @@ enum AddRequestDestination: Destination {
             AddNewAdsPage(addNewAdRequestModel: model)
         case .createAdsSuccessPage:
             CreateAdsSuccessPage()
-        case .adsDetailsPage(let id):
-            AdsDetailsPage(requestID: id)
+        case .adsDetailsPage(let id,let type):
+            AdsDetailsPage(requestID: id,navigationType: type)
         }
     }
 

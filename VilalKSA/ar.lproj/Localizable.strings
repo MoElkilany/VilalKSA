@@ -6,7 +6,7 @@
  
  */
 
-// MARK= Error Messages
+// MARK: - Error Messages
 "Error_Phone_Required" = "الرجاء إدخال رقم الجوال";
 "Error_Password_Required" = "الرجاء إدخال كلمة المرور";
 "Empty_No_Result_Found" = "لا يوجد نتائج";
@@ -18,7 +18,7 @@
 "Service_Not_Available" = "هذه الخدمة غير متوفرة الأن نحن نسعي الي توفرها قريباً";
 
 
-// MARK= Authenticatoin
+// MARK: - Authenticatoin
 "Login" = "تسجيل الدخول";
 "Enter_Your_Phone" = "قم بإدخال رقم الجوال الخاص  بحسابك";
 "Enter_Phone_Number"= "ادخل رقم الجوال";
@@ -27,14 +27,62 @@
 "Dont_Have_Account" = "ليس لديك حساب ؟";
 "Create_New_Account" = "انشاء حساب";
 
-// MARK= TabBar
+// MARK: -  Forget Password
+"Forget_Your_Password" = "هل نسيت كلمة المرور؟";
+"Send_Code" = "أرسل الكود";
+"Remember_The_Password" = "هل تتذكر كلمة المرور؟";
+"Create_Account" = "إنشاء حساب";
+"Enter_Your_Mobile_Number" = "أدخل رقم هاتفك المحمول";
+"Phone_Number_Required" = "رقم الهاتف مطلوب";
+"Have_An_Account" = "هل لديك حساب؟";
+"Completing_Personal_Profile_Information" = "استكمال معلومات الملف الشخصي";
+"Enter_First_Name" = "أدخل الاسم الأول";
+"Enter_Second_Name" = "أدخل اسم العائلة";
+"Enter_Email" = "أدخل البريد الإلكتروني";
+"Password" = "كلمة المرور";
+"Rewrite_Password" = "أعد كتابة كلمة المرور";
+"Successfully_Registered" = "تم التسجيل بنجاح";
+"Enter_Phone_Number_For_Password_Reset" = "الرجاء إدخال رقم هاتفك لطلب إعادة تعيين كلمة المرور";
+"Password_Has_Been_Changed" = "تم تغيير كلمة المرور";
+"Password_Successfully_Reset" = "تم إعادة تعيين كلمة المرور بنجاح";
+
+"Certainly_Registered_Please_Login" = "You are certainly registered in the application, please log in";
+"Reset_Password" = "إعادة تعيين كلمة المرور";
+"New_Password_Must_Be_Different" = "يجب أن تكون كلمة المرور الجديدة مختلفة عن التي تم استخدامها سابقًا";
+"Create_New_Password" = "إنشاء كلمة مرور جديدة";
+"Resent" = "تم إعادة الإرسال";
+"Verify" = "تحقق";
+"Invalid_Code" = "رمز غير صالح";
+
+"Sent_Verification_Code_To_Phone" = "لقد أرسلنا رمز التحقق إلى رقم هاتفك";
+"Verify_Your_Phone_Number" = "تحقق من رقم هاتفك";
+"Resend_Code" = "إعادة إرسال الرمز";
+
+"Profile_Not_Complete" = "لم تكتمل ملفك الشخصي";
+"Unknown_Error_Occurred" = "حدث خطأ غير معروف.";
+"Invalid_Phone_Number" = "رقم الهاتف غير صالح";
+"Passwords_Do_Not_Match" = "كلمات المرور غير متطابقة";
+"Confirm_Password_Required" = "تأكيد كلمة المرور مطلوب";
+"Password_Required" = "كلمة المرور مطلوبة";
+"Please_Enter_A_Valid_Email" = "الرجاء إدخال بريد إلكتروني صالح";
+
+"Please_Enter_A_Password_With_At_Least_6_Characters" = "الرجاء إدخال كلمة مرور تتكون من 6 أحرف على الأقل";
+"Please_Enter_The_Second_Name" = "الرجاء إدخال اسم العائلة";
+"Please_Enter_The_First_Name" = "الرجاء إدخال الاسم الأول";
+"Passwords_Do_Not_Match" = "كلمات المرور غير متطابقة";
+"The_Nearest" = "الاقرب";
+"Farthest" = "الأبعد";
+"Choose_Option" =  "إختر";
+
+
+// MARK: - TabBar
 "Main" = "الرئيسية";
 "Services" = "الخدمات";
 "Messages" = "محادثات";
 "MyAccount" = "حسابي";
 "Add"  = "إضافة";
 
-// MARK= Customer Orders
+// MARK: - Customer Orders
 "Customer_Orders" = "طلبــــات العملاء";
 "Customer_Orders_Details" = "تفـــاصيل الطلب";
 "Customer_Details_Location" = "الموقع";
@@ -49,7 +97,7 @@
 "Building"  = "المبني";
 "Contact_Advertiser" = "تواصل مع صاحب الاعلان";
 
-// MARK= Profile
+// MARK: - Profile
 "User_Profile"= "المــلف الشـــخصي";
 "Favorites"= "المفضلة";
 "My_Ads"= "اعلاناتي";
@@ -65,7 +113,7 @@
 "Log_Out"= "تسجيل الخروج";
 "About_App_Des" = "تطبيق فلل هو التطبيق العقاري الاول المتخصص فقط بالفلل والقصور. حمل التطبيق الان مجانا و استمتع بجميع الخدمات التي نوفرها.";
 
-// MARK= Favorites
+// MARK: - Favorites
 "ADS" = "إعلانات";
 "Search" = "بحث";
 "Cancel" = "إلغاء";
@@ -73,7 +121,7 @@
 "Delete"  = "حذف";
 "Cancel_Request" = "الغاء الطلب";
 
-// MARK= Reservations
+// MARK: - Reservations
 "On_Going" = "القادمة";
 "Completed" = "مكتمل";
 "Canceled" = "ملغية";
@@ -90,7 +138,7 @@
 "OK" = "نعم";
 
 
-// MARK= Add New Ads
+// MARK: - Add New Ads
 "Add_New_Ad" = "اضــافة اعـــلان جديد";
 "Display_Your_Property" = "اعرض عقارك من هنا للبيع او التأجير مع المزيد من التفاصيل";
 "Add_Request" = "اضافة طلب";
@@ -126,7 +174,7 @@
 "Choose_Gallery" = "اختر من المعرض";
 "Open_Camera" = "افتح الكاميرا";
 "Choose_Option" = "اختر";
-
+"Success" =  "تم بنجاح";
 
 //MARK =  - AddNewAds
 "Property_Details" =  "تفاصيل العقار";
@@ -148,6 +196,7 @@
   "Air_Conditioning" =  "مكيفات";
   "Meter" = "م";
 "One_Thousand_Meters" =  "الف متر";
+"Thousand" =  "الف ريال";
 
 
 //MARK: - Validation
@@ -184,3 +233,20 @@
 "Please_Select_Property_Location" = "الرجاء اختيار موقع العقار";
 "Similar_Ads" = "الاعلانات المشابهة";
 "Ads_Details" = "تفاصيل الإعلان";
+
+"No_Ads_Images" = "لا يوجد صور للإعلان";
+"Video_Ad" = "فيديو العقار";
+"Classification" =  "التصنيف";
+
+"Details" = "تفاصيل";
+"Bedrooms" = "غرف نوم";
+"Bathroom" = "حمام";
+"Sort_By" = "ترتيب حسب";
+"Lowest_Price" = "الأقل سعراً";
+"Highest_Price" = "الأعلي سعراً";
+"Nearest" = "الأقرب";
+"Apply" = "تطبيق";
+"Cancel" = "الغاء";
+"Search_by_Title_or_City" =  "بحث بالعنوان أو المدينة";
+"Select_Your_Location" =  "حدد موقعك";
+"Total_Price" = "إجمالي السعر";

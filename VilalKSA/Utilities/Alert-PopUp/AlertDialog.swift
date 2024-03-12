@@ -68,7 +68,6 @@ struct AlertDialog: View {
        
         .frame(height: 200)
         .background(Color.white.cornerRadius(15))
-        .shadowedStyle()
         .padding(.horizontal,20)
     }
 }

@@ -25,7 +25,7 @@ struct CardContent: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                RentalInfoHeaderView(name: (customerOrderModel.name ?? ""), realStateCategory: (customerOrderModel.category ?? ""))
+                RentalInfoHeaderView(name: "" , realStateCategory: (customerOrderModel.category ?? ""))
                 LocationInfoView(locationName: customerOrderModel.address ?? "" )
              
                 HStack{

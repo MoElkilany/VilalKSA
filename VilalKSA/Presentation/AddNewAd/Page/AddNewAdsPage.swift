@@ -35,7 +35,7 @@ struct AddNewAdsPage: View {
     @State private var airConditioning   = false
     
     @State private var specialSurface    = false
-    @State private var villa             = false
+//    @State private var villa             = false
     @State private var twoEntrances      = false
     @State private var privateEntrances  = false
     
@@ -68,36 +68,26 @@ struct AddNewAdsPage: View {
                         if submitButton == true  {
                             if  self.interfaceId == "" {
                                 HStack{
-                                   
                                     ErrorTextView(errorText: R.string.localizable.please_Select_Facade.localized)
                                     Spacer()
                                 }
                             }
                         }
                         
+//                        VilalDivider()
+//                        
+//                        VStack(alignment: .leading,spacing: 0) {
+//                            TextBold14(textKey: R.string.localizable.property_Name.localized, textColor: R.color.colorPrimary.name.getColor())
+//                                .padding(.bottom,0)
+//                            
+//                            VilalTextField(text: $propertyName, placeholder:  R.string.localizable.property_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+//                                self.viewModel.isPropertyNameValid = isValid
+//                            })
+//                        }
+                        
                         VilalDivider()
                         
-                        VStack(alignment: .leading,spacing: 0) {
-                            TextBold14(textKey: R.string.localizable.property_Name.localized, textColor: R.color.colorPrimary.name.getColor())
-                                .padding(.bottom,0)
-                            
-                            VilalTextField(text: $propertyName, placeholder:  R.string.localizable.property_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
-                                self.viewModel.isPropertyNameValid = isValid
-                            })
-                        }
-                        
-                        VilalDivider()
-                        
-                        VStack(alignment: .leading,spacing: 0) {
-                            TextBold14(textKey: R.string.localizable.price.localized, textColor: R.color.colorPrimary.name.getColor())
-                                .padding(.bottom,0)
-                            
-                            VilalTextField(text: $price, placeholder:  R.string.localizable.price.localized, imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
-                                self.viewModel.isPriceValid = isValid
-                            })
-                        }
-
-                        VilalDivider()
+                       
                         
                         SliderView(sliderValue: $roomNumbers, localizedTitle:  R.string.localizable.rooms.localized, localizedKey: "",valueFrom: 1,valueTo: 50)
                         VilalDivider()
@@ -111,13 +101,12 @@ struct AddNewAdsPage: View {
                         VilalDivider()
                         PlusMinusView(localizedTitle:  R.string.localizable.floor_Number.localized, defualtValue: 1, finalValue: { floorNumber in
                             self.floorNumber = floorNumber
-                            
                         })
+                        
                         VilalDivider()
                         PlusMinusView(localizedTitle:  R.string.localizable.property_Age.localized, defualtValue: 1, finalValue: { propertyAge in
                             self.propertyAge = propertyAge
                             print("the quantity value is,", floorNumber)
-                            
                         })
                         VilalDivider()
                         SwitchButtonView(localizedTitle:  R.string.localizable.furnished.localized, switchValue: $furnished)
@@ -136,14 +125,24 @@ struct AddNewAdsPage: View {
                         VilalDivider()
                         SwitchButtonView(localizedTitle:  R.string.localizable.private_Roof.localized, switchValue: $specialSurface)
                         VilalDivider()
-                        SwitchButtonView(localizedTitle:  R.string.localizable.villa.localized, switchValue: $villa)
-                        VilalDivider()
+//                        SwitchButtonView(localizedTitle:  R.string.localizable.villa.localized, switchValue: $villa)
+//                        VilalDivider()
                         SwitchButtonView(localizedTitle:  R.string.localizable.two_Entries.localized, switchValue: $twoEntrances)
                         VilalDivider()
                         SwitchButtonView(localizedTitle:  R.string.localizable.private_Entry.localized, switchValue: $privateEntrances)
                             .padding(.bottom,8)
                         VilalDivider()
+                        VStack(alignment: .leading,spacing: 0) {
+                            TextBold14(textKey: R.string.localizable.price.localized, textColor: R.color.colorPrimary.name.getColor())
+                                .padding(.bottom,0)
+                            
+                            VilalTextField(text: $price, placeholder:  R.string.localizable.price.localized, imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+                                self.viewModel.isPriceValid = isValid
+                            })
+                        }
+
                         
+                        VilalDivider()
                         VStack(alignment: .leading,spacing: 0) {
                             TextBold14(textKey: R.string.localizable.property_Details.localized, textColor: R.color.colorPrimary.name.getColor())
                                 .padding(.bottom,0)
@@ -177,7 +176,7 @@ struct AddNewAdsPage: View {
                                 "age_realEstate":String(self.propertyAge),
                                 "air_conditioners":String(Convert.boolValueToIntValue(boolValue: self.airConditioning)),
                                 "special_surface":String(Convert.boolValueToIntValue(boolValue: self.specialSurface)),
-                                "villa":String(Convert.boolValueToIntValue(boolValue: self.villa)),
+//                                "villa":String(Convert.boolValueToIntValue(boolValue: self.villa)),
                                 "two_entrances":String(Convert.boolValueToIntValue(boolValue: self.twoEntrances)),
                                 "private_entrance":String(Convert.boolValueToIntValue(boolValue: self.privateEntrances)),
                                 "info":self.propertyDetails,
@@ -186,7 +185,8 @@ struct AddNewAdsPage: View {
                                 "appendix": String(Convert.boolValueToIntValue(boolValue: self.annex)),
                                 "car_entrance":String(Convert.boolValueToIntValue(boolValue: self.carEntrance)),
                                 "elevator":String(Convert.boolValueToIntValue(boolValue: self.elevator)),
-                                "name":self.propertyName,
+//                              "name":self.propertyName,
+                                "name":"",
                                 "address":self.addNewAdRequestModel?.addAddress ?? "",
                             ]
                             

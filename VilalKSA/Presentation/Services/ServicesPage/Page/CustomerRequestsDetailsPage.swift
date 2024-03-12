@@ -48,7 +48,6 @@ struct CustomerRequestsDetailsPage: View {
                                     .padding(4)
                             }
                         }
-                        
                     }
                 }
                 .frame(maxWidth: .infinity)

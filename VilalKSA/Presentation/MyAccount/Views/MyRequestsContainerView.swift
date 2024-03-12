@@ -13,11 +13,12 @@ struct MyRequestsContainerView: View {
     let propertyAddress: String?
     let propertyPrice: String?
     let propertyRental: String?
-    let cancelRequest: (()->())?
+    let delete: (()->())?
+    let edit: (()->())?
     
     var body: some View {
         
-        MyRequestsCardContent(propertyName: propertyName, propertyCategory: propertyCategory, propertyAddress: propertyAddress, propertyPrice: propertyPrice, propertyRental: propertyRental,cancelRequest: cancelRequest)
+        MyRequestsCardContent(propertyName: propertyName, propertyCategory: propertyCategory, propertyAddress: propertyAddress, propertyPrice: propertyPrice, propertyRental: propertyRental,delete: delete,edit: edit)
             .background(RoundedRectangle(cornerRadius: 15.0)
                 .fill(Color.white)
                 .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
@@ -32,13 +33,14 @@ struct MyRequestsCardContent: View {
     let propertyAddress: String?
     let propertyPrice: String?
     let propertyRental: String?
-    let cancelRequest: (()->())?
+    let delete: (()->())?
+    let edit: (()->())?
     
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    RentalInfoHeaderView(name: (propertyName ?? ""), realStateCategory: (propertyCategory ?? ""))
+                    RentalInfoHeaderView(name: "  ", realStateCategory: (propertyCategory ?? ""))
                     LocationInfoView(locationName: (propertyAddress ?? "الرياض"))
                     HStack{
                         TextBold12(text:(propertyPrice ?? ""), textColor: R.color.colorPrimary.name.getColor())
@@ -49,18 +51,21 @@ struct MyRequestsCardContent: View {
                 }
             }
             
-            DefaultBoarderButtonWithIcon(title: R.string.localizable.edit.localized,borderColor: R.color.colorE2E8F0.name.getColor() ,backgroundColor:.clear, titleColor:.red ,actionButton: {
-               cancelRequest?()
-            })
-            .frame(height: 40)
+            HStack{
+                DefaultBoarderButtonWithIcon(title: R.string.localizable.edit.localized,borderColor: R.color.colorE2E8F0.name.getColor() ,backgroundColor:.clear, titleColor:R.color.colorPrimary.name.getColor() ,actionButton: {
+                    edit?()
+                })
+                .frame(height: 40)
+                
+                DefaultBoarderButtonWithIcon(title: R.string.localizable.delete.localized,borderColor: R.color.colorE2E8F0.name.getColor() ,backgroundColor:.clear, titleColor:.red ,actionButton: {
+                    delete?()
+                })
+                .frame(height: 40)
+            }
+
         }
         .padding()
     }
 }
 
 
-#Preview{
-    MyRequestsContainerView(propertyName: "شقة للايجار ", propertyCategory: "فيلا", propertyAddress: "المنصورة المشاية كوبري طلخا", propertyPrice: "837", propertyRental: "Daily") {
-        
-    }
-}

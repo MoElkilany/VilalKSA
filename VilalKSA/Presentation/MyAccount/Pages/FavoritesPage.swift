@@ -12,17 +12,19 @@ struct FavoritesPage: View {
     @StateObject var viewModel = FavoritesViewModel()
     @EnvironmentObject var pilot: UIPilot<MyAccountDestination>
     @State private var searchText = ""
+    @State var showfilterSheet: Bool = false
+    @State var filterResult: LocalizedStringKey = ""
+
     var body: some View {
         
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.favorites.localized, tryAgainAction: {
-            //            viewModel.getTodayAds()
+                        viewModel.getFav()
         },backAction:{
             pilot.pop()
         },haveAnotherButton: true ,buttonAction:{
-            print("Hello")
+            showfilterSheet = true
         },iconButton: R.image.more_Circle.name ,content: {
             ScrollView(showsIndicators:false){
-                
                 VStack{
                     HStack {
                         TextField(R.string.localizable.search.localized, text: $searchText)
@@ -59,32 +61,45 @@ struct FavoritesPage: View {
                     .frame(height: 50)
                     .padding(.horizontal)
                     
-                    
-                    
                     HStack{
                         HStack(spacing:2){
-                            TextBold14(text:"4", textColor: R.color.color172B4D.name.getColor())
+                            TextBold14(text:String(self.viewModel.favoriteList?.count ?? 0), textColor: R.color.color172B4D.name.getColor())
                             TextBold14(textKey: R.string.localizable.adS.localized, textColor: R.color.color172B4D.name.getColor())
                         }
                         Spacer()
-                        TextRegular12(text: "الاقرب", textColor: R.color.color42526E.name.getColor())
-                        
+                        TextRegular12(textKey:self.filterResult, textColor: R.color.color42526E.name.getColor())
                     }
                     .padding(.horizontal,20)
                     
-                    ForEach(0..<10, id: \.self ) { item in
-                        PropertyContainerView(imageUrl: "https://verasign.se/ammr/public/assets/images/faces/1.jpg", rate: "4.5", category: "فيلا للبيع", name: "فيلا ميت غراب", room: "4", space: "120", price: "2400", favourite: true, location: "المنصورة ", rental: "شهري")
+                    ForEach(self.viewModel.favoriteList ?? [], id: \.self ) { item in
+                        PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "" , name: item.name ?? "" , room: item.room ?? "", space: String(item.space ?? 0) , price: item.price ?? "" , favourite: item.favourite ?? false, location: item.address ?? "", rental: item.rental ?? "", addOrRemoveFavouriteAction: {
+                            self.viewModel.addOrRemoveFav(id: String(item.id ?? 0))
+                        })
                     }
                 }
-                //                ForEach(viewModel.todayAdsList,id: \.id) { item in
-                
             }
         })
+        .actionSheet(isPresented: $showfilterSheet) {
+            ActionSheet(
+                title: Text(R.string.localizable.choose_Option.localized),
+                message: nil,
+                buttons: [
+                    .default(Text(R.string.localizable.the_Nearest.localized)) {
+                        self.filterResult = R.string.localizable.the_Nearest.localized
+                        showfilterSheet = false
+                    },
+                    .default(Text(R.string.localizable.farthest.localized)) {
+                        self.filterResult = R.string.localizable.farthest.localized
+                        showfilterSheet = false
+                    },
+                    .cancel()
+                ])
+        }
         .ignoresSafeArea(.all)
         .padding(.bottom,30)
-        .onAppear(perform: {
-            //            viewModel.getTodayAds()
-        })
+        .task {
+            viewModel.getFav()
+        }
         
     }
 }

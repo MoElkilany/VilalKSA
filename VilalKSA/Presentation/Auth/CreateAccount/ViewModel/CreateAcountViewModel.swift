@@ -6,12 +6,13 @@
 //
 
 import Moya
+import SwiftUI
 
 class CreateAcountViewModel: ObservableObject {
     
     @Published var state: AppState = .success
     @Published var errorPopUp: Bool = false
-    @Published var errorMessage: String = "Phone Number Required"
+    @Published var errorMessage: LocalizedStringKey = R.string.localizable.error_Phone_Required.localized
     @Published var isNotVerified: Bool = false
     
     private let apiService = AuthAPIClient()
@@ -29,7 +30,7 @@ class CreateAcountViewModel: ObservableObject {
                 if  response.isverified == true && response.isfinished == false {
                     isNotVerified = true
                 }else  if response.isverified == true && response.isfinished == true  {
-                    errorMessage =  "You are certainly registered in the application, please log in"
+                    errorMessage =  R.string.localizable.certainly_Registered_Please_Login.localized
                     errorPopUp = true
                 }else{
                     if  response.isverified == false && response.isfinished == false {
@@ -44,11 +45,11 @@ class CreateAcountViewModel: ObservableObject {
                 case .errorMessage(let message, _):
                     print("Error Message: \(message)")
                     self.errorPopUp = true
-                    self.errorMessage = message
+                    self.errorMessage = LocalizedStringKey(message)
                 default:
                     print("An unknown error occurred.")
                     self.errorPopUp = true
-                    self.errorMessage = "An unknown error occurred."
+                    self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
                 }
             }
         }

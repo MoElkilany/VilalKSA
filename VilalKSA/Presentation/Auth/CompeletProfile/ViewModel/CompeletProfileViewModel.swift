@@ -6,12 +6,12 @@
 //
 
 import Moya
-
+import SwiftUI
 class CompeletProfileViewModel: ObservableObject {
     
     @Published var state: AppState = .success
     @Published var errorPopUp: Bool = false
-    @Published var errorMessage: String = ""
+    @Published var errorMessage: LocalizedStringKey = ""
     @Published var isLogin = false
     @Published var successBottomSheet: Bool = false
     @Published var successTitle: String = ""
@@ -44,7 +44,7 @@ class CompeletProfileViewModel: ObservableObject {
                     self.isLogin = true
                 }
             } else {
-             errorMessage = value?.message ?? ""
+             errorMessage = LocalizedStringKey(value?.message ?? "")
                errorPopUp = true
             }
         }
@@ -56,11 +56,11 @@ class CompeletProfileViewModel: ObservableObject {
             case .errorMessage(let message, _):
                 print("Error Message: \(message)")
                 errorPopUp = true
-                errorMessage = message
+                errorMessage = LocalizedStringKey(message)
             default:
                 print("An unknown error occurred.")
                 errorPopUp = true
-                errorMessage = "An unknown error occurred."
+                errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
             }
         }
     
@@ -72,15 +72,15 @@ class CompeletProfileViewModel: ObservableObject {
     
      func validateFields(firstName: String, secondName: String, email: String, password: String, rewritePassword: String) -> Bool {
          if firstName.isEmpty {
-             errorMessage = "Please Enter the first Name"
+             errorMessage = (R.string.localizable.please_Enter_The_First_Name.localized)
          } else if secondName.isEmpty {
-             errorMessage = "Please Enter the second Name"
+             errorMessage = (R.string.localizable.please_Enter_The_Second_Name.localized)
          } else if email.isEmpty || !isValidEmail(email) {
-             errorMessage = "Please Enter a valid email"
+             errorMessage = (R.string.localizable.please_Enter_A_Valid_Email.localized)
          } else if password.isEmpty || password.count < 8 {
-             errorMessage = "Please Enter a password with at least 6 characters"
+             errorMessage = (R.string.localizable.please_Enter_A_Password_With_At_Least_6_Characters.localized)
          } else if rewritePassword.isEmpty || rewritePassword != password {
-             errorMessage = "Passwords do not match"
+             errorMessage = (R.string.localizable.passwords_Do_Not_Match.localized)
          } else {
              return true
          }

@@ -13,10 +13,11 @@ struct RentalInfoHeaderView: View {
     
     var body: some View {
         HStack {
-            TextBold14(text: name ?? "شقة للايجار", textColor: R.color.color172B4D.name.getColor())
-            Spacer()
             RealStateTypeView(realStateTypeName: realStateCategory)
                 .padding(.horizontal,2)
+            Spacer()
+//            TextBold14(text: name ?? "شقة للايجار", textColor: R.color.color172B4D.name.getColor())
+
         }
     }
 }

@@ -6,7 +6,7 @@
  
  */
 
-// MARK =  Error Messages
+// MARK: -  Error Messages
 "Error_Phone_Required" = "Please enter phone number";
 "Error_Password_Required" = "Please enter password";
 "Empty_No_Result_Found" = "No Data Found";
@@ -16,7 +16,11 @@
 "Please_Try_Again" = "An error occurred while accessing the data; please try again";
 "Try_Again" = "Try again";
 "Service_Not_Available" = "This service is not available now. We are striving to make it available soon.";
-// MARK =  Authenticatoin
+"The_Nearest" = "Nearest";
+"Farthest" = "Farthest";
+"Choose_Option" =  "Choose Option";
+
+// MARK: -  Authenticatoin
 "Login" = "Login";
 "Enter_Your_Phone" = "Enter your mobile number";
 "Enter_Phone_Number"= "Enter the phone number";
@@ -25,14 +29,64 @@
 "Dont_Have_Account" = "Don't have an account?";
 "Create_New_Account" = "Create New Account";
 
-// MARK =  TabBar
+// MARK: -  Forget Password
+"Forget_Your_Password" = "Forget your password?";
+"Send_Code" = "Send Code";
+"Remember_The_Password" = "Do you remember the password?";
+"Create_Account" = "Create Account";
+"Enter_Your_Mobile_Number" = "Enter your mobile number";
+"Phone_Number_Required" = "Phone Number Required";
+"Have_An_Account" = "Have an account?";
+"Completing_Personal_Profile_Information" = "Completing Personal Profile Information";
+"Enter_First_Name" = "Enter First name";
+"Enter_Second_Name" = "Enter Second name";
+"Enter_Email" = "Enter Email";
+"Password" = "Password";
+"Rewrite_Password" = "Rewrite Password";
+"Successfully_Registered" = "Successfully registered";
+"Enter_Phone_Number_For_Password_Reset" = "Please enter your phone number to request a password reset";
+"Password_Has_Been_Changed" = "The password has been changed";
+"Password_Successfully_Reset" = "Your password has been successfully reset";
+"Certainly_Registered_Please_Login" = "You are certainly registered in the application, please log in";
+"Create_New_Password" = "Create New Password";
+"New_Password_Must_Be_Different" = "The new password must be different from the one previously used";
+"Reset_Password" = "Reset Password";
+
+"Verify_Your_Phone_Number" = "Verify your Phone Number";
+
+"Sent_Verification_Code_To_Phone" = "We have sent a verification code to your phone number";
+"Resend_Code" = "Resend Code";
+"Invalid_Code" = "Invalid Code";
+"Verify" = "Verify";
+"Resent" = "Resend";
+"Profile_Not_Complete" = "You are not complete your profile";
+"Unknown_Error_Occurred" = "An unknown error occurred.";
+"Invalid_Phone_Number" = "Invalid Phone Number";
+"Password_Required" = "Password Required";
+"Confirm_Password_Required" = "Confirm Password Required";
+"Passwords_Do_Not_Match" = "Passwords do not match";
+"Success" =  "Success";
+
+"Please_Enter_The_First_Name" = "Please Enter the first Name";
+"Please_Enter_The_First_Name" = "الرجاء إدخال الاسم الأول";
+
+"Please_Enter_The_Second_Name" = "Please Enter the second Name";
+"Please_Enter_The_Second_Name" = "الرجاء إدخال اسم العائلة";
+
+"Please_Enter_A_Valid_Email" = "Please Enter a valid email";
+
+"Please_Enter_A_Password_With_At_Least_6_Characters" = "Please Enter a password with at least 6 characters";
+"Passwords_Do_Not_Match" = "Passwords do not match";
+
+
+// MARK: -  TabBar
 "Main" = "Main";
 "Services" = "Services";
 "Messages" = "Messages";
 "MyAccount" = "Account";
 "Add"  = "Add";
 
-// MARK =  Customer Orders
+// MARK: -  Customer Orders
 "Customer_Orders" = "Customer Requests";
 "Customer_Orders_Details" = "Request Details";
 "Customer_Details_Skip" = "Skip";
@@ -48,7 +102,7 @@
 "Contact_Advertiser" = "Contact the advertiser";
 
 
-// MARK =  Profile
+// MARK: -  Profile
 "User_Profile"= "User Profile";
 "Favorites"= "Favorites";
 "My_Ads"= "My Ads";
@@ -64,7 +118,7 @@
 "Log_Out"= "Log Out";
 "About_App_Des" = "Vilal App is the first real estate application specialized exclusively in villas and palaces. Download the app now for free and enjoy all the services we provide";
 
-// MARK =  Favorites
+// MARK: -  Favorites
 "ADS" = "Ads";
 "Search" = "Search";
 "Cancel" = "Cancel";
@@ -73,7 +127,7 @@
 "Cancel_Request" = "Cancel Request";
 
 
-// MARK =  Reservations
+// MARK: -  Reservations
 "On_Going" = "On Going";
 "Completed" = "Completed";
 "Canceled" = "Canceled";
@@ -93,7 +147,7 @@
 "Register_Your_Request"= "Register your request here if you didn't find it in our listed properties";
 "Step"= "Step";
 
-// MARK =  Add New Ads
+// MARK: -  Add New Ads
 "Add_New_Ad"= "Add New Ad";
 "Property_Location"= "Property Location";
 "Looking_for_Specific_Location"= "Looking for Specific Location";
@@ -147,6 +201,7 @@
 "Air_Conditioning" =  "Air Conditioning";
 "Meter" = "M";
 "One_Thousand_Meters" =  "Thousand Meters";
+"Thousand" =  "thousand Sar";
 
 //MARK: - Validation
 
@@ -183,3 +238,19 @@
 "Please_Select_Property_Location" = "Please select property location";
 "Similar_Ads" = "Similar Ads";
 "Ads_Details" = "Ads Details";
+
+"No_Ads_Images" = "Ther is no image for this property";
+"Video_Ad" = "Video Ad";
+"Classification" =  "Classification";
+"Details" = "Details";
+"Bedrooms" = "Bedrooms";
+"Bathroom" = "Bathroom";
+"Sort_By" = "Sort By";
+"Lowest_Price" = "Lowest price";
+"Highest_Price" = "Highest price";
+"Nearest" = "Nearest";
+"Apply" = "Apply";
+"Cancel" = "Cancel";
+"Search_by_Title_or_City" =  "Search by title or city";
+"Select_Your_Location" = "Select Your Location";
+"Total_Price" =  "Total Price";

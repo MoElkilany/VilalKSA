@@ -8,6 +8,7 @@
 
 import Moya
 import CountryPicker
+import SwiftUI
 
 class ForgetPasswordViewModel: ObservableObject {
     
@@ -15,7 +16,8 @@ class ForgetPasswordViewModel: ObservableObject {
     
     @Published var state: AppState = .success
     @Published var errorPopUp: Bool = false
-    @Published var errorMessage: String = "Phone Number Required"
+    @Published var errorMessage: LocalizedStringKey = R.string.localizable.phone_Number_Required.localized
+
     @Published var isNotVerified: Bool = false
     
     // MARK: - Private Properties
@@ -48,13 +50,13 @@ class ForgetPasswordViewModel: ObservableObject {
     
     func validatePhoneNumber(_ phoneNumber: String) -> Bool {
         if phoneNumber.isEmpty {
-            errorMessage = "Phone Number Required"
+            errorMessage = R.string.localizable.phone_Number_Required.localized
             errorPopUp = true
             return false
         }
         let digitsOnly = phoneNumber.allSatisfy { $0.isNumber }
         if !digitsOnly {
-            errorMessage = "Invalid Phone Number"
+            errorMessage =  R.string.localizable.invalid_Phone_Number.localized
             errorPopUp = true
         }
         return digitsOnly
@@ -73,7 +75,7 @@ class ForgetPasswordViewModel: ObservableObject {
         if status == 200 {
             self.isNotVerified = true
         } else {
-            self.errorMessage = value?.message ?? ""
+            self.errorMessage = LocalizedStringKey(value?.message ?? "")
             self.showErrorPopup()
         }
     }
@@ -83,9 +85,9 @@ class ForgetPasswordViewModel: ObservableObject {
         
         switch error {
         case .errorMessage(let message, _):
-            self.errorMessage = message
+            self.errorMessage = LocalizedStringKey(message)
         default:
-            self.errorMessage = "An unknown error occurred."
+            self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
         }
         
         self.showErrorPopup()

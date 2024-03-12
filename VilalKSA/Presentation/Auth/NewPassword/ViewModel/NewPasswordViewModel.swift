@@ -7,6 +7,7 @@
 
 
 import Moya
+import SwiftUI
 
 class NewPasswordViewModel: ObservableObject {
     
@@ -14,7 +15,7 @@ class NewPasswordViewModel: ObservableObject {
 
     @Published var state: AppState = .success
     @Published var errorPopUp: Bool = false
-    @Published var errorMessage: String = "Password Required"
+    @Published var errorMessage: LocalizedStringKey = (R.string.localizable.password_Required.localized)
     @Published var isSuccess: Bool = false
     
     // MARK: - Private Properties
@@ -47,19 +48,19 @@ class NewPasswordViewModel: ObservableObject {
     
     func validatePasswords(_ password: String,_ confirmPassword: String) -> Bool {
            if password.isEmpty {
-               errorMessage = "Password Required"
+               errorMessage = (R.string.localizable.password_Required.localized)
                errorPopUp = true
                return false
            }
            
         if confirmPassword.isEmpty {
-            errorMessage = "Confirm Password Required"
+            errorMessage = (R.string.localizable.confirm_Password_Required.localized)
             errorPopUp = true
             return false
         }
         
         if password != confirmPassword {
-            errorMessage = "password not match"
+            errorMessage = (R.string.localizable.passwords_Do_Not_Match.localized)
             errorPopUp = true
             return false
         }
@@ -78,7 +79,7 @@ class NewPasswordViewModel: ObservableObject {
         if status == 200 {
             self.isSuccess = true
         } else {
-            self.errorMessage = value?.message ?? ""
+            self.errorMessage = LocalizedStringKey(value?.message ?? "")
             self.showErrorPopup()
         }
     }
@@ -88,9 +89,9 @@ class NewPasswordViewModel: ObservableObject {
         
         switch error {
         case .errorMessage(let message, _):
-            self.errorMessage = message
+            self.errorMessage = LocalizedStringKey(message)
         default:
-            self.errorMessage = "An unknown error occurred."
+            self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
         }
         
         self.showErrorPopup()

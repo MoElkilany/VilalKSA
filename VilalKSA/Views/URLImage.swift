@@ -16,6 +16,7 @@ struct URLImage: View {
     
     var body: some View {
         AsyncImage(url: URL(string: imageUrl ?? "")) { phase in
+            
             switch phase {
                 
             case .success(let image):
@@ -45,6 +46,7 @@ struct URLImage: View {
                 }
             case .empty:
                 ProgressView()
+                
             @unknown default:
                 if isCliped == true {
                     Image(R.image.logo.name)

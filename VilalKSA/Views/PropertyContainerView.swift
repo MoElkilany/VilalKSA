@@ -19,9 +19,10 @@ struct PropertyContainerView: View {
     let favourite: Bool?
     let location: String?
     let rental: String?
-    
+    let addOrRemoveFavouriteAction: (()->())?
+
     var body: some View {
-        PropertyBarView(imageUrl: imageUrl, rate: rate, category: category, name: name, room: room, space: space, price: price, favourite: favourite, location: location, rental: rental)
+        PropertyBarView(imageUrl: imageUrl, rate: rate, category: category, name: name, room: room, space: space, price: price, favourite: favourite, location: location, rental: rental,addOrRemoveFavouriteAction: addOrRemoveFavouriteAction)
         
             .background(RoundedRectangle(cornerRadius: 15.0)
                 .fill(Color.white)
@@ -43,6 +44,21 @@ struct PropertyBarView: View {
     let favourite: Bool?
     let location: String?
     let rental: String?
+    let addOrRemoveFavouriteAction: (()->())?
+    
+    init(imageUrl: String?, rate: String?, category: String?, name: String?, room: String?, space: String?, price: String?, favourite: Bool?, location: String?, rental: String?, addOrRemoveFavouriteAction: ( () -> Void)?) {
+        self.imageUrl = imageUrl
+        self.rate = rate
+        self.category = category
+        self.name = name
+        self.room = room
+        self.space = space
+        self.price = price
+        self.favourite = favourite
+        self.location = location
+        self.rental = rental
+        self.addOrRemoveFavouriteAction = addOrRemoveFavouriteAction
+    }
     
     @State private var isFav: Bool =  false
     
@@ -56,6 +72,7 @@ struct PropertyBarView: View {
             
                 Button(action: {
                     isFav.toggle()
+                    addOrRemoveFavouriteAction?()
                 }, label: {
                     Image(isFav ?  R.image.redHeart.name :  R.image.heart.name)
                     

@@ -42,9 +42,9 @@ struct ForgetPasswordPage: View {
                     
                     HStack {
                         VStack(alignment: .leading) {
-                            TextExtraBold16(text: "Forget your password?", textColor: R.color.color172B4D.name.getColor())
+                            TextExtraBold16(textKey: R.string.localizable.forget_Your_Password.localized, textColor: R.color.color172B4D.name.getColor())
                                 .padding(.bottom,1)
-                            TextRegular12(text: "Please enter your phone number to request a password reset", textColor: R.color.color7A869A.name.getColor())
+                            TextRegular12(textKey: R.string.localizable.enter_Phone_Number_For_Password_Reset.localized, textColor: R.color.color7A869A.name.getColor())
                         }
                         Spacer()
                     }
@@ -54,7 +54,7 @@ struct ForgetPasswordPage: View {
                     HStack {
                         GeneralTextField(
                             text: $phoneNumber,
-                            placeholder: "Enter the phone number",
+                            placeholder:  R.string.localizable.enter_Your_Phone.localized,
                             imageName: R.image.phoneIcon.name, keyboardType: .numberPad ,
                             validationClosure: { input in
                                 phoneNumber = input
@@ -75,14 +75,14 @@ struct ForgetPasswordPage: View {
                         }
                     }
                     
-                    DefaultButton(title: "Send Code", backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                    DefaultButton(title: R.string.localizable.send_Code.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         sendCodeAction()
                     }, fontWeight: .bold)
                     .padding(.top,20)
                     
                     HStack {
-                        TextRegular12(text: "Do you remember the password?", textColor: R.color.color42526E.name.getColor())
-                        Button("Login") {
+                        TextRegular12(textKey: R.string.localizable.remember_The_Password.localized, textColor: R.color.color42526E.name.getColor())
+                        Button(R.string.localizable.login.localized) {
                             pilot.pop()
                         }
                         .foregroundColor(R.color.colorPrimary.name.getColor())
@@ -98,7 +98,7 @@ struct ForgetPasswordPage: View {
             .ignoresSafeArea(.all)
         }
         .popup(isPresented: $viewModel.errorPopUp) {
-            ErrorToast(title:  LocalizedStringKey(viewModel.errorMessage))
+            ErrorToast(title:  (viewModel.errorMessage))
         } customize: {
             $0
                 .type(.floater())

@@ -6,12 +6,13 @@
 //
 
 import Moya
+import SwiftUI
 
 class VerificationCodeViewModel: ObservableObject {
     
     @Published var state: AppState = .success
     @Published var errorPopUp: Bool = false
-    @Published var errorMessage: String = "Code Invalid"
+    @Published var errorMessage: LocalizedStringKey = R.string.localizable.invalid_Code.localized
     @Published var userStatus: UserStatus = .none
     @Published var successBottomSheet: Bool = false
     @Published var successTitle: String = ""
@@ -43,11 +44,11 @@ class VerificationCodeViewModel: ObservableObject {
                 case .errorMessage(let message, _):
                     print("Error Message: \(message)")
                     self.errorPopUp = true
-                    self.errorMessage = message
+                    self.errorMessage = LocalizedStringKey(message)
                 default:
                     print("An unknown error occurred.")
                     self.errorPopUp = true
-                    self.errorMessage = "An unknown error occurred."
+                    self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
                 }
             }
         }
@@ -69,7 +70,7 @@ class VerificationCodeViewModel: ObservableObject {
                     }
                     userStatus = .isNotCompeletProfile
                 }else{
-                    self.errorMessage = "You are not complete your profile "
+                    self.errorMessage = (R.string.localizable.profile_Not_Complete.localized)
                     self.errorPopUp = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                         self.userStatus = .isNotVerified
@@ -82,11 +83,11 @@ class VerificationCodeViewModel: ObservableObject {
                 case .errorMessage(let message, _):
                     print("Error Message: \(message)")
                     self.errorPopUp = true
-                    self.errorMessage = message
+                    self.errorMessage = LocalizedStringKey(message)
                 default:
                     print("An unknown error occurred.")
                     self.errorPopUp = true
-                    self.errorMessage = "An unknown error occurred."
+                    self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
                 }
             }
         }
@@ -105,7 +106,7 @@ class VerificationCodeViewModel: ObservableObject {
                     successTitle = value?.message ?? ""
                     successBottomSheet = true
                 }else{
-                    self.errorMessage = value?.message ?? ""
+                    self.errorMessage = LocalizedStringKey(value?.message ?? "")
                     self.errorPopUp = true
                   
                 }
@@ -116,11 +117,11 @@ class VerificationCodeViewModel: ObservableObject {
                 case .errorMessage(let message, _):
                     print("Error Message: \(message)")
                     self.errorPopUp = true
-                    self.errorMessage = message
+                    self.errorMessage = LocalizedStringKey(message)
                 default:
                     print("An unknown error occurred.")
                     self.errorPopUp = true
-                    self.errorMessage = "An unknown error occurred."
+                    self.errorMessage = (R.string.localizable.unknown_Error_Occurred.localized)
                 }
             }
         }

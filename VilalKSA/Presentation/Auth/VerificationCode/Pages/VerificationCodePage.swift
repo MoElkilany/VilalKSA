@@ -53,11 +53,11 @@ struct VerificationCodePage: View {
                     .padding(.horizontal, width / 25)
                     .padding(.bottom, 20)
                     
-                    TextBold20(text: "Verify your Phone Number", textColor: R.color.colorPrimary.name.getColor())
+                    TextBold20(textKey: R.string.localizable.verify_Your_Phone_Number.localized, textColor: R.color.colorPrimary.name.getColor())
                         .padding(.bottom,8)
                         .padding(.horizontal,4)
                     
-                    TextRegular14(text: "We have sent a verification code to your phone number",textColor: R.color.color7A869A.name.getColor())
+                    TextRegular14(textKey: R.string.localizable.sent_Verification_Code_To_Phone.localized,textColor: R.color.color7A869A.name.getColor())
                         .padding(.bottom,2)
                         .padding(.horizontal,4)
                     
@@ -87,7 +87,7 @@ struct VerificationCodePage: View {
                         }
                         
                     }, label: {
-                        TextBold14(text: isTimeFinished ?  "Resend Code" : " 00:\(countdown) "  ,textColor: R.color.colorPrimary.name.getColor())
+                        TextBold14(textKey: isTimeFinished ?  R.string.localizable.resend_Code.localized : " 00:\(countdown) "  ,textColor: R.color.colorPrimary.name.getColor())
                             .padding(.bottom,2)
                             .padding(.horizontal,4)
                         
@@ -103,7 +103,7 @@ struct VerificationCodePage: View {
                     HStack {
                         TextField("", text: $pinOne)
                             .modifier(OtpModifer(pin:$pinOne))
-                            .onChange(of:pinOne){newVal in
+                            .onChange(of: pinOne){newVal in
                                 if (newVal.count == 1) {
                                     pinFocusState = .pinTwo
                                 }
@@ -178,9 +178,9 @@ struct VerificationCodePage: View {
                     }
                     .padding(.vertical,12)
                     
-                    DefaultButton(title: "Verify", backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                    DefaultButton(title: R.string.localizable.verify.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         if pinOne.isEmpty || pinTwo.isEmpty || pinThree.isEmpty || pinFour.isEmpty || pinFive.isEmpty || pinSix.isEmpty {
-                            viewModel.errorMessage = "Invalid Code"
+                            viewModel.errorMessage = R.string.localizable.invalid_Code.localized
                             viewModel.errorPopUp = true
                             return
                         }
@@ -227,7 +227,7 @@ struct VerificationCodePage: View {
         }
         
         .popup(isPresented: $viewModel.errorPopUp) {
-            ErrorToast(title:  LocalizedStringKey(viewModel.errorMessage))
+            ErrorToast(title:  (viewModel.errorMessage))
         } customize: {
             $0
                 .type(.floater())

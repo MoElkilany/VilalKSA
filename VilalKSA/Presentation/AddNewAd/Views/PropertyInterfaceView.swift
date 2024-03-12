@@ -16,7 +16,7 @@ struct PropertyInterfaceView: View {
     let onSelected: ((String)->())
     
     var body: some View {
-        
+
         let columns = [
             GridItem(.fixed(40)),
             GridItem(.fixed(40)),
@@ -24,11 +24,9 @@ struct PropertyInterfaceView: View {
         
         VStack(spacing:0){
             HStack{
-                
                 TextBold14(textKey:R.string.localizable.facade.localized, textColor: R.color.colorPrimary.name.getColor())
                 Spacer()
             }
-            
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: columns, alignment: .center, spacing: 10) {
@@ -132,4 +130,129 @@ struct ItemView2: View {
 
         
     }
+}
+
+
+struct MainCollectionView: View {
+    @State private var selectedItem: LookUpModel? = nil
+    let title:LocalizedStringKey
+    
+    let items: [LookUpModel]
+    let onSelected: ((String)->())
+    var body: some View {
+        
+        let columns = [
+            GridItem(.fixed(10)),
+        ]
+        
+        VStack(spacing:15){
+            HStack{
+                
+                TextBold14(textKey:title, textColor: R.color.colorPrimary.name.getColor())
+                Spacer()
+            }
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: columns, alignment: .center, spacing: 0) {
+                    ForEach(items,id:\.id ){ item in
+                        MainItemView(
+                            item: item,
+                            isSelected: $selectedItem
+                        )
+                        .padding(.horizontal,5)
+                        .onTapGesture {
+                            selectedItem = item
+                            onSelected(String(item.id ?? 0))
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal,2)
+            .padding(.vertical,2)
+        }
+    }
+}
+
+struct MainItemView: View {
+    let item: LookUpModel
+    @Binding var isSelected: LookUpModel?
+    
+    var body: some View {
+        
+        TextRegular14(text:( item.name), textColor: isSelected == item ? .white : R.color.color7A869A.name.getColor())
+            .padding(.horizontal,15)
+            .padding(.vertical,10)
+            .background(isSelected == item ? R.color.colorPrimary.name.getColor(): R.color.colorF7F8F8.name.getColor())
+            .cornerRadius( 25)
+
+        
+    }
+}
+
+
+
+
+struct SortByCollectionView: View {
+    @State private var selectedItem: SortByModel? = nil
+    let title:LocalizedStringKey
+    
+    let items: [SortByModel]
+    let onSelected: ((String)->())
+    var body: some View {
+        
+        let columns = [
+            GridItem(.fixed(10)),
+        ]
+        
+        VStack(spacing:15){
+            HStack{
+                
+                TextBold14(textKey:title, textColor: R.color.colorPrimary.name.getColor())
+                Spacer()
+            }
+            
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHGrid(rows: columns, alignment: .center, spacing: 0) {
+                    ForEach(items,id:\.id ){ item in
+                        SortByItemView(
+                            item: item,
+                            isSelected: $selectedItem
+                        )
+                        .padding(.horizontal,5)
+                        .onTapGesture {
+                            selectedItem = item
+                            onSelected(String(item.id ?? 0))
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal,2)
+            .padding(.vertical,2)
+        }
+    }
+}
+
+struct SortByItemView: View {
+    let item: SortByModel
+    @Binding var isSelected: SortByModel?
+    
+    var body: some View {
+        
+        TextRegular14(textKey:( item.name), textColor: isSelected == item ? .white : R.color.color7A869A.name.getColor())
+            .padding(.horizontal,15)
+            .padding(.vertical,10)
+            .background(isSelected == item ? R.color.colorPrimary.name.getColor(): R.color.colorF7F8F8.name.getColor())
+            .cornerRadius( 25)
+
+        
+    }
+}
+
+
+struct SortByModel:Equatable {
+    let id: Int?
+    let name: LocalizedStringKey?
+    var isSelected: Bool? = false
+  
 }

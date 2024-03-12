@@ -11,7 +11,6 @@ import UIPilot
 struct SplashPage: View {
     
     @EnvironmentObject var pilot: UIPilot<RootDestination>
-    
     @State var state: AppState = .success
     
     var body: some View {

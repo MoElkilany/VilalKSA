@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct SimilarAdsView: View {
-    @State private var isFav: Bool =  false
+    
+    @State var isFav: Bool
     var similarAdModel: SimilarAd?
-
+    var favAction: (()->Void)?
+  
+    
     var body: some View {
         VStack(spacing: 5) {
             
             ZStack{
                 URLImage(imageUrl:similarAdModel?.image ?? "" ,imageWidth: 100,imageHeight: 100)
                 Button(action: {
+                    favAction?()
                     isFav.toggle()
                 }, label: {
                     Image(isFav ?  R.image.redHeart.name :  R.image.heart.name)
@@ -28,39 +32,27 @@ struct SimilarAdsView: View {
                         .padding(.bottom,60)
                 })
             }
-
-            HStack{
-                RealStateTypeView(realStateTypeName: similarAdModel?.category ?? ""  )
-                Spacer()
-                TextBold14(text:similarAdModel?.name ?? ""  , textColor: R.color.color172B4D.name.getColor())
-            }
+            
+            RealStateTypeView(realStateTypeName: similarAdModel?.category ?? ""  )
             .padding(.horizontal,2)
             LocationInfoView(locationName: similarAdModel?.address ?? ""  )
-                
+
             HStack{
                 VilalIconWithValueView(icon: R.image.bed_icon.name, value: similarAdModel?.room ?? "" )
-                
                 HStack(spacing:2){
                     VilalIconWithValueView(icon: R.image.view_icon.name, value: similarAdModel?.estateSpace ?? "" )
                     TextMeduim10(textKey:R.string.localizable.one_Thousand_Meters.localized, textColor: R.color.color172B4D.name.getColor())
                 }
-                
                 HStack(spacing:4){
                     TextBold12(text:similarAdModel?.price ?? "" , textColor: R.color.colorPrimary.name.getColor())
                         .padding(.horizontal,-4)
                     TextBold12(textKey:R.string.localizable.saR.localized, textColor: R.color.colorPrimary.name.getColor())
                 }
-
             }
         }
         .customCardStyle(corner: 20)
         .padding(.horizontal, 10)
         .padding(.vertical, 20)
-
-  
     }
 }
 
-#Preview {
-    SimilarAdsView()
-}
