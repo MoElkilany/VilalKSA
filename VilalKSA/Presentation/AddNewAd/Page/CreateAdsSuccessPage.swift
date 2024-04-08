@@ -11,7 +11,6 @@ import UIPilot
 struct CreateAdsSuccessPage: View {
 
     @EnvironmentObject var pilot: UIPilot<AddRequestDestination>
-    @EnvironmentObject var pilotRoot: UIPilot<RootDestination>
 
     var body: some View {
 
@@ -27,14 +26,7 @@ struct CreateAdsSuccessPage: View {
             TextRegular14(textKey:R.string.localizable.property_Data_Added_Successfully.localized , textColor: R.color.color7A869A.name.getColor())
             
             DefaultBoarderButtonWithIcon(title: R.string.localizable.back_to_Home.localized,borderColor: R.color.colorPrimary.name.getColor() ,backgroundColor: .white, titleColor: R.color.colorPrimary.name.getColor() ,actionButton: {
-                
-                if pilotRoot.routes.contains(where: {$0.name == RootDestination.home.name}) {
-                    pilotRoot.popTo(.home)
-                } else {
-                    pilotRoot.popTo(pilotRoot.routes.first!)
-                    pilotRoot.pop()
-                    pilotRoot.push(.home)
-                }
+                pilot.popTo(.addRequest)
             })
             .padding(12)
             .padding(.top, 20)

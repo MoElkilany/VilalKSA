@@ -14,18 +14,18 @@ struct MainSearchView : View {
         HStack {
             TextField(R.string.localizable.search_by_Title_or_City.localized, text: $searchText)
                 .padding(8)
-                .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
+                .font(Font.custom(FontName.cairoRegular.rawValue, size: 15))
+                .foregroundColor(R.color.colorPrimary.name.getColor())
                 .padding(.horizontal, 24)
-                .background(Color(.systemGray6))
+                .background(.white)
                 .cornerRadius(10)
                 .overlay(
                     HStack {
-                        
                         Button(action: {
                             print("make search")
                         }, label: {
                             Image(systemName: "magnifyingglass")
-                                .foregroundColor(.gray)
+                                .foregroundColor(R.color.colorPrimary.name.getColor())
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                                 .padding(.trailing, 8)
                         })
@@ -34,6 +34,6 @@ struct MainSearchView : View {
                 .foregroundColor(.white)
             
         }
-        .frame(height: 50)
+        .frame(height: 60)
     }
 }

@@ -16,4 +16,5 @@ struct AdsCategoryResponse: BaseModel,Identifiable {
     var id: Int?
     var name: String?
     var icon: String?
+    var status: String?
 }

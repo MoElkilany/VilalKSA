@@ -37,4 +37,8 @@ struct AddNewAdAPIClient: APIClient {
         fetch(with: AddNewAdEndPoint.addOrRemoveFavourite(id: id), completion: completion)
     }
     
+    func getPropertyOwnerData(id: String ,completion: @escaping (APIResult<PropertyOwnerModel?, APIError>) -> Void) {
+        fetch(with: AddNewAdEndPoint.propertyOwnerInfo(id: id), completion: completion)
+    }
+    
 }

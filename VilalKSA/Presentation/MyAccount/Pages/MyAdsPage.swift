@@ -20,9 +20,7 @@ struct MyAdsPage: View {
             viewModel.getMyAds()
         },backAction:{
             pilot.pop()
-        },haveAnotherButton: true ,buttonAction:{
-            print("Hello")
-        },iconButton: R.image.addCircle.name ,content: {
+        },content: {
             ZStack{
                 ScrollView(showsIndicators:false){
                     ForEach(self.MyAdsList ?? [] , id: \.self ) { item in
@@ -31,6 +29,9 @@ struct MyAdsPage: View {
                         } ,edit: {
                             print("edit")
                         } )
+                        .onTapGesture {
+                            pilot.push(.requestDetailsPage(requestID: String(item.id ?? 0 )))
+                        }
                     }
                 }
                 if self.viewModel.deleteState == .loading {
@@ -46,7 +47,7 @@ struct MyAdsPage: View {
             self.MyAdsList = list
         })
         .popup(isPresented: $viewModel.successBottomSheet) {
-            ToastBottomSecond(title: R.string.localizable.success.localized, subTitle: viewModel.successTitle)
+            ToastBottomSecond(title: R.string.localizable.success.localized, subTitle: viewModel.successTitle, subTitleLocalized: " ")
         } customize: {
             $0
                 .type(.floater())
@@ -55,8 +56,9 @@ struct MyAdsPage: View {
                 .autohideIn(5)
         }
         .task {
-            self.viewModel.getMyAds()
+            if self.viewModel.MyAdsList?.isEmpty == true  ||  self.viewModel.MyAdsList == nil  {
+                self.viewModel.getMyAds()
+            }
         }
-        
     }
 }

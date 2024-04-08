@@ -15,10 +15,14 @@ class LoginViewModel: BaseViewModel {
     @Published var loggedin: Bool = false
     @Published var isNotVerified: Bool = false
     
-    @Published var isPhoneNumberValid = false
-    @Published var isPasswordValid = false
+    @Published var phoneNumber = ""
+    @Published var countryCode = ""
+    @Published var fullNumber = ""
+//    @Published var isPasswordValid = false
     
-    
+    var isValidUserName: Bool = false
+    var isPasswordValid = false
+
     private let apiService: AuthAPIClient
     
     init(apiService: AuthAPIClient = AuthAPIClient()) {
@@ -44,6 +48,7 @@ class LoginViewModel: BaseViewModel {
     override func handleSuccess<T>(_ value: T) {
         if let response = value as? LoginResponse {
             if let token = response.data?.token {
+                UserDefaults.standard.set(true, forKey: Constants.isLogin.rawValue)
                 UserDefaults.standard.set(token, forKey: Constants.beraerToken.rawValue)
                 UserDefaults.standard.synchronize()
                 
@@ -56,30 +61,12 @@ class LoginViewModel: BaseViewModel {
     
     
     func isValidForm() -> Bool {
-        isPhoneNumberValid && isPasswordValid
-    }
-    
-     func validateInputs(_ phoneNumber: String,_ password: String) -> Bool {
-         
-        if phoneNumber.isEmpty {
-            
-            self.errorMessage = R.string.localizable.error_Phone_Required.localized
-            self.errorPopUp = true
-            print("Validation failed: Phone number is empty") // Debug print
-            return false
-        }
-        
-        if password.isEmpty {
-            self.errorMessage = R.string.localizable.error_Password_Required.localized
-            self.errorPopUp = true
-            print("Validation failed: phoneNumber number is empty") // Debug print
-            return false
-        }
-        return true
+       return isValidUserName && isPasswordValid
     }
     
     func constructPhoneWithCodeCounty(_ phoneNumber: String, country: Country) -> String {
         return (country.dialingCode ?? "") + phoneNumber
     }
-        
+    
+   
 }

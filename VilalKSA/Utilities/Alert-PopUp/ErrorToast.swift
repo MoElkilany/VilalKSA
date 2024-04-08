@@ -32,14 +32,20 @@ struct ErrorToast: View {
 struct ToastBottomSecond: View {
     let title: LocalizedStringKey?
     let subTitle: String?
-
+    let subTitleLocalized: LocalizedStringKey?
+    
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             Image(R.image.checkmark_Success.name)
                 .frame(width: 48, height: 48)
             VStack(alignment: .leading, spacing: 4) {
                 TextBold16(textKey: title ?? "", textColor:R.color.colorPrimary.name.getColor())
-                TextRegular14(text: subTitle ?? "", textColor: Color.gray)
+                if subTitle == nil {
+                    TextRegular14(textKey: subTitleLocalized, textColor: Color.gray)
+                }else{
+                    TextRegular14(text: subTitle ?? "",textColor: Color.gray)
+
+                }
             }
             Spacer()
         }

@@ -74,9 +74,9 @@ struct PropertyGalleryPage: View {
                             nextButton = true
                             
                             if  self.videoURL == nil {
-                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData: nil )))
+                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData: nil,addStatus:addNewAdRequestModel?.addStatus ?? ""  )))
                             }else{
-                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData:   Convert.URLToData(URLString: self.videoURL ?? URL(fileURLWithPath: "") ) ?? Data()  ) ))
+                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData:   Convert.URLToData(URLString: self.videoURL ?? URL(fileURLWithPath: "") ) ?? Data() , addStatus:addNewAdRequestModel?.addStatus ?? ""  ) ))
                             }
                             
                       
@@ -89,7 +89,9 @@ struct PropertyGalleryPage: View {
                     }, fontWeight: .bold)
                     
                 }
-                
+                .onAppear{
+                    print("the data is:- ", addNewAdRequestModel)
+                }
                 .edgesIgnoringSafeArea(.all)
                 .padding(.top,20)
                 

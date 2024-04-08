@@ -24,7 +24,7 @@ class ForgetPasswordViewModel: ObservableObject {
     
     private let apiService: AuthAPIClient
     private var cancellable: Cancellable?
-    
+    var isValidPhoneNumber = false
     // MARK: - Initialization
     
     init(apiService: AuthAPIClient = AuthAPIClient()) {
@@ -100,6 +100,11 @@ class ForgetPasswordViewModel: ObservableObject {
     private func cancelRequest() {
         self.cancellable?.cancel()
         self.cancellable = nil
+    }
+    
+    
+    func validForm()->Bool{
+        return isValidPhoneNumber
     }
 }
 

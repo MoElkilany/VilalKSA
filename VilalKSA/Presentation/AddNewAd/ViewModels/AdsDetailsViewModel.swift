@@ -15,6 +15,7 @@ class AdsDetailsViewModel: BaseViewModel {
     @Published var mapDetails: Map?
     @Published var videoUrl: String?
     @Published var imageUrls: [String]?
+    @Published var shareAds: String?
     
     init(apiService: AddNewAdAPIClient = AddNewAdAPIClient()) {
         self.apiService = apiService
@@ -47,6 +48,7 @@ class AdsDetailsViewModel: BaseViewModel {
                     self.videoUrl = images?.filter { $0.hasSuffix(".mp4") }.first
                     self.imageUrls = images?.filter { !$0.hasSuffix(".mp4") }
                     self.adDetails = responseData
+                    self.shareAds = responseData.main?.url ?? ""
                 }else{
                     self.state = .noData
                 }

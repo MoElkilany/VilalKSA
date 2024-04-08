@@ -23,6 +23,9 @@ class NewPasswordViewModel: ObservableObject {
     private let apiService: AuthAPIClient
     private var cancellable: Cancellable?
     
+    var isVaildPassword        = false
+    var isVaildRewritePassword = false
+    
     // MARK: - Initialization
     
     init(apiService: AuthAPIClient = AuthAPIClient()) {
@@ -104,5 +107,11 @@ class NewPasswordViewModel: ObservableObject {
     private func cancelRequest() {
         self.cancellable?.cancel()
         self.cancellable = nil
+    }
+    
+    func isValidForm() -> Bool {
+        isVaildPassword  &&
+        isVaildRewritePassword
+        
     }
 }

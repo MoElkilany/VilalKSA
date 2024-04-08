@@ -30,5 +30,9 @@ struct MainAPIClient: APIClient {
         fetch(with: MainEndPoint.addOrRemoveFavourite(id: id), completion: completion)
     }
     
+    func isSelectedAd(id:String , completion: @escaping (APIResult<BaseResponseModel?, APIError>) -> Void) {
+        fetch(with: MainEndPoint.isSelectedAd(id: id), completion: completion)
+    }
+    
     
 }

@@ -29,28 +29,24 @@ struct VerificationCodePage: View {
     @State var isTimeFinished: Bool = false
     @State private var countdown: Int = 30
     @State private var timer: Timer? = nil
-    
+    let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
+
     var body: some View {
-        
-        GeometryReader { geometry in
-            let width = geometry.size.width
-            
-            ZStack {
-                
-                
+
+           ZStack {
                 VStack{
-                    
                     HStack{
-                        Button {
-                            pilot.pop()
-                        } label: {
-                            Image(R.image.back_button_left_icon.name)
-                            
-                        }
+                            Image( R.image.back_button_right_icon.name  )
+                                .resizable()
+                                .frame(width: 25, height: 15)
+                                .scaleEffect(x:local == "en" ?  -1 : 1  , y: local == "en" ?  1 : -1 )
+                                .onTapGesture {
+                                    pilot.pop()
+                                }
                         Spacer()
                     }
                     .padding(.top, 50)
-                    .padding(.horizontal, width / 25)
+                    .padding(.horizontal, 25)
                     .padding(.bottom, 20)
                     
                     TextBold20(textKey: R.string.localizable.verify_Your_Phone_Number.localized, textColor: R.color.colorPrimary.name.getColor())
@@ -63,9 +59,7 @@ struct VerificationCodePage: View {
                     
                     TextRegular14(textKey: self.phoneNumber.localizedKey ,textColor: R.color.color172B4D.name.getColor())
                         .padding(.bottom,2)
-                    
                         .padding(.horizontal,4)
-                    
                     
                     Button(action: {
                         if isTimeFinished {
@@ -78,7 +72,6 @@ struct VerificationCodePage: View {
                             case .none:
                                 return
                             }
-                            
                             let resendCodeRequest = ResendCodeRequest(phone: self.phoneNumber, status: status)
                             viewModel.resendCode(request: resendCodeRequest)
                             countdown = 30
@@ -101,80 +94,82 @@ struct VerificationCodePage: View {
                     }
                     
                     HStack {
-                        TextField("", text: $pinOne)
-                            .modifier(OtpModifer(pin:$pinOne))
-                            .onChange(of: pinOne){newVal in
-                                if (newVal.count == 1) {
-                                    pinFocusState = .pinTwo
-                                }
-                            }
-                            .focused($pinFocusState, equals: .pinOne)
                         
-                        TextField("", text:  $pinTwo)
-                            .modifier(OtpModifer(pin:$pinTwo))
-                            .onChange(of:pinTwo){newVal in
-                                if (newVal.count == 1) {
-                                    pinFocusState = .pinThree
-                                }else {
-                                    if (newVal.count == 0) {
-                                        pinFocusState = .pinOne
-                                    }
-                                }
-                            }
-                            .focused($pinFocusState, equals: .pinTwo)
-                        
-                        TextField("", text:$pinThree)
-                            .modifier(OtpModifer(pin:$pinThree))
-                            .onChange(of:pinThree){newVal in
-                                if (newVal.count == 1) {
-                                    pinFocusState = .pinFour
-                                }else {
-                                    if (newVal.count == 0) {
+                            TextField("", text: $pinOne)
+                                .modifier(OtpModifer(pin:$pinOne))
+                                .onChange(of: pinOne){newVal in
+                                    if (newVal.count == 1) {
                                         pinFocusState = .pinTwo
                                     }
                                 }
-                            }
-                            .focused($pinFocusState, equals: .pinThree)
-                        
-                        TextField("", text:$pinFour)
-                            .modifier(OtpModifer(pin:$pinFour))
-                            .onChange(of:pinFour){ newVal in
-                                
-                                if (newVal.count == 1) {
-                                    pinFocusState = .pinFive
-                                }else {
-                                    if (newVal.count == 0) {
+                                .focused($pinFocusState, equals: .pinOne)
+                            
+                            TextField("", text:  $pinTwo)
+                                .modifier(OtpModifer(pin:$pinTwo))
+                                .onChange(of:pinTwo){newVal in
+                                    if (newVal.count == 1) {
                                         pinFocusState = .pinThree
+                                    }else {
+                                        if (newVal.count == 0) {
+                                            pinFocusState = .pinOne
+                                        }
                                     }
                                 }
-                            }
-                            .focused($pinFocusState, equals: .pinFour)
-                        
-                        
-                        TextField("", text:$pinFive)
-                            .modifier(OtpModifer(pin:$pinFive))
-                            .onChange(of:pinFive){ newVal in
-                                
-                                if (newVal.count == 1) {
-                                    pinFocusState = .pinSix
-                                }else {
-                                    if (newVal.count == 0) {
+                                .focused($pinFocusState, equals: .pinTwo)
+                            
+                            TextField("", text:$pinThree)
+                                .modifier(OtpModifer(pin:$pinThree))
+                                .onChange(of:pinThree){newVal in
+                                    if (newVal.count == 1) {
                                         pinFocusState = .pinFour
+                                    }else {
+                                        if (newVal.count == 0) {
+                                            pinFocusState = .pinTwo
+                                        }
                                     }
                                 }
-                            }
-                            .focused($pinFocusState, equals: .pinFive)
-                        
-                        
-                        TextField("", text:$pinSix)
-                            .modifier(OtpModifer(pin:$pinSix))
-                            .onChange(of:pinSix){ newVal in
-                                if (newVal.count == 0) {
-                                    pinFocusState = .pinFive
+                                .focused($pinFocusState, equals: .pinThree)
+                            
+                            TextField("", text:$pinFour)
+                                .modifier(OtpModifer(pin:$pinFour))
+                                .onChange(of:pinFour){ newVal in
+                                    
+                                    if (newVal.count == 1) {
+                                        pinFocusState = .pinFive
+                                    }else {
+                                        if (newVal.count == 0) {
+                                            pinFocusState = .pinThree
+                                        }
+                                    }
                                 }
-                            }
-                            .focused($pinFocusState, equals: .pinSix)
-                        
+                                .focused($pinFocusState, equals: .pinFour)
+                            
+                            
+                            TextField("", text:$pinFive)
+                                .modifier(OtpModifer(pin:$pinFive))
+                                .onChange(of:pinFive){ newVal in
+                                    
+                                    if (newVal.count == 1) {
+                                        pinFocusState = .pinSix
+                                    }else {
+                                        if (newVal.count == 0) {
+                                            pinFocusState = .pinFour
+                                        }
+                                    }
+                                }
+                                .focused($pinFocusState, equals: .pinFive)
+                            
+                            
+                            TextField("", text:$pinSix)
+                                .modifier(OtpModifer(pin:$pinSix))
+                                .onChange(of:pinSix){ newVal in
+                                    if (newVal.count == 0) {
+                                        pinFocusState = .pinFive
+                                    }
+                                }
+                                .focused($pinFocusState, equals: .pinSix)
+                            
+                            
                     }
                     .padding(.vertical,12)
                     
@@ -214,10 +209,10 @@ struct VerificationCodePage: View {
                 print("the phone number is \(self.phoneNumber)")
                 print("the token is on verificarion code  :- " ,UserDefaults.standard.string(forKey: Constants.beraerToken.rawValue) ?? "")
             }
-        }
+        
         
         .popup(isPresented: $viewModel.successBottomSheet) {
-            ToastBottomSecond(title: "تم إعادة الإرسال", subTitle: viewModel.successTitle)
+            ToastBottomSecond(title: R.string.localizable.the_Message_Has_Been_Resent.localized , subTitle: viewModel.successTitle, subTitleLocalized:  "   " )
         } customize: {
             $0
                 .type(.floater())

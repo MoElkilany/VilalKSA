@@ -17,67 +17,55 @@ struct CompeletProfilePage: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var rewritePassword: String = ""
+    let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
+    @State private var submitButton = false
     
     var body: some View {
         ZStack{
             VStack{
+                HStack{
+                    Image( R.image.back_button_right_icon.name  )
+                        .resizable()
+                        .frame(width: 25, height: 15)
+                        .scaleEffect(x:local == "en" ?  -1 : 1  , y: local == "en" ?  1 : -1 )
+                        .onTapGesture {
+                            pilot.pop()
+                        }
+                    Spacer()
+                }
+                .padding(.top, 50)
+                .padding(.horizontal, 25)
+                
+                
                 ScrollView(showsIndicators:false){
-                    TextBold16(textKey: R.string.localizable.completing_Personal_Profile_Information.localized, textColor: R.color.color172B4D.name.getColor())
-                        .padding(.vertical,12)
-                        .padding(.top,42)
                     
-                    VStack(spacing:30) {
-                        GeneralTextField(
-                            text: $firstName,
-                            placeholder: R.string.localizable.enter_First_Name.localized,
-                            imageName: R.image.profileIcon.name ,
-                            keyboardType: .default ,
-                            validationClosure: { input in
-                                let letterCount = input.filter { $0.isLetter }.count
-                                return letterCount >= 3
-                            }
-                        )
-
-                        GeneralTextField(
-                            text: $secondName,
-                            placeholder: R.string.localizable.enter_Second_Name.localized,
-                            imageName: R.image.profileIcon.name ,
-                            keyboardType: .default ,
-                            validationClosure: { input in
-                                let letterCount = input.filter { $0.isLetter }.count
-                                return letterCount >= 3
-                            }
-                        )
-                        
-                        GeneralTextField(
-                            text: $email,
-                            placeholder: R.string.localizable.enter_Email.localized,
-                            imageName: R.image.emailIcon.name ,
-                            keyboardType: .emailAddress ,
-                            validationClosure: { input  in
-                                let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\\.[A-Za-z]{2,}"
-                                let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailPattern)
-                                return emailPredicate.evaluate(with: input)
-                            }
-                        )
-                        
-                        PasswordTextField(text: $password,
-                                          keyboardType: .default ,
-                                          placeholder: R.string.localizable.password.localized, validationClosure: { input  in
-                            let letterCount = input.filter { $0.isNumber }.count
-                            return letterCount >= 6
+                    TextBold16(textKey: R.string.localizable.completing_Personal_Profile_Information.localized, textColor: R.color.color172B4D.name.getColor())
+                        .padding(.vertical,4)
+                    
+                    VStack {
+                        VilalTextField(text: $firstName, placeholder:  R.string.localizable.enter_First_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isVaildFirstName = isValid
                         })
                         
-                        PasswordTextField(text: $rewritePassword,keyboardType: .default ,
-                                          placeholder: R.string.localizable.rewrite_Password.localized, validationClosure: { input  in
-                            let letterCount = input.filter { $0.isNumber }.count
-                            return letterCount >= 6
+                        
+                        VilalTextField(text: $secondName, placeholder:  R.string.localizable.enter_Second_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isVaildSecondName = isValid
                         })
                         
+                        
+                        VilalTextField(text: $email, placeholder:  R.string.localizable.enter_Email.localized, imageName:"" , keyboardType: .default, validationInput: .email, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isVaildEmailName = isValid
+                        })
+                        
+                        VilalPasswordTextField(text: $password, placeholder: R.string.localizable.password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isVaildPassword = isValid
+                        })
+                        
+                        VilalPasswordTextField(text: $rewritePassword, placeholder: R.string.localizable.rewrite_Password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isVaildRewritePassword = isValid
+                        })
                     }
                     .padding(.horizontal,2)
-                    
-                    
                 }
                 
                 DefaultButton(title: R.string.localizable.create_Account.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
@@ -85,7 +73,7 @@ struct CompeletProfilePage: View {
                 }, fontWeight: .bold)
                 .padding(.bottom, 30)
             }
-           
+            
             if viewModel.state == .loading {
                 OnScreenLoading
             }
@@ -99,9 +87,9 @@ struct CompeletProfilePage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
-
+        
         .popup(isPresented: $viewModel.successBottomSheet) {
-            ToastBottomSecond(title: R.string.localizable.successfully_Registered.localized, subTitle: viewModel.successTitle)
+            ToastBottomSecond(title: R.string.localizable.successfully_Registered.localized, subTitle: viewModel.successTitle, subTitleLocalized: "  ")
         } customize: {
             $0
                 .type(.floater())
@@ -109,7 +97,7 @@ struct CompeletProfilePage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
-       
+        
         .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
@@ -122,20 +110,18 @@ struct CompeletProfilePage: View {
     }
     
     private func createAccount() {
-            guard viewModel.validateFields(firstName: firstName, secondName: secondName, email: email, password: password, rewritePassword: rewritePassword) else {
-                return
-            }
-            
+        submitButton = true
+        if viewModel.isValidForm(){
             let completeProfileModel = CompleteProfileModelRequest(firstName: firstName, secondName: secondName, email: email, password: password, confirmPassword: rewritePassword)
             viewModel.compeletProfile(request: completeProfileModel)
         }
+    }
 }
 
 
 extension CompeletProfilePage {
     
     func navigate(isLogin:Bool) {
-        
         if isLogin {
             pilot.popTo(.login)
         }
@@ -146,7 +132,6 @@ extension CompeletProfilePage {
 
 #Preview{
     CompeletProfilePage()
-    
 }
 
 

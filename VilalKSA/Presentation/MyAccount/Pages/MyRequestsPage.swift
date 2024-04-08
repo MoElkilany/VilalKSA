@@ -19,19 +19,16 @@ struct MyRequestsPage: View {
          viewModel.getMyRequest()
         },backAction:{
             pilot.pop()
-        },haveAnotherButton: true ,buttonAction:{
-            print("Hello")
-        },iconButton: R.image.addCircle.name ,content: {
+        } ,content: {
             ZStack{
-                
                 ScrollView(showsIndicators:false){
                     ForEach(self.myRequestsList ?? [] , id: \.self ) { item in
+                        
                         MyRequestsContainerView(propertyName: item.name ?? "" , propertyCategory: item.category ?? "", propertyAddress: item.address ?? "" , propertyPrice: "\(item.price?.from ?? "") - \(item.price?.to ?? "")" , propertyRental: item.rental ?? "") {
                             self.viewModel.deleteMyRequest(id: String(item.id ?? 0 ) )
                         } edit: {
                             print("edit")
                         }
-                        
                     }
                 }
                 
@@ -48,7 +45,7 @@ struct MyRequestsPage: View {
             self.myRequestsList = list
         })
         .popup(isPresented: $viewModel.successBottomSheet) {
-            ToastBottomSecond(title: R.string.localizable.success.localized, subTitle: viewModel.successTitle)
+            ToastBottomSecond(title: R.string.localizable.success.localized, subTitle: viewModel.successTitle, subTitleLocalized: "  ")
         } customize: {
             $0
                 .type(.floater())

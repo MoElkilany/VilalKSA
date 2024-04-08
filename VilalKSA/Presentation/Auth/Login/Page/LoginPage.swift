@@ -46,24 +46,10 @@ struct LoginPage: View {
                     
                     HStack {
                         
-                        GeneralTextField(
-                            text: $phoneNumber,
-                            placeholder:  R.string.localizable.enter_Phone_Number.localized,
-                            imageName: R.image.phoneIcon.name ,
-                            keyboardType:.numberPad,
-                            validationClosure: { input in
-                                let digitsOnly = input.allSatisfy { $0.isNumber }
-                                let letterCount = input.filter { $0.isNumber }.count
-                                return letterCount >= 3 && digitsOnly
-                            }
-                        )
+                        VilalTextField(text: $phoneNumber, placeholder:  R.string.localizable.enter_Phone_Number.localized, imageName:"" , keyboardType: .asciiCapableNumberPad, validationInput: Convert.validateNumberBasedOnCodeCountry(codeCounty: country.dialingCode ?? "+966") ?? .phone, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isValidUserName = isValid
+                        })
                         
-                        
-//                        VilalTextField(text: $phoneNumber, placeholder:  R.string.localizable.enter_Phone_Number.localized, imageName:  R.image.phoneIcon.name , keyboardType: .numberPad, validationInput: .phone, submitButton: submitButton, onSubmit: { isValid in
-//                            self.viewModel.isPhoneNumberValid = isValid
-//                        })
-//                        
-
                         Button {
                             isShowingCountryPicker = true
                         } label: {
@@ -79,17 +65,10 @@ struct LoginPage: View {
                         }
                     }
                     
-                    
-//                    VilalPasswordTextField(text: $password, placeholder: R.string.localizable.password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
-//                        self.viewModel.isPasswordValid = isValid
-//                    })
-//                    
-                    PasswordTextField(text: $password, keyboardType: .default, placeholder: R.string.localizable.password.localized, validationClosure: { input in
-                        
-                        let letterCount = input.filter { $0.isLetter }.count
-                        let digitCount = input.filter { $0.isNumber }.count
-                        return  letterCount >= 8 || digitCount >= 8
-                    }).padding(.top,12)
+                    VilalPasswordTextField(text: $password, placeholder: R.string.localizable.password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
+                        viewModel.isPasswordValid = isValid
+                    })
+                    .padding(.top,12)
                     
                     HStack {
                         Button(R.string.localizable.forget_Password.localized) {
@@ -102,13 +81,16 @@ struct LoginPage: View {
                     .padding([.vertical ,.horizontal],22)
                     
                     DefaultButton(title:  R.string.localizable.login.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
-//                        submitButton = true
-//                        if self.viewModel.isValidForm(){
-//                            phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
-//                            let loginRequest = LoginRequest(phone: phoneWithCodeCounty, password: password)
-//                            viewModel.login(request: loginRequest)
-//                        }
-                        loginAction()
+                        phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
+
+                        viewModel.phoneNumber = phoneNumber
+                        viewModel.countryCode = country.dialingCode ?? ""
+                        viewModel.fullNumber = phoneWithCodeCounty
+                        submitButton = true
+                        if self.viewModel.isValidForm(){
+                            let loginRequest = LoginRequest(phone: phoneWithCodeCounty, password: password)
+                            viewModel.login(request: loginRequest)
+                        }
                     }, fontWeight: .bold)
                     Spacer()
                 }
@@ -138,6 +120,10 @@ struct LoginPage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
+        .onAppear(perform: {
+            self.phoneNumber = ""
+            self.password = ""
+        })
         .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
@@ -153,9 +139,6 @@ struct LoginPage: View {
     
     func loginAction() {
         
-        guard viewModel.validateInputs(self.phoneNumber, self.password) else {
-            return
-        }
         
         phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
         let loginRequest = LoginRequest(phone: phoneWithCodeCounty, password: password)

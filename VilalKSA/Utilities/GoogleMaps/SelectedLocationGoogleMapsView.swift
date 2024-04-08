@@ -120,7 +120,6 @@ struct ShowLocationOnGoogleMapsView: UIViewRepresentable {
         
         func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
             parent.locationManager.shouldFollowUserLocation = false
-            
         }
     }
 }
@@ -130,14 +129,19 @@ struct GoogleMapsView: UIViewRepresentable {
     
     @ObservedObject var locationManager: LocationManager
     var locations: [MainAdsResponse]
-    var selectedlocations: [MainAdsResponse] = []
     @Binding var selectedPlace: MainAdsResponse?
+    var isUpdated = false
+    var isSelectAd: ((String,Bool)->Void)
+  
     
-    init(locationManager: LocationManager, locations: [MainAdsResponse],selectedPlace: Binding<MainAdsResponse?>) {
+    init(locationManager: LocationManager, locations: [MainAdsResponse], selectedPlace: Binding<MainAdsResponse?>, isUpdated: Bool = false, isSelectAd: @escaping (String,Bool) -> Void) {
         self.locationManager = locationManager
         self.locations = locations
         self._selectedPlace = selectedPlace
+        self.isUpdated = isUpdated
+        self.isSelectAd = isSelectAd
     }
+    
     
     func makeUIView(context: Context) -> GMSMapView {
         
@@ -145,7 +149,7 @@ struct GoogleMapsView: UIViewRepresentable {
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.lastLocation?.latitude ?? 24.7136,
                                               longitude: locationManager.lastLocation?.longitude ?? 46.6753,
                                               zoom: 13.5)
-        mapView.mapType = .satellite
+//        mapView.mapType = .satellite
         mapView.camera = camera
         mapView.frame = CGRect.zero
         mapView.delegate = context.coordinator
@@ -167,11 +171,13 @@ struct GoogleMapsView: UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
-//             mapView.clear()
-//            for location in locations {
-//                let marker = PlaceMarker(response: location)
-//                marker.map = mapView
-//            }
+        if isUpdated {
+            mapView.clear()
+           for location in locations {
+               let marker = PlaceMarker(response: location)
+               marker.map = mapView
+           }
+        }
     }
     
     
@@ -196,6 +202,7 @@ struct GoogleMapsView: UIViewRepresentable {
                 placeMarker.updatePriceLabelColor()
                 parent.selectedPlace = response
                 print("the response is ",response)
+                parent.isSelectAd(String(response.id ?? 0 ), response.isSelected ?? true  )
             }
             return true
         }
@@ -208,3 +215,61 @@ struct Location {
     let longitude: Double
 }
 
+
+
+
+struct ShowGoogleMapsView: UIViewRepresentable {
+    
+    @ObservedObject var locationManager: LocationManager
+   
+  
+    init(locationManager: LocationManager) {
+        self.locationManager = locationManager
+    }
+    
+    
+    func makeUIView(context: Context) -> GMSMapView {
+        
+        let mapView = GMSMapView()
+        let camera = GMSCameraPosition.camera(withLatitude: locationManager.lastLocation?.latitude ?? 24.7136,
+                                              longitude: locationManager.lastLocation?.longitude ?? 46.6753,
+                                              zoom: 13.5)
+        mapView.camera = camera
+        mapView.frame = CGRect.zero
+        mapView.delegate = context.coordinator
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        
+        let padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        mapView.padding = padding
+        
+    
+        return mapView
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    func updateUIView(_ mapView: GMSMapView, context: Context) {
+
+      
+    }
+    
+    
+    class Coordinator: NSObject, GMSMapViewDelegate {
+        var parent: ShowGoogleMapsView
+        
+        init(_ parent: ShowGoogleMapsView) {
+            self.parent = parent
+        }
+        
+        func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        }
+        
+        func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+            parent.locationManager.shouldFollowUserLocation = false
+        }
+        
+    }
+}

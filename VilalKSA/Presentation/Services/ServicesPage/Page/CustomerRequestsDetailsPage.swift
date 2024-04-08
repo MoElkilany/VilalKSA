@@ -34,29 +34,32 @@ struct CustomerRequestsDetailsPage: View {
                     PropertyPropertiesView(items: viewModel.customerRequestDetailsModel.properites)
                 }
                 
-                VStack{
+                ZStack{
+                    VStack{
+                        
+                    }
+                    .frame(height: 350)
+                    .customCardStyle()
                     
-                    GeometryReader { geometry in
-                        VStack(alignment: .leading,spacing: 0) {
-                            HStack{
-                                TextBold14(textKey: R.string.localizable.customer_Details_Location.localized, textColor: R.color.colorPrimary.name.getColor())
-                                Spacer()
-                            }
-                            if self.mapDetails != nil {
-                                ShowLocationOnGoogleMapsView(locationManager: locationManager, lat:  Double(self.mapDetails?.lat ?? "") ?? 30.114892203308475 , lng: Double(self.mapDetails?.lon ?? "") ?? 31.352332457900047 )
-                                    .frame(width: geometry.size.width, height: 300)
-                                    .padding(4)
+                    VStack{
+                        GeometryReader { geometry in
+                            VStack(alignment: .leading,spacing: 0) {
+                                HStack{
+                                    TextBold14(textKey: R.string.localizable.customer_Details_Location.localized, textColor: R.color.colorPrimary.name.getColor())
+                                    Spacer()
+                                }
+                                if self.mapDetails != nil {
+                                    ShowLocationOnGoogleMapsView(locationManager: locationManager, lat:  Double(self.mapDetails?.lat ?? "") ?? 30.114892203308475 , lng: Double(self.mapDetails?.lon ?? "") ?? 31.352332457900047 )
+                                        .frame(width: geometry.size.width, height: 300)
+                                        .padding(4)
+                                        .cornerRadius( 40)
+                                }
                             }
                         }
                     }
+                    .padding()
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
-                .padding(.horizontal, 20)
-                .background(RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color.white)
-                    .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
-                .padding(.bottom,350)
+               
                 VStack{
                     DefaultBoarderButtonWithIcon(title: R.string.localizable.contact_Advertiser.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
                     })

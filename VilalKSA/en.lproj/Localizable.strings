@@ -6,7 +6,7 @@
  
  */
 
-// MARK: -  Error Messages
+// MARK= -  Error Messages
 "Error_Phone_Required" = "Please enter phone number";
 "Error_Password_Required" = "Please enter password";
 "Empty_No_Result_Found" = "No Data Found";
@@ -20,7 +20,7 @@
 "Farthest" = "Farthest";
 "Choose_Option" =  "Choose Option";
 
-// MARK: -  Authenticatoin
+// MARK= -  Authenticatoin
 "Login" = "Login";
 "Enter_Your_Phone" = "Enter your mobile number";
 "Enter_Phone_Number"= "Enter the phone number";
@@ -29,7 +29,7 @@
 "Dont_Have_Account" = "Don't have an account?";
 "Create_New_Account" = "Create New Account";
 
-// MARK: -  Forget Password
+// MARK= -  Forget Password
 "Forget_Your_Password" = "Forget your password?";
 "Send_Code" = "Send Code";
 "Remember_The_Password" = "Do you remember the password?";
@@ -47,7 +47,7 @@
 "Enter_Phone_Number_For_Password_Reset" = "Please enter your phone number to request a password reset";
 "Password_Has_Been_Changed" = "The password has been changed";
 "Password_Successfully_Reset" = "Your password has been successfully reset";
-"Certainly_Registered_Please_Login" = "You are certainly registered in the application, please log in";
+"Certainly_Registered_Please_Login" = "You are certainly registered in the application; please log in";
 "Create_New_Password" = "Create New Password";
 "New_Password_Must_Be_Different" = "The new password must be different from the one previously used";
 "Reset_Password" = "Reset Password";
@@ -79,14 +79,14 @@
 "Passwords_Do_Not_Match" = "Passwords do not match";
 
 
-// MARK: -  TabBar
+// MARK= -  TabBar
 "Main" = "Main";
 "Services" = "Services";
 "Messages" = "Messages";
 "MyAccount" = "Account";
 "Add"  = "Add";
 
-// MARK: -  Customer Orders
+// MARK= -  Customer Orders
 "Customer_Orders" = "Customer Requests";
 "Customer_Orders_Details" = "Request Details";
 "Customer_Details_Skip" = "Skip";
@@ -102,7 +102,7 @@
 "Contact_Advertiser" = "Contact the advertiser";
 
 
-// MARK: -  Profile
+// MARK= -  Profile
 "User_Profile"= "User Profile";
 "Favorites"= "Favorites";
 "My_Ads"= "My Ads";
@@ -118,7 +118,7 @@
 "Log_Out"= "Log Out";
 "About_App_Des" = "Vilal App is the first real estate application specialized exclusively in villas and palaces. Download the app now for free and enjoy all the services we provide";
 
-// MARK: -  Favorites
+// MARK= -  Favorites
 "ADS" = "Ads";
 "Search" = "Search";
 "Cancel" = "Cancel";
@@ -127,7 +127,7 @@
 "Cancel_Request" = "Cancel Request";
 
 
-// MARK: -  Reservations
+// MARK= -  Reservations
 "On_Going" = "On Going";
 "Completed" = "Completed";
 "Canceled" = "Canceled";
@@ -147,7 +147,7 @@
 "Register_Your_Request"= "Register your request here if you didn't find it in our listed properties";
 "Step"= "Step";
 
-// MARK: -  Add New Ads
+// MARK= -  Add New Ads
 "Add_New_Ad"= "Add New Ad";
 "Property_Location"= "Property Location";
 "Looking_for_Specific_Location"= "Looking for Specific Location";
@@ -201,9 +201,9 @@
 "Air_Conditioning" =  "Air Conditioning";
 "Meter" = "M";
 "One_Thousand_Meters" =  "Thousand Meters";
-"Thousand" =  "thousand Sar";
+"Thousand" =  "Sar";
 
-//MARK: - Validation
+//MARK= - Validation
 
 "notValidEmail" = "This is a not valid email";
 "notValidPhone" = "This is a not valid phone";
@@ -254,3 +254,75 @@
 "Search_by_Title_or_City" =  "Search by title or city";
 "Select_Your_Location" = "Select Your Location";
 "Total_Price" =  "Total Price";
+"Share_Ads" = "Share Ads";
+"Buy" = "Buy property";
+
+"Property_Summary"= "Property Summary";
+"Amount"= "Amount";
+"Tax"= "Tax";
+"Total"= "Total";
+"Complete_Purchase_Process"= "Complete Purchase Process";
+"Payment_Method"= "Payment Method";
+"Credit_and_Debit_Cards"= "Credit and Debit Cards";
+"My_Cards"= "My Cards";
+"More_Payment_Options"= "More Payment Options";
+"PayPal"= "PayPal";
+"Apple_Pay"= "Apple Pay";
+"My_Cards"= "My Cards";
+"My_Personal_Cards"= "Add Cards";
+"Cardholder_Name"= "Cardholder Name";
+"Card_Number"= "Card Number";
+"Expiration_Date"= "Expiration Date";
+"Expiration_Date_Placeholder"= "01/29";
+
+"CVV"= "CVV";
+"Add_The_Card"= "Add Card";
+"Card_Placeholder" = "xxxx xxxx xxxx xxxx";
+"No_Cards_Found" = "No Cards Found";
+"Book" = "Book Now";
+"Complete_Booking_Process" = "Complete Booking Process";
+"Select_Date" = "Select Date";
+"Arrival_Date" = "Arrival date";
+"Departure_Date" = "Departure Date";
+"Please_Select_Arravial_Departure_Date" = "Please select the arrival and departure dates so that the rental price can be calculated.";
+"Duration_From" = "Duration from";
+"To" = "to";
+"Rental_Price" = "Rental Price Duration from ";
+"Number_OF_Days" = "Number of days";
+
+//MARK: - Rental Reservation
+"Reservation" = "Reservation";
+"Check_in" = "Check-in";
+"Check_out" = "Check-out";
+"Reservation_Details" = "Reservation details";
+"Number_OF_Nights" = "Number of nights";
+"I_Agree_To" = "Review";
+"Instant_rental_service" = "Instant rental service";
+"Terms_conditions" = "Terms and conditions";
+"End_Date_Must_Be_Greater" = "The Departure date must be greater than or equal the Arrival date";
+"Price_For_One_Night" = "One night rate";
+
+
+"Active_Since" = "Active since";
+"Joined_Since" = "Joined since";
+"Member_Announcements" = "Member announcements";
+"Committed_Fees" = "Committed to fees";
+"Property_Owner" = "Property owner's information";
+"Call" = "Call";
+"whatsApp" = "what's App";
+"Policies" = "Policies";
+"Procedures" = "Procedures";
+"PoliciesAndProcedures" = "Policies and procedures";
+"Service_Not_Available" = "This service is currently unavailable. We are working to make it available soon";
+"Please_Enter_Saudian_Number" = "Please enter a valid Saudi number";
+"Please_Enter_Egyption_Number" = "Please enter a valid Egyption number";
+"The_Message_Has_Been_Resent" = "The message has been resent";
+
+"Card_Added_Successfully" = "Card Added Successfully";
+"Enter_Valid_Card_Number" = "Enter Valid Card Number";
+"Enter_Valid_Expire_Date" = "Enter Valid Expire Date";
+"Enter_Valid_CVV_Number" = "Please enter a valid three-digit number.";
+"Edit_Card" = "Edit Card";
+"Edit_Sucess" = "Card Edit Successfully";
+"Show_Card_Details" = "Card Details";
+"Delete_Sucess" = "Card Deleted Successfully";

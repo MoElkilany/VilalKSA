@@ -6,98 +6,96 @@
  
  */
 
-// MARK: - Error Messages
-"Error_Phone_Required" = "الرجاء إدخال رقم الجوال";
-"Error_Password_Required" = "الرجاء إدخال كلمة المرور";
-"Empty_No_Result_Found" = "لا يوجد نتائج";
-"Empty_No_Result_Found_Description" = "لا يوجد نتائج في الوقت الحالي، سوف تظهر النتائج هنا";
-"Loading" = "جاري التحميل...";
-"Something_Wrong" = "هناك خطأ ما";
-"Please_Try_Again" = "حدث خطأ عند الوصول الي البيانات الرجاء المحاولة مرة آخري";
-"Try_Again" = "المحاولة مرة آخري";
-"Service_Not_Available" = "هذه الخدمة غير متوفرة الأن نحن نسعي الي توفرها قريباً";
+// MARK =  - Error Messages
+"Error_Phone_Required"  = "الرجاء إدخال رقم الجوال";
+"Error_Password_Required"  = "الرجاء إدخال كلمة المرور";
+"Empty_No_Result_Found"  = "لا يوجد نتائج";
+"Empty_No_Result_Found_Description"  = "لا يوجد نتائج في الوقت الحالي، سوف تظهر النتائج هنا";
+"Loading"  = "جاري التحميل...";
+"Something_Wrong"  = "هناك خطأ ما";
+"Please_Try_Again"  = "حدث خطأ عند الوصول الي البيانات الرجاء المحاولة مرة آخري";
+"Try_Again"  = "المحاولة مرة آخري";
+"Service_Not_Available"  = "هذه الخدمة غير متوفرة الأن نحن نسعي الي توفرها قريباً";
 
 
-// MARK: - Authenticatoin
-"Login" = "تسجيل الدخول";
-"Enter_Your_Phone" = "قم بإدخال رقم الجوال الخاص  بحسابك";
-"Enter_Phone_Number"= "ادخل رقم الجوال";
-"Password" = "ادخل كلمة المرور ";
-"Forget_Password" = "هل نسيت كلمة المرور؟";
-"Dont_Have_Account" = "ليس لديك حساب ؟";
-"Create_New_Account" = "انشاء حساب";
+// MARK =  - Authenticatoin
+"Login"  = "تسجيل الدخول";
+"Enter_Your_Phone"  = "قم بإدخال رقم الجوال الخاص  بحسابك";
+"Enter_Phone_Number"  = "ادخل رقم الجوال";
+"Password"  = "ادخل كلمة المرور ";
+"Forget_Password"  = "هل نسيت كلمة المرور؟";
+"Dont_Have_Account"  = "ليس لديك حساب ؟";
+"Create_New_Account"  = "انشاء حساب";
 
-// MARK: -  Forget Password
-"Forget_Your_Password" = "هل نسيت كلمة المرور؟";
-"Send_Code" = "أرسل الكود";
-"Remember_The_Password" = "هل تتذكر كلمة المرور؟";
-"Create_Account" = "إنشاء حساب";
-"Enter_Your_Mobile_Number" = "أدخل رقم هاتفك المحمول";
-"Phone_Number_Required" = "رقم الهاتف مطلوب";
-"Have_An_Account" = "هل لديك حساب؟";
-"Completing_Personal_Profile_Information" = "استكمال معلومات الملف الشخصي";
-"Enter_First_Name" = "أدخل الاسم الأول";
-"Enter_Second_Name" = "أدخل اسم العائلة";
-"Enter_Email" = "أدخل البريد الإلكتروني";
-"Password" = "كلمة المرور";
-"Rewrite_Password" = "أعد كتابة كلمة المرور";
-"Successfully_Registered" = "تم التسجيل بنجاح";
-"Enter_Phone_Number_For_Password_Reset" = "الرجاء إدخال رقم هاتفك لطلب إعادة تعيين كلمة المرور";
-"Password_Has_Been_Changed" = "تم تغيير كلمة المرور";
-"Password_Successfully_Reset" = "تم إعادة تعيين كلمة المرور بنجاح";
+// MARK =  -  Forget Password
+"Forget_Your_Password"  = "هل نسيت كلمة المرور؟";
+"Send_Code"  = "أرسل الكود";
+"Remember_The_Password"  = "هل تتذكر كلمة المرور؟";
+"Create_Account"  = "إنشاء حساب";
+"Enter_Your_Mobile_Number"  = "أدخل رقم هاتفك المحمول";
+"Phone_Number_Required"  = "رقم الهاتف مطلوب";
+"Have_An_Account"  = "هل لديك حساب؟";
+"Completing_Personal_Profile_Information"  = "استكمال معلومات الملف الشخصي";
+"Enter_First_Name"  = "أدخل الاسم الأول";
+"Enter_Second_Name"  = "أدخل اسم العائلة";
+"Enter_Email"  = "أدخل البريد الإلكتروني";
+"Password"  = "كلمة المرور";
+"Rewrite_Password"  = "أعد كتابة كلمة المرور";
+"Successfully_Registered"  = "تم التسجيل بنجاح";
+"Enter_Phone_Number_For_Password_Reset"  = "الرجاء إدخال رقم هاتفك لطلب إعادة تعيين كلمة المرور";
+"Password_Has_Been_Changed"  = "تم تغيير كلمة المرور";
+"Password_Successfully_Reset"  = "تم إعادة تعيين كلمة المرور بنجاح";
+"Reset_Password"  = "إعادة تعيين كلمة المرور";
+"New_Password_Must_Be_Different"  = "يجب أن تكون كلمة المرور الجديدة مختلفة عن التي تم استخدامها سابقًا";
+"Create_New_Password"  = "إنشاء كلمة مرور جديدة";
+"Resent"  = "تم إعادة الإرسال";
+"Verify"  = "تحقق";
+"Invalid_Code"  = "رمز غير صالح";
 
-"Certainly_Registered_Please_Login" = "You are certainly registered in the application, please log in";
-"Reset_Password" = "إعادة تعيين كلمة المرور";
-"New_Password_Must_Be_Different" = "يجب أن تكون كلمة المرور الجديدة مختلفة عن التي تم استخدامها سابقًا";
-"Create_New_Password" = "إنشاء كلمة مرور جديدة";
-"Resent" = "تم إعادة الإرسال";
-"Verify" = "تحقق";
-"Invalid_Code" = "رمز غير صالح";
+"Sent_Verification_Code_To_Phone"  = "لقد أرسلنا رمز التحقق إلى رقم هاتفك";
+"Verify_Your_Phone_Number"  = "تحقق من رقم هاتفك";
+"Resend_Code"  = "إعادة إرسال الرمز";
 
-"Sent_Verification_Code_To_Phone" = "لقد أرسلنا رمز التحقق إلى رقم هاتفك";
-"Verify_Your_Phone_Number" = "تحقق من رقم هاتفك";
-"Resend_Code" = "إعادة إرسال الرمز";
+"Profile_Not_Complete"  = "لم تكتمل ملفك الشخصي";
+"Unknown_Error_Occurred"  = "حدث خطأ غير معروف.";
+"Invalid_Phone_Number"  = "رقم الهاتف غير صالح";
+"Passwords_Do_Not_Match"  = "كلمات المرور غير متطابقة";
+"Confirm_Password_Required"  = "تأكيد كلمة المرور مطلوب";
+"Password_Required"  = "كلمة المرور مطلوبة";
+"Please_Enter_A_Valid_Email"  = "الرجاء إدخال بريد إلكتروني صالح";
 
-"Profile_Not_Complete" = "لم تكتمل ملفك الشخصي";
-"Unknown_Error_Occurred" = "حدث خطأ غير معروف.";
-"Invalid_Phone_Number" = "رقم الهاتف غير صالح";
-"Passwords_Do_Not_Match" = "كلمات المرور غير متطابقة";
-"Confirm_Password_Required" = "تأكيد كلمة المرور مطلوب";
-"Password_Required" = "كلمة المرور مطلوبة";
-"Please_Enter_A_Valid_Email" = "الرجاء إدخال بريد إلكتروني صالح";
-
-"Please_Enter_A_Password_With_At_Least_6_Characters" = "الرجاء إدخال كلمة مرور تتكون من 6 أحرف على الأقل";
-"Please_Enter_The_Second_Name" = "الرجاء إدخال اسم العائلة";
-"Please_Enter_The_First_Name" = "الرجاء إدخال الاسم الأول";
-"Passwords_Do_Not_Match" = "كلمات المرور غير متطابقة";
-"The_Nearest" = "الاقرب";
-"Farthest" = "الأبعد";
-"Choose_Option" =  "إختر";
+"Please_Enter_A_Password_With_At_Least_6_Characters"  = "الرجاء إدخال كلمة مرور تتكون من 6 أحرف على الأقل";
+"Please_Enter_The_Second_Name"  = "الرجاء إدخال اسم العائلة";
+"Please_Enter_The_First_Name"  = "الرجاء إدخال الاسم الأول";
+"Passwords_Do_Not_Match"  = "كلمات المرور غير متطابقة";
+"The_Nearest"  = "الاقرب";
+"Farthest"  = "الأبعد";
+"Choose_Option"  =  "إختر";
 
 
-// MARK: - TabBar
-"Main" = "الرئيسية";
-"Services" = "الخدمات";
-"Messages" = "محادثات";
-"MyAccount" = "حسابي";
+// MARK =  - TabBar
+"Main"  = "الرئيسية";
+"Services"  = "الخدمات";
+"Messages"  = "محادثات";
+"MyAccount"  = "حسابي";
 "Add"  = "إضافة";
 
-// MARK: - Customer Orders
-"Customer_Orders" = "طلبــــات العملاء";
-"Customer_Orders_Details" = "تفـــاصيل الطلب";
-"Customer_Details_Location" = "الموقع";
-"Customer_Details_Submit_Offer" = "تقديم عرض";
-"Customer_Details_Skip" = "تجاهل";
-"SAR" = "ريال";
-"Todays_Ads"="إعلانات اليوم";
-"Request_Owner" = "صاحب الطلب";
-"Profile" = "الملف الشخصي";
-"Details" = "التفاصيل";
-"Properties" = "الخصائص";
+// MARK =  - Customer Orders
+"Customer_Orders"  = "طلبــــات العملاء";
+"Customer_Orders_Details"  = "تفـــاصيل الطلب";
+"Customer_Details_Location"  = "الموقع";
+"Customer_Details_Submit_Offer"  = "تقديم عرض";
+"Customer_Details_Skip"  = "تجاهل";
+"SAR"  = "ريال";
+"Todays_Ads"  = "إعلانات اليوم";
+"Request_Owner"  = "صاحب الطلب";
+"Profile"  = "الملف الشخصي";
+"Details"  = "التفاصيل";
+"Properties"  = "الخصائص";
 "Building"  = "المبني";
-"Contact_Advertiser" = "تواصل مع صاحب الاعلان";
+"Contact_Advertiser"  = "تواصل مع صاحب الاعلان";
 
-// MARK: - Profile
+// MARK =  - Profile
 "User_Profile"= "المــلف الشـــخصي";
 "Favorites"= "المفضلة";
 "My_Ads"= "اعلاناتي";
@@ -111,38 +109,38 @@
 "Privacy_Policy"= "سياسة الخصوصية";
 "Delete_Account"= "حذف الحساب";
 "Log_Out"= "تسجيل الخروج";
-"About_App_Des" = "تطبيق فلل هو التطبيق العقاري الاول المتخصص فقط بالفلل والقصور. حمل التطبيق الان مجانا و استمتع بجميع الخدمات التي نوفرها.";
+"About_App_Des"  = "تطبيق فلل هو التطبيق العقاري الاول المتخصص فقط بالفلل والقصور. حمل التطبيق الان مجانا و استمتع بجميع الخدمات التي نوفرها.";
 
-// MARK: - Favorites
-"ADS" = "إعلانات";
-"Search" = "بحث";
-"Cancel" = "إلغاء";
+// MARK =  - Favorites
+"ADS"  = "إعلانات";
+"Search"  = "بحث";
+"Cancel"  = "إلغاء";
 "Edit"  = "تعديل";
 "Delete"  = "حذف";
-"Cancel_Request" = "الغاء الطلب";
+"Cancel_Request"  = "الغاء الطلب";
 
-// MARK: - Reservations
-"On_Going" = "القادمة";
-"Completed" = "مكتمل";
-"Canceled" = "ملغية";
-"Receipt" = "الإيصال";
-"Rebooking" = "إعادة الحجز";
-"Cancel_Reservation" = "الغاء الحجز";
-"Vilal_App" = "تطبيق فلل";
-"Arabic" = "العربية";
-"English" = "English";
-"Save" = "حفظ";
+// MARK =  - Reservations
+"On_Going"  = "القادمة";
+"Completed"  = "مكتمل";
+"Canceled"  = "ملغية";
+"Receipt"  = "الإيصال";
+"Rebooking"  = "إعادة الحجز";
+"Cancel_Reservation"  = "الغاء الحجز";
+"Vilal_App"  = "تطبيق فلل";
+"Arabic"  = "العربية";
+"English"  = "English";
+"Save"  = "حفظ";
 
-"You_Want_logOut" = "هل تريد تسجيل الخروج؟";
-"You_Want_Delete_Account" = "هل تريد حذف الحساب؟";
-"OK" = "نعم";
+"You_Want_logOut"  = "هل تريد تسجيل الخروج؟";
+"You_Want_Delete_Account"  = "هل تريد حذف الحساب؟";
+"OK"  = "نعم";
 
 
-// MARK: - Add New Ads
-"Add_New_Ad" = "اضــافة اعـــلان جديد";
-"Display_Your_Property" = "اعرض عقارك من هنا للبيع او التأجير مع المزيد من التفاصيل";
-"Add_Request" = "اضافة طلب";
-"Register_Your_Request" = "سجل طلبك هنا اذا لم تجده في العقارات المعروضة لدينا";
+// MARK =  - Add New Ads
+"Add_New_Ad"  = "اضــافة اعـــلان جديد";
+"Display_Your_Property"  = "اعرض عقارك من هنا للبيع او التأجير مع المزيد من التفاصيل";
+"Add_Request"  = "اضافة طلب";
+"Register_Your_Request"  = "سجل طلبك هنا اذا لم تجده في العقارات المعروضة لدينا";
 "Step"= "الخطوة";
 "Property_Location"= "موقع العقار";
 "Looking_for_Specific_Location"= "هل تبحث عن موقع معين";
@@ -171,82 +169,155 @@
 "Back_to_Home"= "الرجوع للصفحة الرئيسية";
 
 //MARK =  - Attachment
-"Choose_Gallery" = "اختر من المعرض";
-"Open_Camera" = "افتح الكاميرا";
-"Choose_Option" = "اختر";
-"Success" =  "تم بنجاح";
+"Choose_Gallery"  = "اختر من المعرض";
+"Open_Camera"  = "افتح الكاميرا";
+"Choose_Option"  = "اختر";
+"Success"  =  "تم بنجاح";
 
 //MARK =  - AddNewAds
-"Property_Details" =  "تفاصيل العقار";
-  "Facade" =  "الواجهة";
-  "Property_Price" =  "سعر العقار";
-  "Rooms" =  "الغرف";
-  "Living_Rooms" =  "الصالات";
-  "Bathrooms" =  "دورات المياة";
-  "Street_View" =  "عرض الشارع";
-  "Property_Area" =  "مساحة العقار";
-  "Floor_Number" =  "رقم الدور";
-  "Property_Age" =  "عمر العقار";
-  "Furnished" =  "مؤثثة";
-  "Kitchen" =  "مطبخ";
-  "Annex" =  "ملحق";
-  "Car_Entrance" =  "مدخل سيارة";
-  "Elevator" =  "مصعد";
-  "Water_Availability" =  "توفر المياه";
-  "Air_Conditioning" =  "مكيفات";
-  "Meter" = "م";
-"One_Thousand_Meters" =  "الف متر";
-"Thousand" =  "الف ريال";
+"Property_Details"  =  "تفاصيل العقار";
+  "Facade"  =  "الواجهة";
+  "Property_Price"  =  "سعر العقار";
+  "Rooms"  =  "الغرف";
+  "Living_Rooms"  =  "الصالات";
+  "Bathrooms"  =  "دورات المياة";
+  "Street_View"  =  "عرض الشارع";
+  "Property_Area"  =  "مساحة العقار";
+  "Floor_Number"  =  "رقم الدور";
+  "Property_Age"  =  "عمر العقار";
+  "Furnished"  =  "مؤثثة";
+  "Kitchen"  =  "مطبخ";
+  "Annex"  =  "ملحق";
+  "Car_Entrance"  =  "مدخل سيارة";
+  "Elevator"  =  "مصعد";
+  "Water_Availability"  =  "توفر المياه";
+  "Air_Conditioning"  =  "مكيفات";
+  "Meter"  = "م";
+"One_Thousand_Meters"  =  "الف متر";
+"Thousand"  =  "ريال";
 
 
-//MARK: - Validation
-"notValidEmail" = "هذا البريد الإلكتروني غير صحيح";
-"notValidPhone" = "هذا الهاتف غير صحيح";
-"Field_Required" = "الحقل مطلوب";
-"price" = "سعر العقار";
-"Property_Details" = "تفاصيل العقار";
-"Private_Entry" = "مدخل خاص";
-"Villa" =  "فيلا";
-"Two_Entries" =  "مدخلين";
-"Private_Roof" =  "سطح خاص";
-"Property_Name" =  "اسم العقار";
-"PickAnAttachments" = "الرجاء التقاط المرفقات";
-"Ad_Added_Successfully" = "تم اضافة الاعلان بنجاح";
- "Property_Data_Added_Successfully" = "لقد تم اضافة بيانات العقار الخاصة بك بنجاح" ;
- "Back_to_Home" = "الرجوع للصفحة الرئيسية" ;
- "Video_Added_Successfully" = "تم إضافة فيديو بنجاح";
-"Please_Select_Facade" =  "الرجاء اختيار الواجهة";
-"Price_From" = "السعر من";
-"Price_To" = "السعر إلي";
-"Desired_Property_Type" = "نوع العقار المرغوب";
- "Rental_Duration" = "مدة الايجار";
- "Resident" = "الساكن";
- "Desired_Property_Location" = "موقع العقار المرغوب";
-"Property_Request" = "طلب عقار";
+//MARK =  - Validation
+"notValidEmail"  = "هذا البريد الإلكتروني غير صحيح";
+"notValidPhone"  = "هذا الهاتف غير صحيح";
+"Field_Required"  = "الحقل مطلوب";
+"price"  = "سعر العقار";
+"Property_Details"  = "تفاصيل العقار";
+"Private_Entry"  = "مدخل خاص";
+"Villa"  =  "فيلا";
+"Two_Entries"  =  "مدخلين";
+"Private_Roof"  =  "سطح خاص";
+"Property_Name"  =  "اسم العقار";
+"PickAnAttachments"  = "الرجاء التقاط المرفقات";
+"Ad_Added_Successfully"  = "تم اضافة الاعلان بنجاح";
+ "Property_Data_Added_Successfully"  = "لقد تم اضافة بيانات العقار الخاصة بك بنجاح" ;
+ "Back_to_Home"  = "الرجوع للصفحة الرئيسية" ;
+ "Video_Added_Successfully"  = "تم إضافة فيديو بنجاح";
+"Please_Select_Facade"  =  "الرجاء اختيار الواجهة";
+"Price_From"  = "السعر من";
+"Price_To"  = "السعر إلي";
+"Desired_Property_Type"  = "نوع العقار المرغوب";
+ "Rental_Duration"  = "مدة الايجار";
+ "Resident"  = "الساكن";
+ "Desired_Property_Location"  = "موقع العقار المرغوب";
+"Property_Request"  = "طلب عقار";
 
 "Please_Select_Property_Type"= "الرجاء اختيار نوع العقار";
   "Please_Select_Rental_Duration"= "الرجاء اختيار مدة الإيجار";
   "Please_Select_Resident_Type"= "الرجاء اختيار نوع الساكن";
 
-"Request_Added_Successfully" = "تم اضافة طلبك بنجاح";
- "Your_Request_Data_Has_Been_Successfully_Added" = "لقد تم اضافة بيانات الطلب الخاصة بك بنجاح" ;
-"Please_Select_Property_Location" = "الرجاء اختيار موقع العقار";
-"Similar_Ads" = "الاعلانات المشابهة";
-"Ads_Details" = "تفاصيل الإعلان";
+"Request_Added_Successfully"  = "تم اضافة طلبك بنجاح";
+ "Your_Request_Data_Has_Been_Successfully_Added"  = "لقد تم اضافة بيانات الطلب الخاصة بك بنجاح" ;
+"Please_Select_Property_Location"  = "الرجاء اختيار موقع العقار";
+"Similar_Ads"  = "الاعلانات المشابهة";
+"Ads_Details"  = "تفاصيل الإعلان";
 
-"No_Ads_Images" = "لا يوجد صور للإعلان";
-"Video_Ad" = "فيديو العقار";
-"Classification" =  "التصنيف";
+"No_Ads_Images"  = "لا يوجد صور للإعلان";
+"Video_Ad"  = "فيديو العقار";
+"Classification"  =  "التصنيف";
 
-"Details" = "تفاصيل";
-"Bedrooms" = "غرف نوم";
-"Bathroom" = "حمام";
-"Sort_By" = "ترتيب حسب";
-"Lowest_Price" = "الأقل سعراً";
-"Highest_Price" = "الأعلي سعراً";
-"Nearest" = "الأقرب";
-"Apply" = "تطبيق";
-"Cancel" = "الغاء";
-"Search_by_Title_or_City" =  "بحث بالعنوان أو المدينة";
-"Select_Your_Location" =  "حدد موقعك";
-"Total_Price" = "إجمالي السعر";
+"Details"  = "تفاصيل";
+"Bedrooms"  = "غرف نوم";
+"Bathroom"  = "حمام";
+"Sort_By"  = "ترتيب حسب";
+"Lowest_Price"  = "الأقل سعراً";
+"Highest_Price"  = "الأعلي سعراً";
+"Nearest"  = "الأقرب";
+"Apply"  = "تطبيق";
+"Cancel"  = "الغاء";
+"Search_by_Title_or_City"  =  "بحث بالعنوان أو المدينة";
+"Select_Your_Location"  =  "حدد موقعك";
+"Total_Price"  = "إجمالي السعر";
+"Share_Ads"  = "مشاركة الإعلان";
+"Buy"  = "شراء العقار";
+
+ "Property_Summary"  =  "ملخص العقار";
+ "Amount"  =  "المبلغ";
+ "Tax"  =  "الضريبة";
+ "Total"  =  "الإجمالي";
+ "Complete_Purchase_Process"  =  "استكمال عملية الشراء";
+ "Payment_Method"  =  "طريقة الدفع";
+ "Credit_and_Debit_Cards"  =  "بطاقة الائتمان والخصم";
+ "My_Cards"  =  "البطاقات الخاصة بي";
+ "More_Payment_Options"  =  "المزيد من خيارات الدفع";
+ "PayPal"  =  "باي بال";
+ "Apple_Pay"  =  "أبل باي";
+ "My_Personal_Cards"  =  "بطاقاتي";
+ "Add_Card"  =  "إضافة بطاقة";
+ "Cardholder_Name"  =  "اسم صاحب البطاقة";
+ "Card_Number"  =  "رقم البطاقة";
+ "Expiration_Date"  =  "تاريخ الانتهاء";
+"Expiration_Date_Placeholder"= "01/29";
+
+ "CVV"  =  "CVV";
+ "Add_The_Card"  =  "إضافة البطاقة";
+ "Card_Placeholder"  = "xxxx xxxx xxxx xxxx";
+ "No_Cards_Found"  = "لا يوجد بطاقات";
+ "Book"  = "احجز الان";
+"Complete_Booking_Process"  =  "استكمال عملية الحجز";
+"Select_Date"  = "حدد التاريخ";
+"Arrival_Date"  = "تاريخ الوصل";
+"Departure_Date"   = "تاريخ المغادرة";
+"Please_Select_Arravial_Departure_Date"  = "الرجاء إختيار تاريخ الوصول والمغادرة حتي يتم حساب سعر الايجار";
+"Duration_From"  = "المدة من";
+"To"  = "إلي";
+"Rental_Price"  = "سعر الإيجار للمدة من ";
+"Number_OF_Days"  = "عدد الايام";
+
+
+//MARK: - Rental Reservation
+"Reservation"  = "حجـــــــــز";
+"Check_in"  = "الدخــــول";
+"Check_out"  = "الخــــروج";
+"Reservation_Details"  = "تفاصيل الحجز ";
+"Number_OF_Nights"  = "عدد اللـــــــيالي";
+"I_Agree_To"  = "إطلع علي";
+"Instant_rental_service"  = "خدمة الايجار الفور";
+"Terms_conditions"  = "شروط و أحكام";
+"End_Date_Must_Be_Greater"  = "يجب أن يكون تاريخ المغادرة أكبر من او يساوي تاريخ الوصول";
+"Price_For_One_Night"  = "سعر الليلة الواحدة";
+
+
+
+"Active_Since"  = "نشط منذ";
+"Joined_Since"  = "انضم منذ";
+"Member_Announcements"  = "اعلانات العضو";
+"Committed_Fees"  = "ملتزم بالرسوم";
+"Property_Owner"  = "بيانات صاحب العقار";
+"Call"  = "مكالمة";
+"whatsApp"  = "واتساب";
+"Policies"  = "السياسات";
+"Procedures"  = "الإجراءات";
+"PoliciesAndProcedures"  = "السياسات والإجراءات";
+"Service_Not_Available"  = "هذه الخدمة غير متوفرة الان نحن نسعي الي توفرها قريباً";
+"Please_Enter_Saudian_Number"  = "الرجاء إدخال رقم سعودي صحيح ";
+"Please_Enter_Egyption_Number"  = "الرجاء إدخال رقم مصري صحيح ";
+"Card_Added_Successfully"  = "تم اضافة الكارت بنجاح";
+"Certainly_Registered_Please_Login"  = "سجّلت بالفعل في التطبيق يرجى تسجيل الدخول";
+"Enter_Valid_Card_Number" = "الرجاء إدخال رقم بطاقة صحيح";
+"Enter_Valid_Expire_Date" = "الرجاء إدخال تاريخ إنتهاء صحيح";
+"Enter_Valid_CVV_Number" = "الرجاء إدخال رقم صحيح مكون من ثلات ارقام";
+"Edit_Card" = "تعديل البطاقة";
+"Edit_Sucess" = "تم تعديل البطاقة بنجاح";
+"Show_Card_Details" = "عرض تفاصيل البطاقة";
+"Delete_Sucess" = "تم حذف البطاقة بنجاح";

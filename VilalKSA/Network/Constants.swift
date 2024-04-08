@@ -11,11 +11,12 @@ import Foundation
 enum Constants: String {
 
     case proBaseUrl             = "https://scispmobdemo.sure.com.sa/api"
-    case qaBaseUrl              = "https://verasign.se/ammr/public/api/"
+    case qaBaseUrl              = "https://samsign.se/ammr/public/api/"
     
     case apiUrl                 = "api"
     case beraerToken            = "beraerToken"
     case userModel
+    case isLogin
     
     // MARK: - API Paths
     
@@ -50,6 +51,7 @@ enum Constants: String {
     
     // MARK: - Main or Home
     case mainAds = "real/estate"
+    case selectedAds = "real/estate/selected"
 
     
     // MARK: - My Account
@@ -60,7 +62,12 @@ enum Constants: String {
     case deleteMyAds = "account/real/estate/destroy"
     case myRequest = "account/real/estate/request"
     case deleteMyRequest = "account/real/estate/request/destroy"
-
-
+    case propertyOwnerInfo = "user/"
+    
+    // MARK: - Payments
+    case payments = "account/payments"
+    case addPayments = "account/payments/store"
+    case updatePayments = "account/payments/update/"
+    case deletePayments = "account/payments/delete/"
 
 }

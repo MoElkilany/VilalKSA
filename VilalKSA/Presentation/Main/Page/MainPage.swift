@@ -17,7 +17,6 @@ struct ActionSheetsState {
 
 struct MainPage: View {
     
-    
     @ObservedObject var locationManager = LocationManager()
     @State private var selectedLocation: CLLocationCoordinate2D?
     @State private var selectedAddress: String?
@@ -26,80 +25,118 @@ struct MainPage: View {
     @State var mainAds: [MainAdsResponse] = []
     @EnvironmentObject var pilot: UIPilot<MainDestination>
     @State var actionSheets = ActionSheetsState()
+    @State var isUpdate: Bool = false
+    @State var categorysList: [LookUpModel] = []
+    @State var mainAdRequest: MainAdRequest?
+    
+    @State var savedCategory: String = ""
+    
+    
     
     var body: some View {
+        ZStack{
             
-        ZStack {
-            
-            if self.mainAds.isEmpty != true {
-                ZStack{
-                    
-                    GoogleMapsView(locationManager: locationManager, locations: self.mainAds, selectedPlace: $selectedPlace)
+            ZStack {
+                if self.mainAds.isEmpty != true {
+                    ZStack{
+                        GoogleMapsView(locationManager: locationManager, locations: self.mainAds, selectedPlace: $selectedPlace, isUpdated: self.isUpdate, isSelectAd: { (adId,isSelected) in
+                            if isSelected == false  {
+                                self.viewModel.isSelectedAdAPI(id:adId)
+                            }
+                        })
                         .edgesIgnoringSafeArea(.all)
                         .padding(.bottom,10)
-                    
-                    HStack{
-                        Button {
-                            pilot.push(.mainListPage(mainAdsList: self.mainAds))
-                        } label: {
-                            Image(R.image.listLogo.name)
-                                .frame(width: 40, height: 40, alignment: .center)
-                                .padding(.horizontal,15)
+                        
+                        HStack{
+                            Button {
+                                pilot.push(.mainListPage(mainAdsList: self.mainAds))
+                            } label: {
+                                Image(R.image.listLogo.name)
+                                    .frame(width: 40, height: 40, alignment: .center)
+                                    .padding(.horizontal,15)
+                            }
+                            Spacer()
                         }
-                        Spacer()
+                        .padding(.top,400)
                     }
-                    .padding(.top,400)
+                    .padding(.top,50)
+                }else{
+                    ShowGoogleMapsView(locationManager: locationManager)
                 }
-                .padding(.top,50)
-            }
-            
-            
-            HStack{
-                Button {
-                    actionSheets.showingSearchFilter = true
-                } label: {
-                    MainSearchView()
-                        .padding(.leading)
-                        .disabled(true)
-                }
-                Spacer()
-                Button {
-                    actionSheets.showingFirst = true
-                } label: {
-                    Image(R.image.filterIcon.name)
-                        .padding(.horizontal)
-                }
-            }
-            .padding(.top,-320)
-            
-            if let item = selectedPlace {
                 
-                Button(action: {
-                    pilot.push(.adsDetailsPage(id: String(item.id ?? 0 ), type: .main))
-                }, label: {
-                    PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? "" , favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "", addOrRemoveFavouriteAction: {
-                        self.viewModel.addOrRemoveFav(id: String(item.id ?? 0))
-                    })
+                
+                HStack{
+                    Button {
+                        actionSheets.showingSearchFilter = true
+                    } label: {
+                        MainSearchView()
+                            .padding(.leading)
+                            .disabled(true)
+                    }
+                    Spacer()
+                    Button {
+                        actionSheets.showingFirst = true
+                    } label: {
+                        Image(R.image.filterIcon.name)
+                            .padding(.horizontal)
+                    }
+                }
+                .padding(.top,-320)
+                
+                if let item = selectedPlace {
+                    Button(action: {
+                        pilot.push(.adsDetailsPage(id: String(item.id ?? 0 ), type: .main))
+                    }, label: {
+                        PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? ""    ,favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "", addOrRemoveFavouriteAction: {
+                            self.viewModel.addOrRemoveFav(id: String(item.id ?? 0))
+                        })
                         .transition(.move(edge: .bottom))
                         .zIndex(1)
-                })
+                    })
+                }
+            }
+            .disabled(self.viewModel.state == .loading)
+            
+            if self.viewModel.state == .loading {
+                OnScreenLoading
             }
         }
-
         .task {
-            self.viewModel.getMainAds(request: MainAdRequest(lat: "", lon: ""))
+            self.isUpdate = true
+            self.viewModel.getMainCategory()
+            self.viewModel.getMainAds(request: MainAdRequest(categoryID: "", lat: "", lon: "", price: "", room: "", bathrooms: "", lounges: "", sort: "") )
         }
         .onReceive(self.viewModel.$mainAdsList) { mainAdsList in
             self.mainAds = mainAdsList
+            self.isUpdate = false
+        }
+        .onReceive(self.viewModel.$categorysList) { category in
+            self.categorysList = category
+        }
+        
+        .onReceive(viewModel.$isFinishedFetch) { finish in
+            if finish == true {
+                self.isUpdate = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    self.isUpdate = false
+                }
+            }
         }
         
         .popup(isPresented: $actionSheets.showingFirst) {
-            MainFilterPage(onClose: {
-                print("onClose called")
+            MainFilterPage(savedData:self.mainAdRequest ,savedCategory:self.savedCategory ,categorysList: self.categorysList, onClose: {
                 actionSheets.showingFirst = false
-            }, onDismiss: { test in
-                print("the test is ", test)
-//                self.viewModel.getMainAds(request: MainAdRequest(lat: "", lon: ""))
+                self.mainAdRequest = nil
+                self.savedCategory = ""
+                self.viewModel.getMainAds(request: MainAdRequest(categoryID: "", lat: "", lon: "", price: "", room: "", bathrooms: "", lounges: "", sort: "") )
+            }, onDismiss: { mainAdRequest,savedCategory in
+                self.savedCategory = savedCategory
+                self.mainAdRequest = mainAdRequest
+                self.viewModel.getMainAds(request: mainAdRequest )
+                
+            }, onCloseAfterSearch: {
+                actionSheets.showingFirst = false
+                
             })
         } customize: {
             $0
@@ -123,6 +160,7 @@ struct MainPage: View {
                 .closeOnTapOutside(true)
                 .backgroundColor(.black.opacity(0.4))
         }
+        
     }
 }
 

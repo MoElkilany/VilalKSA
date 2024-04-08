@@ -16,7 +16,7 @@ struct URLImage: View {
     
     var body: some View {
         AsyncImage(url: URL(string: imageUrl ?? "")) { phase in
-            
+//        
             switch phase {
                 
             case .success(let image):

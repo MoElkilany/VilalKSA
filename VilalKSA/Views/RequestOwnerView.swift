@@ -8,59 +8,54 @@
 import SwiftUI
 
 struct RequestOwnerView: View {
-    let ownerInfo: Owner?
     
-    init(ownerInfo: Owner?) {
+    let ownerInfo: Owner?
+    var goToProfile:(()->())?
+    
+    init(ownerInfo: Owner?, goToProfile: ( () -> Void)? = nil) {
         self.ownerInfo = ownerInfo
+        self.goToProfile = goToProfile
     }
     var body: some View {
         VStack(spacing:6){
             HStack{
                 TextBold14(textKey: R.string.localizable.request_Owner.localized, textColor: R.color.color172B4D.name.getColor())
                 Spacer()
-                Button(action: {
-                }, label: {
+     
                     VStack(spacing:0){
                         TextBold12(textKey: R.string.localizable.profile.localized, textColor: R.color.colorPrimary.name.getColor())
                         Rectangle().frame(width: 80,height: 1)
                             .foregroundColor(R.color.colorPrimary.name.getColor())
                     }
-                })
+                    .onTapGesture {
+                        goToProfile?()
+                    }
+           
             }
             
             HStack{
                 URLImage(imageUrl: ownerInfo?.image ?? "",imageWidth: 60, imageHeight: 60, isCliped: true )
-              
-                
+
                 VStack(spacing:-4){
                     TextBold14(text: (ownerInfo?.name ?? "") , textColor: R.color.colorPrimary.name.getColor())
                     TextRegular12(text:  (ownerInfo?.date ?? ""), textColor: R.color.color7A869A.name.getColor())
                 }
                 Spacer()
-                HStack(spacing:10){
+                HStack(spacing:20){
                     Button(action: {
-                        
+                        VilalHelper.openWhatsApp(urlString: ownerInfo?.whatsapp ?? "")
                     }, label: {
                         Image(R.image.whatsapp.name)
                             .resizable()
                             .frame(width: 30,height: 30)
                     })
-                    
-                    Button(action: {
-                        VilalHelper.openWhatsApp(urlString: ownerInfo?.whatsapp ?? "")
-                    }, label: {
-                        Image(R.image.chat_icon.name)
-                            .resizable()
-                            .frame(width: 30,height: 30)
-                    })
-                    
+
                     Button(action: {
                         VilalHelper.makePhoneCall(phoneNumber: ownerInfo?.phone ?? "" )
                     }, label: {
                         Image(R.image.call.name)
                             .resizable()
                             .frame(width: 30,height: 30)
-                        
                     })
                 }
             }

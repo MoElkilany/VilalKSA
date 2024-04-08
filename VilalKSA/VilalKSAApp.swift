@@ -48,7 +48,7 @@ struct VilalKSAApp: App {
     }
     
     func checkToken() -> UIPilot<RootDestination> {
-        if let _ = UserDefaults.standard.string(forKey: Constants.beraerToken.rawValue) {
+        if  UserDefaults.standard.bool(forKey: Constants.isLogin.rawValue) {
             return UIPilot<RootDestination>(initial: .home)
         } else {
             return UIPilot<RootDestination>(initial: .splash)

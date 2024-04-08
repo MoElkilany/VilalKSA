@@ -29,9 +29,10 @@ struct SearchByAddressPage: View {
                         HStack {
                             TextField(R.string.localizable.search_by_Title_or_City.localized, text: $searchText)
                                 .padding(8)
-                                .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
+                                .font(Font.custom(FontName.cairoRegular.rawValue, size: 15))
+                                .foregroundColor(R.color.colorPrimary.name.getColor())
                                 .padding(.horizontal, 24)
-                                .background(Color(.systemGray6))
+                                .background(.white)
                                 .cornerRadius(10)
                                 .overlay(
                                     HStack {
@@ -39,13 +40,13 @@ struct SearchByAddressPage: View {
                                            
                                         }, label: {
                                             Image(systemName: "magnifyingglass")
-                                                .foregroundColor(.gray)
+                                                .foregroundColor(R.color.colorPrimary.name.getColor())
                                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                                                 .padding(.trailing, 8)
                                         })
                                     }
                                 )
-                                .foregroundColor(.gray)
+                                .foregroundColor(.white)
                                 .font(.system(size: 14))
                             
                             if !searchText.isEmpty {
@@ -79,9 +80,7 @@ struct SearchByAddressPage: View {
                             .frame(height: 50)
                         }
                         .padding(.top)
-                        
-       
-                        
+
                     }
                     .padding(.horizontal,20)
                 }

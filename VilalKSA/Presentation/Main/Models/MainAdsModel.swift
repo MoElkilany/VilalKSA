@@ -27,9 +27,10 @@ struct MainAdsResponse: BaseModel,Identifiable {
     var rate: Int?
     var lat, lon, estateSpace, address: String?
     var createdAt: String?
+    var status:String?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, category, image, price, rental, favourite, room, space, rate, lat, lon, address
+        case id, name, category, image, price, rental, favourite, room, space, rate, lat, lon, address,status
         case estateSpace = "estate_space"
         case createdAt = "created_at"
         case isSelected = "is_selected"

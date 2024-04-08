@@ -19,20 +19,24 @@ struct AddNewAdCategoryPage: View {
     ]
     
     var body: some View {
-        
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.add_New_Ad.localized, tryAgainAction: {
             viewModel.getAdsCategoryList()
         },backAction:{
             pilot.pop()
         } ,content: {
-            VStack{
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(viewModel.adsCategoryList,id: \.id) { item in
-                        GridViewItem(icon: item.icon ?? "", title: item.name ?? "") {
-                            pilot.push(.addNewAdLocationPage(model: AddNewAdRequestModel(categoryAdID: String(item.id ?? 0))))
+            
+            ScrollView{
+                VStack{
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach(viewModel.adsCategoryList,id: \.id) { item in
+                            GridViewItem(icon: item.icon ?? "", title: item.name ?? "") {
+                                pilot.push(.addNewAdLocationPage(model: AddNewAdRequestModel(categoryAdID: String(item.id ?? 0) ,addStatus: item.status ?? "" )))
+                            }
                         }
                     }
                 }
+                .padding(.vertical,30)
+
             }
         })
         .edgesIgnoringSafeArea(.all)
@@ -42,6 +46,5 @@ struct AddNewAdCategoryPage: View {
                 viewModel.getAdsCategoryList()
             }
         })
-        
     }
 }

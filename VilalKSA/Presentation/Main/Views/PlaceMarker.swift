@@ -26,11 +26,17 @@ class PlaceMarker: GMSMarker {
         iconView = view
         appearAnimation = .pop
         
-//        if mainAdsResponse?.isSelected == true  {
-//            view.containerView.backgroundColor = UIColor(named: "Color868583")
-//            view.priceLab.textColor = .white
-//            view.layoutIfNeeded()
+//        if  mainAdsResponse?.status == "0" {
+//            view.containerView.backgroundColor = .blue
+//        } else{
+//            view.containerView.backgroundColor = .red
 //        }
+
+        if mainAdsResponse?.isSelected == true  {
+            view.containerView.backgroundColor = UIColor(named: "Color868583")
+            view.priceLab.textColor = .white
+            view.layoutIfNeeded()
+        }
     }
     
     

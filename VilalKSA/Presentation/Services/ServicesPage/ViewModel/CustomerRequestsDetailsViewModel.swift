@@ -14,7 +14,6 @@ class CustomerRequestsDetailsViewModel: BaseViewModel {
     @Published var customerRequestDetailsModel: CustomerRequestsDetailsValue = CustomerRequestsDetailsValue()
     @Published var mapDetails: Map?
     
-    
     init(apiService: ServicesAPIClient = ServicesAPIClient()) {
         self.apiService = apiService
     }
@@ -53,7 +52,4 @@ class CustomerRequestsDetailsViewModel: BaseViewModel {
             print("Error: Couldn't cast value to LoginResponse")
         }
     }
-    
-    
-    
 }

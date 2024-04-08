@@ -10,6 +10,10 @@ struct MainAdRequest: BaseModel {
     var categoryID: String?
     var lat: String?
     var lon: String?
-
-
+    var price: String?
+    var room: String?
+    var space: String?
+    var bathrooms: String?
+    var lounges: String?
+    var sort: String?
 }

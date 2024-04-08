@@ -15,7 +15,7 @@ struct HomeScreen: View {
     @StateObject var mainPilot = UIPilot<MainDestination>(initial: .main)
     @StateObject var servicesPilot = UIPilot<ServicesDestination>(initial: .services)
     @StateObject var addRequestPilot = UIPilot<AddRequestDestination>(initial: .addRequest)
-    @StateObject var messagePilot = UIPilot<MessageDestination>(initial: .message)
+    @StateObject var favoritePilot = UIPilot<FavoritesDestination>(initial: .favorites)
     @StateObject var morePilot = UIPilot<MyAccountDestination>(initial: .myAccount)
     
     @StateObject var popupPresent = PopupPresent()
@@ -24,7 +24,7 @@ struct HomeScreen: View {
         TabBarItem(tag: TabBarItemType.TabBarMain, icon: R.image.main.name),
         TabBarItem(tag: TabBarItemType.TabBarService, icon: R.image.services.name),
         TabBarItem(tag: TabBarItemType.TabBarAddRequest, icon: R.image.add.name),
-        TabBarItem(tag: TabBarItemType.TabBarMessage, icon: R.image.message.name),
+        TabBarItem(tag: TabBarItemType.TabBarMessage, icon: R.image.heartTap.name),
         TabBarItem(tag: TabBarItemType.TabBarMyAccount, icon: R.image.profile.name)
     ]
     
@@ -79,7 +79,7 @@ struct HomeScreen: View {
                 .ignoresSafeArea()
                 
                 AnyView(
-                    UIPilotHost(messagePilot) { router in
+                    UIPilotHost(favoritePilot) { router in
                         router.view
                             .transition(.slide)
                             .uipNavigationBarHidden(true)
@@ -129,7 +129,7 @@ struct HomeScreen: View {
                                     .environmentObject(mainPilot)
                                     .environmentObject(servicesPilot)
                                     .environmentObject(addRequestPilot)
-                                    .environmentObject(messagePilot)
+                                    .environmentObject(favoritePilot)
                                     .environmentObject(morePilot)
                                     .environmentObject(popupPresent)
                             }
@@ -166,7 +166,7 @@ struct TabBarItemView: View {
     @EnvironmentObject var mainPilot : UIPilot<MainDestination>
     @EnvironmentObject var servicesPilot : UIPilot<ServicesDestination>
     @EnvironmentObject var addRequestPilot : UIPilot<AddRequestDestination>
-    @EnvironmentObject var messagePilot : UIPilot<MessageDestination>
+    @EnvironmentObject var favoritePilot : UIPilot<FavoritesDestination>
     @EnvironmentObject var myAccountPilot : UIPilot<MyAccountDestination>
     @EnvironmentObject var popupPresent: PopupPresent
     @Binding var selectedTab: TabBarItemType
@@ -185,7 +185,7 @@ struct TabBarItemView: View {
                     case TabBarItemType.TabBarAddRequest:
                         addRequestPilot.popTo(.addRequest)
                     case TabBarItemType.TabBarMessage:
-                        messagePilot.popTo(.message)
+                        favoritePilot.popTo(.favorites)
                     case TabBarItemType.TabBarMyAccount:
                         myAccountPilot.popTo(.myAccount)
                     }
@@ -235,7 +235,7 @@ enum TabBarItemType: String {
         case .TabBarAddRequest:
             return R.string.localizable.add.localized
         case .TabBarMessage:
-            return R.string.localizable.messages.localized
+            return R.string.localizable.favorites.localized
         case .TabBarMyAccount:
             return R.string.localizable.myAccount.localized
         }

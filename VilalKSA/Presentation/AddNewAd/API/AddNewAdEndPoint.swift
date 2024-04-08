@@ -13,7 +13,7 @@ enum AddNewAdEndPoint {
     case createNewAdd(video:Data?,images:[Data],model:[String:String])
     case getAdDetails(id:String)
     case addOrRemoveFavourite(id:String)
-
+    case propertyOwnerInfo(id:String)
 }
 
 extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
@@ -35,12 +35,16 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
             return Constants.adsDetails.rawValue + id 
         case .addOrRemoveFavourite:
             return Constants.addOrRemoveFavourite.rawValue
+        case .propertyOwnerInfo(let id ):
+            return Constants.propertyOwnerInfo.rawValue + id
+            
+            
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getAdsCategory ,.getInterface ,.getAdDetails :
+        case .getAdsCategory ,.getInterface ,.getAdDetails,.propertyOwnerInfo :
             return .get
         case .createNewAdd,.addOrRemoveFavourite:
             return .post
@@ -49,7 +53,7 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
     
     var task: Moya.Task {
         switch self {
-        case .getAdsCategory,.getInterface,.getAdDetails:
+        case .getAdsCategory,.getInterface,.getAdDetails,.propertyOwnerInfo:
             return .requestPlain
             
         case .createNewAdd(let video,let images, let model):
@@ -76,13 +80,13 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
     
     var headers: [String : String]? {
         let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
-        let header : [String : String] = ["Accept": "application/json","locale": local]
+        let header : [String : String] = ["Accept": "application/json","locale": local,"Accept-Language":local,"Accept-Language":local]
         return header
     }
     
     var authorizationType: AuthorizationType? {
         switch self {
-        case .getInterface,.getAdsCategory,.createNewAdd,.getAdDetails,.addOrRemoveFavourite:
+        case .getInterface,.getAdsCategory,.createNewAdd,.getAdDetails,.addOrRemoveFavourite,.propertyOwnerInfo:
             return .bearer
         }
     }

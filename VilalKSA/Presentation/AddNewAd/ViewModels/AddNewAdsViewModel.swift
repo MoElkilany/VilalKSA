@@ -11,20 +11,33 @@ import SwiftUI
 class AddNewAdsViewModel: BaseViewModel {
     
     private let apiService: AddNewAdAPIClient
+    
+    private let servicesApiService: ServicesAPIClient
+
     @Published var adsInterfaceList: [LookUpModel] = []
+    @Published var rentalPeriodList: [LookUpModel] = []
+    @Published var residentList: [LookUpModel] = []
+
     @Published var sucessAddRequest: Bool = false
-    @Published  var createAdsState: AppState = .success
+    @Published var createAdsState: AppState = .success
+    
+    
+    @Published  var residentID: String = ""
+    @Published  var rentalID: String = ""
+    
+    @Published var isRental: Bool = false
+
 
     var isPriceValid = false
     var isPropertyDetailsValid = false
     var isPropertyNameValid = false
-
-
     
-    init(apiService: AddNewAdAPIClient = AddNewAdAPIClient()) {
+    init(apiService: AddNewAdAPIClient = AddNewAdAPIClient(),servicesApiService: ServicesAPIClient = ServicesAPIClient()) {
         self.apiService = apiService
+        self.servicesApiService = servicesApiService
     }
     
+
     
     func getAdsInterfaceList() {
         self.state = .loading
@@ -110,8 +123,85 @@ class AddNewAdsViewModel: BaseViewModel {
     
     
     func isValidForm() -> Bool {
-        isPriceValid && isPropertyDetailsValid && isPropertyNameValid
+        
+        if isRental {
+          return  isPriceValid && isPropertyDetailsValid && !residentID.isEmpty && !rentalID.isEmpty
+        }else{
+            return isPriceValid && isPropertyDetailsValid
+
+        }
     }
+    
+    
+    func getRentalPeriodList() {
+        self.state = .loading
+        servicesApiService.getRentalperiodList() { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let value):
+                self.handleRentalPeriodListSuccess(value)
+            case .failure(let error):
+                self.state = .error
+                self.handle(error: error)
+            }
+        }
+    }
+
+     func handleRentalPeriodListSuccess<T>(_ value: T) {
+        
+        if let response = value as? LookUpResponse {
+            guard let status = response.status else { return }
+            
+            if status == 200 {
+                if response.data?.isEmpty == true  {
+                    self.state = .noData
+                }else{
+                    self.state = .success
+                    self.rentalPeriodList = response.data ?? []
+                }
+            } else {
+                self.errorMessage = LocalizedStringKey(response.message ?? "")
+                self.errorPopUp = true
+            }
+        } else {
+            print("Error: Couldn't cast value to LoginResponse")
+        }
+    }
+    
+    func getResidentList() {
+        self.state = .loading
+        servicesApiService.getResidentList() { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let value):
+                self.handleResidentListSuccess(value)
+            case .failure(let error):
+                self.state = .error
+                self.handle(error: error)
+            }
+        }
+    }
+
+     func handleResidentListSuccess<T>(_ value: T) {
+        if let response = value as? LookUpResponse {
+            guard let status = response.status else { return }
+            if status == 200 {
+                if response.data?.isEmpty == true  {
+                    self.state = .noData
+                }else{
+                    self.state = .success
+                    self.residentList = response.data ?? []
+                }
+            } else {
+                self.errorMessage = LocalizedStringKey(response.message ?? "")
+                self.errorPopUp = true
+            }
+        } else {
+            print("Error: Couldn't cast value to LoginResponse")
+        }
+    }
+   
+    
     
     
 }

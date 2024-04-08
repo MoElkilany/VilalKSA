@@ -11,60 +11,64 @@ struct StateOnContentView<Content: View>: View {
     
     @Binding var state: AppState
     var tryAgainAction: (() -> Void)?
-    var content: Content
     var stateError: String
+    var titlePage: LocalizedStringKey? = ""
+    var content: Content
+   
     
-    
-    init(state: Binding<AppState>, tryAgainAction: ( () -> Void)? = nil, stateError: String, @ViewBuilder content: () -> Content) {
+    init(state: Binding<AppState>, tryAgainAction: ( () -> Void)? = nil, stateError: String, @ViewBuilder content: () -> Content,titlePage:LocalizedStringKey = "" ) {
         self._state = state
         self.tryAgainAction = tryAgainAction
         self.content = content()
         self.stateError = stateError
+        self.titlePage = titlePage
     }
-    
     
     
     var body: some View {
 
-            ZStack{
-                content
+        VStack{
+            TextBold16(textKey: titlePage ?? "", textColor: R.color.colorPrimary.name.getColor())
+                .padding(.top,60)
+        ZStack{
+            content
+                .ignoresSafeArea()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            
+                .padding(.bottom,20)
+            
+            VStack {
+                if self.state == .loading {
+                    VStack {
+                        Loader()
+                    }
+                    .background(SwiftUI.Color.white)
                     .ignoresSafeArea()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                
-                    .padding(.bottom,20)
-                
-                VStack {
-                    if self.state == .loading {
-                        VStack {
-                            Loader()
-                        }
-                        .background(SwiftUI.Color.white)
-                        .ignoresSafeArea()
-                    }
-                    
-                    if tryAgian {
-                        StateTryAgainView(action: makeAction)
-                    }
-                    
-                    if noData {
-                        NoDataView()
-                    }
-                    
-                    if errorWithTitle{
-                        ErrorWithTitle(error: stateError)
-                    }
                 }
                 
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(self.state == .success ? SwiftUI.Color.red : SwiftUI.Color.white)
-                .cornerRadius(20)
-                .opacity(stateViewSwiftUIOpacity)
+                if tryAgian {
+                    StateTryAgainView(action: makeAction)
+                }
                 
-                HStack {
-                    Spacer()
+                if noData {
+                    NoDataView()
+                }
+                
+                if errorWithTitle{
+                    ErrorWithTitle(error: stateError)
                 }
             }
-        
+            
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(self.state == .success ? SwiftUI.Color.red : SwiftUI.Color.white)
+            .cornerRadius(20)
+            .opacity(stateViewSwiftUIOpacity)
+            
+            HStack {
+                Spacer()
+            }
+        }
+    }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.white)
         .onTapGesture {

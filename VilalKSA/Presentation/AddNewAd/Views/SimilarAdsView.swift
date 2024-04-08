@@ -32,11 +32,10 @@ struct SimilarAdsView: View {
                         .padding(.bottom,60)
                 })
             }
-            
-            RealStateTypeView(realStateTypeName: similarAdModel?.category ?? ""  )
-            .padding(.horizontal,2)
-            LocationInfoView(locationName: similarAdModel?.address ?? ""  )
 
+            RealStateTypeView(realStateTypeName: similarAdModel?.category ?? "")
+            .padding(.horizontal,2)
+            LocationInfoView(locationName: similarAdModel?.address ?? "")
             HStack{
                 VilalIconWithValueView(icon: R.image.bed_icon.name, value: similarAdModel?.room ?? "" )
                 HStack(spacing:2){

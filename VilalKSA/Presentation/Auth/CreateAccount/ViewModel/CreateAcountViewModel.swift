@@ -18,6 +18,9 @@ class CreateAcountViewModel: ObservableObject {
     private let apiService = AuthAPIClient()
     var error: MoyaError?
     
+    
+    var isValidPhoneNumber: Bool = false
+
     func registerPhone(request: RegisterPhoneRequest) {
         
         self.state = .loading
@@ -53,6 +56,11 @@ class CreateAcountViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    
+    func isValidForm() -> Bool {
+       return isValidPhoneNumber
     }
 }
 

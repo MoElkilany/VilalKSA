@@ -30,7 +30,7 @@ struct MultilineTextField: View {
                 TextEditor(text: $text)
                     .padding(4)
                     .frame(minHeight: 150, alignment: .leading)
-                    .font(Font.custom(FontName.cairoMedium.rawValue, size: 16))
+                    .font(Font.custom(FontName.cairoMedium.rawValue, size: 14))
                     .frame(maxWidth: .infinity)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
@@ -38,7 +38,7 @@ struct MultilineTextField: View {
                     )
                 if text.isEmpty {
                     Text(placeholder)
-                        .font(Font.custom(FontName.cairoMedium.rawValue, size: 16))
+                        .font(Font.custom(FontName.cairoMedium.rawValue, size: 14))
                         .foregroundColor(.gray)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 12)

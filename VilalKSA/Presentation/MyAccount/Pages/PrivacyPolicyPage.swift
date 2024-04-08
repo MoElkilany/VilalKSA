@@ -12,10 +12,11 @@ import UIPilot
 struct PrivacyPolicyPage: View {
     @EnvironmentObject var pilot: UIPilot<MyAccountDestination>
     @State var state: AppState = .success
+    var type :PoliciesAndProcedures = .Policie
     
     var body: some View {
 
-        VilalKSAContainer(state: $state,titlePage: R.string.localizable.privacy_Policy.localized, tryAgainAction: nil,backAction:{
+        VilalKSAContainer(state: $state,titlePage:type == .Policie ? R.string.localizable.policies.localized : R.string.localizable.procedures.localized , tryAgainAction: nil,backAction:{
             pilot.pop()
         },content: {
             VStack {
@@ -40,3 +41,6 @@ struct PrivacyPolicyPage: View {
     }
 }
 
+enum PoliciesAndProcedures {
+    case Policie, Procedure
+}

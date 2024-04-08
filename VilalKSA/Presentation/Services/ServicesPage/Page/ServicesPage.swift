@@ -32,6 +32,8 @@ struct ServicesPage: View {
             VStack{
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(viewModel.servicesList,id: \.id) { item in
+                                            
+                        
                         GridViewItem(icon: item.icon ?? "", title: item.name ?? "") {
                             if item.id == 2 {
                                 pilot.push(.customeRequest)
@@ -72,4 +74,5 @@ struct ServicesPage: View {
 #Preview {
     ServicesPage()
 }
+
 

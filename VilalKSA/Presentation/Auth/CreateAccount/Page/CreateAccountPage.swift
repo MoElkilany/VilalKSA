@@ -17,7 +17,8 @@ struct CreateAccountPage: View {
     @State private var country: Country = Country.init(countryCode: GeneralKeys.sa.rawValue)
     @State private var isShowingCountryPicker = false
     @State var phoneWithCodeCounty = ""
-    
+    @State private var submitButton = false
+
     var body: some View {
         ZStack{
             VStack{
@@ -38,17 +39,10 @@ struct CreateAccountPage: View {
                     .padding([.vertical ,.horizontal],22)
                     
                     HStack {
-                        GeneralTextField(
-                            text: $phoneNumber,
-                            placeholder: R.string.localizable.enter_Your_Mobile_Number.localized,
-                            imageName: R.image.phoneIcon.name, keyboardType: .numberPad ,
-                            validationClosure: { input in
-                                let digitsOnly = input.allSatisfy { $0.isNumber }
-                                let letterCount = input.filter { $0.isNumber }.count
-                                return letterCount >= 5 && digitsOnly
-                            }
-                        )
-                        
+                        VilalTextField(text: $phoneNumber, placeholder:  R.string.localizable.enter_Phone_Number.localized, imageName:"" , keyboardType: .asciiCapableNumberPad, validationInput: Convert.validateNumberBasedOnCodeCountry(codeCounty: country.dialingCode ?? "+966") ?? .phone, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isValidPhoneNumber = isValid
+                        })
+
                         Button {
                             isShowingCountryPicker = true
                         } label: {
@@ -62,14 +56,12 @@ struct CreateAccountPage: View {
                     }
                     
                     DefaultButton(title: R.string.localizable.create_Account.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
-                        if phoneNumber.isEmpty {
-                            viewModel.errorMessage = R.string.localizable.error_Phone_Required.localized
-                            viewModel.errorPopUp = true
-                            return
+                        submitButton = true
+                        if self.viewModel.isValidForm(){
+                            let phoneWithCodeCountyValue = ((country.dialingCode ?? "") + (phoneNumber))
+                            self.phoneWithCodeCounty = phoneWithCodeCountyValue
+                            viewModel.registerPhone(request: RegisterPhoneRequest(phone:self.phoneWithCodeCounty  ))
                         }
-                        let phoneWithCodeCountyValue = ((country.dialingCode ?? "") + (phoneNumber)) 
-                        self.phoneWithCodeCounty = phoneWithCodeCountyValue
-                        viewModel.registerPhone(request: RegisterPhoneRequest(phone:self.phoneWithCodeCounty  ))
                         
                     }, fontWeight: .bold)
                     .padding(.top , 40)

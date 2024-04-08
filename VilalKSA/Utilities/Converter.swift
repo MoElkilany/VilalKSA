@@ -140,4 +140,13 @@ class Convert {
         }
     }
     
+    static  func validateNumberBasedOnCodeCountry(codeCounty:String)-> ValidationInput? {
+        if codeCounty == "+966" {
+            return .saudiPhone
+        }else if codeCounty == "+20"{
+            return .egyptPhone
+        }
+        return nil
+    }
+    
 }

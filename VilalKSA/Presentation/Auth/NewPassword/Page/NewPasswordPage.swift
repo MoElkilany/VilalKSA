@@ -15,26 +15,25 @@ struct NewPasswordPage: View {
     
     @State var password : String = ""
     @State var confirmNewPassword : String = ""
-    
-    
+    @State private var submitButton = false
+    let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
+
     var body: some View {
-        GeometryReader { geometry in
-            let width = geometry.size.width
-            let height = geometry.size.height
-            
+       
             ZStack{
                 VStack{
                     HStack{
-                        Button {
-                            pilot.pop()
-                        } label: {
-                            Image(R.image.back_button_left_icon.name)
-                            
-                        }
+                        Image( R.image.back_button_right_icon.name  )
+                            .resizable()
+                            .frame(width: 25, height: 15)
+                            .scaleEffect(x:local == "en" ?  -1 : 1  , y: local == "en" ?  1 : -1 )
+                            .onTapGesture {
+                                pilot.pop()
+                            }
                         Spacer()
                     }
                     .padding(.top, 50)
-                    .padding(.horizontal, width / 20)
+                    .padding(.horizontal,20)
                     
                     ScrollView(showsIndicators:false){
                         HStack {
@@ -48,23 +47,13 @@ struct NewPasswordPage: View {
                         .padding([.vertical ,.horizontal],22)
                         
                         
+                        VilalPasswordTextField(text: $password, placeholder: R.string.localizable.password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isVaildPassword = isValid
+                        })
                         
-                        PasswordTextField(text: $password, keyboardType: .default, placeholder: R.string.localizable.password.localized, validationClosure: { input in
-                            let letterCount = input.filter { $0.isLetter }.count
-                            let digitCount = input.filter { $0.isNumber }.count
-                            return  letterCount >= 8 || digitCount >= 8
-                        }
-                        ).padding(.top,12)
-                        
-                        
-                        PasswordTextField(text: $confirmNewPassword, keyboardType: .default, placeholder: R.string.localizable.rewrite_Password.localized, validationClosure: { input in
-                            let letterCount = input.filter { $0.isLetter }.count
-                            let digitCount = input.filter { $0.isNumber }.count
-                            return  letterCount >= 8 || digitCount >= 8
-                        }
-                        )
-                        .padding(.top,12)
-                        .padding(.bottom, 20)
+                        VilalPasswordTextField(text: $confirmNewPassword, placeholder: R.string.localizable.rewrite_Password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isVaildRewritePassword = isValid
+                        })
                         
                         
                         
@@ -78,7 +67,7 @@ struct NewPasswordPage: View {
                     OnScreenLoading
                 }
             }
-        }
+        
         .popup(isPresented: $viewModel.errorPopUp) {
             ErrorToast(title: (viewModel.errorMessage))
         } customize: {
@@ -102,12 +91,11 @@ struct NewPasswordPage: View {
     
     
     private func forgetPasswordAction() {
-        guard viewModel.validatePasswords(self.password, self.confirmNewPassword) else {
-            return
+        submitButton = true
+        if viewModel.isValidForm(){
+            let newPassword = ChangePasswordRequest(password: self.password, confirmPassword: self.confirmNewPassword)
+            viewModel.changePassword(request: newPassword)
         }
-        
-        let newPassword = ChangePasswordRequest(password: self.password, confirmPassword: self.confirmNewPassword)
-        viewModel.changePassword(request: newPassword)
     }
     
     func navigate(isSuccess:Bool) {

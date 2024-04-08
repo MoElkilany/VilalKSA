@@ -17,29 +17,29 @@ struct ForgetPasswordPage: View {
     @State private var isShowingCountryPicker = false
     @State var phoneWithCodeCounty = ""
     @StateObject var viewModel = ForgetPasswordViewModel()
+    let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
+    @State private var submitButton = false
 
-
+    
     var body: some View {
-        GeometryReader { geometry in
-            let width = geometry.size.width
-            let height = geometry.size.height
-            ZStack{
+        
+        ZStack{
             VStack{
                 HStack{
-                    Button {
-                        pilot.pop()
-                    } label: {
-                        Image(R.image.back_button_left_icon.name)
-                        
-                    }
+                        Image( R.image.back_button_right_icon.name  )
+                            .resizable()
+                            .frame(width: 25, height: 15)
+                            .scaleEffect(x:local == "en" ?  -1 : 1  , y: local == "en" ?  1 : -1 )
+                            .onTapGesture {
+                                pilot.pop()
+                            }
                     Spacer()
                 }
                 .padding(.top, 50)
-                .padding(.horizontal, width / 20)
+                .padding(.horizontal,  25)
                 .padding(.bottom, 20)
                 
                 ScrollView(showsIndicators:false){
-                    
                     HStack {
                         VStack(alignment: .leading) {
                             TextExtraBold16(textKey: R.string.localizable.forget_Your_Password.localized, textColor: R.color.color172B4D.name.getColor())
@@ -52,16 +52,10 @@ struct ForgetPasswordPage: View {
                     .padding(.bottom, 12)
                     
                     HStack {
-                        GeneralTextField(
-                            text: $phoneNumber,
-                            placeholder:  R.string.localizable.enter_Your_Phone.localized,
-                            imageName: R.image.phoneIcon.name, keyboardType: .numberPad ,
-                            validationClosure: { input in
-                                phoneNumber = input
-                                let digitsOnly = input.allSatisfy { $0.isNumber }
-                                return digitsOnly
-                            }
-                        )
+                    
+                        VilalTextField(text: $phoneNumber, placeholder:  R.string.localizable.enter_Phone_Number.localized, imageName:"" , keyboardType: .asciiCapableNumberPad, validationInput: Convert.validateNumberBasedOnCodeCountry(codeCounty: country.dialingCode ?? "+966") ?? .phone, submitButton: submitButton, onSubmit: { isValid in
+                            viewModel.isValidPhoneNumber = isValid
+                        })
                         
                         Button {
                             isShowingCountryPicker = true
@@ -79,24 +73,22 @@ struct ForgetPasswordPage: View {
                         sendCodeAction()
                     }, fontWeight: .bold)
                     .padding(.top,20)
-                    
-                    HStack {
-                        TextRegular12(textKey: R.string.localizable.remember_The_Password.localized, textColor: R.color.color42526E.name.getColor())
-                        Button(R.string.localizable.login.localized) {
+                }
+  
+                HStack {
+                    TextRegular12(textKey: R.string.localizable.remember_The_Password.localized, textColor: R.color.color42526E.name.getColor())
+                    TextRegular12(textKey: R.string.localizable.login.localized, textColor: R.color.colorPrimary.name.getColor())
+                        .onTapGesture {
                             pilot.pop()
                         }
-                        .foregroundColor(R.color.colorPrimary.name.getColor())
-                        .font(.system(size: 12,weight: .heavy))
-                    }
-                    .padding(.top,height / 1.8)
                 }
+                .padding(.bottom,50)
             }
-                if viewModel.state == .loading {
-                    OnScreenLoading
-                }
+            if viewModel.state == .loading {
+                OnScreenLoading
+            }
         }
-            .ignoresSafeArea(.all)
-        }
+        
         .popup(isPresented: $viewModel.errorPopUp) {
             ErrorToast(title:  (viewModel.errorMessage))
         } customize: {
@@ -106,7 +98,7 @@ struct ForgetPasswordPage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
-     
+        
         .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
@@ -116,16 +108,17 @@ struct ForgetPasswordPage: View {
         .padding(.top, 40)
         .edgesIgnoringSafeArea(.all)
         .ignoresSafeArea(.keyboard, edges: .bottom)
+
     }
     
     
     func sendCodeAction() {
-          guard viewModel.validatePhoneNumber(phoneNumber) else {
-              return
-          }
-          phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
-          viewModel.forgetPasswordRequest(request: ForgetPasswordRequest(phone: phoneWithCodeCounty))
-      }
+        self.submitButton = true
+        if viewModel.validForm(){
+            phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
+            viewModel.forgetPasswordRequest(request: ForgetPasswordRequest(phone: phoneWithCodeCounty))
+        }
+    }
 }
 
 

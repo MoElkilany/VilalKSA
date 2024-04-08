@@ -76,11 +76,20 @@ enum HomeDestination: Destination {
 }
 
 
+
+
 enum MainDestination: Destination {
     case main
     case adsDetailsPage(id:String,type:AdDetailsTypes)
     case mainListPage(mainAdsList: [MainAdsResponse])
-    
+    case propertySummaryPage(model:SummaryModel,type:AdDetailsTypes)
+    case paymentMethodsPage(type:AdDetailsTypes)
+    case myPersonalCardsPage(type:AdDetailsTypes)
+    case addPersonalCardPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+    case rentalReservationPage(type:AdDetailsTypes,model:RentalReservationModel)
+    case propertyOwnerInformationPage(userId:String,type:AdDetailsTypes)
+    case showCardDetailsPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+
     
     @ViewBuilder
     var view: some View {
@@ -91,6 +100,20 @@ enum MainDestination: Destination {
             AdsDetailsPage(requestID: id,navigationType: type)
         case .mainListPage(let adsArray):
             MainListPage(mainAdsList: adsArray)
+        case .propertySummaryPage(let model,let type):
+            PropertySummaryPage(model:model,navigationType: type)
+        case .paymentMethodsPage(let type):
+            PaymentMethodsPage(navigationType: type)
+        case .myPersonalCardsPage(let type):
+            MyPersonalCardsPage(navigationType: type)
+        case .addPersonalCardPage(let type, let model):
+            AddPersonalCardPage(navigationType: type,editModel: model)
+        case .rentalReservationPage(let type , let model):
+            RentalReservationPage(rentalReservationModel: model,navigationType: type)
+       case .propertyOwnerInformationPage(let userId,let type):
+            PropertyOwnerInformationPage(userID: userId,navigationType: type)
+        case .showCardDetailsPage(let type, let model):
+            ShowCardDetailsPage(navigationType: type,editModel: model)
         }
     }
     
@@ -106,9 +129,14 @@ enum ServicesDestination: Destination {
     case todayAdsPage
     case createAdsSuccessPage
     case adsDetailsPage(id:String,type:AdDetailsTypes)
-
-
-    
+    case propertySummaryPage(model:SummaryModel,type:AdDetailsTypes)
+    case paymentMethodsPage(type:AdDetailsTypes)
+    case myPersonalCardsPage(type:AdDetailsTypes)
+    case addPersonalCardPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+    case rentalReservationPage(type:AdDetailsTypes,model:RentalReservationModel)
+    case propertyOwnerInformationPage(userId:String,type:AdDetailsTypes)
+    case showCardDetailsPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+  
     @ViewBuilder
     var view: some View {
         switch self {
@@ -124,9 +152,23 @@ enum ServicesDestination: Destination {
             CreateAdsSuccessPage()
         case .adsDetailsPage(let id,let type):
             AdsDetailsPage(requestID: id,navigationType: type)
+        case .propertySummaryPage(let model,let type):
+            PropertySummaryPage(model:model,navigationType: type)
+        case .paymentMethodsPage(let type):
+            PaymentMethodsPage(navigationType: type)
+        case .myPersonalCardsPage(let type):
+            MyPersonalCardsPage(navigationType: type)
+        case .addPersonalCardPage(let type, let model):
+            AddPersonalCardPage(navigationType: type,editModel: model)
+        case .rentalReservationPage(let type , let model):
+            RentalReservationPage(rentalReservationModel: model,navigationType: type)
+       case .propertyOwnerInformationPage(let userId,let type):
+            PropertyOwnerInformationPage(userID: userId,navigationType: type)
+        case .showCardDetailsPage(let type, let model):
+            ShowCardDetailsPage(navigationType: type,editModel: model)
+
         }
     }
-
     var name: String {
         return String(reflecting: view.self)
     }
@@ -141,8 +183,14 @@ enum AddRequestDestination: Destination {
     case addNewAdsPage(model:AddNewAdRequestModel)
     case createAdsSuccessPage
     case adsDetailsPage(id:String,type:AdDetailsTypes)
-    
-    
+    case propertySummaryPage(model:SummaryModel,type:AdDetailsTypes)
+    case paymentMethodsPage(type:AdDetailsTypes)
+    case myPersonalCardsPage(type:AdDetailsTypes)
+    case addPersonalCardPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+    case rentalReservationPage(type:AdDetailsTypes,model:RentalReservationModel)
+    case propertyOwnerInformationPage(userId:String,type:AdDetailsTypes)
+    case showCardDetailsPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+   
     
     @ViewBuilder
     var view: some View {
@@ -163,6 +211,22 @@ enum AddRequestDestination: Destination {
             CreateAdsSuccessPage()
         case .adsDetailsPage(let id,let type):
             AdsDetailsPage(requestID: id,navigationType: type)
+        case .propertySummaryPage(let model,let type):
+            PropertySummaryPage(model:model,navigationType: type)
+        case .paymentMethodsPage(let type):
+            PaymentMethodsPage(navigationType: type)
+        case .myPersonalCardsPage(let type):
+            MyPersonalCardsPage(navigationType: type)
+        case .addPersonalCardPage(let type, let model):
+            AddPersonalCardPage(navigationType: type,editModel: model)
+        case .rentalReservationPage(let type , let model):
+            RentalReservationPage(rentalReservationModel: model,navigationType: type)
+        case .propertyOwnerInformationPage(let userId,let type):
+            PropertyOwnerInformationPage(userID: userId,navigationType: type)
+        case .showCardDetailsPage(let type, let model):
+            ShowCardDetailsPage(navigationType: type,editModel: model)
+            
+            
         }
     }
 
@@ -171,14 +235,43 @@ enum AddRequestDestination: Destination {
     }
 }
 
-enum MessageDestination: Destination {
-    case message
+enum FavoritesDestination: Destination {
+    case favorites
+//    case message
+    
+    case adsDetailsPage(id:String,type:AdDetailsTypes)
+    case propertySummaryPage(model:SummaryModel,type:AdDetailsTypes)
+    case paymentMethodsPage(type:AdDetailsTypes)
+    case myPersonalCardsPage(type:AdDetailsTypes)
+    case addPersonalCardPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+    case rentalReservationPage(type:AdDetailsTypes,model:RentalReservationModel)
+    case propertyOwnerInformationPage(userId:String,type:AdDetailsTypes)
+    case showCardDetailsPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
+
     
     @ViewBuilder
     var view: some View {
         switch self {
-        case .message:
-            MessagesPage()
+//        case .message:
+//            MessagesPage()
+        case .favorites:
+            FavoritesPage()
+        case .adsDetailsPage(let id,let type):
+            AdsDetailsPage(requestID: id,navigationType: type)
+        case .propertySummaryPage(let model,let type):
+            PropertySummaryPage(model:model,navigationType: type)
+        case .paymentMethodsPage(let type):
+            PaymentMethodsPage(navigationType: type)
+        case .myPersonalCardsPage(let type):
+            MyPersonalCardsPage(navigationType: type)
+        case .addPersonalCardPage(let type, let model):
+            AddPersonalCardPage(navigationType: type,editModel: model)
+        case .rentalReservationPage(let type , let model):
+            RentalReservationPage(rentalReservationModel: model,navigationType: type)
+       case .propertyOwnerInformationPage(let userId,let type):
+            PropertyOwnerInformationPage(userID: userId,navigationType: type)
+        case .showCardDetailsPage(let type, let model):
+            ShowCardDetailsPage(navigationType: type,editModel: model)
         }
     }
     
@@ -189,7 +282,7 @@ enum MessageDestination: Destination {
 
 enum MyAccountDestination: Destination {
     case myAccount
-    case favorites
+//    case favorites
     case myAdsPage
     case myRequestsPage
     case myReservationsPage
@@ -198,15 +291,17 @@ enum MyAccountDestination: Destination {
     case contactUsPage
     case cancellationTerms
     case termsAndConditions
-    case privacyPolicy
+    case privacyPolicy(type:PoliciesAndProcedures)
+    case policiesPage
+    case requestDetailsPage(requestID:String)
     
     @ViewBuilder
     var view: some View {
         switch self {
         case .myAccount:
             MyAccountPage()
-        case .favorites:
-            FavoritesPage()
+//        case .favorites:
+//            FavoritesPage()
         case .myAdsPage:
             MyAdsPage()
         case .myRequestsPage:
@@ -223,8 +318,12 @@ enum MyAccountDestination: Destination {
             CancellationTermsPage()
         case .termsAndConditions:
             TermsAndConditionsPage()
-        case .privacyPolicy:
-            PrivacyPolicyPage()
+        case .privacyPolicy(let type):
+            PrivacyPolicyPage(type: type)
+        case .policiesPage:
+            PoliciesPage()
+        case .requestDetailsPage(requestID: let requestID):
+            RequestDetailsPage(requestID:requestID)
         }
     }
     

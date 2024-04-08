@@ -35,13 +35,13 @@ struct AdDetailsValue: BaseModel {
 struct MainAdDetails: BaseModel {
     var id: Int?
        var name, category, price, rental: String?
-       var resident: String?
+       var resident,type: String?
        var favourite: Bool?
        var rate: Int?
-       var estateSpace, createdAt: String?
+       var estateSpace, createdAt,url: String?
 
        enum CodingKeys: String, CodingKey {
-           case id, name, category, price, rental, resident, favourite, rate
+           case id, name, category, price, rental, resident, favourite, rate, url,type
            case estateSpace = "estate_space"
            case createdAt = "created_at"
        }

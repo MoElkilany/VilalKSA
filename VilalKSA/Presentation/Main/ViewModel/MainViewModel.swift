@@ -15,8 +15,9 @@ class MainViewModel: BaseViewModel {
     @Published var mainAdsList: [MainAdsResponse] = []
     @Published var categorysError: String = ""
     @Published var testString: String = ""
-
+    @Published var isFinishedFetch: Bool = false
     private var hasFetchedData = false
+    private var hasFetchedAdsData = false
 
     init(apiService: MainAPIClient = MainAPIClient()) {
         self.apiService = apiService
@@ -63,9 +64,8 @@ class MainViewModel: BaseViewModel {
     }
     
     
-    
     func getMainAds(request:MainAdRequest) {
-    
+        
         self.state = .loading
         apiService.getMainAds(request: request) { [weak self] result in
             guard let self = self else { return }
@@ -87,6 +87,7 @@ class MainViewModel: BaseViewModel {
             if status == 200 {
                 self.mainAdsList = response.data ?? []
                 self.state = .success
+                self.isFinishedFetch = true
             } else {
                 self.errorMessage = LocalizedStringKey(response.message ?? "")
                 self.errorPopUp = true
@@ -115,9 +116,7 @@ class MainViewModel: BaseViewModel {
         
         if let response = value as? BaseResponseModel {
             guard let status = response.status else { return }
-            
             if status == 200 {
-
             } else {
                 self.errorMessage = LocalizedStringKey(response.message ?? "")
                 self.errorPopUp = true
@@ -126,4 +125,33 @@ class MainViewModel: BaseViewModel {
             print("Error: Couldn't cast value to LoginResponse")
         }
     }
+    
+    
+    func isSelectedAdAPI(id:String) {
+        apiService.isSelectedAd(id: id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let value):
+                self.handleIsSelectedAdsSuccess(value)
+            case .failure(let error):
+                self.state = .error
+                self.handle(error: error)
+            }
+        }
+    }
+    
+    
+   func  handleIsSelectedAdsSuccess<T>(_ value: T) {
+        if let response = value as? BaseResponseModel {
+            guard let status = response.status else { return }
+            if status == 200 {
+            } else {
+                self.errorMessage = LocalizedStringKey(response.message ?? "")
+                self.errorPopUp = true
+            }
+        } else {
+            print("Error: Couldn't cast value to LoginResponse")
+        }
+    }
+    
 }

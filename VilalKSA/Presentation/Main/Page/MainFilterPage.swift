@@ -46,39 +46,42 @@ struct ActionSheetView<Content: View>: View {
 
 struct MainFilterPage: View {
     
-    @StateObject var viewModel = MainViewModel()
-    @State var categorysList: [LookUpModel] = []
-    @State var price: String = ""
-    @State var propertyArea: String = ""
-    @State var bedrooms: Int  = 1
-    @State var bathroom: Int  = 1
+    @State var savedData: MainAdRequest?
+    @State var savedCategory:String?
+    let categorysList: [LookUpModel]?
+   
     var onClose: () -> Void
-    var onDismiss: (FilterModel) -> Void
+    var onDismiss: (MainAdRequest,String) -> Void
+    var onCloseAfterSearch: () -> Void
     
     @State private var openPlacesSheet: Bool = false
     @State var category: String = ""
     @State var categoryID: String? = ""
     @State var sortByID: String  = ""
-
     
+    @State var price: String = ""
+    @State var propertyArea: String = ""
+    @State var bedrooms: Int  = 0
+    @State var bathroom: Int  = 0
+    @State var livingRooms: Int  = 0
+    
+    @State var state: AppState = .success
+
     
     let sortByArray: [SortByModel] = [
         SortByModel(id: 1, name: R.string.localizable.lowest_Price.localized, isSelected: false),
         SortByModel(id: 2, name: R.string.localizable.highest_Price.localized, isSelected: false),
-        SortByModel(id: 3, name: R.string.localizable.nearest.localized, isSelected: false)
     ]
     
     var body: some View {
         ActionSheetView(bgColor: .white) {
-            
-            StateOnContentView(state: $viewModel.state, stateError: viewModel.categorysError) {
-                ScrollView {
+            ScrollView {
                     VStack{
                         HStack{
                             TextBold18(textKey: R.string.localizable.classification.localized, textColor: R.color.colorPrimary.name.getColor())
                             Spacer()
                         }
-                        .padding()
+                        .padding(.vertical,4)
                         
                         Button {
                             openPlacesSheet = true
@@ -94,29 +97,29 @@ struct MainFilterPage: View {
                                 .disabled(true)
                             }
                         }
-
                         
-                        .popover(isPresented: $openPlacesSheet) {
+                        .sheet(isPresented: $openPlacesSheet) {
                             NavigationView {
-                                VStack{
-                                    Text("ــــ")
-                                        .bold()
                                     List{
-                                        ForEach(self.categorysList ,id: \.self) { item in
+                                        ForEach(self.categorysList ?? []  ,id: \.self) { item in
                                             Button(action: {
                                                 openPlacesSheet = false
                                                 self.category = item.name ?? ""
                                                 self.categoryID = String(item.id ?? 0)
                                             }, label: {
-                                                Text(item.name ?? "")
-                                                    .foregroundColor(Color.black)
-                                                    .multilineTextAlignment(.center)
+                                                
+                                                HStack{
+                                                    TextBold14(text:item.name ?? "", textColor: R.color.colorPrimary.name.getColor())
+                                                        .multilineTextAlignment(.center)
+                                                    Spacer()
+                                                }
                                             })
                                             .padding()
                                         }
                                     }
-                                }
                             }
+                            .multilineTextAlignment(.center)
+                            .presentationDetents([.medium, .large])
                         }
                         
                         VilalDivider()
@@ -146,6 +149,10 @@ struct MainFilterPage: View {
                             self.bathroom = bathroom
                         })
                         VilalDivider()
+                        PlusMinusView(localizedTitle:  R.string.localizable.living_Rooms.localized, defualtValue: 0, finalValue: { livingRooms in
+                            self.livingRooms = livingRooms
+                        })
+                        VilalDivider()
                         SortByCollectionView( title: R.string.localizable.sort_By.localized, items: self.sortByArray) { sortById in
                             print("the sortById is ", sortById)
                             self.sortByID = sortById
@@ -155,12 +162,14 @@ struct MainFilterPage: View {
                         
                         HStack{
                             DefaultBoarderButtonWithIcon(title: R.string.localizable.apply.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
-                                self.onDismiss(FilterModel(category: self.categoryID ?? "" , price: self.price  , area: self.propertyArea, bedRoom: self.bedrooms, bathRoom: self.bathroom, sortby: self.sortByID))
-                                self.onClose()
+                                self.onDismiss(MainAdRequest(categoryID: self.categoryID ?? "", lat: "", lon: "", price: self.price, room: String(self.bedrooms), bathrooms: String(self.bathroom), lounges: String(self.livingRooms), sort: String(self.sortByID)), self.category)
+                                self.onCloseAfterSearch()
                             })
                             .frame(height: 50)
                             
-                            DefaultBoarderButtonWithIcon(title: R.string.localizable.cancel.localized,borderColor: .clear ,backgroundColor:R.color.colorF5F5F5.name.getColor(), titleColor:R.color.color42526E.name.getColor() ,actionButton: {
+                            DefaultBoarderButtonWithIcon(title: R.string.localizable.delete.localized,borderColor: .clear ,backgroundColor:R.color.colorF5F5F5.name.getColor(), titleColor:R.color.color42526E.name.getColor() ,actionButton: {
+                                self.savedData = nil
+                                self.savedCategory  = ""
                                 self.onClose()
                             })
                             .frame(height: 50)
@@ -170,14 +179,20 @@ struct MainFilterPage: View {
                     }
                     .padding(.horizontal,20)
                 }
-            }
+                .padding(.bottom,25)
+                .onAppear {
+                    
+                    self.category = self.savedCategory ?? ""
+                    self.categoryID = self.savedData?.categoryID ?? ""
+                    self.sortByID = self.savedData?.sort ?? ""
+                    self.price  = self.savedData?.price ?? ""
+                    self.propertyArea  = self.savedData?.space ?? ""
+                    self.bedrooms  = Int(self.savedData?.room ?? "") ?? 0
+                    self.bathroom  = Int(self.savedData?.bathrooms ?? "") ?? 0
+                    self.livingRooms  = Int(self.savedData?.lounges ?? "") ?? 0
+                }
         }
-        .task {
-            self.viewModel.getMainCategory()
-        }
-        .onReceive(self.viewModel.$categorysList) { category in
-            self.categorysList = category
-        }
+      
     }
 }
 

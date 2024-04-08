@@ -136,6 +136,11 @@ enum ValidationInput {
     case phone
     case password
     case word
+    case saudiPhone
+    case egyptPhone
+    case cardNumber
+    case expireDate
+    case cvvNumber
     
     func isValid(input: String, count: Int = 0) -> Bool {
         switch self {
@@ -145,14 +150,23 @@ enum ValidationInput {
             return emailPredicate.evaluate(with: input)
             
         case .phone:
-            return input.isNumeric() && input.count == 10
-
+            return input.count >= 3 && input.isNumeric() 
         case .password:
             let digitCount = input.count
             return  digitCount >= 8
-            
         case .word:
-            return false 
+            return input.count >= 3
+        case .saudiPhone:
+            return input.isValidSaudiNumber()
+        case .egyptPhone:
+            return input.isValidEgyptionNumber()
+            
+        case .cardNumber:
+            return input.isValidCardNumber()
+        case .expireDate:
+            return input.isValidateExpiryDate()
+        case .cvvNumber:
+            return input.count == 3
         }
     
     }
@@ -164,10 +178,19 @@ enum ValidationInput {
         case .phone:
             R.string.localizable.notValidPhone.localized
         case .password:
-            R.string.localizable.notValidPhone.localized
+            R.string.localizable.password_Required.localized
         case .word:
             R.string.localizable.field_Required.localized
-
+        case .saudiPhone:
+            R.string.localizable.please_Enter_Saudian_Number.localized
+        case .egyptPhone:
+            R.string.localizable.please_Enter_Egyption_Number.localized
+        case .cardNumber:
+            R.string.localizable.enter_Valid_Card_Number.localized
+        case .expireDate:
+            R.string.localizable.enter_Valid_Expire_Date.localized
+        case .cvvNumber:
+            R.string.localizable.enter_Valid_CVV_Number.localized
         }
     }
 }
@@ -202,7 +225,7 @@ struct VilalTextField: View {
                     if text.isEmpty {
                         Text(placeholder)
                             .padding(.leading, 5)
-                            .font(Font.custom(FontName.cairoRegular.rawValue, size: 16))
+                            .font(Font.custom(FontName.cairoRegular.rawValue, size: 12))
                             .foregroundColor(Color.gray.opacity(0.5))
                     }
                     TextField("", text: $text)
@@ -222,11 +245,10 @@ struct VilalTextField: View {
             .padding(.horizontal)
             
             if self.submitButton == true {
-                if self.text.isEmpty == true && !validationInput.isValid(input: text) {
-                    let _ = self.onSubmit(false)
-                    
+                if  !validationInput.isValid(input: self.text) {
                     ErrorTextView(errorText: validationInput.error())
                         .padding(.leading, 5)
+                    let _ = self.onSubmit(false)
                 }else{
                     let _ = self.onSubmit(true)
                 }
@@ -322,11 +344,11 @@ struct VilalPasswordTextField: View {
         .padding(.horizontal)
         
         if self.submitButton == true {
-            if self.text.isEmpty == true && !validationInput.isValid(input: text) {
-                let _ = self.onSubmit(false)
-                
+            if !validationInput.isValid(input: text) { 
                 ErrorTextView(errorText: validationInput.error())
                     .padding(.leading, 5)
+                let _ = self.onSubmit(false)
+
             }else{
                 let _ = self.onSubmit(true)
             }

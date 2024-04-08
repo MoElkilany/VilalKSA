@@ -179,17 +179,13 @@ struct StateTryAgainView: View {
 
 struct NoDataView: View {
     
-    
     var body: some View {
         VStack() {
-            
             
             Image(R.image.noResult.name)
                 .frame(width: 30, height: 30)
                 .padding(.bottom,30)
-            
             TextBold20(textKey: R.string.localizable.empty_No_Result_Found.localized, textColor: R.color.colorPrimary.name.getColor())
-            
             TextRegular16(textKey: R.string.localizable.empty_No_Result_Found_Description.localized, textColor: R.color.color7A869A.name.getColor())
                 .multilineTextAlignment(.center)
             
@@ -224,9 +220,16 @@ struct VilalNavigationView: View {
             if backAction != nil {
                 HStack {
                     Button(action: backAction!) {
-                        Image(languageSettings.selectedLanguage == .ar ? R.image.back_button_right_icon.name : R.image.back_button_left_icon.name )
+//                        Image(languageSettings.selectedLanguage == .ar ? R.image.back_button_right_icon.name : R.image.back_button_left_icon.name )
+//                            .resizable()
+//                            .frame(width: 25, height: 15)
+//                        
+//                        
+                        Image( R.image.back_button_right_icon.name  )
                             .resizable()
                             .frame(width: 25, height: 15)
+                            .scaleEffect(x:languageSettings.selectedLanguage == .en ?  -1 : 1  , y: languageSettings.selectedLanguage == .en ?  1 : -1 )
+
                     }
                     Spacer()
                     

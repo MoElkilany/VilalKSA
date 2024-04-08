@@ -29,6 +29,9 @@
 		E70EEDF42B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70EEDF32B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift */; };
 		E71A633B2B26102000B8687C /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71A633A2B26102000B8687C /* TextStyles.swift */; };
 		E71B097C2B2A5A5900046242 /* ForgetPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */; };
+		E71E73D02BB98E7900882D82 /* PropertyOwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E73CF2BB98E7900882D82 /* PropertyOwnerModel.swift */; };
+		E71E73D22BB9923400882D82 /* PropertyOwnerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E73D12BB9923400882D82 /* PropertyOwnerViewModel.swift */; };
+		E71E73D42BB9B8B500882D82 /* PoliciesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E73D32BB9B8B500882D82 /* PoliciesPage.swift */; };
 		E72050672B2C753E00EB76AB /* NewPasswordPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72050662B2C753E00EB76AB /* NewPasswordPage.swift */; };
 		E720506C2B2C8EB700EB76AB /* ChangePasswordSuccessPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E720506B2B2C8EB700EB76AB /* ChangePasswordSuccessPage.swift */; };
 		E72050712B2CA5DD00EB76AB /* CreateAccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72050702B2CA5DD00EB76AB /* CreateAccountPage.swift */; };
@@ -61,6 +64,8 @@
 		E72981C92B810C2F00B5B995 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72981C82B810C2F00B5B995 /* MultilineTextField.swift */; };
 		E72DB1462B43844C00644252 /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1452B43844C00644252 /* CountryPicker */; };
 		E72DB1482B43846300644252 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = E72DB1472B43846300644252 /* PopupView */; };
+		E731D7A12BA2565E00BD6333 /* SquareAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E731D7A02BA2565E00BD6333 /* SquareAnimate.swift */; };
+		E731D7A42BA2673800BD6333 /* PaymentMethodsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E731D7A32BA2673800BD6333 /* PaymentMethodsPage.swift */; };
 		E7361F7B2B5339EB00E97D15 /* Cairo-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */; };
 		E7361F7D2B53462A00E97D15 /* GridItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F7C2B53462A00E97D15 /* GridItem.swift */; };
 		E7361F802B534E4600E97D15 /* ServicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */; };
@@ -85,6 +90,7 @@
 		E74EDE482B0EBF3100E0B150 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE2C2B0EBF3100E0B150 /* ActivityView.swift */; };
 		E74EDE502B0EC02D00E0B150 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E74EDE4F2B0EC02D00E0B150 /* LoadingView.xib */; };
 		E74EDE542B0EC11500E0B150 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74EDE532B0EC11500E0B150 /* LoadingView.swift */; };
+		E7501E4E2BA479E100E871EB /* MyPersonalCardsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7501E4D2BA479E100E871EB /* MyPersonalCardsPage.swift */; };
 		E750498B2B288104008DD89C /* CountryPicker in Frameworks */ = {isa = PBXBuildFile; productRef = E750498A2B288104008DD89C /* CountryPicker */; };
 		E750498E2B2893F6008DD89C /* CountryPickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E750498D2B2893F6008DD89C /* CountryPickerHandler.swift */; };
 		E751E0B72B7AB8AB0033752F /* AttachImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E751E0B62B7AB8AA0033752F /* AttachImagePicker.swift */; };
@@ -94,6 +100,7 @@
 		E75591A32B27065900693FD5 /* PopupMiddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75591A22B27065900693FD5 /* PopupMiddle.swift */; };
 		E75591A62B27A27000693FD5 /* ErrorToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75591A52B27A27000693FD5 /* ErrorToast.swift */; };
 		E75591A82B27BC4F00693FD5 /* ReadMee.md in Resources */ = {isa = PBXBuildFile; fileRef = E75591A72B27BC4F00693FD5 /* ReadMee.md */; };
+		E75E44612BB447DA00A57D28 /* RentalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75E44602BB447DA00A57D28 /* RentalView.swift */; };
 		E7601EAC2B1F43000070C853 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7601EAB2B1F43000070C853 /* Colors.xcassets */; };
 		E761C3C22B69994D00B3917F /* CustomerRequestsDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761C3C12B69994D00B3917F /* CustomerRequestsDetailsPage.swift */; };
 		E761C3C52B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761C3C42B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift */; };
@@ -104,7 +111,15 @@
 		E76565B42B8555B2000CE3F6 /* GoogleMapsCore in Frameworks */ = {isa = PBXBuildFile; productRef = E76565B32B8555B2000CE3F6 /* GoogleMapsCore */; };
 		E76565B62B8555B2000CE3F6 /* GoogleMapsM4B in Frameworks */ = {isa = PBXBuildFile; productRef = E76565B52B8555B2000CE3F6 /* GoogleMapsM4B */; };
 		E76EB22A2B83887E00F904DC /* CreateAdsSuccessPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76EB2292B83887E00F904DC /* CreateAdsSuccessPage.swift */; };
+		E7725FF32BA1CE6D005AB63C /* PropertySummaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7725FF22BA1CE6D005AB63C /* PropertySummaryPage.swift */; };
+		E7725FF62BA1CF1D005AB63C /* PropertySummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7725FF52BA1CF1D005AB63C /* PropertySummaryViewModel.swift */; };
 		E77F066E2B2207E600C674BD /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77F066D2B2207E600C674BD /* TextFieldStyles.swift */; };
+		E77FF91A2BBB1CD400E2DF7E /* PaymentEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FF9192BBB1CD400E2DF7E /* PaymentEndPoint.swift */; };
+		E77FF91C2BBB1CE600E2DF7E /* PaymentAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FF91B2BBB1CE600E2DF7E /* PaymentAPIClient.swift */; };
+		E77FF91E2BBB1E2900E2DF7E /* AddPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FF91D2BBB1E2900E2DF7E /* AddPaymentModel.swift */; };
+		E77FF9202BBB24DD00E2DF7E /* MyPersonalCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FF91F2BBB24DD00E2DF7E /* MyPersonalCardsViewModel.swift */; };
+		E77FF9222BBC614A00E2DF7E /* ShowCardDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FF9212BBC614A00E2DF7E /* ShowCardDetailsPage.swift */; };
+		E77FF9242BBCAE8900E2DF7E /* RequestDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FF9232BBCAE8900E2DF7E /* RequestDetailsPage.swift */; };
 		E78356852B74578200B342FE /* MyAdsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78356842B74578200B342FE /* MyAdsPage.swift */; };
 		E78356872B7457AF00B342FE /* MyAdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78356862B7457AF00B342FE /* MyAdsViewModel.swift */; };
 		E78356892B745B2D00B342FE /* MyAdsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78356882B745B2D00B342FE /* MyAdsContainerView.swift */; };
@@ -149,6 +164,7 @@
 		E7BDC1DD2B9E60FB00A59AE5 /* MainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDC1DC2B9E60FB00A59AE5 /* MainSearchView.swift */; };
 		E7C0F4FD2B69A20100406B85 /* CustomerRequestsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C0F4FC2B69A20100406B85 /* CustomerRequestsModel.swift */; };
 		E7C0F4FF2B69AAA600406B85 /* VilalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C0F4FE2B69AAA600406B85 /* VilalHelper.swift */; };
+		E7C666BA2BB5A2F600515DBC /* PropertyOwnerInformationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C666B92BB5A2F600515DBC /* PropertyOwnerInformationPage.swift */; };
 		E7C9258A2B0B78AF007DF84B /* VilalKSAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C925892B0B78AF007DF84B /* VilalKSAApp.swift */; };
 		E7C9258C2B0B78AF007DF84B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C9258B2B0B78AF007DF84B /* ContentView.swift */; };
 		E7C9258E2B0B78B1007DF84B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7C9258D2B0B78B1007DF84B /* Assets.xcassets */; };
@@ -167,6 +183,7 @@
 		E7CAC5FB2B4701F30070C9D1 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FA2B4701F30070C9D1 /* AppUtility.swift */; };
 		E7CAC5FD2B4702210070C9D1 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FC2B4702210070C9D1 /* BaseModel.swift */; };
 		E7CAC5FF2B4703140070C9D1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CAC5FE2B4703140070C9D1 /* ErrorMessage.swift */; };
+		E7D15A672BB4E0B400EB23C5 /* RentalReservationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D15A662BB4E0B400EB23C5 /* RentalReservationPage.swift */; };
 		E7D37FE12B96655900A43DD9 /* MyAdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D37FE02B96655900A43DD9 /* MyAdsModel.swift */; };
 		E7D7CF692B88E9A70053A061 /* AdsDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF682B88E9A60053A061 /* AdsDetailsPage.swift */; };
 		E7D7CF6B2B88EC910053A061 /* AdsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF6A2B88EC910053A061 /* AdsDetailsViewModel.swift */; };
@@ -196,6 +213,9 @@
 		E7DDA8822B78332500921181 /* AddNewAdLocationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA8812B78332500921181 /* AddNewAdLocationPage.swift */; };
 		E7DDA8842B783DEE00921181 /* AddNewAdRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA8832B783DEE00921181 /* AddNewAdRequestModel.swift */; };
 		E7DDA8862B78460E00921181 /* PropertyGalleryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA8852B78460E00921181 /* PropertyGalleryPage.swift */; };
+		E7DE8DE02BA9C9AC00B57BED /* AddPersonalCardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DE8DDF2BA9C9AC00B57BED /* AddPersonalCardPage.swift */; };
+		E7DE8DE22BA9CA7200B57BED /* AddPersonalCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DE8DE12BA9CA7200B57BED /* AddPersonalCardViewModel.swift */; };
+		E7E217CC2BB1A33F00A835D8 /* CalenderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E217CB2BB1A33F00A835D8 /* CalenderPage.swift */; };
 		E7E34ACA2B701D34001F7AE8 /* TodayAdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E34AC92B701D34001F7AE8 /* TodayAdsModel.swift */; };
 		E7E34ACD2B704B75001F7AE8 /* TodayAdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E34ACC2B704B75001F7AE8 /* TodayAdsViewModel.swift */; };
 		E7E34ACF2B705632001F7AE8 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E34ACE2B705632001F7AE8 /* URLImage.swift */; };
@@ -239,6 +259,9 @@
 		E70EEDF32B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedLocationGoogleMapsView.swift; sourceTree = "<group>"; };
 		E71A633A2B26102000B8687C /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		E71B097B2B2A5A5900046242 /* ForgetPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordPage.swift; sourceTree = "<group>"; };
+		E71E73CF2BB98E7900882D82 /* PropertyOwnerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyOwnerModel.swift; sourceTree = "<group>"; };
+		E71E73D12BB9923400882D82 /* PropertyOwnerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyOwnerViewModel.swift; sourceTree = "<group>"; };
+		E71E73D32BB9B8B500882D82 /* PoliciesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliciesPage.swift; sourceTree = "<group>"; };
 		E72050662B2C753E00EB76AB /* NewPasswordPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPage.swift; sourceTree = "<group>"; };
 		E720506B2B2C8EB700EB76AB /* ChangePasswordSuccessPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordSuccessPage.swift; sourceTree = "<group>"; };
 		E72050702B2CA5DD00EB76AB /* CreateAccountPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPage.swift; sourceTree = "<group>"; };
@@ -269,6 +292,8 @@
 		E72981C42B80E2F200B5B995 /* LookUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUpResponse.swift; sourceTree = "<group>"; };
 		E72981C62B81089800B5B995 /* CreateNewAdsRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAdsRequestModel.swift; sourceTree = "<group>"; };
 		E72981C82B810C2F00B5B995 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		E731D7A02BA2565E00BD6333 /* SquareAnimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareAnimate.swift; sourceTree = "<group>"; };
+		E731D7A32BA2673800BD6333 /* PaymentMethodsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodsPage.swift; sourceTree = "<group>"; };
 		E7361F7A2B5339EB00E97D15 /* Cairo-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-ExtraBold.ttf"; sourceTree = "<group>"; };
 		E7361F7C2B53462A00E97D15 /* GridItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItem.swift; sourceTree = "<group>"; };
 		E7361F7F2B534E4600E97D15 /* ServicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewModel.swift; sourceTree = "<group>"; };
@@ -293,6 +318,7 @@
 		E74EDE2C2B0EBF3100E0B150 /* ActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		E74EDE4F2B0EC02D00E0B150 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E74EDE532B0EC11500E0B150 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E7501E4D2BA479E100E871EB /* MyPersonalCardsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPersonalCardsPage.swift; sourceTree = "<group>"; };
 		E750498D2B2893F6008DD89C /* CountryPickerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerHandler.swift; sourceTree = "<group>"; };
 		E751E0B62B7AB8AA0033752F /* AttachImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachImagePicker.swift; sourceTree = "<group>"; };
 		E751E0B82B7AB9E30033752F /* SelectedImagesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImagesCard.swift; sourceTree = "<group>"; };
@@ -301,13 +327,22 @@
 		E75591A22B27065900693FD5 /* PopupMiddle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMiddle.swift; sourceTree = "<group>"; };
 		E75591A52B27A27000693FD5 /* ErrorToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorToast.swift; sourceTree = "<group>"; };
 		E75591A72B27BC4F00693FD5 /* ReadMee.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMee.md; sourceTree = "<group>"; };
+		E75E44602BB447DA00A57D28 /* RentalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalView.swift; sourceTree = "<group>"; };
 		E7601EAB2B1F43000070C853 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E761C3C12B69994D00B3917F /* CustomerRequestsDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRequestsDetailsPage.swift; sourceTree = "<group>"; };
 		E761C3C42B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRequestsDetailsViewModel.swift; sourceTree = "<group>"; };
 		E761C7B62B99CBFC00683BFF /* MainFilterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFilterPage.swift; sourceTree = "<group>"; };
 		E761C7B82B99D3DE00683BFF /* StateOnContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOnContentView.swift; sourceTree = "<group>"; };
 		E76EB2292B83887E00F904DC /* CreateAdsSuccessPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdsSuccessPage.swift; sourceTree = "<group>"; };
+		E7725FF22BA1CE6D005AB63C /* PropertySummaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertySummaryPage.swift; sourceTree = "<group>"; };
+		E7725FF52BA1CF1D005AB63C /* PropertySummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertySummaryViewModel.swift; sourceTree = "<group>"; };
 		E77F066D2B2207E600C674BD /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
+		E77FF9192BBB1CD400E2DF7E /* PaymentEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentEndPoint.swift; sourceTree = "<group>"; };
+		E77FF91B2BBB1CE600E2DF7E /* PaymentAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAPIClient.swift; sourceTree = "<group>"; };
+		E77FF91D2BBB1E2900E2DF7E /* AddPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentModel.swift; sourceTree = "<group>"; };
+		E77FF91F2BBB24DD00E2DF7E /* MyPersonalCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPersonalCardsViewModel.swift; sourceTree = "<group>"; };
+		E77FF9212BBC614A00E2DF7E /* ShowCardDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDetailsPage.swift; sourceTree = "<group>"; };
+		E77FF9232BBCAE8900E2DF7E /* RequestDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailsPage.swift; sourceTree = "<group>"; };
 		E78356842B74578200B342FE /* MyAdsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsPage.swift; sourceTree = "<group>"; };
 		E78356862B7457AF00B342FE /* MyAdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsViewModel.swift; sourceTree = "<group>"; };
 		E78356882B745B2D00B342FE /* MyAdsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsContainerView.swift; sourceTree = "<group>"; };
@@ -352,6 +387,7 @@
 		E7BDC1DC2B9E60FB00A59AE5 /* MainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchView.swift; sourceTree = "<group>"; };
 		E7C0F4FC2B69A20100406B85 /* CustomerRequestsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRequestsModel.swift; sourceTree = "<group>"; };
 		E7C0F4FE2B69AAA600406B85 /* VilalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilalHelper.swift; sourceTree = "<group>"; };
+		E7C666B92BB5A2F600515DBC /* PropertyOwnerInformationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyOwnerInformationPage.swift; sourceTree = "<group>"; };
 		E7C925862B0B78AF007DF84B /* VilalKSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VilalKSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C925892B0B78AF007DF84B /* VilalKSAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilalKSAApp.swift; sourceTree = "<group>"; };
 		E7C9258B2B0B78AF007DF84B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -371,6 +407,7 @@
 		E7CAC5FA2B4701F30070C9D1 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		E7CAC5FC2B4702210070C9D1 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		E7CAC5FE2B4703140070C9D1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		E7D15A662BB4E0B400EB23C5 /* RentalReservationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalReservationPage.swift; sourceTree = "<group>"; };
 		E7D37FE02B96655900A43DD9 /* MyAdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAdsModel.swift; sourceTree = "<group>"; };
 		E7D7CF682B88E9A60053A061 /* AdsDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDetailsPage.swift; sourceTree = "<group>"; };
 		E7D7CF6A2B88EC910053A061 /* AdsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -399,6 +436,9 @@
 		E7DDA8812B78332500921181 /* AddNewAdLocationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdLocationPage.swift; sourceTree = "<group>"; };
 		E7DDA8832B783DEE00921181 /* AddNewAdRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAdRequestModel.swift; sourceTree = "<group>"; };
 		E7DDA8852B78460E00921181 /* PropertyGalleryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyGalleryPage.swift; sourceTree = "<group>"; };
+		E7DE8DDF2BA9C9AC00B57BED /* AddPersonalCardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonalCardPage.swift; sourceTree = "<group>"; };
+		E7DE8DE12BA9CA7200B57BED /* AddPersonalCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonalCardViewModel.swift; sourceTree = "<group>"; };
+		E7E217CB2BB1A33F00A835D8 /* CalenderPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderPage.swift; sourceTree = "<group>"; };
 		E7E34AC92B701D34001F7AE8 /* TodayAdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAdsModel.swift; sourceTree = "<group>"; };
 		E7E34ACC2B704B75001F7AE8 /* TodayAdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAdsViewModel.swift; sourceTree = "<group>"; };
 		E7E34ACE2B705632001F7AE8 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
@@ -486,10 +526,10 @@
 			isa = PBXGroup;
 			children = (
 				E7DDA87B2B782BC700921181 /* Models */,
-				E751E0BC2B7ACBA00033752F /* Views */,
 				E7DDA87E2B782C1F00921181 /* ViewModels */,
 				E7DDA8762B7828D100921181 /* API */,
 				E7096D852B53089100FDA20E /* Page */,
+				E751E0BC2B7ACBA00033752F /* Views */,
 			);
 			path = AddNewAd;
 			sourceTree = "<group>";
@@ -536,6 +576,8 @@
 				E751E0BA2B7AC3FB0033752F /* AddNewAdsPage.swift */,
 				E76EB2292B83887E00F904DC /* CreateAdsSuccessPage.swift */,
 				E7D7CF682B88E9A60053A061 /* AdsDetailsPage.swift */,
+				E7D15A662BB4E0B400EB23C5 /* RentalReservationPage.swift */,
+				E7C666B92BB5A2F600515DBC /* PropertyOwnerInformationPage.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -562,6 +604,8 @@
 				E7B7599B2B75BD5E007D20A3 /* TermsAndConditionsPage.swift */,
 				E7B7599D2B75BDF2007D20A3 /* PrivacyPolicyPage.swift */,
 				E7B7599F2B75BE6C007D20A3 /* ContactUsPage.swift */,
+				E71E73D32BB9B8B500882D82 /* PoliciesPage.swift */,
+				E77FF9232BBCAE8900E2DF7E /* RequestDetailsPage.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -943,6 +987,8 @@
 				E751E0BD2B7ACBC50033752F /* PropertyInterfaceView.swift */,
 				E7D7CF6E2B88F5710053A061 /* AdDetailsMainView.swift */,
 				E7D7CF702B89380C0053A061 /* SimilarAdsView.swift */,
+				E7E217CB2BB1A33F00A835D8 /* CalenderPage.swift */,
+				E75E44602BB447DA00A57D28 /* RentalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -956,6 +1002,64 @@
 				E7DDA8722B7804B500921181 /* AddNewAdsDialog.swift */,
 			);
 			path = "Alert-PopUp";
+			sourceTree = "<group>";
+		};
+		E7725FEB2BA1CDAE005AB63C /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				E7725FF12BA1CE00005AB63C /* API */,
+				E7725FF02BA1CDF0005AB63C /* Models */,
+				E7725FEF2BA1CDDC005AB63C /* ViewModels */,
+				E7725FEE2BA1CDCA005AB63C /* Pages */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		E7725FED2BA1CDC2005AB63C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7725FEE2BA1CDCA005AB63C /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E7DE8DDF2BA9C9AC00B57BED /* AddPersonalCardPage.swift */,
+				E7501E4D2BA479E100E871EB /* MyPersonalCardsPage.swift */,
+				E731D7A32BA2673800BD6333 /* PaymentMethodsPage.swift */,
+				E7725FF22BA1CE6D005AB63C /* PropertySummaryPage.swift */,
+				E7725FED2BA1CDC2005AB63C /* View */,
+				E77FF9212BBC614A00E2DF7E /* ShowCardDetailsPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		E7725FEF2BA1CDDC005AB63C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E7725FF52BA1CF1D005AB63C /* PropertySummaryViewModel.swift */,
+				E7DE8DE12BA9CA7200B57BED /* AddPersonalCardViewModel.swift */,
+				E77FF91F2BBB24DD00E2DF7E /* MyPersonalCardsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E7725FF02BA1CDF0005AB63C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E77FF91D2BBB1E2900E2DF7E /* AddPaymentModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E7725FF12BA1CE00005AB63C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E77FF9192BBB1CD400E2DF7E /* PaymentEndPoint.swift */,
+				E77FF91B2BBB1CE600E2DF7E /* PaymentAPIClient.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		E78356942B747CEA00B342FE /* MyReservationsViews */ = {
@@ -1023,6 +1127,7 @@
 		E7BBD9582B0D527D0086758B /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E7725FEB2BA1CDAE005AB63C /* Payment */,
 				E723B7B42B7317120048441D /* GeneralModels */,
 				E7096D7F2B53085000FDA20E /* MyAccount */,
 				E7096D7E2B53084400FDA20E /* Messages */,
@@ -1196,6 +1301,7 @@
 				E7B759972B75B4C3007D20A3 /* UserDefaultKeys.swift */,
 				E740D2452B828A2D005AB013 /* KeyboardResponder.swift */,
 				E74293802B8BD39D000762EB /* ImageSlideshowView.swift */,
+				E731D7A02BA2565E00BD6333 /* SquareAnimate.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1274,6 +1380,7 @@
 				E72981C42B80E2F200B5B995 /* LookUpResponse.swift */,
 				E72981C62B81089800B5B995 /* CreateNewAdsRequestModel.swift */,
 				E7D7CF6C2B88EFFA0053A061 /* AdDetailsModel.swift */,
+				E71E73CF2BB98E7900882D82 /* PropertyOwnerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1284,6 +1391,7 @@
 				E7DDA87F2B782C4A00921181 /* AddNewAdCategoryViewModel.swift */,
 				E7CA670A2B7ED8000046B311 /* AddNewAdsViewModel.swift */,
 				E7D7CF6A2B88EC910053A061 /* AdsDetailsViewModel.swift */,
+				E71E73D12BB9923400882D82 /* PropertyOwnerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1514,6 +1622,7 @@
 				E727D54D2B5C90A400F2CF0C /* RealStateTypeView.swift in Sources */,
 				E77F066E2B2207E600C674BD /* TextFieldStyles.swift in Sources */,
 				E78356892B745B2D00B342FE /* MyAdsContainerView.swift in Sources */,
+				E7E217CC2BB1A33F00A835D8 /* CalenderPage.swift in Sources */,
 				E7DDA8842B783DEE00921181 /* AddNewAdRequestModel.swift in Sources */,
 				E7DDA8862B78460E00921181 /* PropertyGalleryPage.swift in Sources */,
 				E72711002B20853900C86406 /* ButtonsStyles.swift in Sources */,
@@ -1525,8 +1634,10 @@
 				E7E878102B85528B00C4B718 /* MapViewControllerBridge.swift in Sources */,
 				E7BBD9672B0D54220086758B /* Image+Extension .swift in Sources */,
 				E76EB22A2B83887E00F904DC /* CreateAdsSuccessPage.swift in Sources */,
+				E7DE8DE02BA9C9AC00B57BED /* AddPersonalCardPage.swift in Sources */,
 				E7E9C2A12B69C118009D1918 /* TodayAdsPage.swift in Sources */,
 				E7A5F6152B50BC1800882220 /* ResendCodeModel.swift in Sources */,
+				E77FF91C2BBB1CE600E2DF7E /* PaymentAPIClient.swift in Sources */,
 				E723B7BA2B73289B0048441D /* FavoritesPage.swift in Sources */,
 				E74EDE3D2B0EBF3100E0B150 /* Loader.swift in Sources */,
 				E744D1942B483FB800CB5DC1 /* AuthAPIClient.swift in Sources */,
@@ -1537,7 +1648,9 @@
 				E72050782B2CB65600EB76AB /* CompeletProfilePage.swift in Sources */,
 				E7BBD95F2B0D537E0086758B /* PagingEnabledModifier.swift in Sources */,
 				E7A5F6132B50974B00882220 /* NewPasswordViewModel.swift in Sources */,
+				E77FF9202BBB24DD00E2DF7E /* MyPersonalCardsViewModel.swift in Sources */,
 				E7DD75692B4FAE1F00207409 /* ChangePasswordModel.swift in Sources */,
+				E75E44612BB447DA00A57D28 /* RentalView.swift in Sources */,
 				E78356982B748B2600B342FE /* MyReservationTypesView.swift in Sources */,
 				E7CA67072B7ED7830046B311 /* AddCustomerRequestsPage.swift in Sources */,
 				E74EDE542B0EC11500E0B150 /* LoadingView.swift in Sources */,
@@ -1551,7 +1664,10 @@
 				E7361F852B534F3D00E97D15 /* ServicesEndPoint.swift in Sources */,
 				E7BBD9652B0D54120086758B /* Color+Extension.swift in Sources */,
 				E7CAC5FB2B4701F30070C9D1 /* AppUtility.swift in Sources */,
+				E7C666BA2BB5A2F600515DBC /* PropertyOwnerInformationPage.swift in Sources */,
 				E7D7CF7F2B8A435E0053A061 /* MainViewModel.swift in Sources */,
+				E731D7A12BA2565E00BD6333 /* SquareAnimate.swift in Sources */,
+				E7501E4E2BA479E100E871EB /* MyPersonalCardsPage.swift in Sources */,
 				E7096D832B53088700FDA20E /* ServicesPage.swift in Sources */,
 				E761C7B92B99D3DE00683BFF /* StateOnContentView.swift in Sources */,
 				E727D54B2B5C908700F2CF0C /* RentalInfoHeaderView.swift in Sources */,
@@ -1569,6 +1685,7 @@
 				E7F242472B6FF9E600D02F16 /* VilalIconWithValueView.swift in Sources */,
 				E7096D8D2B5308D400FDA20E /* MyAccountPage.swift in Sources */,
 				E750498E2B2893F6008DD89C /* CountryPickerHandler.swift in Sources */,
+				E71E73D22BB9923400882D82 /* PropertyOwnerViewModel.swift in Sources */,
 				E783568D2B7464B100B342FE /* MyRequestsViewModel.swift in Sources */,
 				E761C3C52B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift in Sources */,
 				E7D7CF7C2B8A430B0053A061 /* MainAdsModel.swift in Sources */,
@@ -1576,10 +1693,12 @@
 				E7E34ACA2B701D34001F7AE8 /* TodayAdsModel.swift in Sources */,
 				E744D19C2B4843F900CB5DC1 /* LoginViewModel.swift in Sources */,
 				E7DDA87D2B782BD400921181 /* AdsCategoryModel.swift in Sources */,
+				E71E73D02BB98E7900882D82 /* PropertyOwnerModel.swift in Sources */,
 				E72711022B20B9FA00C86406 /* R.generated.swift in Sources */,
 				E7B759A22B75BFE0007D20A3 /* AlertDialog.swift in Sources */,
 				E7B7598E2B75210D007D20A3 /* CompletedMyReservationView.swift in Sources */,
 				E7B759942B75B1A3007D20A3 /* LanguagePage.swift in Sources */,
+				E7725FF32BA1CE6D005AB63C /* PropertySummaryPage.swift in Sources */,
 				E7BBD96E2B0D598E0086758B /* SplashPage.swift in Sources */,
 				E7C0F4FD2B69A20100406B85 /* CustomerRequestsModel.swift in Sources */,
 				E7B7599A2B75BD32007D20A3 /* CancellationTermsPage.swift in Sources */,
@@ -1611,6 +1730,7 @@
 				E7C9259C2B0B800D007DF84B /* Enums.swift in Sources */,
 				E7361F872B534F5800E97D15 /* ServicesAPIClient.swift in Sources */,
 				E727D5432B5C7BEF00F2CF0C /* CustomerOrdersViewModel.swift in Sources */,
+				E71E73D42BB9B8B500882D82 /* PoliciesPage.swift in Sources */,
 				E761C7B72B99CBFC00683BFF /* MainFilterPage.swift in Sources */,
 				E740D2462B828A2D005AB013 /* KeyboardResponder.swift in Sources */,
 				E7E34ADB2B713729001F7AE8 /* PropertyKeyValueDetailsView.swift in Sources */,
@@ -1638,6 +1758,7 @@
 				E7361F892B534F8B00E97D15 /* ServicesModel.swift in Sources */,
 				E7BBD9692B0D544E0086758B /* View+Extension.swift in Sources */,
 				E78356912B7477E600B342FE /* MyReservationsPage.swift in Sources */,
+				E7D15A672BB4E0B400EB23C5 /* RentalReservationPage.swift in Sources */,
 				E7B7599E2B75BDF2007D20A3 /* PrivacyPolicyPage.swift in Sources */,
 				E7CAC5F42B46FDD40070C9D1 /* APIResult.swift in Sources */,
 				E727D5512B5C90FB00F2CF0C /* PriceInfoView.swift in Sources */,
@@ -1654,20 +1775,26 @@
 				E70EEDF42B875F7800F2E14E /* SelectedLocationGoogleMapsView.swift in Sources */,
 				E744D1992B48412E00CB5DC1 /* LoginModel.swift in Sources */,
 				E71A633B2B26102000B8687C /* TextStyles.swift in Sources */,
+				E77FF91A2BBB1CD400E2DF7E /* PaymentEndPoint.swift in Sources */,
 				E7361F802B534E4600E97D15 /* ServicesViewModel.swift in Sources */,
 				E744D1962B48403300CB5DC1 /* AuthEndPoint.swift in Sources */,
+				E77FF9242BBCAE8900E2DF7E /* RequestDetailsPage.swift in Sources */,
 				E7A8BD2E2B4DD84200A6AA5B /* VerificationCodeViewModel.swift in Sources */,
 				E72981C52B80E2F200B5B995 /* LookUpResponse.swift in Sources */,
 				E7B759982B75B4C3007D20A3 /* UserDefaultKeys.swift in Sources */,
 				E7BBD95D2B0D52C70086758B /* LoginPage.swift in Sources */,
 				E74EDE452B0EBF3100E0B150 /* PageIndicator.swift in Sources */,
 				E7E34AD32B710E33001F7AE8 /* PropertyCategoryView.swift in Sources */,
+				E77FF9222BBC614A00E2DF7E /* ShowCardDetailsPage.swift in Sources */,
+				E7DE8DE22BA9CA7200B57BED /* AddPersonalCardViewModel.swift in Sources */,
 				E72050712B2CA5DD00EB76AB /* CreateAccountPage.swift in Sources */,
 				E761C3C22B69994D00B3917F /* CustomerRequestsDetailsPage.swift in Sources */,
+				E77FF91E2BBB1E2900E2DF7E /* AddPaymentModel.swift in Sources */,
 				E723B7B62B73171E0048441D /* IconAndTitleWithActionModel.swift in Sources */,
 				E7DDA8822B78332500921181 /* AddNewAdLocationPage.swift in Sources */,
 				E7CAC5F22B46FDD40070C9D1 /* APIClient.swift in Sources */,
 				E7B759922B759837007D20A3 /* AboutAppPage.swift in Sources */,
+				E731D7A42BA2673800BD6333 /* PaymentMethodsPage.swift in Sources */,
 				E72981C72B81089800B5B995 /* CreateNewAdsRequestModel.swift in Sources */,
 				E7E6FF5F2B2B3A3A00D94036 /* CodeCountryView.swift in Sources */,
 				E7D7CF6D2B88EFFA0053A061 /* AdDetailsModel.swift in Sources */,
@@ -1682,6 +1809,7 @@
 				E75591A32B27065900693FD5 /* PopupMiddle.swift in Sources */,
 				E727D54F2B5C90D700F2CF0C /* LocationInfoView.swift in Sources */,
 				E7DD75652B4FAD4E00207409 /* ForgetPasswordModel.swift in Sources */,
+				E7725FF62BA1CF1D005AB63C /* PropertySummaryViewModel.swift in Sources */,
 				E7DDA8732B7804B500921181 /* AddNewAdsDialog.swift in Sources */,
 				E7E34ACD2B704B75001F7AE8 /* TodayAdsViewModel.swift in Sources */,
 				E7096D912B530A8700FDA20E /* MainPage.swift in Sources */,
@@ -1828,13 +1956,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"VilalKSA/Preview Content\"";
 				DEVELOPMENT_TEAM = LRDS6PV5N3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VilalKSA/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "فلل";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"تطبيق فلل يريد السماح بفتح الكاميرا حتي يتم التقاط صور العقار\"";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
@@ -1846,6 +1974,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1870,13 +1999,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"VilalKSA/Preview Content\"";
 				DEVELOPMENT_TEAM = LRDS6PV5N3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VilalKSA/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "فلل";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"تطبيق فلل يريد السماح بفتح الكاميرا حتي يتم التقاط صور العقار\"";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "\"تطبيق فلل يريد الوصول لموقعك لإيجاد اقرب عقارلك\"";
@@ -1888,6 +2017,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

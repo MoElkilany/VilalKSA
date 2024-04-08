@@ -68,6 +68,17 @@ extension View {
                     .fill(Color.white)
                     .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
         }
+    
+    
+    
+    
+    
+    func cardStyle(corner:CGFloat? = 0 ) -> some View {
+        self.frame(maxWidth: .infinity)
+                .background(RoundedRectangle(cornerRadius: corner ?? 0 )
+                    .fill(Color.white)
+                    .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
+        }
 }
 
 struct RoundedCorner: Shape {

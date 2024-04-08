@@ -66,12 +66,9 @@ struct AddCustomerRequestsPage: View {
         },backAction:{
             pilot.pop()
         } ,content: {
-            
             ZStack{
                 ScrollView(showsIndicators: false){
-
                         VStack{
-                                                        
                             Button(action: {
                                 openCategory = true
                             }, label: {
@@ -84,13 +81,10 @@ struct AddCustomerRequestsPage: View {
                                     .disabled(true)
                                 }
                             })
-                            
                             VilalDivider()
-                            
                             VStack(alignment: .leading,spacing: 0) {
                                 TextBold14(textKey: R.string.localizable.property_Name.localized, textColor: R.color.colorPrimary.name.getColor())
                                     .padding(.bottom,0)
-                                
                                 VilalTextField(text: $propertyName, placeholder:  R.string.localizable.property_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
                                     self.viewModel.isPropertyNameValid = isValid
                                 })
@@ -105,7 +99,6 @@ struct AddCustomerRequestsPage: View {
                             if submitButton == true  {
                                 if  self.interfaceId == "" {
                                     HStack{
-                                        
                                         ErrorTextView(errorText: R.string.localizable.please_Select_Facade.localized)
                                         Spacer()
                                     }
