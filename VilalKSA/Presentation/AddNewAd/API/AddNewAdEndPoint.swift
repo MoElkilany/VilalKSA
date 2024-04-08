@@ -80,7 +80,7 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
     
     var headers: [String : String]? {
         let local =   UserDefaults.standard.string(forKey: UserDefaultKeys.currentLanguage.rawValue) ?? "ar"
-        let header : [String : String] = ["Accept": "application/json","locale": local,"Accept-Language":local,"Accept-Language":local]
+        let header : [String : String] = ["Accept": "application/json","locale": local,"Accept-Language":local]
         return header
     }
     
