@@ -27,7 +27,7 @@ class AddNewAdsViewModel: BaseViewModel {
     
     @Published var isRental: Bool = false
 
-
+    var isValidArea = false
     var isPriceValid = false
     var isPropertyDetailsValid = false
     var isPropertyNameValid = false
@@ -123,12 +123,10 @@ class AddNewAdsViewModel: BaseViewModel {
     
     
     func isValidForm() -> Bool {
-        
         if isRental {
-          return  isPriceValid && isPropertyDetailsValid && !residentID.isEmpty && !rentalID.isEmpty
+          return isValidArea && isPriceValid && isPropertyDetailsValid && !residentID.isEmpty && !rentalID.isEmpty
         }else{
-            return isPriceValid && isPropertyDetailsValid
-
+            return isValidArea && isPriceValid && isPropertyDetailsValid
         }
     }
     

@@ -55,7 +55,7 @@ struct MyAdsPage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
-        .task {
+        .onAppear {
             if self.viewModel.MyAdsList?.isEmpty == true  ||  self.viewModel.MyAdsList == nil  {
                 self.viewModel.getMyAds()
             }

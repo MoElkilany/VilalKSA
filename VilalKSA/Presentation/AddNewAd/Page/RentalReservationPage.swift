@@ -16,7 +16,7 @@ struct RentalReservationPage: View {
     @EnvironmentObject var mainPilot: UIPilot<MainDestination>
     @EnvironmentObject var servicesPilot: UIPilot<ServicesDestination>
     @EnvironmentObject var favoritePilot: UIPilot<FavoritesDestination>
-    var navigationType: AdDetailsTypes = .ads
+    var navigationType: AdDetailsTypes 
     
     @State var appState: AppState = .success
     @State var showTermsAndCondition: Bool = false

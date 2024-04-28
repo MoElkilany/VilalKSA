@@ -22,7 +22,7 @@ struct AddCustomerRequestsPage: View {
     @State private var livingRooms:  Int = 1
     @State private var bathRooms:    Int = 1
     @State private var streetView:   Int = 1
-    @State private var propertyArea: Int = 1
+    @State private var propertyArea: String = ""
     
     @State private var floorNumber: Int  = 1
     @State private var propertyAge: Int  = 1
@@ -87,6 +87,15 @@ struct AddCustomerRequestsPage: View {
                                     .padding(.bottom,0)
                                 VilalTextField(text: $propertyName, placeholder:  R.string.localizable.property_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
                                     self.viewModel.isPropertyNameValid = isValid
+                                })
+                            }
+                            VilalDivider()
+                            VStack(alignment: .leading,spacing: 0) {
+                                TextBold14(textKey:R.string.localizable.property_Area.localized, textColor: R.color.colorPrimary.name.getColor())
+                                    .padding(.bottom,0)
+
+                                VilalTextField(text: $propertyArea, placeholder:   R.string.localizable.property_Area.localized , imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+                                    self.viewModel.isValidArea = isValid
                                 })
                             }
                             
@@ -166,8 +175,7 @@ struct AddCustomerRequestsPage: View {
                             VilalDivider()
                             SliderView(sliderValue: $streetView, localizedTitle:  R.string.localizable.street_View.localized, localizedKey: R.string.localizable.meter.localized,valueFrom: 10,valueTo: 100)
                             VilalDivider()
-                            SliderView(sliderValue: $propertyArea, localizedTitle:  R.string.localizable.property_Area.localized, localizedKey: R.string.localizable.one_Thousand_Meters.localized,valueFrom: 1,valueTo: 50)
-                            VilalDivider()
+                            
                             PlusMinusView(localizedTitle:  R.string.localizable.floor_Number.localized, defualtValue: 1, finalValue: { floorNumber in
                                 self.floorNumber = floorNumber
                             })
@@ -239,16 +247,15 @@ struct AddCustomerRequestsPage: View {
                     }
                     
                     DefaultButton(title:  R.string.localizable.property_Request.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
+                        
                         submitButton = true
 
-                        let requestModel = CreateCutomerRequestModel(typeId: "1", categoryId: self.categoryId, lat: String(self.selectedLocation?.latitude ?? 21.11), lon: String(self.selectedLocation?.longitude ?? 21.11), interfaceId: self.interfaceId, room:String(self.roomNumbers), lounges: String(self.livingRooms), bathrooms: String(self.bathRooms), space: String(self.streetView), estateSpace: String(self.propertyArea), floorNumber: String(self.floorNumber), ageRealEstate: String(self.propertyAge), airConditioners: String(Convert.boolValueToIntValue(boolValue: self.airConditioning)), specialSurface: String(Convert.boolValueToIntValue(boolValue: self.specialSurface)), villa: String(Convert.boolValueToIntValue(boolValue: self.villa)), twoEntrances: String(Convert.boolValueToIntValue(boolValue: self.twoEntrances)), privateEntrance: String(Convert.boolValueToIntValue(boolValue: self.privateEntrances)), info: self.propertyDetails, furnished: String(Convert.boolValueToIntValue(boolValue: self.furnished)), kitchen: String(Convert.boolValueToIntValue(boolValue: self.kitchen)), appendix: String(Convert.boolValueToIntValue(boolValue: self.annex)), carEntrance: String(Convert.boolValueToIntValue(boolValue: self.carEntrance)), elevator: String(Convert.boolValueToIntValue(boolValue: self.elevator)), priceFrom: self.priceFrom, priceTo: self.priceTo, rentalperiodID: self.rentalPeriodId, residentID: self.residentId, imageAds: "0" ,name: self.propertyName,address: self.selectedAddress ?? "" )
-                        
-                        self.viewModel.createNewRequest(model: requestModel)
+                        if viewModel.isValidForm() {
+                            let requestModel = CreateCutomerRequestModel(typeId: "1", categoryId: self.categoryId, lat: String(self.selectedLocation?.latitude ?? 21.11), lon: String(self.selectedLocation?.longitude ?? 21.11), interfaceId: self.interfaceId, room:String(self.roomNumbers), lounges: String(self.livingRooms), bathrooms: String(self.bathRooms), space: String(self.streetView), estateSpace: self.propertyArea, floorNumber: String(self.floorNumber), ageRealEstate: String(self.propertyAge), airConditioners: String(Convert.boolValueToIntValue(boolValue: self.airConditioning)), specialSurface: String(Convert.boolValueToIntValue(boolValue: self.specialSurface)), villa: String(Convert.boolValueToIntValue(boolValue: self.villa)), twoEntrances: String(Convert.boolValueToIntValue(boolValue: self.twoEntrances)), privateEntrance: String(Convert.boolValueToIntValue(boolValue: self.privateEntrances)), info: self.propertyDetails, furnished: String(Convert.boolValueToIntValue(boolValue: self.furnished)), kitchen: String(Convert.boolValueToIntValue(boolValue: self.kitchen)), appendix: String(Convert.boolValueToIntValue(boolValue: self.annex)), carEntrance: String(Convert.boolValueToIntValue(boolValue: self.carEntrance)), elevator: String(Convert.boolValueToIntValue(boolValue: self.elevator)), priceFrom: self.priceFrom, priceTo: self.priceTo, rentalperiodID: self.rentalPeriodId, residentID: self.residentId, imageAds: "0" ,name: self.propertyName,address: self.selectedAddress ?? "" )
+                            self.viewModel.createNewRequest(model: requestModel)
+                        }
                         
                     }, fontWeight: .bold)
-                    
-                
-                    
                 }
                 .disabled(self.viewModel.createAdsState == .loading)
                 
@@ -273,7 +280,7 @@ struct AddCustomerRequestsPage: View {
                     pilot.push(.createAdsSuccessPage)
                 }
             })
-            .task {
+            .onAppear {
                 self.viewModel.getAdsCategoryList()
                 self.viewModel.getRentalPeriodList()
                 self.viewModel.getResidentList()
@@ -308,7 +315,7 @@ struct AddCustomerRequestsPage: View {
                         }
                     }
                 }
-                .presentationDetents([.medium, .large])
+//                .presentationDetents([.medium, .large])
             }
         })
     }

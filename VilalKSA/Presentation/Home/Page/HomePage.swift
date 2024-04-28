@@ -17,7 +17,6 @@ struct HomeScreen: View {
     @StateObject var addRequestPilot = UIPilot<AddRequestDestination>(initial: .addRequest)
     @StateObject var favoritePilot = UIPilot<FavoritesDestination>(initial: .favorites)
     @StateObject var morePilot = UIPilot<MyAccountDestination>(initial: .myAccount)
-    
     @StateObject var popupPresent = PopupPresent()
     
     var tabs = [
@@ -32,7 +31,7 @@ struct HomeScreen: View {
         UITabBar.appearance().isHidden = true
     }
     
-
+    
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $tabBarSelection.selectedTab) {
@@ -107,7 +106,7 @@ struct HomeScreen: View {
                 .ignoresSafeArea()
             }
             .environmentObject(popupPresent)
-             
+            
             if #available(iOS 15.0, *) {
                 ZStack {
                     LinearGradient(gradient: Gradient(colors: [
@@ -119,7 +118,7 @@ struct HomeScreen: View {
                     .frame(height: 100,
                            alignment: .bottom)
                     .frame(maxWidth: .infinity)
-                    .cornerRadius(30)
+                    //                  .cornerRadius(15)
                     .shadow(radius: 5)
                     .padding(.top, -30)
                     .overlay {
@@ -170,9 +169,9 @@ struct TabBarItemView: View {
     @EnvironmentObject var myAccountPilot : UIPilot<MyAccountDestination>
     @EnvironmentObject var popupPresent: PopupPresent
     @Binding var selectedTab: TabBarItemType
-
+    
     var item: TabBarItem
-
+    
     var body: some View {
         Button(action: {
             withAnimation(.spring()) {
@@ -204,8 +203,8 @@ struct TabBarItemView: View {
                 
                 
                 TabBarText(text: item.tag.localized())
-//                    .font(.system(size: 12))
-//                    .fontWeight(.heavy)
+                //                    .font(.system(size: 12))
+                //                    .fontWeight(.heavy)
                     .foregroundColor(getSelectedColor(tag: item.tag))
             }
             

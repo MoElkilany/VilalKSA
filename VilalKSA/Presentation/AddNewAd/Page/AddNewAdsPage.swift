@@ -21,7 +21,7 @@ struct AddNewAdsPage: View {
     @State private var livingRooms:  Int = 1
     @State private var bathRooms:    Int = 1
     @State private var streetView:   Int = 1
-    @State private var propertyArea: Int = 1
+    @State private var propertyArea: String = ""
     
     @State private var floorNumber: Int  = 1
     @State private var propertyAge: Int  = 1
@@ -49,7 +49,7 @@ struct AddNewAdsPage: View {
     @State private var state: AppState = .success
     
     @State private var openResidentSheet: Bool = false
-
+    
     @State private var residentName: String = ""
     
     @State private var openRentalSheet  : Bool = false
@@ -127,7 +127,7 @@ struct AddNewAdsPage: View {
                                         }
                                     }
                                     .multilineTextAlignment(.center)
-                                    .presentationDetents([.medium, .large])
+//                                    .presentationDetents([.medium, .large])
                                 }
                                 VilalDivider()
                                 Button {
@@ -174,21 +174,21 @@ struct AddNewAdsPage: View {
                                         }
                                     }
                                     .multilineTextAlignment(.center)
-                                    .presentationDetents([.medium, .large])
+//                                    .presentationDetents([.medium, .large])
                                 }
                             }
                         }
                         
-                        //                        VilalDivider()
-                        //
-                        //                        VStack(alignment: .leading,spacing: 0) {
-                        //                            TextBold14(textKey: R.string.localizable.property_Name.localized, textColor: R.color.colorPrimary.name.getColor())
-                        //                                .padding(.bottom,0)
-                        //
-                        //                            VilalTextField(text: $propertyName, placeholder:  R.string.localizable.property_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
-                        //                                self.viewModel.isPropertyNameValid = isValid
-                        //                            })
-                        //                        }
+                        VilalDivider()
+                        VStack(alignment: .leading,spacing: 0) {
+                            TextBold14(textKey:R.string.localizable.property_Area.localized, textColor: R.color.colorPrimary.name.getColor())
+                                .padding(.bottom,0)
+                            
+                            VilalTextField(text: $propertyArea, placeholder:   R.string.localizable.property_Area.localized , imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+                                self.viewModel.isValidArea = isValid
+                            })
+                        }
+                        
                         VilalDivider()
                         SliderView(sliderValue: $roomNumbers, localizedTitle:  R.string.localizable.rooms.localized, localizedKey: "",valueFrom: 1,valueTo: 50)
                         VilalDivider()
@@ -197,8 +197,6 @@ struct AddNewAdsPage: View {
                         SliderView(sliderValue: $bathRooms, localizedTitle:  R.string.localizable.bathrooms.localized, localizedKey: "",valueFrom: 1,valueTo: 6)
                         VilalDivider()
                         SliderView(sliderValue: $streetView, localizedTitle:  R.string.localizable.street_View.localized, localizedKey: R.string.localizable.meter.localized,valueFrom: 10,valueTo: 100)
-                        VilalDivider()
-                        SliderView(sliderValue: $propertyArea, localizedTitle:  R.string.localizable.property_Area.localized, localizedKey: R.string.localizable.one_Thousand_Meters.localized,valueFrom: 1,valueTo: 50)
                         VilalDivider()
                         PlusMinusView(localizedTitle:  R.string.localizable.floor_Number.localized, defualtValue: 1, finalValue: { floorNumber in
                             self.floorNumber = floorNumber
@@ -227,8 +225,6 @@ struct AddNewAdsPage: View {
                         VilalDivider()
                         SwitchButtonView(localizedTitle:  R.string.localizable.private_Roof.localized, switchValue: $specialSurface)
                         VilalDivider()
-                        //                        SwitchButtonView(localizedTitle:  R.string.localizable.villa.localized, switchValue: $villa)
-                        //                        VilalDivider()
                         SwitchButtonView(localizedTitle:  R.string.localizable.two_Entries.localized, switchValue: $twoEntrances)
                         VilalDivider()
                         SwitchButtonView(localizedTitle:  R.string.localizable.private_Entry.localized, switchValue: $privateEntrances)
@@ -243,7 +239,6 @@ struct AddNewAdsPage: View {
                             })
                         }
                         
-                        
                         VilalDivider()
                         VStack(alignment: .leading,spacing: 0) {
                             TextBold14(textKey: R.string.localizable.property_Details.localized, textColor: R.color.colorPrimary.name.getColor())
@@ -255,76 +250,10 @@ struct AddNewAdsPage: View {
                         }
                     }
                     
-                    
                     DefaultButton(title:  R.string.localizable.add.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         submitButton = true
-                        var requestModel : [String:String] = ["" : ""]
                         if self.viewModel.isValidForm() && self.interfaceId.isEmpty == false {
-                            if  addNewAdRequestModel?.addStatus == "0" {
-                                 requestModel = [
-                                    "type_id":"2",
-                                    "category_id":self.addNewAdRequestModel?.categoryAdID ?? "",
-                                    "lat":self.addNewAdRequestModel?.addLat ?? "",
-                                    "lon":self.addNewAdRequestModel?.addLng ?? "",
-                                    "interface_id":self.interfaceId,
-                                    "price":self.price,
-                                    "room":String(self.roomNumbers),
-                                    "lounges":String(self.livingRooms),
-                                    "bathrooms":String(self.bathRooms),
-                                    "space":String(self.streetView),
-                                    "estate_space":String(self.propertyArea),
-                                    "floor_number":String(self.floorNumber),
-                                    "age_realEstate":String(self.propertyAge),
-                                    "air_conditioners":String(Convert.boolValueToIntValue(boolValue: self.airConditioning)),
-                                    "special_surface":String(Convert.boolValueToIntValue(boolValue: self.specialSurface)),
-                                    "two_entrances":String(Convert.boolValueToIntValue(boolValue: self.twoEntrances)),
-                                    "private_entrance":String(Convert.boolValueToIntValue(boolValue: self.privateEntrances)),
-                                    "info":self.propertyDetails,
-                                    "furnished":String(Convert.boolValueToIntValue(boolValue: self.furnished)),
-                                    "kitchen":String(Convert.boolValueToIntValue(boolValue: self.kitchen)),
-                                    "appendix": String(Convert.boolValueToIntValue(boolValue: self.annex)),
-                                    "car_entrance":String(Convert.boolValueToIntValue(boolValue: self.carEntrance)),
-                                    "elevator":String(Convert.boolValueToIntValue(boolValue: self.elevator)),
-                                    "name":" ",
-                                    "address":self.addNewAdRequestModel?.addAddress ?? "",
-                                    "rentalperiod_id":viewModel.rentalID,
-                                    "resident_id":viewModel.residentID,
-                                    //                              "name":self.propertyName,
-                                    //                                "villa":String(Convert.boolValueToIntValue(boolValue: self.villa)),
-                                ]
-                            }else{
-                                requestModel = [
-                                    "type_id":"2",
-                                    "category_id":self.addNewAdRequestModel?.categoryAdID ?? "",
-                                    "lat":self.addNewAdRequestModel?.addLat ?? "",
-                                    "lon":self.addNewAdRequestModel?.addLng ?? "",
-                                    "interface_id":self.interfaceId,
-                                    "price":self.price,
-                                    "room":String(self.roomNumbers),
-                                    "lounges":String(self.livingRooms),
-                                    "bathrooms":String(self.bathRooms),
-                                    "space":String(self.streetView),
-                                    "estate_space":String(self.propertyArea),
-                                    "floor_number":String(self.floorNumber),
-                                    "age_realEstate":String(self.propertyAge),
-                                    "air_conditioners":String(Convert.boolValueToIntValue(boolValue: self.airConditioning)),
-                                    "special_surface":String(Convert.boolValueToIntValue(boolValue: self.specialSurface)),
-                                    "two_entrances":String(Convert.boolValueToIntValue(boolValue: self.twoEntrances)),
-                                    "private_entrance":String(Convert.boolValueToIntValue(boolValue: self.privateEntrances)),
-                                    "info":self.propertyDetails,
-                                    "furnished":String(Convert.boolValueToIntValue(boolValue: self.furnished)),
-                                    "kitchen":String(Convert.boolValueToIntValue(boolValue: self.kitchen)),
-                                    "appendix": String(Convert.boolValueToIntValue(boolValue: self.annex)),
-                                    "car_entrance":String(Convert.boolValueToIntValue(boolValue: self.carEntrance)),
-                                    "elevator":String(Convert.boolValueToIntValue(boolValue: self.elevator)),
-                                    "name":" ",
-                                    "address":self.addNewAdRequestModel?.addAddress ?? "",
-                                    //                              "name":self.propertyName,
-                                    //                                "villa":String(Convert.boolValueToIntValue(boolValue: self.villa)),
-                                ]
-                            }
-                            
-                            
+                            let requestModel = getRequestModel()
                             self.viewModel.createNewAds(video: self.addNewAdRequestModel?.videosData , images: addNewAdRequestModel?.images ?? [] , model: requestModel)
                         }
                         
@@ -349,17 +278,13 @@ struct AddNewAdsPage: View {
                     pilot.push(.createAdsSuccessPage)
                 }
             })
-            .onAppear(perform: {
-                print("the status of category is:-", addNewAdRequestModel?.addStatus ?? "" )
-            })
-            .task {
+            .onAppear {
                 self.viewModel.getAdsInterfaceList()
                 if addNewAdRequestModel?.addStatus == "0" {
-                    self.viewModel.isRental = true 
+                    self.viewModel.isRental = true
                     self.viewModel.getResidentList()
                     self.viewModel.getRentalPeriodList()
                 }
-                
             }
             .popup(isPresented: self.$viewModel.errorPopUp) {
                 ErrorToast(title: self.viewModel.errorMessage)
@@ -371,6 +296,42 @@ struct AddNewAdsPage: View {
                     .autohideIn(5)
             }
         })
+    }
+    
+    func getRequestModel() -> [String: String] {
+        var requestModel: [String: String] = [:]
+        requestModel["type_id"] = "2"
+        requestModel["category_id"] = self.addNewAdRequestModel?.categoryAdID ?? ""
+        requestModel["lat"] = self.addNewAdRequestModel?.addLat ?? ""
+        requestModel["lon"] = self.addNewAdRequestModel?.addLng ?? ""
+        requestModel["interface_id"] = self.interfaceId
+        requestModel["price"] = self.price
+        requestModel["room"] = String(self.roomNumbers)
+        requestModel["lounges"] = String(self.livingRooms)
+        requestModel["bathrooms"] = String(self.bathRooms)
+        requestModel["space"] = String(self.streetView)
+        requestModel["estate_space"] = self.propertyArea
+        requestModel["floor_number"] = String(self.floorNumber)
+        requestModel["age_realEstate"] = String(self.propertyAge)
+        requestModel["air_conditioners"] = String(Convert.boolValueToIntValue(boolValue: self.airConditioning))
+        requestModel["special_surface"] = String(Convert.boolValueToIntValue(boolValue: self.specialSurface))
+        requestModel["two_entrances"] = String(Convert.boolValueToIntValue(boolValue: self.twoEntrances))
+        requestModel["private_entrance"] = String(Convert.boolValueToIntValue(boolValue: self.privateEntrances))
+        requestModel["info"] = self.propertyDetails
+        requestModel["furnished"] = String(Convert.boolValueToIntValue(boolValue: self.furnished))
+        requestModel["kitchen"] = String(Convert.boolValueToIntValue(boolValue: self.kitchen))
+        requestModel["appendix"] = String(Convert.boolValueToIntValue(boolValue: self.annex))
+        requestModel["car_entrance"] = String(Convert.boolValueToIntValue(boolValue: self.carEntrance))
+        requestModel["elevator"] = String(Convert.boolValueToIntValue(boolValue: self.elevator))
+        requestModel["name"] = " "
+        requestModel["address"] = self.addNewAdRequestModel?.addAddress ?? ""
+
+        if addNewAdRequestModel?.addStatus == "0" {
+            requestModel["rentalperiod_id"] = viewModel.rentalID
+            requestModel["resident_id"] = viewModel.residentID
+        }
+        
+        return requestModel
     }
     
 }

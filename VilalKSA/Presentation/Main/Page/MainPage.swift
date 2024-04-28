@@ -18,32 +18,32 @@ struct ActionSheetsState {
 struct MainPage: View {
     
     @ObservedObject var locationManager = LocationManager()
+    @EnvironmentObject var pilot: UIPilot<MainDestination>
+    @StateObject var viewModel = MainViewModel()
+
     @State private var selectedLocation: CLLocationCoordinate2D?
     @State private var selectedAddress: String?
-    @StateObject var viewModel = MainViewModel()
     @State private var selectedPlace: MainAdsResponse?
     @State var mainAds: [MainAdsResponse] = []
-    @EnvironmentObject var pilot: UIPilot<MainDestination>
     @State var actionSheets = ActionSheetsState()
     @State var isUpdate: Bool = false
     @State var categorysList: [LookUpModel] = []
     @State var mainAdRequest: MainAdRequest?
-    
     @State var savedCategory: String = ""
     
     
-    
     var body: some View {
+        
         ZStack{
-            
             ZStack {
                 if self.mainAds.isEmpty != true {
                     ZStack{
                         GoogleMapsView(locationManager: locationManager, locations: self.mainAds, selectedPlace: $selectedPlace, isUpdated: self.isUpdate, isSelectAd: { (adId,isSelected) in
-                            if isSelected == false  {
+                            if isSelected == false {
                                 self.viewModel.isSelectedAdAPI(id:adId)
                             }
                         })
+                      
                         .edgesIgnoringSafeArea(.all)
                         .padding(.bottom,10)
                         
@@ -62,17 +62,15 @@ struct MainPage: View {
                     .padding(.top,50)
                 }else{
                     ShowGoogleMapsView(locationManager: locationManager)
+              
                 }
                 
-                
                 HStack{
-                    Button {
-                        actionSheets.showingSearchFilter = true
-                    } label: {
-                        MainSearchView()
-                            .padding(.leading)
-                            .disabled(true)
-                    }
+         
+//                        RentalFilterView()
+//                        .padding(.horizontal,12)
+//                        .cornerRadius(12)
+
                     Spacer()
                     Button {
                         actionSheets.showingFirst = true
@@ -87,7 +85,7 @@ struct MainPage: View {
                     Button(action: {
                         pilot.push(.adsDetailsPage(id: String(item.id ?? 0 ), type: .main))
                     }, label: {
-                        PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? ""    ,favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "", addOrRemoveFavouriteAction: {
+                        PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? "" ,favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "", addOrRemoveFavouriteAction: {
                             self.viewModel.addOrRemoveFav(id: String(item.id ?? 0))
                         })
                         .transition(.move(edge: .bottom))
@@ -96,14 +94,16 @@ struct MainPage: View {
                 }
             }
             .disabled(self.viewModel.state == .loading)
-            
+
             if self.viewModel.state == .loading {
                 OnScreenLoading
             }
         }
-        .task {
+        .onAppear {
             self.isUpdate = true
-            self.viewModel.getMainCategory()
+            if viewModel.categorysList.isEmpty {
+                self.viewModel.getMainCategory()
+            }
             self.viewModel.getMainAds(request: MainAdRequest(categoryID: "", lat: "", lon: "", price: "", room: "", bathrooms: "", lounges: "", sort: "") )
         }
         .onReceive(self.viewModel.$mainAdsList) { mainAdsList in

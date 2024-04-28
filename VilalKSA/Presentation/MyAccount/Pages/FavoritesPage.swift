@@ -107,7 +107,7 @@ struct FavoritesPage: View {
         }
         .ignoresSafeArea(.all)
         .padding(.bottom,30)
-        .task {
+        .onAppear {
             viewModel.getFav()
         }
         

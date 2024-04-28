@@ -179,7 +179,7 @@ struct RequestDetailsPage: View {
         })
         .edgesIgnoringSafeArea(.all)
         .padding(.bottom,30)
-        .task {
+        .onAppear {
 //            if viewModel.adDetails == nil {
                 viewModel.getAdDetails(requestID:  self.requestID)
 //            }

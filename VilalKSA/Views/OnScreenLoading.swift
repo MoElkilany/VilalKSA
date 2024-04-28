@@ -25,35 +25,35 @@ var OnScreenLoading: some View {
 
 
 
-struct AppLoader<Content: View>: View {
-    
-    var size: Double = 70
-    var content: Content
-    
-    @StateObject var loading = Loading()
-    
-    init(size: Double = 70, content: () -> Content) {
-        self.content = content()
-        self.size = size
-    }
-    
-    var body: some View {
-        ZStack {
-            content
-                .environmentObject(loading)
-            
-            if loading.isLoading ?? false {
-                HStack {
-                    OnScreenLoading
-                }
-                .frame(width: 100, height: 100)
-                .background(Color.white.opacity(0.5))
-                .cornerRadius(20)
-            }
-            
-        }
-    }
-}
+//struct AppLoader<Content: View>: View {
+//    
+//    var size: Double = 70
+//    var content: Content
+//    
+//    @StateObject var loading = Loading()
+//    
+//    init(size: Double = 70, content: () -> Content) {
+//        self.content = content()
+//        self.size = size
+//    }
+//    
+//    var body: some View {
+//        ZStack {
+//            content
+//                .environmentObject(loading)
+//            
+//            if loading.isLoading ?? false {
+//                HStack {
+//                    OnScreenLoading
+//                }
+//                .frame(width: 100, height: 100)
+//                .background(Color.white.opacity(0.5))
+//                .cornerRadius(20)
+//            }
+//            
+//        }
+//    }
+//}
 
 class Loading: ObservableObject {
     @Published var isLoading: Bool? {

@@ -64,7 +64,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 250 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 264 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -158,6 +158,13 @@ struct _R {
       ///
       /// Locales: en, ar
       var air_Conditioning: RswiftResources.StringResource { .init(key: "Air_Conditioning", tableName: "Localizable", source: source, developmentValue: "Air Conditioning", comment: nil) }
+
+      /// en translation: All
+      ///
+      /// Key: All
+      ///
+      /// Locales: en, ar
+      var all: RswiftResources.StringResource { .init(key: "All", tableName: "Localizable", source: source, developmentValue: "All", comment: nil) }
 
       /// en translation: Amount
       ///
@@ -761,6 +768,20 @@ struct _R {
       /// Locales: en, ar
       var floor_Number: RswiftResources.StringResource { .init(key: "Floor_Number", tableName: "Localizable", source: source, developmentValue: "Floor Number", comment: nil) }
 
+      /// en translation: Rent
+      ///
+      /// Key: For_Rent
+      ///
+      /// Locales: en, ar
+      var for_Rent: RswiftResources.StringResource { .init(key: "For_Rent", tableName: "Localizable", source: source, developmentValue: "Rent", comment: nil) }
+
+      /// en translation: Sale
+      ///
+      /// Key: For_Sale
+      ///
+      /// Locales: en, ar
+      var for_Sale: RswiftResources.StringResource { .init(key: "For_Sale", tableName: "Localizable", source: source, developmentValue: "Sale", comment: nil) }
+
       /// en translation: Did you forget your password?
       ///
       /// Key: Forget_Password
@@ -851,6 +872,13 @@ struct _R {
       ///
       /// Locales: en, ar
       var language: RswiftResources.StringResource { .init(key: "Language", tableName: "Localizable", source: source, developmentValue: "Language", comment: nil) }
+
+      /// en translation: Let's get started
+      ///
+      /// Key: Let_Started
+      ///
+      /// Locales: en, ar
+      var let_Started: RswiftResources.StringResource { .init(key: "Let_Started", tableName: "Localizable", source: source, developmentValue: "Let's get started", comment: nil) }
 
       /// en translation: Living Rooms
       ///
@@ -992,6 +1020,13 @@ struct _R {
       /// Locales: en, ar
       var next: RswiftResources.StringResource { .init(key: "Next", tableName: "Localizable", source: source, developmentValue: "Next", comment: nil) }
 
+      /// en translation: No Internet Connection
+      ///
+      /// Key: No Internet Connection
+      ///
+      /// Locales: en, ar
+      var noInternetConnection: RswiftResources.StringResource { .init(key: "No Internet Connection", tableName: "Localizable", source: source, developmentValue: "No Internet Connection", comment: nil) }
+
       /// en translation: Ther is no image for this property
       ///
       /// Key: No_Ads_Images
@@ -1033,6 +1068,48 @@ struct _R {
       ///
       /// Locales: en, ar
       var on_Going: RswiftResources.StringResource { .init(key: "On_Going", tableName: "Localizable", source: source, developmentValue: "On Going", comment: nil) }
+
+      /// en translation: Villa is the application that enables you to save a lot of time, effort, and searching. Our application embodies an advanced vision for a unique experience in renting and selling properties
+      ///
+      /// Key: OnboardingSubTitle1
+      ///
+      /// Locales: en, ar
+      var onboardingSubTitle1: RswiftResources.StringResource { .init(key: "OnboardingSubTitle1", tableName: "Localizable", source: source, developmentValue: "Villa is the application that enables you to save a lot of time, effort, and searching. Our application embodies an advanced vision for a unique experience in renting and selling properties", comment: nil) }
+
+      /// en translation: Join our application to find your dream homes for rent or purchase, or to start a successful investment journey and showcase your properties in the real estate world
+      ///
+      /// Key: OnboardingSubTitle2
+      ///
+      /// Locales: en, ar
+      var onboardingSubTitle2: RswiftResources.StringResource { .init(key: "OnboardingSubTitle2", tableName: "Localizable", source: source, developmentValue: "Join our application to find your dream homes for rent or purchase, or to start a successful investment journey and showcase your properties in the real estate world", comment: nil) }
+
+      /// en translation: Discover how our Villa application can facilitate the process of renting, selling, and showcasing properties in a fun and effective way.
+      ///
+      /// Key: OnboardingSubTitle3
+      ///
+      /// Locales: en, ar
+      var onboardingSubTitle3: RswiftResources.StringResource { .init(key: "OnboardingSubTitle3", tableName: "Localizable", source: source, developmentValue: "Discover how our Villa application can facilitate the process of renting, selling, and showcasing properties in a fun and effective way.", comment: nil) }
+
+      /// en translation: Explore the Real Estate World
+      ///
+      /// Key: OnboardingTitle1
+      ///
+      /// Locales: en, ar
+      var onboardingTitle1: RswiftResources.StringResource { .init(key: "OnboardingTitle1", tableName: "Localizable", source: source, developmentValue: "Explore the Real Estate World", comment: nil) }
+
+      /// en translation: Open Doors to Opportunities
+      ///
+      /// Key: OnboardingTitle2
+      ///
+      /// Locales: en, ar
+      var onboardingTitle2: RswiftResources.StringResource { .init(key: "OnboardingTitle2", tableName: "Localizable", source: source, developmentValue: "Open Doors to Opportunities", comment: nil) }
+
+      /// en translation: Exceptional Real Estate Experience
+      ///
+      /// Key: OnboardingTitle3
+      ///
+      /// Locales: en, ar
+      var onboardingTitle3: RswiftResources.StringResource { .init(key: "OnboardingTitle3", tableName: "Localizable", source: source, developmentValue: "Exceptional Real Estate Experience", comment: nil) }
 
       /// en translation: Thousand Meters
       ///
@@ -1110,6 +1187,13 @@ struct _R {
       ///
       /// Locales: en, ar
       var pickAnAttachments: RswiftResources.StringResource { .init(key: "PickAnAttachments", tableName: "Localizable", source: source, developmentValue: "Please pick an attachments", comment: nil) }
+
+      /// en translation: Please check your connection and try again
+      ///
+      /// Key: Please check your connection and try again
+      ///
+      /// Locales: en, ar
+      var pleaseCheckYourConnectionAndTryAgain: RswiftResources.StringResource { .init(key: "Please check your connection and try again", tableName: "Localizable", source: source, developmentValue: "Please check your connection and try again", comment: nil) }
 
       /// en translation: Please Enter a password with at least 6 characters
       ///
@@ -1216,6 +1300,13 @@ struct _R {
       /// Locales: en, ar
       var policiesAndProcedures: RswiftResources.StringResource { .init(key: "PoliciesAndProcedures", tableName: "Localizable", source: source, developmentValue: "Policies and procedures", comment: nil) }
 
+      /// en translation: Not exist now
+      ///
+      /// Key: Policies_Description
+      ///
+      /// Locales: en, ar
+      var policies_Description: RswiftResources.StringResource { .init(key: "Policies_Description", tableName: "Localizable", source: source, developmentValue: "Not exist now", comment: nil) }
+
       /// en translation: One night rate
       ///
       /// Key: Price_For_One_Night
@@ -1264,6 +1355,13 @@ struct _R {
       ///
       /// Locales: en, ar
       var procedures: RswiftResources.StringResource { .init(key: "Procedures", tableName: "Localizable", source: source, developmentValue: "Procedures", comment: nil) }
+
+      /// en translation: I undertake that my advertisements will be respectful and not violate the laws or regulations of the Kingdom of Saudi Arabia, in accordance with the terms, declarations, and decisions of the General Authority for Real Estate. If there is a violation of the laws and regulations of the Kingdom of Saudi Arabia, the violator will be held accountable by the competent authorities if deemed necessary. The application is not responsible for any violations issued by the advertiser
+      ///
+      /// Key: Procedures_Description
+      ///
+      /// Locales: en, ar
+      var procedures_Description: RswiftResources.StringResource { .init(key: "Procedures_Description", tableName: "Localizable", source: source, developmentValue: "I undertake that my advertisements will be respectful and not violate the laws or regulations of the Kingdom of Saudi Arabia, in accordance with the terms, declarations, and decisions of the General Authority for Real Estate. If there is a violation of the laws and regulations of the Kingdom of Saudi Arabia, the violator will be held accountable by the competent authorities if deemed necessary. The application is not responsible for any violations issued by the advertiser", comment: nil) }
 
       /// en translation: Profile
       ///
@@ -1873,7 +1971,7 @@ struct _R {
     var colorPrimary: RswiftResources.ColorResource { .init(name: "ColorPrimary", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 101 images.
+  /// This `_R.image` struct is generated, and contains static references to 112 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -1885,6 +1983,12 @@ struct _R {
 
     /// Image `Add_Request_home`.
     var add_Request_home: RswiftResources.ImageResource { .init(name: "Add_Request_home", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `AllAds_Filter`.
+    var allAds_Filter: RswiftResources.ImageResource { .init(name: "AllAds_Filter", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `AllAds_Filter_Blue`.
+    var allAds_Filter_Blue: RswiftResources.ImageResource { .init(name: "AllAds_Filter_Blue", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Apple-icon`.
     var appleIcon: RswiftResources.ImageResource { .init(name: "Apple-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -1904,6 +2008,9 @@ struct _R {
     /// Image `Chat`.
     var chat: RswiftResources.ImageResource { .init(name: "Chat", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `CircleButton`.
+    var circleButton: RswiftResources.ImageResource { .init(name: "CircleButton", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `City-life-icon`.
     var cityLifeIcon: RswiftResources.ImageResource { .init(name: "City-life-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -1918,6 +2025,18 @@ struct _R {
 
     /// Image `Edit-Icon`.
     var editIcon: RswiftResources.ImageResource { .init(name: "Edit-Icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `ForRental_Filter`.
+    var forRental_Filter: RswiftResources.ImageResource { .init(name: "ForRental_Filter", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `ForRental_Filter_blue`.
+    var forRental_Filter_blue: RswiftResources.ImageResource { .init(name: "ForRental_Filter_blue", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `ForSale_Filter`.
+    var forSale_Filter: RswiftResources.ImageResource { .init(name: "ForSale_Filter", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `ForSale_Filter_blue`.
+    var forSale_Filter_blue: RswiftResources.ImageResource { .init(name: "ForSale_Filter_blue", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Google-icon`.
     var googleIcon: RswiftResources.ImageResource { .init(name: "Google-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -1960,6 +2079,15 @@ struct _R {
 
     /// Image `NoResult`.
     var noResult: RswiftResources.ImageResource { .init(name: "NoResult", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Onboardin_Image1`.
+    var onboardin_Image1: RswiftResources.ImageResource { .init(name: "Onboardin_Image1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Onboardin_Image2`.
+    var onboardin_Image2: RswiftResources.ImageResource { .init(name: "Onboardin_Image2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `Onboardin_Image3`.
+    var onboardin_Image3: RswiftResources.ImageResource { .init(name: "Onboardin_Image3", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `Options_Logo`.
     var options_Logo: RswiftResources.ImageResource { .init(name: "Options_Logo", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -2161,6 +2289,9 @@ struct _R {
 
     /// Image `show-password`.
     var showPassword: RswiftResources.ImageResource { .init(name: "show-password", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `splash`.
+    var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `success-verify-icon`.
     var successVerifyIcon: RswiftResources.ImageResource { .init(name: "success-verify-icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

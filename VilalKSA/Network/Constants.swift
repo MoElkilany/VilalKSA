@@ -17,6 +17,7 @@ enum Constants: String {
     case beraerToken            = "beraerToken"
     case userModel
     case isLogin
+    case hasLaunchedBefore
     
     // MARK: - API Paths
     

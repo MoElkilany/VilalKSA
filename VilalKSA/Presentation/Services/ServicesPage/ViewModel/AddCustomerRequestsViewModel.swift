@@ -25,6 +25,7 @@ class AddCustomerRequestsViewModel: BaseViewModel {
     var isPriceToValid = false
     var isPropertyDetailsValid = false
     var isPropertyNameValid = false
+    var isValidArea = false
 
     init(apiService: ServicesAPIClient = ServicesAPIClient()) {
         self.apiService = apiService
@@ -171,10 +172,24 @@ class AddCustomerRequestsViewModel: BaseViewModel {
         }
     }
     
+    /*
+     var isValidArea = false
+     var isCategoryIdValid = false
+     var isPriceFromValid = false
+     var isPriceToValid = false
+     var isPropertyDetailsValid = false
+     var isPropertyNameValid = false
+     
+     */
     
+    
+    
+    func isValidForm() -> Bool {
+         isValidArea && isCategoryIdValid && isPriceFromValid && isPriceToValid && isPropertyDetailsValid  && isPropertyNameValid
+    }
     
     func createNewRequest(model:CreateCutomerRequestModel) {
-                    createAdsState = .loading
+        createAdsState = .loading
         apiService.createCutomerRequest(request: model) { [weak self] result in
                         guard let self = self else { return }
                         switch result {
@@ -185,8 +200,7 @@ class AddCustomerRequestsViewModel: BaseViewModel {
                         }
                     }
                 }
-            
-            
+
                 func handleCreateRequestError(error: APIError) {
                     createAdsState = .error
                     switch error {
@@ -222,8 +236,5 @@ class AddCustomerRequestsViewModel: BaseViewModel {
            
              
         
-    
-    func isValidForm() -> Bool {
-        isPriceFromValid && isPriceToValid && isPropertyDetailsValid && isPropertyNameValid
-    }
+
 }

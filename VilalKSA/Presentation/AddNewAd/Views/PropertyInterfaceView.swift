@@ -82,7 +82,7 @@ struct ScrollCollectionView: View {
     var body: some View {
         
         let columns = [
-            GridItem(.fixed(60)),
+            GridItem(.fixed(30)),
         ]
         
         VStack(spacing:0){
@@ -94,7 +94,7 @@ struct ScrollCollectionView: View {
             
             
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHGrid(rows: columns, alignment: .center, spacing: 10) {
+                LazyHGrid(rows: columns, alignment: .center, spacing: 0) {
                     ForEach(items,id:\.id ){ item in
                         ItemView2(
                             item: item,

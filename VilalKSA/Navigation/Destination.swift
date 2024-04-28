@@ -15,8 +15,8 @@ protocol Destination: Hashable, Equatable {
     var name: String { get }
 }
 
-
 enum RootDestination: Destination {
+    case onboarding
     case home
     case splash
     case login
@@ -31,6 +31,8 @@ enum RootDestination: Destination {
     @ViewBuilder
     var view: some View {
         switch self {
+        case .onboarding:
+            OnboardingPage()
         case.splash:
             SplashPage()
         case .login:
@@ -58,27 +60,8 @@ enum RootDestination: Destination {
     }
 }
 
-
-enum HomeDestination: Destination {
-    case home
-    
-    @ViewBuilder
-    var view: some View {
-        switch self {
-        case .home:
-            HomeScreen()
-        }
-    }
-    
-    var name: String {
-        return String(reflecting: view.self)
-    }
-}
-
-
-
-
 enum MainDestination: Destination {
+    
     case main
     case adsDetailsPage(id:String,type:AdDetailsTypes)
     case mainListPage(mainAdsList: [MainAdsResponse])
@@ -90,7 +73,6 @@ enum MainDestination: Destination {
     case propertyOwnerInformationPage(userId:String,type:AdDetailsTypes)
     case showCardDetailsPage(type:AdDetailsTypes,model:ShowPaymentModel? = nil )
 
-    
     @ViewBuilder
     var view: some View {
         switch self {

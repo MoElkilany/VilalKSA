@@ -20,5 +20,14 @@
 		<string>Cairo-SemiBold.ttf</string>
 		<string>Cairo-ExtraBold.ttf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>ColorPrimary</string>
+		<key>UIImageName</key>
+		<string>splash</string>
+		<key>UILaunchScreen</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>

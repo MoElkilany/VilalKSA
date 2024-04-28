@@ -136,7 +136,7 @@ struct MyAccountPage: View {
                 OnScreenLoading
             }
         }
-        .task {
+        .onAppear {
             self.viewModel.getProfileData()
         }
         .popup(item: $popups.alertContent) { item in

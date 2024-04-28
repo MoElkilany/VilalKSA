@@ -10,6 +10,7 @@ import SwiftUI
 struct VilalIconWithValueView: View {
     var icon:String?
     var value:String?
+    var valueLocalized:LocalizedStringKey? = nil
     
     var body: some View {
         
@@ -18,7 +19,11 @@ struct VilalIconWithValueView: View {
                 .resizable()
                 .frame(width: 15, height: 12, alignment: .center)
             
-            TextMeduim10(text: value ?? "0", textColor: R.color.color172B4D.name.getColor())
+            if valueLocalized == nil {
+                TextMeduim10(text: value ?? "0", textColor: R.color.color172B4D.name.getColor())
+            }else{
+                TextMeduim10(textKey: valueLocalized ?? "0", textColor: R.color.color172B4D.name.getColor())
+            }
         }
     }
 }

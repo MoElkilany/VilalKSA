@@ -60,25 +60,20 @@ struct CustomerRequestsDetailsPage: View {
                     .padding()
                 }
                
-                VStack{
-                    DefaultBoarderButtonWithIcon(title: R.string.localizable.contact_Advertiser.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
-                    })
-                    .frame(height: 50)
-                    
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
-                .padding(.horizontal, 20)
-                .background(RoundedRectangle(cornerRadius: 10.0)
-                    .fill(Color.white)
-                    .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
+//                VStack{
+//                    DefaultBoarderButtonWithIcon(title: R.string.localizable.contact_Advertiser.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
+//                    })
+//                    .frame(height: 50)
+//                    
+//                }
+//                .customCardStyle()
                 Spacer()
             }
             
         })
         .edgesIgnoringSafeArea(.all)
         .padding(.bottom,30)
-        .task {
+        .onAppear {
             viewModel.getCustomerRequestDetails(requestID:  self.requestID)
         }
         .onReceive(self.viewModel.$mapDetails) { mapDetails in

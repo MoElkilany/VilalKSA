@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 struct LanguageSelectionButton: View {
     
     var title: LocalizedStringKey
@@ -27,7 +28,7 @@ struct LanguageSelectionButton: View {
                 TextBold12(textKey: title, textColor: R.color.colorPrimary.name.getColor())
                 Spacer()
                 Image(systemName: isSelected ?  LARGE_CIRCLE: CIRCLE)
-                    .foregroundColor(Color(R.color.colorPrimary.name.getColor()))
+                    .foregroundColor(R.color.colorPrimary.name.getColor())
                     .font(.system(size: 20))
             }
             
@@ -37,7 +38,7 @@ struct LanguageSelectionButton: View {
             .cornerRadius(30)
             .overlay(
                 Capsule()
-                    .stroke(isSelected ? Color(R.color.colorPrimary.name.getColor()) : Color.clear  , lineWidth: isSelected ? 1 : 0)
+                    .stroke(isSelected ? R.color.colorPrimary.name.getColor() : Color.clear  , lineWidth: isSelected ? 1 : 0)
             )
         }
     }

@@ -326,3 +326,27 @@
 "Edit_Sucess" = "Card Edit Successfully";
 "Show_Card_Details" = "Card Details";
 "Delete_Sucess" = "Card Deleted Successfully";
+
+
+"OnboardingTitle1" = "Explore the Real Estate World";
+
+"OnboardingSubTitle1" = "Villa is the application that enables you to save a lot of time, effort, and searching. Our application embodies an advanced vision for a unique experience in renting and selling properties";
+
+"OnboardingTitle2" = "Open Doors to Opportunities";
+
+"OnboardingSubTitle2" = "Join our application to find your dream homes for rent or purchase, or to start a successful investment journey and showcase your properties in the real estate world";
+
+"OnboardingTitle3" = "Exceptional Real Estate Experience";
+
+"OnboardingSubTitle3" =  "Discover how our Villa application can facilitate the process of renting, selling, and showcasing properties in a fun and effective way.";
+"Let_Started" = "Let's get started";
+
+
+"No Internet Connection" = "No Internet Connection";
+"Please check your connection and try again" = "Please check your connection and try again";
+"Procedures_Description" = "I undertake that my advertisements will be respectful and not violate the laws or regulations of the Kingdom of Saudi Arabia, in accordance with the terms, declarations, and decisions of the General Authority for Real Estate. If there is a violation of the laws and regulations of the Kingdom of Saudi Arabia, the violator will be held accountable by the competent authorities if deemed necessary. The application is not responsible for any violations issued by the advertiser";
+
+"Policies_Description" = "Not exist now";
+"All" = "All";
+"For_Rent" = "Rent";
+"For_Sale" = "Sale";

@@ -10,13 +10,11 @@ import GoogleMaps
 import CoreLocation
 
 struct SelectedLocationGoogleMapsView: UIViewRepresentable {
-    
+
     @ObservedObject var locationManager: LocationManager
     var didSelectLocation: ((CLLocationCoordinate2D, String) -> Void)?
-    
-    
+
     func makeUIView(context: Context) -> GMSMapView {
-        
         let mapView = GMSMapView()
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.lastLocation?.latitude ?? 24.7136,
                                               longitude: locationManager.lastLocation?.longitude ?? 46.6753,
@@ -77,8 +75,7 @@ struct SelectedLocationGoogleMapsView: UIViewRepresentable {
             }
         }
     }
-}
-
+}  // 2 locations
 
 
 struct ShowLocationOnGoogleMapsView: UIViewRepresentable {
@@ -90,11 +87,9 @@ struct ShowLocationOnGoogleMapsView: UIViewRepresentable {
     func makeUIView(context: Context) -> GMSMapView {
         
         let mapView = GMSMapView()
-        let camera = GMSCameraPosition.camera(withLatitude: lat,
-                                              longitude: lng,
-                                              zoom: 12)
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 12)
         mapView.camera = camera
-        
+
         mapView.frame = CGRect.zero
         mapView.delegate = context.coordinator
         let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: lat  , longitude:  lng  ))
@@ -122,17 +117,16 @@ struct ShowLocationOnGoogleMapsView: UIViewRepresentable {
             parent.locationManager.shouldFollowUserLocation = false
         }
     }
-}
+}    // 3 locations
 
 
 struct GoogleMapsView: UIViewRepresentable {
-    
+  
     @ObservedObject var locationManager: LocationManager
     var locations: [MainAdsResponse]
     @Binding var selectedPlace: MainAdsResponse?
     var isUpdated = false
     var isSelectAd: ((String,Bool)->Void)
-  
     
     init(locationManager: LocationManager, locations: [MainAdsResponse], selectedPlace: Binding<MainAdsResponse?>, isUpdated: Bool = false, isSelectAd: @escaping (String,Bool) -> Void) {
         self.locationManager = locationManager
@@ -149,7 +143,6 @@ struct GoogleMapsView: UIViewRepresentable {
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.lastLocation?.latitude ?? 24.7136,
                                               longitude: locationManager.lastLocation?.longitude ?? 46.6753,
                                               zoom: 13.5)
-//        mapView.mapType = .satellite
         mapView.camera = camera
         mapView.frame = CGRect.zero
         mapView.delegate = context.coordinator
@@ -207,15 +200,7 @@ struct GoogleMapsView: UIViewRepresentable {
             return true
         }
     }
-}
-
-
-struct Location {
-    let latitude: Double
-    let longitude: Double
-}
-
-
+}   // 1 locations
 
 
 struct ShowGoogleMapsView: UIViewRepresentable {
@@ -252,10 +237,7 @@ struct ShowGoogleMapsView: UIViewRepresentable {
     }
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
-
-      
     }
-    
     
     class Coordinator: NSObject, GMSMapViewDelegate {
         var parent: ShowGoogleMapsView
@@ -272,4 +254,10 @@ struct ShowGoogleMapsView: UIViewRepresentable {
         }
         
     }
+}   // 1 locations
+
+
+struct Location {
+    let latitude: Double
+    let longitude: Double
 }

@@ -15,7 +15,6 @@ struct AdsDialog {
 
 struct AddRequestPage: View {
 
-    @EnvironmentObject var pilot: UIPilot<RootDestination>
     @State var popUps = AdsDialog()
     @StateObject var tabBarSelection = TabBarSelection()
 
@@ -27,7 +26,6 @@ struct AddRequestPage: View {
                 Image(R.image.home_Placeholder.name)
                     .resizable()
             })
-           
         }
         .ignoresSafeArea(.all)
         .onAppear(perform: {

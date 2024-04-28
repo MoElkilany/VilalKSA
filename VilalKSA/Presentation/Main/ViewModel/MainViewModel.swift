@@ -49,7 +49,7 @@ class MainViewModel: BaseViewModel {
 
             if status == 200 {
                 if response.data?.isEmpty == true  {
-                    self.state = .noData
+
                 }else{
                     self.categorysList = response.data ?? []
                     self.state = .success

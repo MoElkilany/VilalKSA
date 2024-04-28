@@ -50,14 +50,17 @@ struct MyPersonalCardsPage: View {
             ZStack {
                 
                 ScrollView(showsIndicators:false){
+                    
                     VStack(alignment: .leading){
                         TextBold14(textKey: R.string.localizable.credit_and_Debit_Cards.localized, textColor: R.color.color172B4D.name.getColor())
+                        if viewModel.paymentsList.isEmpty == true {
+                            NoCardsFoundView()
+                                .padding(.top,150 )
+                        }
                         
                         ForEach(viewModel.paymentsList,id:\.self ) { item in
                             PersonalCardsView(cardName: item.name ?? " ",cardNumber:  item.number ?? " ",deleteAction: {
-                                print("delete Action")
                                 viewModel.deleteMyRequest(id: String(item.id ?? 0))
-                                
                             } ,editAction: {
                                 
                                 let model = ShowPaymentModel(id: String(item.id ?? 0) ,name: item.name ?? "", number: item.number ?? "", cvv: item.cvv ?? "", date: item.date ?? "")
@@ -104,7 +107,7 @@ struct MyPersonalCardsPage: View {
                     .animation(.spring())
                     .autohideIn(5)
             }
-            .task {
+            .onAppear {
                 viewModel.getPayment()
             }
         })
@@ -168,8 +171,8 @@ struct NoCardsFoundView: View {
                 .frame(width: 30, height: 30)
                 .padding(.bottom,30)
             TextBold16(textKey: R.string.localizable.no_Cards_Found.localized, textColor: R.color.colorPrimary.name.getColor())
-            DefaultBoarderButtonWithIcon(title: R.string.localizable.add_The_Card.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {})
-                .frame(width: 150, height: 50)
+//            DefaultBoarderButtonWithIcon(title: R.string.localizable.add_The_Card.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {})
+//                .frame(width: 150, height: 50)
             
         }
     }

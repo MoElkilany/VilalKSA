@@ -24,7 +24,6 @@ struct MainListPage: View {
         },content: {
             ScrollView(showsIndicators:false){
                 VStack{
-                    
                     if mainAdsList.isEmpty {
                         NoDataView()
                             .padding(.top,100)
@@ -39,10 +38,6 @@ struct MainListPage: View {
                                 })
                             }
                         }
-                        
-                        
-                        
-                        
                     }
                 }
             }

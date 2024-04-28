@@ -23,7 +23,7 @@ struct AdsDetailsPage: View {
     @State var videoUrl: String?
     
     var requestID: String
-    var navigationType: AdDetailsTypes = .ads
+    var navigationType: AdDetailsTypes
     @State private var isShowingShareSheet = false
     @State private var isFav: Bool =  false
     @State var shareUrl: String?
@@ -248,7 +248,7 @@ struct AdsDetailsPage: View {
         })
         .edgesIgnoringSafeArea(.all)
         .padding(.bottom,30)
-        .task {
+        .onAppear {
 //            if viewModel.adDetails == nil {
                 viewModel.getAdDetails(requestID:  self.requestID)
 //            }
@@ -275,7 +275,6 @@ struct AdsDetailsPage: View {
                 self.rentalDays = days
                 isSelectRentalDate = true
                 showCalendelView = false
-                
             })
         } customize: {
             $0
@@ -284,7 +283,6 @@ struct AdsDetailsPage: View {
                 .closeOnTapOutside(true)
                 .backgroundColor(.black.opacity(0.4))
         }
-        
     }
 }
 

@@ -23,7 +23,6 @@ typealias ActionClosure = (() -> ())
 struct VilalKSAContainer<Content: View>: View {
     
     @StateObject private var keyboard = KeyboardResponder()
-    @EnvironmentObject var networkMonitor: NetworkMonitor
     @EnvironmentObject var languageSettings: LanguageSettings
     
     @Binding var state: AppState
@@ -63,7 +62,6 @@ struct VilalKSAContainer<Content: View>: View {
             ZStack {
                 content
                     .padding(.bottom, keyboard.currentHeight + 20 )
-                    .environmentObject(networkMonitor)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .ignoresSafeArea()
                     .onTapGesture {
@@ -71,11 +69,6 @@ struct VilalKSAContainer<Content: View>: View {
                     }
                 
                 VStack {
-                    
-                    if !networkMonitor.isConnected {
-                        NetworkUnavailableView()
-                    }
-                    
                     if self.state == .loading {
                         VStack {
                             Loader()
@@ -195,13 +188,28 @@ struct NoDataView: View {
 
 
 
-struct NetworkUnavailableView: View {
+struct NoNetworkView: View {
+    var closeAction: (()->())?
     var body: some View {
-        ContentUnavailableView(
-            "No Internet Connection",
-            systemImage: "wifi.exclamationmark",
-            description: Text("Please check your connection and try again.")
-        )
+        VStack() {
+            
+            Image(R.image.noWifi.name)
+                .frame(width: 30, height: 30)
+                .padding(.bottom,30)
+            TextBold20(textKey: R.string.localizable.noInternetConnection.localized, textColor: R.color.colorPrimary.name.getColor())
+            TextRegular16(textKey: R.string.localizable.pleaseCheckYourConnectionAndTryAgain.localized, textColor: R.color.color7A869A.name.getColor())
+                .multilineTextAlignment(.center)
+                
+//            Button {
+//                closeAction?()
+//            } label: {
+//                TextRegular16(textKey: R.string.localizable.cancel.localized, textColor: R.color.colorPrimary.name.getColor())
+//
+//            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .background(.white)
     }
 }
 
@@ -279,3 +287,42 @@ struct ErrorWithTitle: View {
 }
 
 
+
+
+
+
+struct AppLoader<Content: View>: View {
+    
+    var size: Double = 70
+    var content: Content
+    
+    @StateObject var loading = Loading()
+    @StateObject var reachability = NetworkReachabilityManager()
+    
+    init(size: Double = 70, content: () -> Content) {
+        self.content = content()
+        self.size = size
+    }
+    
+    var body: some View {
+        ZStack {
+            content
+                .environmentObject(loading)
+            
+            if loading.isLoading ?? false {
+                HStack {
+                    Loader()
+                }
+                .frame(width: 100, height: 100)
+                .background(Color.white.opacity(0.5))
+                .cornerRadius(20)
+            }
+            
+            if reachability.isConnected == false {
+                NoNetworkView {
+//                    reachability.isConnected = true
+                }
+            }
+        }
+    }
+}

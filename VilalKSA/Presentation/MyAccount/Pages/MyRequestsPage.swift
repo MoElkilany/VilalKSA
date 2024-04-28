@@ -53,7 +53,7 @@ struct MyRequestsPage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
-        .task {
+        .onAppear {
             viewModel.getMyRequest()
         }
         

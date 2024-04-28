@@ -119,7 +119,7 @@ struct MainFilterPage: View {
                                     }
                             }
                             .multilineTextAlignment(.center)
-                            .presentationDetents([.medium, .large])
+//                            .presentationDetents([.medium, .large])
                         }
                         
                         VilalDivider()
@@ -149,17 +149,15 @@ struct MainFilterPage: View {
                             self.bathroom = bathroom
                         })
                         VilalDivider()
-                        PlusMinusView(localizedTitle:  R.string.localizable.living_Rooms.localized, defualtValue: 0, finalValue: { livingRooms in
-                            self.livingRooms = livingRooms
-                        })
-                        VilalDivider()
+//                        PlusMinusView(localizedTitle:  R.string.localizable.living_Rooms.localized, defualtValue: 0, finalValue: { livingRooms in
+//                            self.livingRooms = livingRooms
+//                        })
+//                        VilalDivider()
                         SortByCollectionView( title: R.string.localizable.sort_By.localized, items: self.sortByArray) { sortById in
                             print("the sortById is ", sortById)
                             self.sortByID = sortById
                         }
-                                                
                         VilalDivider()
-                        
                         HStack{
                             DefaultBoarderButtonWithIcon(title: R.string.localizable.apply.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
                                 self.onDismiss(MainAdRequest(categoryID: self.categoryID ?? "", lat: "", lon: "", price: self.price, room: String(self.bedrooms), bathrooms: String(self.bathroom), lounges: String(self.livingRooms), sort: String(self.sortByID)), self.category)

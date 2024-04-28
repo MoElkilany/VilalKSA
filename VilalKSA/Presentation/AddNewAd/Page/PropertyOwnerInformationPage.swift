@@ -11,7 +11,7 @@ import UIPilot
 struct PropertyOwnerInformationPage: View {
     
     var userID:String
-    var navigationType: AdDetailsTypes = .ads
+    var navigationType: AdDetailsTypes
     @StateObject var viewModel = PropertyOwnerViewModel()
     
     @EnvironmentObject var pilot: UIPilot<AddRequestDestination>
@@ -87,7 +87,7 @@ struct PropertyOwnerInformationPage: View {
                 
             }
             .padding(.bottom,30)
-            .task {
+            .onAppear {
                 viewModel.getPropertyOwnerInfo(id: self.userID)
             }
         })

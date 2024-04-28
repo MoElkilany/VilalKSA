@@ -20,19 +20,14 @@ struct PrivacyPolicyPage: View {
             pilot.pop()
         },content: {
             VStack {
-            
                 Image(R.image.options_Logo.name)
                     .resizable()
                     .frame(height: 200)
-        
-                TextBold16(textKey: R.string.localizable.about_App_Des.localized, textColor: R.color.color7A869A.name.getColor())
-                    .padding(12)
-                    .background(RoundedRectangle(cornerRadius: 15.0)
-                        .fill(Color.white)
-                        .shadow(color:Color.gray.opacity(0.2) ,radius: 10))
-                    .padding(.horizontal, 15)
-                    .padding(.top, 15)
-                
+                ScrollView{
+                    TextBold16(textKey:type == .Policie ? R.string.localizable.policies_Description.localized : R.string.localizable.procedures_Description.localized, textColor: R.color.color7A869A.name.getColor())
+                        .padding(12)
+                        .customCardStyle()
+                }
             }
        
         })
