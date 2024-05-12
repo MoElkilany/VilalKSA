@@ -41,6 +41,7 @@ struct StateOnContentView<Content: View>: View {
                 if self.state == .loading {
                     VStack {
                         Loader()
+                        TextMeduim12(textKey: R.string.localizable.loading.localized, textColor: R.color.colorPrimary.name.getColor())
                     }
                     .background(SwiftUI.Color.white)
                     .ignoresSafeArea()

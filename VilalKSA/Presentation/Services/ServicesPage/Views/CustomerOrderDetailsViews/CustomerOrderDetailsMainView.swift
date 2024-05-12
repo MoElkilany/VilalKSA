@@ -24,14 +24,16 @@ struct CustomerOrderDetailsMainView: View {
                 PropertyCategoryView(propertyCategory: (mainInfo?.category ?? "") )
                 TextBold16(text: (mainInfo?.name ?? "" ), textColor: R.color.colorPrimary.name.getColor())
                 HStack{
-                    PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: mainInfo?.price?.from ?? "", toPrice:  mainInfo?.price?.to ?? ""))
-                    TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
-                    TextBold12(text:(mainInfo?.rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                    PriceInfoView(price: mainInfo?.price ?? "")
+
+                    // VilalHelper.getFromToPrice(fromPrice: mainInfo?.price?.from ?? "", toPrice:  mainInfo?.price?.to ?? ""))
+                    TextBold16(text:"/", textColor: R.color.colorPrimary.name.getColor())
+                    TextBold16(text:(mainInfo?.rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
                   }
                 HStack{
-                    TextBold12(textKey:R.string.localizable.resident.localized, textColor: R.color.colorPrimary.name.getColor())
-                    TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
-                    TextBold12(text:(mainInfo?.resident ?? ""), textColor: R.color.colorPrimary.name.getColor())
+                    TextBold16(textKey:R.string.localizable.resident.localized, textColor: R.color.colorPrimary.name.getColor())
+                    TextBold16(text:"/", textColor: R.color.colorPrimary.name.getColor())
+                    TextBold16(text:(mainInfo?.resident ?? ""), textColor: R.color.colorPrimary.name.getColor())
                 }
                 HStack{
                     LocationInfoView(locationName: (mapInfo?.address ?? "الرياض"))

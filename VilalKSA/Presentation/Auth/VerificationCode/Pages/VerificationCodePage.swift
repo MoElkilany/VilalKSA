@@ -181,7 +181,7 @@ struct VerificationCodePage: View {
                         }
                         let code = (pinOne) + (pinTwo) + (pinThree) + (pinFour) + (pinFive)  + (pinSix)
                         let checkCode = VerificationCodeRequest(code: code,phone:self.phoneNumber )
-                        let checkCodeForgetPassword = CodeForgetPasswordRequest(phone:self.phoneNumber, code: code )
+                        let checkCodeForgetPassword = CodeForgetPasswordRequest(phone:self.phoneNumber.convertArabicNumberToEnglishNumber(), code: code.convertArabicNumberToEnglishNumber() )
                         
                         switch screenChecker {
                         case .isForgetPassword:

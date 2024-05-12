@@ -141,6 +141,8 @@ enum ValidationInput {
     case cardNumber
     case expireDate
     case cvvNumber
+    case area
+    case price
     
     func isValid(input: String, count: Int = 0) -> Bool {
         switch self {
@@ -167,6 +169,10 @@ enum ValidationInput {
             return input.isValidateExpiryDate()
         case .cvvNumber:
             return input.count == 3
+        case .area:
+            return input.count >= 2
+        case .price:
+            return input.count >= 1
         }
     
     }
@@ -191,6 +197,10 @@ enum ValidationInput {
             R.string.localizable.enter_Valid_Expire_Date.localized
         case .cvvNumber:
             R.string.localizable.enter_Valid_CVV_Number.localized
+        case .area:
+            R.string.localizable.field_Required.localized
+        case .price:
+            R.string.localizable.field_Required.localized
         }
     }
 }
@@ -241,7 +251,6 @@ struct VilalTextField: View {
             .frame(height: 50 )
             .background(  R.color.colorF7F8F8.name.getColor())
             .cornerRadius( 25)
-           
             .padding(.horizontal)
             
             if self.submitButton == true {
@@ -359,4 +368,49 @@ struct VilalPasswordTextField: View {
         
     }
     
+}
+
+
+
+struct sheetView: View {
+
+    @Binding var text: String
+    let placeholder: LocalizedStringKey
+
+    init(text: Binding<String>, placeholder: LocalizedStringKey) {
+        self._text = text
+        self.placeholder = placeholder
+    }
+    
+    var body: some View {
+            HStack {
+                ZStack(alignment: .leading) {
+                    if text.isEmpty {
+                        Text(placeholder)
+                            .padding(.leading, 5)
+                            .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 16))
+                            .foregroundColor(Color.gray)
+                            .padding(.horizontal,12)
+                    }
+                    TextField("", text: $text)
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(R.color.colorPrimary.name.getColor())
+                        .padding(.vertical, 10)
+                        .padding(.leading, 5)
+                        .font(Font.custom(FontName.cairoSemiBold.rawValue, size: 16))
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal,12)
+                }
+                
+                Image(R.image.arrowUp2.name)
+                    .padding(.trailing,10)
+            }
+            .frame(height: 50 )
+            .background(.white)
+            .cornerRadius( 25)
+            .padding(.horizontal)
+            
+        
+      
+    }
 }

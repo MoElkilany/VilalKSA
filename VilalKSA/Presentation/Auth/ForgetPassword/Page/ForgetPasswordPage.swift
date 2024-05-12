@@ -116,7 +116,7 @@ struct ForgetPasswordPage: View {
         self.submitButton = true
         if viewModel.validForm(){
             phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
-            viewModel.forgetPasswordRequest(request: ForgetPasswordRequest(phone: phoneWithCodeCounty))
+            viewModel.forgetPasswordRequest(request: ForgetPasswordRequest(phone: phoneWithCodeCounty.convertArabicNumberToEnglishNumber()))
         }
     }
 }

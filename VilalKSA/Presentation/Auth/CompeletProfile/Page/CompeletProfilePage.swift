@@ -24,7 +24,7 @@ struct CompeletProfilePage: View {
         ZStack{
             VStack{
                 HStack{
-                    Image( R.image.back_button_right_icon.name  )
+                    Image(R.image.back_button_right_icon.name)
                         .resizable()
                         .frame(width: 25, height: 15)
                         .scaleEffect(x:local == "en" ?  -1 : 1  , y: local == "en" ?  1 : -1 )
@@ -36,9 +36,8 @@ struct CompeletProfilePage: View {
                 .padding(.top, 50)
                 .padding(.horizontal, 25)
                 
-                
                 ScrollView(showsIndicators:false){
-                    
+
                     TextBold16(textKey: R.string.localizable.completing_Personal_Profile_Information.localized, textColor: R.color.color172B4D.name.getColor())
                         .padding(.vertical,4)
                     
@@ -46,17 +45,15 @@ struct CompeletProfilePage: View {
                         VilalTextField(text: $firstName, placeholder:  R.string.localizable.enter_First_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
                             viewModel.isVaildFirstName = isValid
                         })
-                        
-                        
+
                         VilalTextField(text: $secondName, placeholder:  R.string.localizable.enter_Second_Name.localized, imageName:"" , keyboardType: .default, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
                             viewModel.isVaildSecondName = isValid
                         })
                         
-                        
                         VilalTextField(text: $email, placeholder:  R.string.localizable.enter_Email.localized, imageName:"" , keyboardType: .default, validationInput: .email, submitButton: submitButton, onSubmit: { isValid in
                             viewModel.isVaildEmailName = isValid
                         })
-                        
+
                         VilalPasswordTextField(text: $password, placeholder: R.string.localizable.password.localized, keyboardType: .default,validationInput: .password, submitButton: submitButton, onSubmit: { isValid in
                             viewModel.isVaildPassword = isValid
                         })
@@ -97,7 +94,6 @@ struct CompeletProfilePage: View {
                 .animation(.spring())
                 .autohideIn(5)
         }
-        
         .onTapGesture {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
@@ -112,7 +108,7 @@ struct CompeletProfilePage: View {
     private func createAccount() {
         submitButton = true
         if viewModel.isValidForm(){
-            let completeProfileModel = CompleteProfileModelRequest(firstName: firstName, secondName: secondName, email: email, password: password, confirmPassword: rewritePassword)
+            let completeProfileModel = CompleteProfileModelRequest(firstName: firstName, secondName: secondName, email: email, password: password.convertArabicNumberToEnglishNumber(), confirmPassword: rewritePassword.convertArabicNumberToEnglishNumber())
             viewModel.compeletProfile(request: completeProfileModel)
         }
     }
@@ -120,7 +116,7 @@ struct CompeletProfilePage: View {
 
 
 extension CompeletProfilePage {
-    
+
     func navigate(isLogin:Bool) {
         if isLogin {
             pilot.popTo(.login)

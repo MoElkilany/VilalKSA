@@ -5,6 +5,11 @@
 //  Created by Elkilany on 10/02/2024.
 //
 
+struct changeAdStatusRequestModel: BaseModel{
+    var type:String?
+    var id:String?
+}
+
 import Moya
 
 enum AddNewAdEndPoint {
@@ -14,6 +19,7 @@ enum AddNewAdEndPoint {
     case getAdDetails(id:String)
     case addOrRemoveFavourite(id:String)
     case propertyOwnerInfo(id:String)
+    case changeStatus(model:changeAdStatusRequestModel)
 }
 
 extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
@@ -36,9 +42,9 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
         case .addOrRemoveFavourite:
             return Constants.addOrRemoveFavourite.rawValue
         case .propertyOwnerInfo(let id ):
-            return Constants.propertyOwnerInfo.rawValue + id
-            
-            
+            return Constants.propertyOwnerInfo.rawValue + id            
+        case .changeStatus:
+            return Constants.changeStatus.rawValue
         }
     }
     
@@ -46,7 +52,7 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
         switch self {
         case .getAdsCategory ,.getInterface ,.getAdDetails,.propertyOwnerInfo :
             return .get
-        case .createNewAdd,.addOrRemoveFavourite:
+        case .createNewAdd,.addOrRemoveFavourite,.changeStatus:
             return .post
         }
     }
@@ -74,7 +80,8 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
             
         case .addOrRemoveFavourite(let id):
             return .requestParameters(parameters: ["id":id], encoding: URLEncoding.queryString )
- 
+        case .changeStatus(let model):
+            return .requestJSONEncodable(model)
         }
     }
     
@@ -86,7 +93,7 @@ extension AddNewAdEndPoint: TargetType, AccessTokenAuthorizable {
     
     var authorizationType: AuthorizationType? {
         switch self {
-        case .getInterface,.getAdsCategory,.createNewAdd,.getAdDetails,.addOrRemoveFavourite,.propertyOwnerInfo:
+        case .getInterface,.getAdsCategory,.createNewAdd,.getAdDetails,.addOrRemoveFavourite,.propertyOwnerInfo,.changeStatus:
             return .bearer
         }
     }

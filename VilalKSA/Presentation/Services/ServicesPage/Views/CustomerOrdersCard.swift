@@ -29,7 +29,7 @@ struct CardContent: View {
                 LocationInfoView(locationName: customerOrderModel.address ?? "" )
              
                 HStack{
-                    PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price?.from ?? "", toPrice:  customerOrderModel.price?.to ?? ""))
+                    PriceInfoView(price: VilalHelper.getFromToPrice(fromPrice: customerOrderModel.price ?? "", toPrice: ""))
                     TextBold12(text:"/", textColor: R.color.colorPrimary.name.getColor())
                     TextBold12(text:(customerOrderModel.rental ?? ""), textColor: R.color.colorPrimary.name.getColor())
                 }

@@ -159,13 +159,13 @@ struct MainFilterPage: View {
                         }
                         VilalDivider()
                         HStack{
-                            DefaultBoarderButtonWithIcon(title: R.string.localizable.apply.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
+                            DefaultBoarderButtonWithIcon(title: R.string.localizable.search.localized,borderColor: .clear ,backgroundColor:R.color.colorPrimary.name.getColor(), titleColor:.white ,actionButton: {
                                 self.onDismiss(MainAdRequest(categoryID: self.categoryID ?? "", lat: "", lon: "", price: self.price, room: String(self.bedrooms), bathrooms: String(self.bathroom), lounges: String(self.livingRooms), sort: String(self.sortByID)), self.category)
                                 self.onCloseAfterSearch()
                             })
                             .frame(height: 50)
                             
-                            DefaultBoarderButtonWithIcon(title: R.string.localizable.delete.localized,borderColor: .clear ,backgroundColor:R.color.colorF5F5F5.name.getColor(), titleColor:R.color.color42526E.name.getColor() ,actionButton: {
+                            DefaultBoarderButtonWithIcon(title: R.string.localizable.edit.localized,borderColor: .clear ,backgroundColor:R.color.colorF5F5F5.name.getColor(), titleColor:R.color.color42526E.name.getColor() ,actionButton: {
                                 self.savedData = nil
                                 self.savedCategory  = ""
                                 self.onClose()

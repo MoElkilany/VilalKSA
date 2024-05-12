@@ -88,13 +88,20 @@ struct LoginPage: View {
                         viewModel.fullNumber = phoneWithCodeCounty
                         submitButton = true
                         if self.viewModel.isValidForm(){
-                            let loginRequest = LoginRequest(phone: phoneWithCodeCounty, password: password)
+                            let loginRequest = LoginRequest(phone: phoneWithCodeCounty.convertArabicNumberToEnglishNumber(), password: password.convertArabicNumberToEnglishNumber())
                             viewModel.login(request: loginRequest)
                         }
                     }, fontWeight: .bold)
+                    
+                    Button( R.string.localizable.enter_AS_GUEST.localized) {
+                        UserDefaults.standard.set(true, forKey: Constants.asGuest.rawValue)
+                        pilot.push(.home)
+                    }
+                    .foregroundColor(R.color.color42526E.name.getColor())
+                    .font(Font.custom(FontName.cairoRegular.rawValue, size: 14))
                     Spacer()
                 }
-                
+
                 HStack {
                     TextRegular12(textKey:  R.string.localizable.dont_Have_Account.localized, textColor: R.color.color42526E.name.getColor())
                     Button( R.string.localizable.create_New_Account.localized) {
@@ -139,7 +146,6 @@ struct LoginPage: View {
     
     func loginAction() {
         
-        
         phoneWithCodeCounty = viewModel.constructPhoneWithCodeCounty(phoneNumber, country: country)
         let loginRequest = LoginRequest(phone: phoneWithCodeCounty, password: password)
         viewModel.login(request: loginRequest)
@@ -150,9 +156,10 @@ struct LoginPage: View {
             pilot.push(.verificationCode(phoneNumber:  self.phoneWithCodeCounty, navigationChecker: .isForgetPassword))
         }
     }
-    
+
     func navigateToHomePage(isLoggedin: Bool ) {
         if isLoggedin {
+            UserDefaults.standard.setValue(false, forKey: Constants.asGuest.rawValue)
             pilot.push(.home)
         }
     }

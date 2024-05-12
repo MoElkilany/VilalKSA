@@ -15,6 +15,7 @@ struct MainAdsModel: BaseModel {
 
 // MARK: - Datum
 struct MainAdsResponse: BaseModel,Identifiable {
+    
     var isSelected: Bool?
     var id: Int?
     var name, category: String?
@@ -28,9 +29,11 @@ struct MainAdsResponse: BaseModel,Identifiable {
     var lat, lon, estateSpace, address: String?
     var createdAt: String?
     var status:String?
+    var views:Int?
+    var isAdOwner:Bool?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, category, image, price, rental, favourite, room, space, rate, lat, lon, address,status
+        case id, name, category, image, price, rental, favourite, room, space, rate, lat, lon, address,status,views,isAdOwner
         case estateSpace = "estate_space"
         case createdAt = "created_at"
         case isSelected = "is_selected"

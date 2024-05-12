@@ -17,7 +17,7 @@ struct MyRequestModel: BaseModel {
     var id: Int?
     var name, category: String?
     var image: String?
-    var price: Price?
+    var price: String?
     var rental: String?
     var favourite: Bool?
     var room: String?

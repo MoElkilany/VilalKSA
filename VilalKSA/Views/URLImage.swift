@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct URLImage: View {
     
@@ -15,39 +16,19 @@ struct URLImage: View {
     var isCliped = false
     
     var body: some View {
-        AsyncImage(url: URL(string: imageUrl ?? "")) { phase in
-//        
-            switch phase {
-                
-            case .success(let image):
-                
-                if isCliped == true {
-                    image
-                        .resizable()
-                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
-                        .cornerRadius(imageWidth / 2 )
-                }else{
-                    image
-                        .resizable()
-                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
-                }
-              
-                    
-            case .failure(_):
-                if isCliped == true {
-                    Image(R.image.logo.name)
-                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
-                        .cornerRadius(imageWidth / 2 )
-                }else{
-                    Image(R.image.logo.name)
-                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
-                        .cornerRadius(12)
-                    
-                }
-            case .empty:
-                ProgressView()
-                
-            @unknown default:
+        
+        KFImage.url(URL(string: imageUrl ?? ""))
+        
+        
+        //                   .placeholder(Image("logo"))
+        //                  .setProcessor(processor)
+            .loadDiskFileSynchronously()
+            .cacheMemoryOnly()
+            .fade(duration: 0.25)
+            .onProgress { receivedSize, totalSize in  }
+            .onSuccess { result in  }
+            .onFailure { error in }
+            .placeholder({ _ in
                 if isCliped == true {
                     Image(R.image.logo.name)
                         .frame(width: imageWidth, height: imageHeight, alignment: .center)
@@ -57,7 +38,53 @@ struct URLImage: View {
                         .frame(width: imageWidth, height: imageHeight, alignment: .center)
                         .cornerRadius(12)
                 }
-            }
-        }
+            })
+            .resizable()
+            .frame(width: imageWidth, height: imageHeight, alignment: .center)
+
+        
+        //        AsyncImage(url: URL(string: imageUrl ?? "")) { phase in
+        ////
+        //            switch phase {
+        //
+        //            case .success(let image):
+        //
+        //                if isCliped == true {
+        //                    image
+        //                        .resizable()
+        //                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+        //                        .cornerRadius(imageWidth / 2 )
+        //                }else{
+        //                    image
+        //                        .resizable()
+        //                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+        //                }
+        //
+        //
+        //            case .failure(_):
+        //                if isCliped == true {
+        //                    Image(R.image.logo.name)
+        //                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+        //                        .cornerRadius(imageWidth / 2 )
+        //                }else{
+        //                    Image(R.image.logo.name)
+        //                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+        //                        .cornerRadius(12)
+        //                }
+        //            case .empty:
+        //                ProgressView()
+        //
+        //            @unknown default:
+        //                if isCliped == true {
+        //                    Image(R.image.logo.name)
+        //                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+        //                        .cornerRadius(imageWidth / 2 )
+        //                }else{
+        //                    Image(R.image.logo.name)
+        //                        .frame(width: imageWidth, height: imageHeight, alignment: .center)
+        //                        .cornerRadius(12)
+        //                }
+        //            }
+        //        }
     }
 }

@@ -185,7 +185,7 @@ class AddCustomerRequestsViewModel: BaseViewModel {
     
     
     func isValidForm() -> Bool {
-         isValidArea && isCategoryIdValid && isPriceFromValid && isPriceToValid && isPropertyDetailsValid  && isPropertyNameValid
+         isValidArea && isCategoryIdValid && isPriceFromValid  && isPropertyDetailsValid  && isPropertyNameValid
     }
     
     func createNewRequest(model:CreateCutomerRequestModel) {

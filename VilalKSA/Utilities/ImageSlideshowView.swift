@@ -57,17 +57,37 @@ struct ImageSlideshowView: UIViewRepresentable {
 
 
 import AVKit
-struct VideoPlayerView: UIViewControllerRepresentable {
+//struct VideoPlayerView: UIViewControllerRepresentable {
+//    let videoURL: URL
+//    
+//    func makeUIViewController(context: Context) -> AVPlayerViewController {
+//        let player = AVPlayer(url: videoURL)
+//        let playerViewController = AVPlayerViewController()
+//        playerViewController.player = player
+//        return playerViewController
+//    }
+//    
+//    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
+//        // Update logic goes here if needed
+//    }
+//}
+
+
+struct VideoPlayerView: View {
     let videoURL: URL
     
-    func makeUIViewController(context: Context) -> AVPlayerViewController {
-        let player = AVPlayer(url: videoURL)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        return playerViewController
-    }
-    
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
-        // Update logic goes here if needed
+    var body: some View {
+        VStack {
+            Button(action: {
+                let player = AVPlayer(url: videoURL)
+                let playerViewController = AVPlayerViewController()
+                playerViewController.player = player
+             UIApplication.shared.windows.first?.rootViewController?.present(playerViewController, animated: true, completion: {
+                    player.play()
+                })
+            }) {
+                TextBold16(textKey: R.string.localizable.showVideo.localized, textColor: R.color.color42526E.name.getColor())
+            }
+        }
     }
 }

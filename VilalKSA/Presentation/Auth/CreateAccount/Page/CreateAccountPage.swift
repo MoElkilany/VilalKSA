@@ -60,7 +60,7 @@ struct CreateAccountPage: View {
                         if self.viewModel.isValidForm(){
                             let phoneWithCodeCountyValue = ((country.dialingCode ?? "") + (phoneNumber))
                             self.phoneWithCodeCounty = phoneWithCodeCountyValue
-                            viewModel.registerPhone(request: RegisterPhoneRequest(phone:self.phoneWithCodeCounty  ))
+                            viewModel.registerPhone(request: RegisterPhoneRequest(phone:self.phoneWithCodeCounty.convertArabicNumberToEnglishNumber()  ))
                         }
                         
                     }, fontWeight: .bold)

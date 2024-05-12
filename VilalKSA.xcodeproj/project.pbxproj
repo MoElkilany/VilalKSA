@@ -101,6 +101,7 @@
 		E75591A62B27A27000693FD5 /* ErrorToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75591A52B27A27000693FD5 /* ErrorToast.swift */; };
 		E75591A82B27BC4F00693FD5 /* ReadMee.md in Resources */ = {isa = PBXBuildFile; fileRef = E75591A72B27BC4F00693FD5 /* ReadMee.md */; };
 		E75E44612BB447DA00A57D28 /* RentalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75E44602BB447DA00A57D28 /* RentalView.swift */; };
+		E75FE3EC2BEA5C80008965C7 /* SaleOrRentPropertyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75FE3EB2BEA5C80008965C7 /* SaleOrRentPropertyPage.swift */; };
 		E7601EAC2B1F43000070C853 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7601EAB2B1F43000070C853 /* Colors.xcassets */; };
 		E761C3C22B69994D00B3917F /* CustomerRequestsDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761C3C12B69994D00B3917F /* CustomerRequestsDetailsPage.swift */; };
 		E761C3C52B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E761C3C42B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift */; };
@@ -331,6 +332,7 @@
 		E75591A52B27A27000693FD5 /* ErrorToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorToast.swift; sourceTree = "<group>"; };
 		E75591A72B27BC4F00693FD5 /* ReadMee.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReadMee.md; sourceTree = "<group>"; };
 		E75E44602BB447DA00A57D28 /* RentalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalView.swift; sourceTree = "<group>"; };
+		E75FE3EB2BEA5C80008965C7 /* SaleOrRentPropertyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleOrRentPropertyPage.swift; sourceTree = "<group>"; };
 		E7601EAB2B1F43000070C853 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E761C3C12B69994D00B3917F /* CustomerRequestsDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRequestsDetailsPage.swift; sourceTree = "<group>"; };
 		E761C3C42B699B4D00B3917F /* CustomerRequestsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRequestsDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 				E7D7CF682B88E9A60053A061 /* AdsDetailsPage.swift */,
 				E7D15A662BB4E0B400EB23C5 /* RentalReservationPage.swift */,
 				E7C666B92BB5A2F600515DBC /* PropertyOwnerInformationPage.swift */,
+				E75FE3EB2BEA5C80008965C7 /* SaleOrRentPropertyPage.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -1740,6 +1743,7 @@
 				E7D7CF692B88E9A70053A061 /* AdsDetailsPage.swift in Sources */,
 				E7E6FF642B2B4A8300D94036 /* VerificationCodePage.swift in Sources */,
 				E74293812B8BD39D000762EB /* ImageSlideshowView.swift in Sources */,
+				E75FE3EC2BEA5C80008965C7 /* SaleOrRentPropertyPage.swift in Sources */,
 				E7F3E7742B95117F0075983D /* MyAccountModel.swift in Sources */,
 				E7CA67092B7ED7DF0046B311 /* AddCustomerRequestsViewModel.swift in Sources */,
 				E783568F2B74659500B342FE /* MyRequestsContainerView.swift in Sources */,
@@ -1984,7 +1988,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"VilalKSA/Preview Content\"";
 				DEVELOPMENT_TEAM = LRDS6PV5N3;
 				ENABLE_PREVIEWS = YES;
@@ -2002,7 +2006,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2026,7 +2030,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"VilalKSA/Preview Content\"";
 				DEVELOPMENT_TEAM = LRDS6PV5N3;
 				ENABLE_PREVIEWS = YES;
@@ -2044,7 +2048,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

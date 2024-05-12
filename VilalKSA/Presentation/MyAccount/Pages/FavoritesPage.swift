@@ -11,10 +11,12 @@ import UIPilot
 struct FavoritesPage: View {
     @StateObject var viewModel = FavoritesViewModel()
     @EnvironmentObject var pilot: UIPilot<FavoritesDestination>
+    @EnvironmentObject var pilotRoot: UIPilot<RootDestination>
     @State private var searchText = ""
     @State var showfilterSheet: Bool = false
     @State var filterResult: LocalizedStringKey = ""
-    
+    @State var popups: Bool = false
+
     var body: some View {
         //        VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.favorites.localized, tryAgainAction: {
         //             viewModel.getFav()
@@ -108,8 +110,24 @@ struct FavoritesPage: View {
         .ignoresSafeArea(.all)
         .padding(.bottom,30)
         .onAppear {
-            viewModel.getFav()
+            let isGeust = UserDefaults.standard.bool(forKey:Constants.asGuest.rawValue)
+            if isGeust {
+                popups = true
+            }else{
+                viewModel.getFav()
+            }
         }
+
+        .popup(isPresented: $popups, view: {
+            GuestAlertDialog {
+                popups = false
+            } trueAction: {
+                pilotRoot.popTo(.login)
+            }
+        }, customize: {
+            $0
+                .dragToDismiss(false)
+        })
         
     }
 }

@@ -30,11 +30,11 @@ struct RequestOwnerView: View {
                     .onTapGesture {
                         goToProfile?()
                     }
-           
             }
             
             HStack{
-                URLImage(imageUrl: ownerInfo?.image ?? "",imageWidth: 60, imageHeight: 60, isCliped: true )
+                URLImage(imageUrl: ownerInfo?.image ?? "",imageWidth: 60, imageHeight: 60, isCliped: true)
+                    .cornerRadius(30)
 
                 VStack(spacing:-4){
                     TextBold14(text: (ownerInfo?.name ?? "") , textColor: R.color.colorPrimary.name.getColor())

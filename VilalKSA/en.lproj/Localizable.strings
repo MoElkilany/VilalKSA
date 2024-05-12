@@ -68,10 +68,9 @@
 "Success" =  "Success";
 
 "Please_Enter_The_First_Name" = "Please Enter the first Name";
-"Please_Enter_The_First_Name" = "الرجاء إدخال الاسم الأول";
 
 "Please_Enter_The_Second_Name" = "Please Enter the second Name";
-"Please_Enter_The_Second_Name" = "الرجاء إدخال اسم العائلة";
+
 
 "Please_Enter_A_Valid_Email" = "Please Enter a valid email";
 
@@ -200,9 +199,11 @@
   "Water_Availability" =  "Water Availability";
 "Air_Conditioning" =  "Air Conditioning";
 "Meter" = "M";
-"One_Thousand_Meters" =  "Thousand Meters";
+"One_Thousand_Meters" =  "Meters";
 "Thousand" =  "Sar";
-
+"ShowVideo" = "Show Video";
+"RentalType" = "Rental Type";
+"OpenLocation" = "Open Location";
 //MARK= - Validation
 
 "notValidEmail" = "This is a not valid email";
@@ -300,7 +301,7 @@
 "Instant_rental_service" = "Instant rental service";
 "Terms_conditions" = "Terms and conditions";
 "End_Date_Must_Be_Greater" = "The Departure date must be greater than or equal the Arrival date";
-"Price_For_One_Night" = "One night rate";
+"Price_For_One_Night" = "Monthly rate";
 
 
 "Active_Since" = "Active since";
@@ -350,3 +351,16 @@
 "All" = "All";
 "For_Rent" = "Rent";
 "For_Sale" = "Sale";
+"Enter_AS_GUEST" = "Enter as a guest";
+"YouAreNotRegister" = "You are not registered";
+"DoYouWantLogin" = "Would you like to login?";
+
+"IsPropertySale" = "Has this property been sold or rented?";
+"IfYES" = "If the answer is yes, the advertisement will be removed.";
+
+"Ad_Deleted_Successfully"=  "Ad Hidden Successfully";
+"Ad_Appear_Successfully"=  "Ad Appear Successfully";
+
+"HiddenAdvertisement" = "You have hidden this advertisement from the list of ads";
+
+"Do you want to show it again?" = "Do you want to show it again?";

@@ -16,7 +16,8 @@ struct PropertyGalleryPage: View {
     @EnvironmentObject var pilot: UIPilot<AddRequestDestination>
     @StateObject var viewModel = AddNewAdCategoryViewModel()
     var addNewAdRequestModel:AddNewAdRequestModel?
-    
+    @EnvironmentObject var pilotRoot: UIPilot<RootDestination>
+
     @State var showActionSheet = false
     @State var showImagePicker = false
     @State var imagePickerSourceType = UIImagePickerController.SourceType.photoLibrary
@@ -24,7 +25,7 @@ struct PropertyGalleryPage: View {
     @State var isVideoPickerPresented = false
     @State var videoURL: URL?
     @State var nextButton: Bool = true
-    
+    @State var popups: Bool = false
     var body: some View {
         
         VilalKSAContainer(state: self.$viewModel.state,titlePage: R.string.localizable.property_Images.localized, tryAgainAction: {
@@ -70,20 +71,23 @@ struct PropertyGalleryPage: View {
                     
                     DefaultButton(title:  R.string.localizable.next.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
                         
-                        if !images.isEmpty {
-                            nextButton = true
-                            
-                            if  self.videoURL == nil {
-                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData: nil,addStatus:addNewAdRequestModel?.addStatus ?? ""  )))
-                            }else{
-                                pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData:   Convert.URLToData(URLString: self.videoURL ?? URL(fileURLWithPath: "") ) ?? Data() , addStatus:addNewAdRequestModel?.addStatus ?? ""  ) ))
-                            }
-                            
-                      
+                        if UserDefaults.standard.bool(forKey:Constants.asGuest.rawValue) {
+                            popups = true
                         }else{
-                            nextButton = false
+                            if !images.isEmpty {
+                                nextButton = true
+                                
+                                if  self.videoURL == nil {
+                                    pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData: nil,addStatus:addNewAdRequestModel?.addStatus ?? ""  )))
+                                }else{
+                                    pilot.push(.addNewAdsPage(model: AddNewAdRequestModel(categoryAdID: addNewAdRequestModel?.categoryAdID ?? "", addLat: addNewAdRequestModel?.addLat ?? "", addLng: addNewAdRequestModel?.addLng ?? "", addAddress: addNewAdRequestModel?.addAddress ?? "",images: Convert.imageToData(images: self.images), videosData:   Convert.URLToData(URLString: self.videoURL ?? URL(fileURLWithPath: "") ) ?? Data() , addStatus:addNewAdRequestModel?.addStatus ?? ""  ) ))
+                                }
+                                
+                                
+                            }else{
+                                nextButton = false
+                            }
                         }
-                        
                         
                         
                     }, fontWeight: .bold)
@@ -118,6 +122,17 @@ struct PropertyGalleryPage: View {
                     ImagePicker(selectedImages: $images)
                 }
             }
+            .popup(isPresented: $popups, view: {
+
+                GuestAlertDialog(onClose: {
+                    popups = false
+                }, trueAction: {
+                    pilotRoot.popTo(.login)
+                }, haveCancelButton: true )
+            }, customize: {
+                $0
+                    .dragToDismiss(false)
+            })
         })
     }
   

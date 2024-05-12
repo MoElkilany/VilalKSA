@@ -41,4 +41,9 @@ struct AddNewAdAPIClient: APIClient {
         fetch(with: AddNewAdEndPoint.propertyOwnerInfo(id: id), completion: completion)
     }
     
+    
+    func changeStatus(typeID:String ,id: String ,completion: @escaping (APIResult<BaseResponseModel?, APIError>) -> Void) {
+        fetch(with: AddNewAdEndPoint.changeStatus(model: changeAdStatusRequestModel(type: typeID, id: id)), completion: completion)
+    }
+    
 }

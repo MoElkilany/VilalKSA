@@ -18,6 +18,7 @@ enum Constants: String {
     case userModel
     case isLogin
     case hasLaunchedBefore
+    case asGuest
     
     // MARK: - API Paths
     
@@ -64,6 +65,7 @@ enum Constants: String {
     case myRequest = "account/real/estate/request"
     case deleteMyRequest = "account/real/estate/request/destroy"
     case propertyOwnerInfo = "user/"
+    case  changeStatus = "real/estate/change/status"
     
     // MARK: - Payments
     case payments = "account/payments"

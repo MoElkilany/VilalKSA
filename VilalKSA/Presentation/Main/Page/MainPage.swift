@@ -15,7 +15,15 @@ struct ActionSheetsState {
     var showingSearchFilter = false
 }
 
+
 struct MainPage: View {
+    
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(R.color.color172B4D.name.getColor())
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor:UIColor.white], for: .selected)
+        UISegmentedControl.appearance().backgroundColor = .white
+
+    }
     
     @ObservedObject var locationManager = LocationManager()
     @EnvironmentObject var pilot: UIPilot<MainDestination>
@@ -30,15 +38,21 @@ struct MainPage: View {
     @State var categorysList: [LookUpModel] = []
     @State var mainAdRequest: MainAdRequest?
     @State var savedCategory: String = ""
-    
-    
+    @State var isTaskDone = false
+    @State  var openPlacesSheet: Bool = false
+    @State  var selectedCategory: String = ""
+    @State  var selectedCategoryID: String = ""
+    @State  var selectedFilterID: String = ""
+    @State  var removeMarker: Bool = false
+
+
     var body: some View {
         
         ZStack{
             ZStack {
                 if self.mainAds.isEmpty != true {
                     ZStack{
-                        GoogleMapsView(locationManager: locationManager, locations: self.mainAds, selectedPlace: $selectedPlace, isUpdated: self.isUpdate, isSelectAd: { (adId,isSelected) in
+                        GoogleMapsView(removeMarker:removeMarker,locationManager: locationManager, locations: self.mainAds, selectedPlace: $selectedPlace, isUpdated: self.isUpdate, isSelectAd: { (adId,isSelected) in
                             if isSelected == false {
                                 self.viewModel.isSelectedAdAPI(id:adId)
                             }
@@ -46,9 +60,9 @@ struct MainPage: View {
                       
                         .edgesIgnoringSafeArea(.all)
                         .padding(.bottom,10)
-                        
                         HStack{
                             Button {
+                                self.removeMarker = true
                                 pilot.push(.mainListPage(mainAdsList: self.mainAds))
                             } label: {
                                 Image(R.image.listLogo.name)
@@ -62,28 +76,43 @@ struct MainPage: View {
                     .padding(.top,50)
                 }else{
                     ShowGoogleMapsView(locationManager: locationManager)
-              
                 }
                 
-                HStack{
-         
-//                        RentalFilterView()
-//                        .padding(.horizontal,12)
-//                        .cornerRadius(12)
-
-                    Spacer()
+                VStack(spacing:8){
+                    HStack{
+                        SegmentedView(getFilterID: { id in
+                            selectedFilterID = id
+                            self.viewModel.getMainAds(request: MainAdRequest(categoryID:selectedCategoryID, lat: "", lon: "", price: "", room: "", bathrooms: "", lounges: "", sort: "",type:selectedFilterID))
+                        })
+                            .customCardStyle2(corner: 12)
+                            .padding(.leading,10)
+                        Spacer()
+                        Button {
+                            actionSheets.showingFirst = true
+                            //                   isTaskDone = true
+                        } label: {
+                            Image(R.image.filterIcon.name)
+                                .padding(.trailing)
+                        }
+                    }
+                    //   .sensoryFeedback(.success, trigger: isTaskDone)
                     Button {
-                        actionSheets.showingFirst = true
+                        openPlacesSheet = true
                     } label: {
-                        Image(R.image.filterIcon.name)
-                            .padding(.horizontal)
+                        VStack{
+                            sheetView(text: $selectedCategory, placeholder: R.string.localizable.desired_Property_Type.localized)
+                            .disabled(true)
+                        }
                     }
                 }
                 .padding(.top,-320)
                 
+                
                 if let item = selectedPlace {
                     Button(action: {
+                        self.removeMarker = true
                         pilot.push(.adsDetailsPage(id: String(item.id ?? 0 ), type: .main))
+                        
                     }, label: {
                         PropertyContainerView(imageUrl: item.image ?? "" , rate: String(item.rate ?? 0), category: item.category ?? "", name: item.name ?? "" , room: item.room ?? "" , space: item.estateSpace ?? "" , price: item.price ?? "" ,favourite: item.favourite ?? false , location: item.address, rental: item.rental ?? "", addOrRemoveFavouriteAction: {
                             self.viewModel.addOrRemoveFav(id: String(item.id ?? 0))
@@ -96,7 +125,8 @@ struct MainPage: View {
             .disabled(self.viewModel.state == .loading)
 
             if self.viewModel.state == .loading {
-                OnScreenLoading
+                ProgressView().progressViewStyle(CircularProgressViewStyle())
+                    .controlSize(.extraLarge)
             }
         }
         .onAppear {
@@ -123,6 +153,34 @@ struct MainPage: View {
             }
         }
         
+        .sheet(isPresented: $openPlacesSheet) {
+            NavigationView {
+                    List{
+                        ForEach(self.viewModel.categorysList  ,id: \.self) { item in
+                            Button(action: {
+                                openPlacesSheet = false
+                                selectedCategory = item.name ?? ""
+                                selectedCategoryID = String(item.id ?? 0)
+                                if selectedCategoryID == "0" {
+                                    selectedCategoryID = ""
+                                }
+                                self.viewModel.getMainAds(request: MainAdRequest(categoryID:selectedCategoryID , lat: "", lon: "", price: "", room: "", bathrooms: "", lounges: "", sort: "",type:selectedFilterID) )
+
+                            }, label: {
+                                HStack{
+                                    TextBold14(text:item.name ?? "", textColor: R.color.colorPrimary.name.getColor())
+                                        .multilineTextAlignment(.center)
+                                    Spacer()
+                                }
+                            })
+                            .padding()
+                        }
+                    }
+            }
+            .multilineTextAlignment(.center)
+            .presentationDetents([.medium, .large])
+        }
+        
         .popup(isPresented: $actionSheets.showingFirst) {
             MainFilterPage(savedData:self.mainAdRequest ,savedCategory:self.savedCategory ,categorysList: self.categorysList, onClose: {
                 actionSheets.showingFirst = false
@@ -133,10 +191,8 @@ struct MainPage: View {
                 self.savedCategory = savedCategory
                 self.mainAdRequest = mainAdRequest
                 self.viewModel.getMainAds(request: mainAdRequest )
-                
             }, onCloseAfterSearch: {
                 actionSheets.showingFirst = false
-                
             })
         } customize: {
             $0

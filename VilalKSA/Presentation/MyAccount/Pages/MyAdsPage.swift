@@ -56,9 +56,10 @@ struct MyAdsPage: View {
                 .autohideIn(5)
         }
         .onAppear {
-            if self.viewModel.MyAdsList?.isEmpty == true  ||  self.viewModel.MyAdsList == nil  {
-                self.viewModel.getMyAds()
-            }
+            self.viewModel.getMyAds()
+//            if self.viewModel.MyAdsList?.isEmpty == true  ||  self.viewModel.MyAdsList == nil  {
+//            
+//            }
         }
     }
 }

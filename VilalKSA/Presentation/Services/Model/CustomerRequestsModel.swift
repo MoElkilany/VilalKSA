@@ -17,7 +17,7 @@ struct CustomerRequestsModel: BaseModel {
 struct CustomerRequestsValueModel: BaseModel {
     var id: Int?
     var name, category, lat,address, lon ,created_at,rental,resident: String?
-    var price: CustomerRequestsPrice?
+    var price: String?
 }
 
 struct CustomerRequestsPrice: BaseModel {
@@ -47,7 +47,7 @@ struct Detail: BaseModel {
 struct Main: BaseModel {
     var id: Int?
     var name, category: String?
-    var price: Price?
+    var price: String?
     var rental, createdAt,estateSpace,resident: String?
 
     enum CodingKeys: String, CodingKey {

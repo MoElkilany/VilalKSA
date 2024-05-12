@@ -33,8 +33,8 @@ struct CreateCutomerRequestModel: BaseModel {
     let carEntrance: String?
     let elevator: String?
     
-    let priceFrom: String?
-    let priceTo: String?
+//    let priceFrom: String?
+    let price: String?
     let rentalperiodID: String?
     let residentID:String?
     let imageAds: String?
@@ -69,8 +69,8 @@ struct CreateCutomerRequestModel: BaseModel {
         case appendix
         case carEntrance = "car_entrance"
         case elevator
-        case priceFrom = "price_from"
-        case priceTo = "price_to"
+//        case priceFrom = "price_from"
+        case price
         case rentalperiodID = "rentalperiod_id"
         case residentID = "resident_id"
     }

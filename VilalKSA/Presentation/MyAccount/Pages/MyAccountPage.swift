@@ -12,6 +12,7 @@ import PopupView
 struct DialogState {
     var alertContent: AlertContent?
     var middleItem: SomeItem?
+    var guestDialog: Bool = false
 }
 
 struct MyAccountPage: View {
@@ -30,7 +31,6 @@ struct MyAccountPage: View {
                     Image(R.image.profile_top_background.name)
                         .resizable()
                         .frame(maxWidth: .infinity,maxHeight: 178)
-                    
                     TextBold16(textKey: R.string.localizable.user_Profile.localized, textColor: .white)
                 }
                 
@@ -39,7 +39,7 @@ struct MyAccountPage: View {
                 ScrollView(showsIndicators:false){
                     VStack{
                         MyAccountQuickAccessView(items: [
-                           
+                            
                             IconAndTitleWithActionModel(icon: R.image.profile_myAds.name, text: R.string.localizable.my_Ads.localized,action: {
                                 print("my_Ads")
                                 pilot.push(.myAdsPage)
@@ -47,13 +47,13 @@ struct MyAccountPage: View {
                             IconAndTitleWithActionModel(icon: R.image.profile_request.name, text: R.string.localizable.my_Requests.localized,action: {
                                 print("my_Requests")
                                 pilot.push(.myRequestsPage)
-//                                popups.middleItem = SomeItem(mainTitle: R.string.localizable.my_Requests.localized, subTitle: nil, image: nil)
+                                //                                popups.middleItem = SomeItem(mainTitle: R.string.localizable.my_Requests.localized, subTitle: nil, image: nil)
                             }),
                             IconAndTitleWithActionModel(icon: R.image.profile_myReservations.name, text: R.string.localizable.my_Reservations.localized,action: {
                                 print("my_Reservations")
-//                                pilot.push(.myReservationsPage)
+                                //                                pilot.push(.myReservationsPage)
                                 popups.middleItem = SomeItem(mainTitle: R.string.localizable.my_Reservations.localized, subTitle: nil, image: nil)
-
+                                
                             }),
                             
                             IconAndTitleWithActionModel(icon: R.image.police_Icon.name, text: R.string.localizable.policiesAndProcedures.localized,action: {
@@ -77,23 +77,22 @@ struct MyAccountPage: View {
                                     print("customer_Service")
                                 }),
                                 
-                                IconAndTitleWithActionModel(icon: R.image.profile_cancelsReason.name, text: R.string.localizable.cancellation_Terms.localized,action: {
-                                    pilot.push(.cancellationTerms)
-                                    print("cancellation_Terms")
-                                }),
+//                                IconAndTitleWithActionModel(icon: R.image.profile_cancelsReason.name, text: R.string.localizable.cancellation_Terms.localized,action: {
+//                                    pilot.push(.cancellationTerms)
+//                                    print("cancellation_Terms")
+//                                }),
                                 
                                 IconAndTitleWithActionModel(icon: R.image.profile_condition.name, text: R.string.localizable.terms_and_Conditions.localized,action: {
                                     pilot.push(.termsAndConditions)
                                     print("terms_and_Conditions")
                                 }),
                                 
-//                                IconAndTitleWithActionModel(icon: R.image.profile_Policy.name, text: R.string.localizable.privacy_Policy.localized,action: {
-//                                    print("privacy_Policy")
-//                                    pilot.push(.privacyPolicy)
-//                                }),
+                                //                                IconAndTitleWithActionModel(icon: R.image.profile_Policy.name, text: R.string.localizable.privacy_Policy.localized,action: {
+                                //                                    print("privacy_Policy")
+                                //                                    pilot.push(.privacyPolicy)
+                                //                                }),
                                 
                                 IconAndTitleWithActionModel(icon: R.image.profile_deleteAccount.name, text: R.string.localizable.delete_Account.localized,action: {
-                                    
                                     popups.alertContent = AlertContent(image:  R.image.profile_deleteAccount.name, mainTitle: R.string.localizable.delete_Account.localized, subTitle: R.string.localizable.you_Want_Delete_Account.localized, trueAction: {
                                         print("delete_Account_true")
                                     })
@@ -106,8 +105,6 @@ struct MyAccountPage: View {
                                         UserDefaults.standard.setValue(nil, forKey: Constants.beraerToken.rawValue)
                                         UserDefaults.standard.removeObject(forKey:  Constants.beraerToken.rawValue)
                                         UserDefaults.standard.synchronize()
-                                       
-                           
                                         
                                         if pilotRoot.routes.contains(where: {$0.name == RootDestination.login.name}) {
                                             pilotRoot.popTo(.login)
@@ -136,9 +133,27 @@ struct MyAccountPage: View {
                 OnScreenLoading
             }
         }
+        
         .onAppear {
-            self.viewModel.getProfileData()
+            let isGeust = UserDefaults.standard.bool(forKey:Constants.asGuest.rawValue)
+            if isGeust {
+                popups.guestDialog = true
+            }else{
+                self.viewModel.getProfileData()
+            }
         }
+        
+        .popup(isPresented: $popups.guestDialog, view: {
+            GuestAlertDialog {
+                popups.guestDialog = false
+            } trueAction: {
+                pilotRoot.popTo(.login)
+            }
+        }, customize: {
+            $0
+                .dragToDismiss(false)
+        })
+        
         .popup(item: $popups.alertContent) { item in
             AlertDialog(item: item) {
                 popups.alertContent = nil

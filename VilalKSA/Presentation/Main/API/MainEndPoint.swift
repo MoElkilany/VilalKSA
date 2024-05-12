@@ -51,7 +51,31 @@ extension MainEndPoint: TargetType, AccessTokenAuthorizable {
         case .mainCategory:
             return .requestPlain
         case .mainAds(let requestObject):
-            let parameters = ["category_id":requestObject.categoryID ?? "","lat": requestObject.lat ?? "","lon": requestObject.lon ?? "","price": requestObject.price ?? "","room": requestObject.room ?? "","bathrooms": requestObject.bathrooms ?? "","lounges": requestObject.lounges ?? "","sort": requestObject.sort ?? ""]
+            let categoryID = requestObject.categoryID ?? ""
+            let lat = requestObject.lat ?? ""
+            let lon = requestObject.lon ?? ""
+            let price = requestObject.price ?? ""
+            let room = requestObject.room ?? ""
+            let bathrooms = requestObject.bathrooms ?? ""
+            let lounges = requestObject.lounges ?? ""
+            let sort = requestObject.sort ?? ""
+            let type = requestObject.type ?? ""
+
+            let parameters: [String: String] = [
+                "category_id": categoryID,
+                "lat": lat,
+                "lon": lon,
+                "price": price,
+                "room": room,
+                "bathrooms": bathrooms,
+                "lounges": lounges,
+                "sort": sort,
+                "type": type
+            ]
+
+            
+            
+            
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .addOrRemoveFavourite(let id):
             return .requestParameters(parameters: ["id":id], encoding: URLEncoding.queryString)

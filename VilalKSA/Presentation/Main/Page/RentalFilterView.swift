@@ -7,45 +7,58 @@
 
 import SwiftUI
 
-struct RentalFilterView: View {
-
-       var body: some View {
-           HStack(spacing:40) {
-               FilterIconWithValueView(icon: R.image.allAds_Filter.name, valueLocalized: R.string.localizable.all.localized, isSelected: true )
-               FilterIconWithValueView(icon: R.image.forRental_Filter.name, valueLocalized: R.string.localizable.for_Rent.localized,isSelected: true )
-               FilterIconWithValueView(icon: R.image.forSale_Filter.name, valueLocalized: R.string.localizable.for_Sale.localized ,isSelected: true )
-           }
-            .customCardStyle()
-       }
+struct Rent: Hashable {
+    var name: LocalizedStringKey
+    var id: String
+    var image: String
+    var selectedImage: String
     
+    func hash(into hasher: inout Hasher) {
+           hasher.combine(image)
+           hasher.combine(selectedImage)
+       }
 }
 
-#Preview {
-    RentalFilterView()
-}
+struct SegmentedView: View {
 
+    let rentalArr: [Rent] = [
+        Rent(name: R.string.localizable.all.localized, id: "", image: R.image.allAds_Filter.name, selectedImage:  R.image.allAds_Filter_Blue.name),
+        Rent(name: R.string.localizable.for_Rent.localized, id: "2", image: R.image.forRental_Filter.name, selectedImage:  R.image.forRental_Filter_blue.name),
+        Rent(name: R.string.localizable.for_Sale.localized, id: "1", image: R.image.forSale_Filter.name, selectedImage:  R.image.forSale_Filter_blue.name)
+    ]
 
-struct FilterIconWithValueView: View {
-    var icon:String?
-    var valueLocalized:LocalizedStringKey?
-    var isSelected:Bool
+    @State private var selected: LocalizedStringKey = R.string.localizable.all.localized
+    @Namespace var name
+    var getFilterID: ((String)->Void)
+    
     var body: some View {
-        VStack(spacing:4){
-            HStack(spacing:4) {
-                Image(icon ?? R.image.bed_icon.name)
-                    .resizable()
-                    .frame(width: 15, height: 15, alignment: .center)
-                TextRegular14(textKey: valueLocalized ?? "0", textColor: R.color.color172B4D.name.getColor())
+        HStack(spacing: 0) {
+            ForEach(rentalArr, id: \.self) { segment in
+                Button {
+                    getFilterID(segment.id)
+                    selected = segment.name
+                } label: {
+                    VStack(spacing: 4){
+                        HStack{
+                            TextBold14(textKey:segment.name, textColor:selected == segment.name ?  R.color.colorPrimary.name.getColor() : Color(uiColor: .systemGray)  )
+                            Image(selected == segment.name ?  segment.selectedImage : segment.image )
+                                .resizable()
+                                .frame(width: 20 , height: 20, alignment: .center)
+                        }
+                        ZStack {
+                            Capsule()
+                                .fill(Color.clear)
+                                .frame(height: 2)
+                            if selected == segment.name {
+                                Capsule()
+                                    .fill(R.color.colorPrimary.name.getColor())
+                                    .frame(height: 2)
+                                    .matchedGeometryEffect(id: "Tab", in: name)
+                            }
+                        }
+                    }
+                }
             }
-            if isSelected {
-                Rectangle()
-                    .padding(.horizontal,8)
-                          .frame(height: 2)
-                          .cornerRadius(1)
-                          .foregroundColor(R.color.colorPrimary.name.getColor())
-            }
-            
         }
     }
 }
-

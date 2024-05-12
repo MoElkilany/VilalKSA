@@ -18,6 +18,23 @@ extension String {
         return !self.isEmpty && self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
     
+    func convertArabicNumberToEnglishNumber() -> String? {
+       let arabicToRegularMap: [String: String] = [
+           "٠": "0", "١": "1", "٢": "2", "٣": "3", "٤": "4",
+           "٥": "5", "٦": "6", "٧": "7", "٨": "8", "٩": "9"
+       ]
+       var regularNumber = ""
+       for char in self {
+           let charString = String(char)
+           if let regularDigit = arabicToRegularMap[charString] {
+               regularNumber += regularDigit
+           } else {
+               regularNumber += charString
+           }
+       }
+       return regularNumber
+   }
+    
     func isValidSaudiNumber() -> Bool {
         let saudiNumberRegex = #"^((\+|00)?966|0)?5[0-9]{8}$"#
         let predicate = NSPredicate(format: "SELF MATCHES %@", saudiNumberRegex)

@@ -49,9 +49,9 @@ class MainViewModel: BaseViewModel {
 
             if status == 200 {
                 if response.data?.isEmpty == true  {
-
                 }else{
-                    self.categorysList = response.data ?? []
+                    self.categorysList.insert(LookUpModel(id:nil, name: "الكل"), at: 0)
+                    self.categorysList.append(contentsOf:  response.data ?? [])
                     self.state = .success
                 }
             } else {

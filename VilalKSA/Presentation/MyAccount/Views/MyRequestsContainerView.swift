@@ -52,10 +52,10 @@ struct MyRequestsCardContent: View {
             }
             
             HStack{
-                DefaultBoarderButtonWithIcon(title: R.string.localizable.edit.localized,borderColor: R.color.colorE2E8F0.name.getColor() ,backgroundColor:.clear, titleColor:R.color.colorPrimary.name.getColor() ,actionButton: {
-                    edit?()
-                })
-                .frame(height: 40)
+//                DefaultBoarderButtonWithIcon(title: R.string.localizable.edit.localized,borderColor: R.color.colorE2E8F0.name.getColor() ,backgroundColor:.clear, titleColor:R.color.colorPrimary.name.getColor() ,actionButton: {
+//                    edit?()
+//                })
+//                .frame(height: 40)
                 
                 DefaultBoarderButtonWithIcon(title: R.string.localizable.delete.localized,borderColor: R.color.colorE2E8F0.name.getColor() ,backgroundColor:.clear, titleColor:.red ,actionButton: {
                     delete?()

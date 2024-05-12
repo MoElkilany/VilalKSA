@@ -41,7 +41,7 @@ struct AddCustomerRequestsPage: View {
     @State private var privateEntrances  = false
     
     @State private var priceFrom: String = ""
-    @State private var priceTo: String = ""
+    @State private var priceTo: String = "11"
     @State private var propertyName: String = ""
     
     @State private var propertyDetails: String = ""
@@ -94,7 +94,7 @@ struct AddCustomerRequestsPage: View {
                                 TextBold14(textKey:R.string.localizable.property_Area.localized, textColor: R.color.colorPrimary.name.getColor())
                                     .padding(.bottom,0)
 
-                                VilalTextField(text: $propertyArea, placeholder:   R.string.localizable.property_Area.localized , imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+                                VilalTextField(text: $propertyArea, placeholder:   R.string.localizable.property_Area.localized , imageName:"" , keyboardType: .decimalPad, validationInput: .area, submitButton: submitButton, onSubmit: { isValid in
                                     self.viewModel.isValidArea = isValid
                                 })
                             }
@@ -149,20 +149,20 @@ struct AddCustomerRequestsPage: View {
                             
                             HStack{
                                 VStack(alignment: .leading,spacing: 0) {
-                                    TextBold14(textKey: R.string.localizable.price_From.localized, textColor: R.color.colorPrimary.name.getColor())
+                                    TextBold14(textKey: R.string.localizable.property_Price.localized, textColor: R.color.colorPrimary.name.getColor())
                                         .padding(.bottom,0)
-                                    VilalTextField(text: $priceFrom, placeholder:  R.string.localizable.price_From.localized, imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+                                    VilalTextField(text: $priceFrom, placeholder:  R.string.localizable.property_Price.localized, imageName:"" , keyboardType: .decimalPad, validationInput: .price, submitButton: submitButton, onSubmit: { isValid in
                                         self.viewModel.isPriceFromValid = isValid
                                     })
                                 }
                                 
-                                VStack(alignment: .leading,spacing: 0) {
-                                    TextBold14(textKey: R.string.localizable.price_To.localized, textColor: R.color.colorPrimary.name.getColor())
-                                        .padding(.bottom,0)
-                                    VilalTextField(text: $priceTo, placeholder:  R.string.localizable.price_To.localized, imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
-                                        self.viewModel.isPriceToValid = isValid
-                                    })
-                                }
+//                                VStack(alignment: .leading,spacing: 0) {
+//                                    TextBold14(textKey: R.string.localizable.price_To.localized, textColor: R.color.colorPrimary.name.getColor())
+//                                        .padding(.bottom,0)
+//                                    VilalTextField(text: $priceTo, placeholder:  R.string.localizable.price_To.localized, imageName:"" , keyboardType: .decimalPad, validationInput: .word, submitButton: submitButton, onSubmit: { isValid in
+//                                        self.viewModel.isPriceToValid = isValid
+//                                    })
+//                                }
                             }
                             VilalDivider()
                             
@@ -217,10 +217,9 @@ struct AddCustomerRequestsPage: View {
                                     self.viewModel.isPropertyDetailsValid = isValid
                                 }
                             }
-                            
                         }
-                        
-                      
+
+                    
                     GeometryReader { geometry in
                         VStack(alignment: .leading,spacing: 0) {
                             TextBold14(textKey: R.string.localizable.property_Location.localized, textColor: R.color.colorPrimary.name.getColor())
@@ -247,11 +246,9 @@ struct AddCustomerRequestsPage: View {
                     }
                     
                     DefaultButton(title:  R.string.localizable.property_Request.localized, backgroundColor: R.color.colorPrimary.name.getColor() ,action: {
-                        
                         submitButton = true
-
                         if viewModel.isValidForm() {
-                            let requestModel = CreateCutomerRequestModel(typeId: "1", categoryId: self.categoryId, lat: String(self.selectedLocation?.latitude ?? 21.11), lon: String(self.selectedLocation?.longitude ?? 21.11), interfaceId: self.interfaceId, room:String(self.roomNumbers), lounges: String(self.livingRooms), bathrooms: String(self.bathRooms), space: String(self.streetView), estateSpace: self.propertyArea, floorNumber: String(self.floorNumber), ageRealEstate: String(self.propertyAge), airConditioners: String(Convert.boolValueToIntValue(boolValue: self.airConditioning)), specialSurface: String(Convert.boolValueToIntValue(boolValue: self.specialSurface)), villa: String(Convert.boolValueToIntValue(boolValue: self.villa)), twoEntrances: String(Convert.boolValueToIntValue(boolValue: self.twoEntrances)), privateEntrance: String(Convert.boolValueToIntValue(boolValue: self.privateEntrances)), info: self.propertyDetails, furnished: String(Convert.boolValueToIntValue(boolValue: self.furnished)), kitchen: String(Convert.boolValueToIntValue(boolValue: self.kitchen)), appendix: String(Convert.boolValueToIntValue(boolValue: self.annex)), carEntrance: String(Convert.boolValueToIntValue(boolValue: self.carEntrance)), elevator: String(Convert.boolValueToIntValue(boolValue: self.elevator)), priceFrom: self.priceFrom, priceTo: self.priceTo, rentalperiodID: self.rentalPeriodId, residentID: self.residentId, imageAds: "0" ,name: self.propertyName,address: self.selectedAddress ?? "" )
+                            let requestModel = CreateCutomerRequestModel(typeId: "1", categoryId: self.categoryId, lat: String(self.selectedLocation?.latitude ?? 21.11), lon: String(self.selectedLocation?.longitude ?? 21.11), interfaceId: self.interfaceId, room:String(self.roomNumbers), lounges: String(self.livingRooms), bathrooms: String(self.bathRooms), space: String(self.streetView), estateSpace: self.propertyArea, floorNumber: String(self.floorNumber), ageRealEstate: String(self.propertyAge), airConditioners: String(Convert.boolValueToIntValue(boolValue: self.airConditioning)), specialSurface: String(Convert.boolValueToIntValue(boolValue: self.specialSurface)), villa: String(Convert.boolValueToIntValue(boolValue: self.villa)), twoEntrances: String(Convert.boolValueToIntValue(boolValue: self.twoEntrances)), privateEntrance: String(Convert.boolValueToIntValue(boolValue: self.privateEntrances)), info: self.propertyDetails, furnished: String(Convert.boolValueToIntValue(boolValue: self.furnished)), kitchen: String(Convert.boolValueToIntValue(boolValue: self.kitchen)), appendix: String(Convert.boolValueToIntValue(boolValue: self.annex)), carEntrance: String(Convert.boolValueToIntValue(boolValue: self.carEntrance)), elevator: String(Convert.boolValueToIntValue(boolValue: self.elevator)), price: self.priceFrom, rentalperiodID: self.rentalPeriodId, residentID: self.residentId, imageAds: "0" ,name: self.propertyName,address: self.selectedAddress ?? "" )
                             self.viewModel.createNewRequest(model: requestModel)
                         }
                         
@@ -309,13 +306,12 @@ struct AddCustomerRequestsPage: View {
                                         .multilineTextAlignment(.center)
                                     Spacer()
                                 }
-                                
                             })
                             .padding()
                         }
                     }
                 }
-//                .presentationDetents([.medium, .large])
+                .presentationDetents([.medium, .large])
             }
         })
     }

@@ -11,7 +11,9 @@ import UIPilot
 struct AddNewAdsDialog: View {
     @EnvironmentObject var pilot: UIPilot<AddRequestDestination>
     @EnvironmentObject var addNewAdsPilot: UIPilot<AddRequestDestination>
-
+    @EnvironmentObject var pilotRoot: UIPilot<RootDestination>
+    @State var popups: Bool = false
+    
         var body: some View {
         
             VStack{
@@ -23,12 +25,30 @@ struct AddNewAdsDialog: View {
                 })
 
                 Button(action: {
-                    pilot.push(.addCustomerRequestsPage)
+                    if UserDefaults.standard.bool(forKey:Constants.asGuest.rawValue) {
+                        popups = true
+                    }else{
+                        pilot.push(.addCustomerRequestsPage)           
+                    }
+                    
                 }, label: {
                     AddNewAdsCellView(title: R.string.localizable.add_Request.localized, subTitle: R.string.localizable.register_Your_Request.localized, image: R.image.add_Request_home.name)
                         .padding(.horizontal,20)
                 })
-    }
+            }
+
+            
+            .popup(isPresented: $popups, view: {
+                
+                GuestAlertDialog(onClose: {
+                    popups = false
+                }, trueAction: {
+                    pilotRoot.popTo(.login)
+                }, haveCancelButton: true )
+            }, customize: {
+                $0
+                    .dragToDismiss(false)
+            })
             
         .frame(maxWidth: .infinity,maxHeight: 280)
         .background(Color.white.cornerRadius(15))

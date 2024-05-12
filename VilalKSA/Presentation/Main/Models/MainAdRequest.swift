@@ -7,6 +7,7 @@
 
 import Foundation
 struct MainAdRequest: BaseModel {
+    
     var categoryID: String?
     var lat: String?
     var lon: String?
@@ -16,4 +17,6 @@ struct MainAdRequest: BaseModel {
     var bathrooms: String?
     var lounges: String?
     var sort: String?
+    var type: String? = ""
+    
 }

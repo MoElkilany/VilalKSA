@@ -23,11 +23,13 @@ struct MyRequestsPage: View {
             ZStack{
                 ScrollView(showsIndicators:false){
                     ForEach(self.myRequestsList ?? [] , id: \.self ) { item in
-                        
-                        MyRequestsContainerView(propertyName: item.name ?? "" , propertyCategory: item.category ?? "", propertyAddress: item.address ?? "" , propertyPrice: "\(item.price?.from ?? "") - \(item.price?.to ?? "")" , propertyRental: item.rental ?? "") {
+                        MyRequestsContainerView(propertyName: item.name ?? "" , propertyCategory: item.category ?? "", propertyAddress: item.address ?? "" , propertyPrice: "\(item.price ?? "")" , propertyRental: item.rental ?? "") {
                             self.viewModel.deleteMyRequest(id: String(item.id ?? 0 ) )
                         } edit: {
                             print("edit")
+                        }
+                        .onTapGesture {
+                            pilot.push(.customeRequestDetails(id: String(item.id ?? 0),isMyResuest: true))
                         }
                     }
                 }

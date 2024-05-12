@@ -263,6 +263,8 @@ enum FavoritesDestination: Destination {
 }
 
 enum MyAccountDestination: Destination {
+    case customeRequestDetails(id:String,isMyResuest:Bool)
+   
     case myAccount
 //    case favorites
     case myAdsPage
@@ -276,10 +278,13 @@ enum MyAccountDestination: Destination {
     case privacyPolicy(type:PoliciesAndProcedures)
     case policiesPage
     case requestDetailsPage(requestID:String)
+    case saleOrRentProperty
     
     @ViewBuilder
     var view: some View {
         switch self {
+        case .customeRequestDetails(let id,let isMyResuest ):
+            CustomerRequestsDetailsPage(requestID: id, isMyResuest: isMyResuest)
         case .myAccount:
             MyAccountPage()
 //        case .favorites:
@@ -306,6 +311,8 @@ enum MyAccountDestination: Destination {
             PoliciesPage()
         case .requestDetailsPage(requestID: let requestID):
             RequestDetailsPage(requestID:requestID)
+        case .saleOrRentProperty:
+            SaleOrRentPropertyPage()
         }
     }
     

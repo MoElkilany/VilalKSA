@@ -18,7 +18,7 @@ struct Loader: View {
         VStack {
             HStack(alignment: .center) {
                 Spacer()
-                ActivityIndicatorView(isVisible: .constant(true), type: .opacityDots())
+                ActivityIndicatorView(isVisible: .constant(true), type:.rotatingDots(count: 4))
                     .frame(width: size, height: size)
                     .foregroundColor(R.color.colorPrimary.name.getColor().opacity(0.5))
                 Spacer()

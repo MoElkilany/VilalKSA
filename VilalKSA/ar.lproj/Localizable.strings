@@ -26,6 +26,9 @@
 "Forget_Password"  = "هل نسيت كلمة المرور؟";
 "Dont_Have_Account"  = "ليس لديك حساب ؟";
 "Create_New_Account"  = "انشاء حساب";
+"Please_Enter_The_Second_Name" = "الرجاء إدخال اسم العائلة";
+"Please_Enter_The_First_Name" = "الرجاء إدخال الاسم الأول";
+
 
 // MARK =  -  Forget Password
 "Forget_Your_Password"  = "هل نسيت كلمة المرور؟";
@@ -193,8 +196,11 @@
   "Water_Availability"  =  "توفر المياه";
   "Air_Conditioning"  =  "مكيفات";
   "Meter"  = "م";
-"One_Thousand_Meters"  =  "الف متر";
+"One_Thousand_Meters"  =  "متر";
 "Thousand"  =  "ريال";
+"ShowVideo" = "عرض فيديو العقار";
+"RentalType" = "نوع الإيجار";
+"OpenLocation" = "فتح الموقع ";
 
 
 //MARK =  - Validation
@@ -253,7 +259,7 @@
 
  "Property_Summary"  =  "ملخص العقار";
  "Amount"  =  "المبلغ";
- "Tax"  =  "الضريبة";
+ "Tax"  =  "العمولة";
  "Total"  =  "الإجمالي";
  "Complete_Purchase_Process"  =  "استكمال عملية الشراء";
  "Payment_Method"  =  "طريقة الدفع";
@@ -295,7 +301,7 @@
 "Instant_rental_service"  = "خدمة الايجار الفور";
 "Terms_conditions"  = "شروط و أحكام";
 "End_Date_Must_Be_Greater"  = "يجب أن يكون تاريخ المغادرة أكبر من او يساوي تاريخ الوصول";
-"Price_For_One_Night"  = "سعر الليلة الواحدة";
+"Price_For_One_Night"  = "السعر الشهري";
 
 
 
@@ -343,12 +349,18 @@
 "Procedures_Description" = "اتعهد ان تكون إعلاناتي غير مخله بالأداب وغير مخالفة لقوانين أو انظمة المملكه العربية السعودية وحسب شروط وتصريحات وقرارت الهيئة العامة للعقار ، واذا تم مخالفة انظمة وقوانين المملكة العربية السعودية ، فمن خالف فسوف يكون عرضة للحساب من قبل الجهات المختصة اذا رأت ذلك والتطبيق غير مسؤول عن اي مخالفة تصدر من صاحب الاعلان .";
 
 "Policies_Description" =  "غير موجود حاليا";
-
-
 "All" = "الكل";
 "For_Rent" = "للإيجار";
 "For_Sale" = "للبيع";
+"Enter_AS_GUEST" = "الدخول كزائر";
+"YouAreNotRegister" = "انت غير مسجل";
+"DoYouWantLogin" = "هل تريد تسجيل الدخول؟";
+"IsPropertySale" = "هل تم بيع او تأجير هذا العقار ؟";
+"IfYES" = "إذا كانت الاجابة ب نعم فسوف يتم إخفاء الاعلان من الاعلانات";
 
 
+"Ad_Deleted_Successfully"  = "تم إخفاء الاعلان بنجاح";
+"Ad_Appear_Successfully"  = "تم إظهار الاعلان بنجاح";
 
-
+"HiddenAdvertisement" = "لقد قمت بإخفاء هذا الاعلان من قائمة الاعلانات";
+"Do you want to show it again?" = "هل تريد إظهاره مرة آخري ؟";

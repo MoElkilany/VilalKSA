@@ -90,20 +90,20 @@ struct HomeScreen: View {
                 }
                 .tag(tabs[3].tag)
                 .ignoresSafeArea()
-                
                 AnyView(
-                    UIPilotHost(morePilot) { router in
-                        router.view
-                            .transition(.slide)
-                            .uipNavigationBarHidden(true)
-                            .ignoresSafeArea()
-                            .environmentObject(tabBarSelection)
+                        UIPilotHost(morePilot) { router in
+                            router.view
+                                .transition(.slide)
+                                .uipNavigationBarHidden(true)
+                                .ignoresSafeArea()
+                                .environmentObject(tabBarSelection)
+                        }
+                    ).tabItem {
+                        // image
                     }
-                ).tabItem {
-                    // image
-                }
-                .tag(tabs[4].tag)
-                .ignoresSafeArea()
+                    .tag(tabs[4].tag)
+                    .ignoresSafeArea()
+                
             }
             .environmentObject(popupPresent)
             
@@ -152,6 +152,13 @@ struct HomeScreen: View {
             popupPresent.popupView
         }
     }
+    
+    func myAccountView(){
+        
+    }
+    
+    
+    
 }
 
 #Preview {
@@ -169,6 +176,9 @@ struct TabBarItemView: View {
     @EnvironmentObject var myAccountPilot : UIPilot<MyAccountDestination>
     @EnvironmentObject var popupPresent: PopupPresent
     @Binding var selectedTab: TabBarItemType
+    
+//    let isGeust = UserDefaults.standard.bool(forKey:Constants.asGuest.rawValue)
+//    @State var popups: Bool = false
     
     var item: TabBarItem
     

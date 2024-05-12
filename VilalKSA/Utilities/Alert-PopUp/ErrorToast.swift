@@ -56,3 +56,26 @@ struct ToastBottomSecond: View {
         .shadow(color: .black.opacity(0.1), radius: 40, x: 0, y: -4)
     }
 }
+
+
+struct SucessToast: View {
+    
+    let title: String?
+
+    var body: some View {
+        
+        HStack(spacing: 8) {
+            Image(R.image.checkmark_Success.name)
+                .foregroundColor(.white)
+                .frame(width: 24, height: 24)
+            
+            Text(title ?? "" )
+                .foregroundColor(.white)
+                .font(Font.custom(FontName.cairoRegular.rawValue, size: 16))
+        }
+        .padding(16)
+//        .background(.red)
+        .cornerRadius(12)
+        .padding(.horizontal, 16)
+    }
+}

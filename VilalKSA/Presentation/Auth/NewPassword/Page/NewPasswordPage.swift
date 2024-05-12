@@ -93,7 +93,7 @@ struct NewPasswordPage: View {
     private func forgetPasswordAction() {
         submitButton = true
         if viewModel.isValidForm(){
-            let newPassword = ChangePasswordRequest(password: self.password, confirmPassword: self.confirmNewPassword)
+            let newPassword = ChangePasswordRequest(password: self.password.convertArabicNumberToEnglishNumber(), confirmPassword: self.confirmNewPassword.convertArabicNumberToEnglishNumber())
             viewModel.changePassword(request: newPassword)
         }
     }

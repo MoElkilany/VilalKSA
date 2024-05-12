@@ -18,7 +18,7 @@ struct SelectedLocationGoogleMapsView: UIViewRepresentable {
         let mapView = GMSMapView()
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.lastLocation?.latitude ?? 24.7136,
                                               longitude: locationManager.lastLocation?.longitude ?? 46.6753,
-                                              zoom: 15)
+                                              zoom: 10)
         mapView.camera = camera
         mapView.frame = CGRect.zero
         mapView.delegate = context.coordinator
@@ -87,7 +87,7 @@ struct ShowLocationOnGoogleMapsView: UIViewRepresentable {
     func makeUIView(context: Context) -> GMSMapView {
         
         let mapView = GMSMapView()
-        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 12)
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 10)
         mapView.camera = camera
 
         mapView.frame = CGRect.zero
@@ -127,13 +127,15 @@ struct GoogleMapsView: UIViewRepresentable {
     @Binding var selectedPlace: MainAdsResponse?
     var isUpdated = false
     var isSelectAd: ((String,Bool)->Void)
-    
-    init(locationManager: LocationManager, locations: [MainAdsResponse], selectedPlace: Binding<MainAdsResponse?>, isUpdated: Bool = false, isSelectAd: @escaping (String,Bool) -> Void) {
+    var removeMarker = false
+
+    init(removeMarker: Bool ,locationManager: LocationManager, locations: [MainAdsResponse], selectedPlace: Binding<MainAdsResponse?>, isUpdated: Bool = false, isSelectAd: @escaping (String,Bool) -> Void) {
         self.locationManager = locationManager
         self.locations = locations
         self._selectedPlace = selectedPlace
         self.isUpdated = isUpdated
         self.isSelectAd = isSelectAd
+        self.removeMarker = removeMarker
     }
     
     
@@ -142,7 +144,7 @@ struct GoogleMapsView: UIViewRepresentable {
         let mapView = GMSMapView()
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.lastLocation?.latitude ?? 24.7136,
                                               longitude: locationManager.lastLocation?.longitude ?? 46.6753,
-                                              zoom: 13.5)
+                                              zoom: 10)
         mapView.camera = camera
         mapView.frame = CGRect.zero
         mapView.delegate = context.coordinator
@@ -182,6 +184,9 @@ struct GoogleMapsView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+            if parent.removeMarker == true {
+                parent.selectedPlace = nil
+            }
             parent.selectedPlace = nil
         }
         
@@ -218,7 +223,7 @@ struct ShowGoogleMapsView: UIViewRepresentable {
         let mapView = GMSMapView()
         let camera = GMSCameraPosition.camera(withLatitude: locationManager.lastLocation?.latitude ?? 24.7136,
                                               longitude: locationManager.lastLocation?.longitude ?? 46.6753,
-                                              zoom: 13.5)
+                                              zoom: 10)
         mapView.camera = camera
         mapView.frame = CGRect.zero
         mapView.delegate = context.coordinator
